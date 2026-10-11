@@ -1,0 +1,677 @@
+{
+  "id": "b13",
+  "hari": 5,
+  "jam": "11:00",
+  "pov": "raka",
+  "scene": "rumah_dimas",
+  "onEnter": [
+    {
+      "op": "setLighting",
+      "preset": "pagi_desa",
+      "transition": 2
+    },
+    {
+      "op": "objective",
+      "id": "geledah",
+      "text": "obj.b13.geledah"
+    },
+    {
+      "op": "playSound",
+      "key": "ambience_morning",
+      "options": {
+        "category": "ambience",
+        "loop": true,
+        "volume": 0.4
+      }
+    },
+    {
+      "op": "checkpoint",
+      "id": "b13"
+    }
+  ],
+  "interactables": [
+    {
+      "id": "lemari_dimas",
+      "prompt": "ui.examine",
+      "position": [
+        -2.6,
+        1,
+        -3.5
+      ],
+      "once": false,
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b13.lemari"
+        }
+      ]
+    },
+    {
+      "id": "jaket_kursi",
+      "prompt": "ui.examine",
+      "position": [
+        1.6,
+        0.8,
+        -2
+      ],
+      "once": true,
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b13.jaket"
+        },
+        {
+          "op": "echo",
+          "from": "b07",
+          "to": "b13",
+          "data": {
+            "type": "bukti_cukong",
+            "sumber": "saku_jaket"
+          }
+        },
+        {
+          "op": "giveClue",
+          "id": "c7"
+        },
+        {
+          "op": "giveItem",
+          "id": "kartu_nama"
+        },
+        {
+          "op": "addVar",
+          "name": "buktiCukong",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "struk_robek",
+      "prompt": "ui.examine",
+      "position": [
+        0.6,
+        0.7,
+        -1.5
+      ],
+      "once": false,
+      "onUse": [
+        {
+          "op": "startPuzzle",
+          "id": "p2",
+          "config": {
+            "type": "jigsaw",
+            "title": "b13.p2.title",
+            "description": "b13.p2.desc",
+            "data": {
+              "pieces": [
+                {
+                  "id": "s1",
+                  "image": "/assets/puzzles/struk/s1.svg",
+                  "rotation": 90
+                },
+                {
+                  "id": "s2",
+                  "image": "/assets/puzzles/struk/s2.svg",
+                  "rotation": 0
+                },
+                {
+                  "id": "s3",
+                  "image": "/assets/puzzles/struk/s3.svg",
+                  "rotation": 180
+                },
+                {
+                  "id": "s4",
+                  "image": "/assets/puzzles/struk/s4.svg",
+                  "rotation": 270
+                },
+                {
+                  "id": "s5",
+                  "image": "/assets/puzzles/struk/s5.svg",
+                  "rotation": 0
+                },
+                {
+                  "id": "s6",
+                  "image": "/assets/puzzles/struk/s6.svg",
+                  "rotation": 90
+                },
+                {
+                  "id": "s7",
+                  "image": "/assets/puzzles/struk/s7.svg",
+                  "rotation": 180
+                },
+                {
+                  "id": "s8",
+                  "image": "/assets/puzzles/struk/s8.svg",
+                  "rotation": 0
+                },
+                {
+                  "id": "s9",
+                  "image": "/assets/puzzles/struk/s9.svg",
+                  "rotation": 270
+                }
+              ],
+              "gridSize": {
+                "cols": 3,
+                "rows": 3
+              },
+              "hints": [
+                "b13.p2.h1",
+                "b13.p2.h2"
+              ]
+            },
+            "onSolve": [
+              {
+                "op": "giveClue",
+                "id": "c5"
+              },
+              {
+                "op": "giveItem",
+                "id": "struk_robek"
+              },
+              {
+                "op": "objective",
+                "id": "kalender",
+                "text": "obj.b13.kalender"
+              }
+            ],
+            "onSkip": [
+              {
+                "op": "giveClue",
+                "id": "c5"
+              }
+            ],
+            "onHelp": [
+              {
+                "op": "setEcho",
+                "key": "help_p2",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "kalender_dinding",
+      "prompt": "ui.read",
+      "position": [
+        -1.5,
+        1.5,
+        -4.5
+      ],
+      "once": false,
+      "onUse": [
+        {
+          "op": "startPuzzle",
+          "id": "p3",
+          "config": {
+            "type": "calendar",
+            "title": "b13.p3.title",
+            "description": "b13.p3.desc",
+            "data": {
+              "dates": [
+                {
+                  "day": 3,
+                  "month": "b13.p3.month.mei"
+                },
+                {
+                  "day": 17,
+                  "month": "b13.p3.month.mei"
+                },
+                {
+                  "day": 26,
+                  "month": "b13.p3.month.mei"
+                }
+              ],
+              "events": [
+                {
+                  "title": "b13.p3.ev1.t",
+                  "description": "b13.p3.ev1.d"
+                },
+                {
+                  "title": "b13.p3.ev2.t",
+                  "description": "b13.p3.ev2.d"
+                },
+                {
+                  "title": "b13.p3.ev3.t",
+                  "description": "b13.p3.ev3.d"
+                }
+              ],
+              "hints": [
+                "b13.p3.h1",
+                "b13.p3.h2"
+              ],
+              "solution": [
+                0,
+                1,
+                2
+              ]
+            },
+            "onSolve": [
+              {
+                "op": "giveClue",
+                "id": "c6"
+              },
+              {
+                "op": "objective",
+                "id": "keputusan",
+                "text": "obj.b13.keputusan"
+              }
+            ],
+            "onSkip": [
+              {
+                "op": "giveClue",
+                "id": "c6"
+              }
+            ],
+            "onHelp": [
+              {
+                "op": "setEcho",
+                "key": "help_p3",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "catatan_raka",
+      "prompt": "ui.read",
+      "position": [
+        2.4,
+        0.6,
+        -3
+      ],
+      "once": true,
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b13.catatan"
+        }
+      ]
+    },
+    {
+      "id": "telepon_rudi",
+      "prompt": "ui.talk",
+      "position": [
+        0.2,
+        0.5,
+        -0.8
+      ],
+      "once": false,
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b13.rudi"
+        }
+      ]
+    },
+    {
+      "id": "pintu_kamar_dimas",
+      "prompt": "ui.interact",
+      "position": [
+        0,
+        1,
+        -4.8
+      ],
+      "once": true,
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "vars.investigasi < 4",
+          "then": [
+            {
+              "op": "dialog",
+              "node": "b13.konf_kurang"
+            }
+          ],
+          "else": [
+            {
+              "op": "dialog",
+              "node": "b13.konf_cukup"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pintu_depan",
+      "prompt": "ui.interact",
+      "position": [
+        3,
+        1,
+        -4
+      ],
+      "once": true,
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b13.keluar"
+        },
+        {
+          "op": "chapterEnd"
+        }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b13.lemari": [
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.2"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.3",
+        "choices": [
+          {
+            "text": "b13.lemari.c1",
+            "next": "b13.lemari.sepatu",
+            "important": true
+          },
+          {
+            "text": "b13.lemari.c2",
+            "next": "b13.lemari.tangan",
+            "condition": "flags.b10_choose_help === true"
+          },
+          {
+            "text": "b13.lemari.c3",
+            "next": "b13.lemari.robek",
+            "condition": "flags.b10_choose_run === true"
+          },
+          {
+            "text": "b13.lemari.c4",
+            "next": "b13.lemari.akhiri"
+          }
+        ]
+      }
+    ],
+    "b13.lemari.sepatu": [
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.sepatu.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.sepatu.2"
+      }
+    ],
+    "b13.lemari.tangan": [
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.tangan.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.tangan.2"
+      }
+    ],
+    "b13.lemari.robek": [
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.robek.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.robek.2"
+      }
+    ],
+    "b13.lemari.akhiri": [
+      {
+        "speaker": "Raka",
+        "text": "b13.lemari.akhiri.1"
+      }
+    ],
+    "b13.jaket": [
+      {
+        "speaker": "Raka",
+        "text": "b13.jaket.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.jaket.2"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.jaket.3"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.jaket.4"
+      }
+    ],
+    "b13.catatan": [
+      {
+        "speaker": "Raka",
+        "text": "b13.catatan.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.catatan.2"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.catatan.3"
+      }
+    ],
+    "b13.rudi": [
+      {
+        "speaker": "Rudi",
+        "text": "b13.rudi.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.rudi.2",
+        "choices": [
+          {
+            "text": "b13.rudi.c1",
+            "next": "b13.rudi.santai"
+          },
+          {
+            "text": "b13.rudi.c2",
+            "next": "b13.rudi.tekan"
+          },
+          {
+            "text": "b13.rudi.c3",
+            "next": "b13.rudi.halus"
+          },
+          {
+            "text": "b13.rudi.c4",
+            "next": "b13.rudi.curiga",
+            "important": true
+          }
+        ]
+      }
+    ],
+    "b13.rudi.santai": [
+      {
+        "speaker": "Rudi",
+        "text": "b13.rudi.santai.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.rudi.santai.2"
+      }
+    ],
+    "b13.rudi.tekan": [
+      {
+        "speaker": "Rudi",
+        "text": "b13.rudi.tekan.1",
+        "onEnter": [
+          {
+            "op": "echo",
+            "from": "b13",
+            "to": "b14",
+            "data": {
+              "type": "sindir_rudi",
+              "oleh": "raka"
+            }
+          },
+          {
+            "op": "setFlag",
+            "flag": "b13_sindir_rudi",
+            "value": true
+          }
+        ]
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.rudi.tekan.2"
+      }
+    ],
+    "b13.rudi.halus": [
+      {
+        "speaker": "Rudi",
+        "text": "b13.rudi.halus.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.rudi.halus.2"
+      }
+    ],
+    "b13.rudi.curiga": [
+      {
+        "speaker": "Raka",
+        "text": "b13.rudi.curiga.1",
+        "onEnter": [
+          {
+            "op": "modifyPercayaRudi",
+            "value": true
+          }
+        ]
+      },
+      {
+        "speaker": "Rudi",
+        "text": "b13.rudi.curiga.2"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.rudi.curiga.3"
+      }
+    ],
+    "b13.konf_kurang": [
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_kurang.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_kurang.2",
+        "choices": [
+          {
+            "text": "b13.konf_kurang.c1",
+            "next": "b13.konf_kurang.yes",
+            "important": true
+          },
+          {
+            "text": "b13.konf_kurang.c2",
+            "next": "b13.konf_kurang.tidak"
+          }
+        ]
+      }
+    ],
+    "b13.konf_kurang.yes": [
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_kurang.yes.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_kurang.yes.2",
+        "onExit": [
+          {
+            "op": "setKonfrontasiDini",
+            "value": true
+          },
+          {
+            "op": "checkpoint",
+            "id": "b13_konfrontasi"
+          },
+          {
+            "op": "loadScene",
+            "scene": "b15alt"
+          }
+        ]
+      }
+    ],
+    "b13.konf_kurang.tidak": [
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_kurang.tidak.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_kurang.tidak.2"
+      }
+    ],
+    "b13.konf_cukup": [
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_cukup.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b13.konf_cukup.2"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_cukup.3",
+        "choices": [
+          {
+            "text": "b13.konf_cukup.c1",
+            "next": "b13.konf_cukup.yes",
+            "important": true
+          },
+          {
+            "text": "b13.konf_cukup.c2",
+            "next": "b13.konf_cukup.tidak"
+          }
+        ]
+      }
+    ],
+    "b13.konf_cukup.yes": [
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_cukup.yes.1",
+        "onEnter": [
+          {
+            "op": "modifyPercayaDimas",
+            "value": -1
+          }
+        ]
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b13.konf_cukup.yes.2"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_cukup.yes.3"
+      }
+    ],
+    "b13.konf_cukup.tidak": [
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_cukup.tidak.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.konf_cukup.tidak.2"
+      }
+    ],
+    "b13.keluar": [
+      {
+        "speaker": "Raka",
+        "text": "b13.keluar.1"
+      },
+      {
+        "speaker": "Raka",
+        "text": "b13.keluar.2"
+      }
+    ]
+  }
+}

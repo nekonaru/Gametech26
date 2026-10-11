@@ -1,0 +1,144 @@
+{
+  "id": {
+    "ui": {
+      "open": "Buka",
+      "examine": "Periksa",
+      "read": "Baca",
+      "use": "Gunakan"
+    },
+    "b04": {
+      "obj": {
+        "jelajahi": "Jelajahi rumah. Cari makanan dan petunjuk",
+        "laci": "Cari tanggal penting, lalu buka laci kamar Abang",
+        "kwitansi": "Periksa isi laci",
+        "keluar": "Selesai. Keluar rumah sebelum gelap"
+      },
+      "p1": {
+        "title": "Laci Terkunci",
+        "desc": "Empat angka dari tanggal penting.",
+        "hint1": "Lihat kalender dinding",
+        "hint2": "Tanggal di pojok foto keluarga"
+      },
+      "kulkas": {
+        "1": "Kulkas hanya berisi air dan sebotol kecap hampir habis.",
+        "2": "Bang Dimas makan apa selama ini?"
+      },
+      "foto": {
+        "1": "Foto keluarga di atas lemari, berdebu.",
+        "2": "Raka mengelapnya dengan lengan baju.",
+        "3": "Kita berempat. Sekarang tinggal berdua di rumah ini.",
+        "4": "Stempel tanggal di pojok foto: 17 09."
+      },
+      "amplop": {
+        "1": "Tumpukan amplop di meja. Tagihan, semua belum dibuka.",
+        "2": "Abang tidak bilang apa-apa waktu kita ngobrol minggu lalu.",
+        "3": "Raka menyusunnya rapi seperti tadi."
+      },
+      "radio": {
+        "1": "Berita siang: warga diminta waspada api di musim kemarau.",
+        "2": "Belum musimnya, tapi sudah ada yang nyala.",
+        "3": "Radio itu dimatikan lagi."
+      },
+      "kamar": {
+        "1": "Kamar Abang berantakan. Baju menumpuk di sudut.",
+        "2": "Tercium bau rokok, keringat, dan tanah. Campur jadi satu.",
+        "3": "Meja kecil di pojok. Lacinya terkunci."
+      },
+      "kalender": {
+        "1": "Kalender dinding. Bulan September.",
+        "2": "Tanggal 17 dibulati tinta merah. Di bawahnya ditulis: Ayah dan Ibu.",
+        "3": "Hari ini bukan tanggal segitu. Kenapa dibulat?"
+      },
+      "laci": {
+        "kunci": { "1": "Itu meja di kamar Abang. Masuk kamar dulu." }
+      },
+      "kwitansi": {
+        "1": "Laci terbuka. Di dalamnya ada kertas dilipat rapi.",
+        "2": "Kwitansi pinjol. Nama Abang. Angkanya banyak sekali.",
+        "3": "Raka memegang kertas itu sebentar.",
+        "cA": "Simpan kwitansi di tas",
+        "cB": "Foto, lalu taruh lagi",
+        "simpan": { "1": "Kubawa dulu. Siapa tahu perlu." },
+        "foto": { "1": "Kufoto dulu, biar tidak ada yang hilang. Kutaruh lagi seperti semula." }
+      },
+      "keluar": {
+        "1": "Sudah gelap di luar. Rumah terasa lebih besar saat sepi.",
+        "cpergi": "Kunci pintu dan keluar",
+        "ctunggu": "Cek lagi dulu",
+        "pergi": { "1": "Kunci pintunya. Nanti Abang pulang, dia yang buka." },
+        "tunggu": { "1": "Masih ada yang belum kubuka. Lacinya belum selesai." }
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "open": "Open",
+      "examine": "Examine",
+      "read": "Read",
+      "use": "Use"
+    },
+    "b04": {
+      "obj": {
+        "jelajahi": "Explore the house. Look for food and clues",
+        "laci": "Find the important date, then open Bang's drawer",
+        "kwitansi": "Check what is inside the drawer",
+        "keluar": "Done. Leave the house before dark"
+      },
+      "p1": {
+        "title": "Locked Drawer",
+        "desc": "Four digits from an important date.",
+        "hint1": "Look at the wall calendar",
+        "hint2": "The date in the corner of the family photo"
+      },
+      "kulkas": {
+        "1": "The fridge holds only water and one bottle of soy sauce almost empty.",
+        "2": "What has Bang Dimas been eating all this time?"
+      },
+      "foto": {
+        "1": "A family photo on top of the cupboard, dusty.",
+        "2": "Raka wipes it with his sleeve.",
+        "3": "There were four of us. Now only two of us in this house.",
+        "4": "The date stamp in the corner of the photo: 17 09."
+      },
+      "amplop": {
+        "1": "A stack of envelopes on the table. Bills, none of them open.",
+        "2": "Bang said nothing when we talked last week.",
+        "3": "Raka lines them up neatly again."
+      },
+      "radio": {
+        "1": "Midday news: villagers are asked to watch for fire in the dry season.",
+        "2": "The season is not here yet, but something is already burning.",
+        "3": "The radio is turned off again."
+      },
+      "kamar": {
+        "1": "Bang's room is a mess. Clothes pile in the corner.",
+        "2": "A smell of smoke, sweat, and soil. All mixed into one.",
+        "3": "A small desk in the corner. The drawer is locked."
+      },
+      "kalender": {
+        "1": "Wall calendar. September.",
+        "2": "The 17th is circled in red ink. Under it is written: Father and Mother.",
+        "3": "Today is not that date. Why circle it?"
+      },
+      "laci": {
+        "kunci": { "1": "That is Bang's desk. Get into the room first." }
+      },
+      "kwitansi": {
+        "1": "The drawer opens. Inside is a neatly folded paper.",
+        "2": "A loan receipt. Bang's name. The number is very large.",
+        "3": "Raka holds the paper for a moment.",
+        "cA": "Keep the receipt in the bag",
+        "cB": "Photograph it, then put it back",
+        "simpan": { "1": "I will take it for now. It may be needed." },
+        "foto": { "1": "A photo first, so nothing is lost. Then back in its place." }
+      },
+      "keluar": {
+        "1": "It is dark outside. The house feels bigger when it is empty.",
+        "cpergi": "Lock the door and leave",
+        "ctunggu": "Check once more",
+        "pergi": { "1": "Lock the door. When Bang comes home, he opens it." },
+        "tunggu": { "1": "There is still something I have not opened. The drawer is not done." }
+      }
+    }
+  }
+}

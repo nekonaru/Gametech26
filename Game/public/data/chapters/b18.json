@@ -1,0 +1,185 @@
+{
+  "id": "b18",
+  "hari": 7,
+  "jam": "08:00",
+  "pov": "raka",
+  "scene": "tepi_hutan",
+  "onEnter": [
+    { "op": "setLighting", "preset": "pagi_desa", "transition": 2 },
+    { "op": "objective", "id": "telusuri", "text": "b18.obj.telusuri" },
+    { "op": "calculateKeyakinan" },
+    { "op": "playSound", "key": "ambience_morning", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
+  ],
+  "interactables": [
+    { "id": "jejak_semalam", "prompt": "ui.examine", "position": [1.5, 0, -3], "onUse": [{ "op": "dialog", "node": "b18.jejak" }] },
+    { "id": "kalung_bulan_sabit", "prompt": "ui.take", "position": [0.6, 0, -3.6], "onUse": [
+      { "op": "dialog", "node": "b18.kalung" },
+      { "op": "addVar", "name": "buktiKalung", "value": true },
+      { "op": "calculateKeyakinan" },
+      { "op": "objective", "id": "susun_papan", "text": "b18.obj.susun_papan" }
+    ] },
+    { "id": "foto_joy", "prompt": "ui.read", "position": [-1.4, 0, -2.4], "onUse": [
+      { "op": "if", "condition": "clues.includes('c4')",
+        "then": [{ "op": "dialog", "node": "b18.foto.yes" }],
+        "else": [{ "op": "dialog", "node": "b18.foto.no" }] }
+    ] },
+    { "id": "papan_petunjuk", "prompt": "ui.open", "position": [0, 0, -4.5], "onUse": [
+      { "op": "dialog", "node": "b18.papan" },
+      { "op": "if", "condition": "clues.includes('c7')",
+        "then": [
+          { "op": "startPuzzle", "id": "p4", "config": {
+            "type": "evidence",
+            "title": "b18.puzzle.p4.title",
+            "description": "b18.puzzle.p4.desc",
+            "data": {
+              "clues": [
+                { "id": "c1", "name": "Kwitansi Pinjol" },
+                { "id": "c2a", "name": "Lokasi Kebakaran" },
+                { "id": "c2b", "name": "Penjaga Ladang Joy" },
+                { "id": "c3", "name": "Pola Kebakaran" },
+                { "id": "c4", "name": "Laporan Kehilangan Joy" },
+                { "id": "c5", "name": "Rincian Utang" },
+                { "id": "c6", "name": "Jadwal Kebakaran" },
+                { "id": "c7", "name": "Bukti Cukong" }
+              ],
+              "categories": [
+                { "id": "motive", "name": "Motif", "slots": 3 },
+                { "id": "time", "name": "Waktu", "slots": 3 },
+                { "id": "location", "name": "Lokasi", "slots": 3 },
+                { "id": "victim", "name": "Korban", "slots": 3 },
+                { "id": "physicalEvidence", "name": "Bukti Fisik", "slots": 3 }
+              ],
+              "hints": ["b18.puzzle.p4.hint1", "b18.puzzle.p4.hint2", "b18.puzzle.p4.hint3"],
+              "solution": {
+                "c1": "physicalEvidence",
+                "c2a": "location",
+                "c2b": "victim",
+                "c3": "time",
+                "c4": "victim",
+                "c5": "motive",
+                "c6": "time",
+                "c7": "physicalEvidence"
+              }
+            },
+            "onSolve": [{ "op": "objective", "id": "simpulan", "text": "b18.obj.simpulan" }],
+            "onSkip": [{ "op": "objective", "id": "simpulan", "text": "b18.obj.simpulan" }],
+            "onHelp": [{ "op": "setEcho", "key": "help_p4", "value": true }]
+          } }
+        ],
+        "else": [
+          { "op": "startPuzzle", "id": "p4", "config": {
+            "type": "evidence",
+            "title": "b18.puzzle.p4.title",
+            "description": "b18.puzzle.p4.desc",
+            "data": {
+              "clues": [
+                { "id": "c1", "name": "Kwitansi Pinjol" },
+                { "id": "c2a", "name": "Lokasi Kebakaran" },
+                { "id": "c2b", "name": "Penjaga Ladang Joy" },
+                { "id": "c3", "name": "Pola Kebakaran" },
+                { "id": "c4", "name": "Laporan Kehilangan Joy" },
+                { "id": "c5", "name": "Rincian Utang" },
+                { "id": "c6", "name": "Jadwal Kebakaran" }
+              ],
+              "categories": [
+                { "id": "motive", "name": "Motif", "slots": 3 },
+                { "id": "time", "name": "Waktu", "slots": 3 },
+                { "id": "location", "name": "Lokasi", "slots": 3 },
+                { "id": "victim", "name": "Korban", "slots": 3 },
+                { "id": "physicalEvidence", "name": "Bukti Fisik", "slots": 3 }
+              ],
+              "hints": ["b18.puzzle.p4.hint1", "b18.puzzle.p4.hint2", "b18.puzzle.p4.hint3"],
+              "solution": {
+                "c1": "physicalEvidence",
+                "c2a": "location",
+                "c2b": "victim",
+                "c3": "time",
+                "c4": "victim",
+                "c5": "motive",
+                "c6": "time"
+              }
+            },
+            "onSolve": [{ "op": "objective", "id": "simpulan", "text": "b18.obj.simpulan" }],
+            "onSkip": [{ "op": "objective", "id": "simpulan", "text": "b18.obj.simpulan" }],
+            "onHelp": [{ "op": "setEcho", "key": "help_p4", "value": true }]
+          } }
+        ] }
+    ] },
+    { "id": "rumah_rudi", "prompt": "ui.examine", "position": [-2, 0, -5], "onUse": [{ "op": "dialog", "node": "b18.rudi" }] },
+    { "id": "keputusan_pulang", "prompt": "ui.interact", "position": [1, 0, -5.6], "onUse": [
+      { "op": "if", "condition": "vars.keyakinan < 4",
+        "then": [{ "op": "dialog", "node": "b18.keputusan" }],
+        "else": [{ "op": "dialog", "node": "b18.keputusan_yakin" }] }
+    ] },
+    { "id": "cari_dimas", "prompt": "ui.interact", "position": [2, 0, -1.5], "once": true, "onUse": [
+      { "op": "dialog", "node": "b18.selesai" },
+      { "op": "chapterEnd" }
+    ] }
+  ],
+  "dialogs": {
+    "b18.jejak": [
+      { "speaker": "Raka", "text": "b18.jejak.1" },
+      { "speaker": "Raka", "text": "b18.jejak.2" },
+      { "speaker": "Raka", "text": "b18.jejak.3" }
+    ],
+    "b18.kalung": [
+      { "speaker": "Raka", "text": "b18.kalung.1" },
+      { "speaker": "Raka", "text": "b18.kalung.2" },
+      { "speaker": "Raka", "text": "b18.kalung.3" }
+    ],
+    "b18.foto.yes": [
+      { "speaker": "Raka", "text": "b18.foto.yes.1" },
+      { "speaker": "Raka", "text": "b18.foto.yes.2" },
+      { "speaker": "Raka", "text": "b18.foto.yes.3" }
+    ],
+    "b18.foto.no": [
+      { "speaker": "Raka", "text": "b18.foto.no.1" },
+      { "speaker": "Raka", "text": "b18.foto.no.2" },
+      { "speaker": "Raka", "text": "b18.foto.no.3" }
+    ],
+    "b18.papan": [
+      { "speaker": "Raka", "text": "b18.papan.1" },
+      { "speaker": "Raka", "text": "b18.papan.2" }
+    ],
+    "b18.rudi": [
+      { "speaker": "Raka", "text": "b18.rudi.1" },
+      { "speaker": "Raka", "text": "b18.rudi.2" },
+      { "speaker": "Raka", "text": "b18.rudi.3" }
+    ],
+    "b18.keputusan": [
+      { "speaker": "Raka", "text": "b18.keputusan.1" },
+      { "speaker": "Raka", "text": "b18.keputusan.2" },
+      { "speaker": "Raka", "text": "b18.keputusan.3", "choices": [
+        { "text": "b18.keputusan.cA", "next": "b18.keputusan.pulang", "important": true },
+        { "text": "b18.keputusan.cB", "next": "b18.keputusan.lanjut", "important": true }
+      ] }
+    ],
+    "b18.keputusan_yakin": [
+      { "speaker": "Raka", "text": "b18.keputusan_yakin.1" },
+      { "speaker": "Raka", "text": "b18.keputusan_yakin.2" },
+      { "speaker": "Raka", "text": "b18.keputusan_yakin.3", "choices": [
+        { "text": "b18.keputusan_yakin.cA", "next": "b18.keputusan.lanjut", "important": true },
+        { "text": "b18.keputusan_yakin.cB", "next": "b18.keputusan.tenang" }
+      ] }
+    ],
+    "b18.keputusan.tenang": [
+      { "speaker": "Raka", "text": "b18.keputusan.tenang.1" },
+      { "speaker": "Raka", "text": "b18.keputusan.tenang.2" }
+    ],
+    "b18.keputusan.lanjut": [
+      { "speaker": "Raka", "text": "b18.keputusan.lanjut.1", "onEnter": [{ "op": "setFlag", "flag": "b18_goHome", "value": false }] },
+      { "speaker": "Raka", "text": "b18.keputusan.lanjut.2" },
+      { "speaker": "Raka", "text": "b18.keputusan.lanjut.3" }
+    ],
+    "b18.keputusan.pulang": [
+      { "speaker": "Raka", "text": "b18.keputusan.pulang.1", "onEnter": [{ "op": "setFlag", "flag": "b18_goHome", "value": true }] },
+      { "speaker": "Raka", "text": "b18.keputusan.pulang.2" },
+      { "speaker": "Raka", "text": "b18.keputusan.pulang.3", "onExit": [{ "op": "ending", "id": "ending_8" }] }
+    ],
+    "b18.selesai": [
+      { "speaker": "Raka", "text": "b18.selesai.1" },
+      { "speaker": "Raka", "text": "b18.selesai.2" },
+      { "speaker": "Raka", "text": "b18.selesai.3" }
+    ]
+  }
+}

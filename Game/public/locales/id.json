@@ -1,0 +1,369 @@
+{
+  "menu": {
+    "start": "Mulai Game",
+    "continue": "Lanjutkan",
+    "load": "Muat Game",
+    "settings": "Pengaturan",
+    "exit": "Keluar",
+    "mainMenu": "Kembali ke Menu Utama",
+    "gallery": "Galeri Ending",
+    "language": "Bahasa"
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "graphics": "Grafik",
+    "audio": "Audio",
+    "controls": "Kontrol",
+    "text": "Teks",
+    "accessibility": "Aksesibilitas",
+    "data": "Data",
+    "preset": "Preset",
+    "low": "Rendah",
+    "medium": "Sedang",
+    "high": "Tinggi",
+    "custom": "Kustom",
+    "internalResolution": "Resolusi Internal",
+    "resolutionNative": "Sesuai Layar",
+    "vertexJitter": "Vertex Jitter",
+    "dithering": "Dithering",
+    "colorQuantization": "Kuantisasi Warna",
+    "scanlines": "Scanlines",
+    "grain": "Grain",
+    "fogDistance": "Jarak Kabut",
+    "fov": "Field of View",
+    "brightness": "Kecerahan",
+    "maxFps": "Maks FPS",
+    "masterVolume": "Volume Master",
+    "musicVolume": "Volume Musik",
+    "sfxVolume": "Volume SFX",
+    "ambienceVolume": "Volume Ambience",
+    "dialogBlipVolume": "Volume Blip Dialog",
+    "muteOnBlur": "Bisu saat Tab Tidak Aktif",
+    "mouseSensitivity": "Sensitivitas Mouse",
+    "touchSensitivity": "Sensitivitas Sentuh",
+    "invertY": "Balik Sumbu Y",
+    "runToggle": "Lari Toggle",
+    "keyBindings": "Penyetelan Tombol",
+    "joystickSize": "Ukuran Joystick",
+    "joystickPosition": "Posisi Joystick",
+    "fontSize": "Ukuran Font",
+    "typeSpeed": "Kecepatan Ketik",
+    "autoPlay": "Auto-play Dialog",
+    "textBackground": "Latar Teks",
+    "dialogHistory": "Riwayat Dialog",
+    "reduceFlashing": "Kurangi Kilatan",
+    "reduceCameraShake": "Kurangi Goyangan Kamera",
+    "softHorror": "Horor Lembut",
+    "highContrast": "Kontras Tinggi",
+    "colorBlindFriendly": "Ramah Buta Warna",
+    "puzzleHintLevel": "Tingkat Petunjuk Puzzle",
+    "narrativeMode": "Mode Naratif",
+    "showKeyHints": "Tampilkan Petunjuk Tombol (HUD)",
+    "help": "Petunjuk Tombol & Kontrol",
+    "exportSave": "Ekspor Save",
+    "importSave": "Impor Save",
+    "deleteSave": "Hapus Save",
+    "resetSettings": "Reset Pengaturan",
+    "resetConfirm": "Kembalikan semua pengaturan ke nilai awal?"
+  },
+  "compass": {
+    "n": "U",
+    "e": "T",
+    "s": "S",
+    "w": "B"
+  },
+  "help": {
+    "gameplay": "Saat Bermain",
+    "dialog": "Saat Dialog Berjalan",
+    "hotbar": "1-9: lihat keterangan item hotbar",
+    "dNext": "Lanjut ke baris berikutnya",
+    "dSkip": "Lewati seluruh dialog",
+    "dHistory": "Buka riwayat dialog",
+    "dChoice": "Geser sorotan pilihan",
+    "dConfirm": "Konfirmasi opsi tersorot",
+    "dDirect": "Pilih opsi langsung",
+    "dAuto": "Auto-play dialog (mati/nyala)",
+    "rebind": "Tombol bisa diubah di tab Kendali. Tombol ` membuka-kunci kursor; E berinteraksi; F senter (setelah barangnya ada); Q ponsel; I inventaris; Tab misi; Esc jeda."
+  },
+  "ui": {
+    "interact": "Interaksi",
+    "clickToLook": "Klik atau tekan ` untuk mengunci kursor",
+    "darkHint": "Gelap di sini. Tekan F untuk menyalakan senter.",
+    "keys": {
+      "interact": "Berinteraksi",
+      "flashlight": "Senter",
+      "phone": "Ponsel",
+      "inventory": "Inventaris",
+      "journal": "Misi & Jurnal",
+      "lock": "Kunci/buka kursor",
+      "pause": "Jeda"
+    },
+    "examine": "Periksa",
+    "take": "Ambil",
+    "open": "Buka",
+    "close": "Tutup",
+    "read": "Baca",
+    "use": "Gunakan",
+    "talk": "Bicara",
+    "save": "Simpan",
+    "load": "Muat",
+    "pause": "Jeda",
+    "resume": "Lanjutkan",
+    "continue": "Lanjut",
+    "date": "Tanggal",
+    "restart": "Mulai Ulang",
+    "quit": "Keluar",
+    "confirm": "Konfirmasi",
+    "cancel": "Batal",
+    "yes": "Ya",
+    "no": "Tidak",
+    "ok": "OK",
+    "back": "Kembali",
+    "next": "Selanjutnya",
+    "skip": "Lewati",
+    "hint": "Petunjuk",
+    "objective": "Objektif",
+    "objectiveTag": "Tujuan",
+    "arrivedAt": "Tiba di",
+    "leave": "Pergi",
+    "journal": "Jurnal",
+    "phone": "Ponsel",
+    "flashlight": "Senter",
+    "inventory": "Inventaris",
+    "clues": "Petunjuk",
+    "endings": "Ending",
+    "achievements": "Pencapaian",
+    "playtime": "Waktu Bermain",
+    "day": "Hari",
+    "chapter": "Babak",
+    "pov": "POV",
+    "variables": "Variabel",
+    "flags": "Flag",
+    "checkpoint": "Checkpoint",
+    "autosave": "Auto-save",
+    "manualSave": "Simpan Manual",
+    "slot": "Slot",
+    "empty": "Kosong",
+    "delete": "Hapus",
+    "export": "Ekspor",
+    "import": "Impor",
+    "warning": "Peringatan",
+    "contentWarning": "Peringatan Konten",
+    "contentWarningText": "Game ini mengandung tema kematian, pembakaran, tekanan utang, kekerasan psikologis, dan teror. Disarankan untuk pemain berusia 17+.",
+    "accept": "Terima",
+    "decline": "Tolak",
+    "exitConfirm": "Keluar dari game?",
+    "exitFallback": "Tab tidak bisa ditutup otomatis. Tutup tab ini secara manual.",
+    "gameSaved": "Permainan tersimpan",
+    "saveFailed": "Gagal menyimpan",
+    "autosave": "Simpan Otomatis",
+    "autosaved": "Tersimpan otomatis",
+    "overwrite": "Timpa save di slot ini?",
+    "boardEmpty": "Belum ada petunjuk. Kumpulkan petunjuk lewat Jurnal dulu.",
+    "boardNoClues": "Semua petunjuk sudah ditempel. Klik petunjuk di papan untuk memindahkannya.",
+    "boardProgress": "Kategori tepat: {correct} dari {total} petunjuk.",
+    "boardComplete": "Semua petunjuk terpasang di kategori yang tepat.",
+    "chapterComplete": "Babak Selesai",
+    "nextChapter": "Babak Berikutnya",
+    "enteringChapter": "Babak Baru",
+    "controls": "Kendali"
+  },
+  "dialog": {
+    "hintNext": "SPASI/ENTER • lanjut",
+    "hintSkip": "ESC • lewati dialog",
+    "hintHistory": "H • riwayat",
+    "hintChoice": "W/S pilih, SPASI konfirmasi, 1-4 langsung",
+    "autoPlayOn": "P • Auto-play: AKTIF",
+    "autoPlayOff": "P • Auto-play: MATI",
+    "history": "Riwayat Dialog",
+    "choicePrefix": "Pilihan: ",
+    "willBeRemembered": "Ini akan diingat..."
+  },
+  "phone": {
+    "title": "Ponsel",
+    "messages": "Pesan",
+    "calls": "Panggilan",
+    "flashlight": "Senter",
+    "radio": "Radio",
+    "debt": "Utang",
+    "noMessages": "Tidak ada pesan",
+    "noCalls": "Tidak ada panggilan",
+    "battery": "Baterai",
+    "signal": "Sinyal"
+  },
+  "journal": {
+    "title": "Jurnal Clue",
+    "clues": "Petunjuk",
+    "notes": "Catatan",
+    "missions": "Misi",
+    "missionNow": "TUJUAN SEKARANG",
+    "missionsDone": "Langkah Selesai",
+    "missionsNone": "Belum ada langkah yang diselesaikan.",
+    "clueFound": "Petunjuk ditemukan: ",
+    "noClues": "Belum ada petunjuk",
+    "chapter": "Bab",
+    "evidenceBoard": "Papan Petunjuk",
+    "connectClues": "Hubungkan petunjuk untuk menemukan kebenaran",
+    "categories": {
+      "motive": "Motif",
+      "time": "Waktu",
+      "location": "Lokasi",
+      "victim": "Korban",
+      "physicalEvidence": "Bukti Fisik"
+    }
+  },
+  "inventory": {
+    "kosong": "Tas masih kosong.",
+    "baru": "Barang baru",
+    "noSenter": "Kau belum punya senter.",
+    "hint": "TEKAN I UNTUK MEMBUKA DAN MENUTUP INVENTARIS"
+  },
+  "item": {
+    "ponsel": {
+      "name": "Ponsel",
+      "desc": "Ponsel lamamu. Tekan Q untuk membukanya: pesan, panggilan, dan senter cadangan."
+    },
+    "senter": {
+      "name": "Senter",
+      "desc": "Senter baterai. Tekan F untuk menyalakan dan mematikan. Pakai di ruang gelap seperti lorong rumah, ruang bawah tanah, dan hutan malam."
+    },
+    "obeng": {
+      "name": "Obeng",
+      "desc": "Obeng gagang oranye dari meja dapur. Ujungnya pas untuk membuka kotak sekring di dinding ruang tengah (Bab 1)."
+    },
+    "kunci_laci": {
+      "name": "Kunci Laci",
+      "desc": "Kunci kecil bertali karet dari kotak sekring. Gunakan untuk membuka laci di ruang tengah (Bab 1)."
+    },
+    "kwitansi": {
+      "name": "Kwitansi",
+      "desc": "Kwitansi lama yang menyebut jumlah utang dan nama yang meminjamkan."
+    },
+    "peta_lahan": {
+      "name": "Peta Lahan",
+      "desc": "Peta lahan proyek. Batasnya ditandai tinta merah yang seakan belum kering."
+    },
+    "uang_muka": {
+      "name": "Uang Muka",
+      "desc": "Uang muka dari mandor, masih hangat bekas di dalam amplop."
+    },
+    "kartu_nama": {
+      "name": "Kartu Nama",
+      "desc": "Kartu nama dari saku jaket. Di dalamnya tertulis nama dan pekerjaan yang tak seharusnya ada di sana."
+    },
+    "struk_robek": {
+      "name": "Struk Robek",
+      "desc": "Struk yang sobek dua. Tanggal dan angkanya masih terbaca kalau disambung."
+    },
+    "nasi_goreng": {
+      "name": "Nasi Goreng",
+      "desc": "Nasi goreng baru dimasak, dibungkus untuk dibawa menemui seseorang."
+    }
+  },
+  "puzzle": {
+    "help": "Bantuan",
+    "skip": "Lewati Puzzle",
+    "skipConfirm": "Lewati puzzle ini? Clue akan diberikan tapi pencapaian 'Detektif' tidak akan terbuka.",
+    "solved": "Puzzle terpecahkan!",
+    "failed": "Coba lagi",
+    "hint": "Petunjuk: ",
+    "cancel": "Batal"
+  },
+  "achievements": {
+    "title": "Pencapaian",
+    "locked": "Belum terbuka",
+    "detektif": {
+      "name": "Detektif",
+      "desc": "Selesaikan keenam puzzle tanpa memakai tombol Lewati."
+    }
+  },
+  "controls": {
+    "forward": "Maju",
+    "backward": "Mundur",
+    "left": "Kiri",
+    "right": "Kanan",
+    "run": "Lari",
+    "crouch": "Jongkok",
+    "interact": "Interaksi",
+    "flashlight": "Senter",
+    "phone": "Ponsel",
+    "journal": "Jurnal",
+    "pause": "Jeda",
+    "title": "Petunjuk Tombol",
+    "move": "Gerak",
+    "inventory": "Inventori",
+    "mouse": "Mouse: menoleh · Klik kiri: mengunci/membuka pandangan",
+    "dismiss": "Tekan tombol apa saja untuk menutup"
+  },
+  "prologue": {
+    "line1": "Selama aku ingat, desa ini tidak pernah berhenti berasap. Cerobong demi cerobong mengepul siang dan malam, seperti jantung yang tak pernah berhenti berdenyut.",
+    "line2": "Lalu suatu malam asap itu berhenti naik. Tidak padam, hanya diam di tempatnya. Ia menggantung rendah di atas rumah-rumah, seolah sedang menunggu sesuatu.",
+    "line3": "Dimas pulang karena ada utang yang harus ditagih. Raka pulang karena tidak ada satu pun yang menunggunya pulang.",
+    "title": "Asap yang Tak Padam"
+  },
+  "ending": {
+    "title": "Ending",
+    "ending": "Ending",
+    "unlocked": "Ending terbuka: ",
+    "locked": "Belum terbuka",
+    "gallery": "Galeri Ending",
+    "replay": "Main Ulang",
+    "chapterSelect": "Pilih Babak",
+    "ending1": "Jalan Sunyi",
+    "ending2": "Terlambat Sedikit",
+    "ending3": "Keadilan",
+    "ending4": "Darah Lebih Kental",
+    "ending5": "Api Membalas",
+    "ending6": "Cahaya di Ujung Asap (True Ending)",
+    "ending7": "Mengaku di Bawah Lampu",
+    "ending8": "Pulang Tanpa Tahu",
+    "ending9": "Yang Lari Tidak Pernah Pulang",
+    "epilog": "Epilog",
+    "fateDimas": "Nasib Dimas",
+    "fateRudi": "Nasib Rudi"
+  },
+  "credits": {
+    "title": "Kredit",
+    "gameDesign": "Game Design",
+    "programming": "Programming",
+    "art": "Art & Visual",
+    "audio": "Audio & Musik",
+    "writing": "Naskah & Penulisan",
+    "testing": "Testing & QA",
+    "specialThanks": "Terima Kasih Khusus",
+    "tools": "Tools & Libraries",
+    "threejs": "Three.js",
+    "vite": "Vite",
+    "typescript": "TypeScript",
+    "contact": "Kontak",
+    "ojkInfo": "Informasi pinjaman online ilegal: OJK 157"
+  },
+  "b01": {
+    "title": "Tagihan",
+    "objective": "Cari tahu kondisi keuangan dan rutinitas pagi"
+  },
+  "b02": {
+    "title": "Kedai Kopi",
+    "objective": "Bicara dengan Rudi di kedai kopi"
+  },
+  "b03": {
+    "title": "Bus Pulang",
+    "objective": "Tiba di desa dan menuju rumah"
+  },
+  "b04": {
+    "title": "Rumah Kosong",
+    "objective": "Jelajahi rumah dan temukan bukti utang"
+  },
+  "b05": {
+    "title": "Warung dan Gosip",
+    "objective": "Dapatkan informasi di warung Mak Yah"
+  },
+  "b05b": {
+    "title": "Makan Malam Berdua",
+    "objective": "Makan malam dengan Dimas"
+  },
+  "b06": {
+    "title": "Tawaran Kedua",
+    "objective": "Keputusan menerima atau menolak tawaran Rudi"
+  }
+}

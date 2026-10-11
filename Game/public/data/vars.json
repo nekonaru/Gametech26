@@ -1,0 +1,40 @@
+{
+  "variables": {
+    "terimaRudi": { "type": "bool", "default": false, "description": "Player accepted Rudi's offer in B6" },
+    "investigasi": { "type": "int", "default": 0, "min": 0, "max": 7, "description": "Investigation score (clues 1-6 + 2A/2B both)" },
+    "buktiKalung": { "type": "bool", "default": false, "description": "Raka found and matched necklace in B18" },
+    "buktiCukong": { "type": "bool", "default": false, "description": "Raka found mastermind evidence via Cross-POV Echo" },
+    "empatiB15": { "type": "bool", "default": false, "description": "Player chose empathetic approach in B15" },
+    "empatiPoin": { "type": "int", "default": 0, "min": 0, "max": 3, "description": "Empathy points from caring actions" },
+    "nurani": { "type": "int", "default": 0, "min": 0, "max": 4, "description": "Dimas's conscience points" },
+    "percayaDimas": { "type": "int", "default": 3, "min": 0, "max": 5, "description": "Dimas's trust in Raka" },
+    "konfrontasiDini": { "type": "bool", "default": false, "description": "Early confrontation triggered in B13" },
+    "percayaRudi": { "type": "bool", "default": false, "description": "Raka told suspicions to Rudi in B13" },
+    "joyDitemui": { "type": "bool", "default": false, "description": "Raka met Joy alive in B5" },
+    "b20Pilihan": { "type": "enum", "values": ["", "selamatkan_lapor", "diam", "biarkan"], "default": "", "description": "Final choice in B20" },
+    "keyakinan": { "type": "int", "default": 0, "min": 0, "max": 9, "description": "Calculated at B18: investigasi + buktiKalung + buktiCukong" }
+  },
+  "flags": {
+    "b05_ask_A": { "type": "bool", "default": false, "description": "Asked Mak Yah option A" },
+    "b05_ask_B": { "type": "bool", "default": false, "description": "Asked Mak Yah option B" },
+    "b05_ask_C": { "type": "bool", "default": false, "description": "Chose done at warung" },
+    "b10_choose_help": { "type": "bool", "default": false, "description": "Dimas chose to help Joy" },
+    "b10_choose_run": { "type": "bool", "default": false, "description": "Dimas chose to run" },
+    "b14_door_locked": { "type": "bool", "default": false, "description": "Dimas locked door in B14" },
+    "b14_door_open": { "type": "bool", "default": false, "description": "Dimas left door open in B14" },
+    "b16_stop_look": { "type": "bool", "default": false, "description": "Dimas stopped and looked at Joy's shadow" },
+    "b17_confess": { "type": "bool", "default": false, "description": "Dimas confessed at patrol" },
+    "b18_goHome": { "type": "bool", "default": false, "description": "Raka chose to go home at B18" }
+  },
+  "nurani_sources": [
+    { "chapter": "b10", "action": "Coba tolong Joy", "points": 1 },
+    { "chapter": "b14", "action": "Tidak mengunci pintu, menjawab ketukan Raka", "points": 1 },
+    { "chapter": "b16", "action": "Berhenti dan menoleh ke bayangan Joy", "points": 1 },
+    { "chapter": "b19", "action": "Berhenti lari dan meminta maaf", "points": 1 }
+  ],
+  "empati_sources": [
+    { "chapter": "b05b", "action": "Tanya pekerjaan/masak/tidak langsung menuding", "points": 1 },
+    { "chapter": "b15", "action": "Masak nasi goreng untuk Dimas", "points": 1 },
+    { "chapter": "b15", "action": "Pilih dialog empati (pilihan B)", "points": 1 }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "b09",
+  "hari": 3,
+  "jam": "07:00",
+  "pov": "raka",
+  "scene": "jalan_desa",
+  "onEnter": [
+    { "op": "setLighting", "preset": "pagi_desa", "transition": 2 },
+    { "op": "objective", "id": "bersih", "text": "obj.b09.bersih" },
+    { "op": "playSound", "key": "ambience_morning", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
+  ],
+  "interactables": [
+    { "id": "ember", "prompt": "ui.interact", "position": [1.4, 0, -2.2],
+      "onUse": [{ "op": "dialog", "node": "b09.ember" }] },
+    { "id": "sapu_abu", "prompt": "ui.use", "position": [-1.6, 0, -2.6],
+      "onUse": [{ "op": "dialog", "node": "b09.sapu" }] },
+    { "id": "papan_pengumuman", "prompt": "ui.read", "position": [2.4, 0, -4.2],
+      "onUse": [{ "op": "dialog", "node": "b09.papan" }] },
+    { "id": "radio_warung", "prompt": "ui.interact", "position": [-2.6, 0, -4.4],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b09_radio_ok === true",
+          "then": [ { "op": "dialog", "node": "b09.radio" } ],
+          "else": [
+            { "op": "dialog", "node": "b09.radio.siap" },
+            {
+              "op": "startPuzzle",
+              "id": "b09_radio",
+              "config": {
+                "type": "dial",
+                "title": "b09.p1.title",
+                "description": "b09.p1.desc",
+                "data": {
+                  "digits": 4,
+                  "solution": "1045",
+                  "hints": [ "b09.p1.hint1", "b09.p1.hint2" ]
+                },
+                "onSolve": [
+                  { "op": "setFlag", "flag": "b09_radio_ok", "value": true },
+                  { "op": "giveClue", "id": "c3" },
+                  { "op": "objective", "id": "pola", "text": "obj.b09.pola" }
+                ],
+                "onSkip": [
+                  { "op": "setFlag", "flag": "b09_radio_ok", "value": true },
+                  { "op": "giveClue", "id": "c3" },
+                  { "op": "objective", "id": "pola", "text": "obj.b09.pola" }
+                ],
+                "onHelp": [ { "op": "setEcho", "key": "help_b09_radio", "value": true } ]
+              }
+            }
+          ]
+        }
+      ] },
+    { "id": "sepatu_teras", "prompt": "ui.examine", "position": [3.2, 0, -1.4],
+      "onUse": [
+        { "op": "dialog", "node": "b09.sepatu" },
+        { "op": "echo", "from": "b08", "to": "b09", "data": { "jejak": "sepatu_berlumpur" } },
+        { "op": "setEcho", "key": "b09_sepatu_diperiksa", "value": true }
+      ] },
+    { "id": "jalan_pulang", "prompt": "ui.interact", "position": [0, 0, -5.4], "once": true,
+      "onUse": [{ "op": "dialog", "node": "b09.pulang" }, { "op": "chapterEnd" }] }
+  ],
+  "dialogs": {
+    "b09.ember": [
+      { "speaker": "Raka", "text": "b09.ember.1" },
+      { "speaker": "Raka", "text": "b09.ember.2" },
+      { "speaker": "Raka", "text": "b09.ember.3",
+        "choices": [
+          { "text": "b09.ember.cA", "next": "b09.ember.a" },
+          { "text": "b09.ember.cB", "next": "b09.ember.b" }
+        ] }
+    ],
+    "b09.ember.a": [
+      { "speaker": "Raka", "text": "b09.ember.a.1" }
+    ],
+    "b09.ember.b": [
+      { "speaker": "Raka", "text": "b09.ember.b.1" }
+    ],
+    "b09.sapu": [
+      { "speaker": "Raka", "text": "b09.sapu.1" },
+      { "speaker": "Raka", "text": "b09.sapu.2" }
+    ],
+    "b09.papan": [
+      { "speaker": "Raka", "text": "b09.papan.1" },
+      { "speaker": "Raka", "text": "b09.papan.2" },
+      { "speaker": "Raka", "text": "b09.papan.freq" },
+      { "speaker": "Raka", "text": "b09.papan.3",
+        "choices": [
+          { "text": "b09.papan.cA", "next": "b09.papan.a", "important": true,
+            "onSelect": [{ "op": "setFlag", "flag": "b09_investigate_more", "value": true }] },
+          { "text": "b09.papan.cB", "next": "b09.papan.b", "important": true,
+            "onSelect": [{ "op": "setFlag", "flag": "b09_investigate_more", "value": false }] }
+        ] }
+    ],
+    "b09.papan.a": [
+      { "speaker": "Raka", "text": "b09.papan.a.1" }
+    ],
+    "b09.papan.b": [
+      { "speaker": "Raka", "text": "b09.papan.b.1" }
+    ],
+    "b09.radio": [
+      { "speaker": "Radio", "text": "b09.radio.1" },
+      { "speaker": "Radio", "text": "b09.radio.2" },
+      { "speaker": "Raka", "text": "b09.radio.3" },
+      { "speaker": "Raka", "text": "b09.radio.4",
+        "onEnter": [{ "op": "playSound", "key": "journal_note", "options": { "category": "sfx", "volume": 0.5 } }] }
+    ],
+    "b09.radio.siap": [
+      { "speaker": "Raka", "text": "b09.radio.siap.1" },
+      { "speaker": "Raka", "text": "b09.radio.siap.2" }
+    ],
+    "b09.sepatu": [
+      { "speaker": "Raka", "text": "b09.sepatu.1" },
+      { "speaker": "Raka", "text": "b09.sepatu.2" },
+      { "speaker": "Raka", "text": "b09.sepatu.3" }
+    ],
+    "b09.pulang": [
+      { "speaker": "Raka", "text": "b09.pulang.1" },
+      { "speaker": "Raka", "text": "b09.pulang.2" }
+    ]
+  }
+}

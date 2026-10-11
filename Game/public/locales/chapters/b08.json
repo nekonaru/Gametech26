@@ -1,0 +1,128 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "read": "Baca",
+      "take": "Ambil",
+      "use": "Gunakan"
+    },
+    "b08": {
+      "obj": {
+        "pita": "Cari tiga pita merah di dalam hutan kecil.",
+        "jangan": "Semuanya diam sekarang. Jangan berhenti di tengah jalan.",
+        "pulang": "Kembali ke rumah. Jangan menoleh lagi."
+      },
+      "peta": {
+        "1": "Peta kertas di tangan. Tiga pita merah: semak timur, jalur kuda, pohon tua.",
+        "2": "Senter ponsel cukup untuk tiga puluh langkah. Sesudah itu gelap seperti tutup panci."
+      },
+      "pita1": {
+        "1": "Pita merah pertama di semak timur. Kainnya masih basah embun.",
+        "2": "Aku tandai di kepala lalu lanjut. Jangkrik berhenti tiap kali aku berhenti."
+      },
+      "pita2": {
+        "1": "Pita kedua di batang jalur kuda. Di kejauhan, sesuatu berlari menjauh di dedaunan.",
+        "2": "Rusa, mungkin. Atau anjing. Semuanya menjauh dari titik ini.",
+        "3": "Pohon-pohon diam sekarang. Aku jalan lebih cepat tanpa memutuskan."
+      },
+      "pita3": {
+        "1": "Pita ketiga di pohon tua. Aku sampai juga.",
+        "2": "Tidak ada suara hewan lagi. Bahkan angin berhenti pada daun yang sama."
+      },
+      "suara": {
+        "1": "Ada yang menggeser dedaunan di belakangku. Aku menoleh, tidak ada apa-apa.",
+        "2": "Hanya kakiku sendiri yang basah oleh embun."
+      },
+      "titik": {
+        "1": "Titik terakhir sudah di depanku. Tiga pita merah sudah kutemukan.",
+        "2": "Tinggal bagian terakhir. Rudi bilang jangan lama-lama.",
+        "3": "Sekarang atau tidak sama sekali.",
+        "c1": "Selesaikan sekarang. Jangan lihat.",
+        "c2": "Aku menoleh sedikit.",
+        "a": {
+          "1": "Aku membelakangi. Di belakang punggungku ada cahaya yang membesar perlahan.",
+          "2": "Udara berubah. Bau asap masuk lewat hidung, pelan, seperti sapaan lama.",
+          "3": "Aku tidak melihat apa yang menyala. Aku hanya tahu aku harus tidak ada di sini."
+        },
+        "b": {
+          "1": "Aku menoleh sepersekian detik. Cahaya merah memantul di batang pohon.",
+          "2": "Yang terlihat cuma bayanganku sendiri yang memanjang di kayu.",
+          "3": "Aku cepat mengalihkan mata. Setelah itu udara sudah berbau asap."
+        }
+      },
+      "selesai": {
+        "1": "Aku berjalan menjauh tanpa berlari. Berlari terasa seperti mengaku salah.",
+        "2": "Di pinggir hutan aku berhenti dan menatap tangan sendiri. Tangan yang tadi sore mengambil amplop."
+      },
+      "keluar": {
+        "1": "Di teras rumah, sepatuku berlumpur dan baunya menempel. Aku tidak mencucinya malam ini.",
+        "2": "Malam ini aku tidur tanpa mimpi. Itu bagian yang paling aneh."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "talk": "Talk",
+      "read": "Read",
+      "take": "Take",
+      "use": "Use"
+    },
+    "b08": {
+      "obj": {
+        "pita": "Find three red ribbons in the small forest.",
+        "jangan": "Everything is quiet now. Don't stop in the middle of the path.",
+        "pulang": "Go back home. Don't look back."
+      },
+      "peta": {
+        "1": "The paper map in my hand. Three red ribbons: east thicket, horse trail, old tree.",
+        "2": "The phone flashlight covers thirty steps. After that it's dark like a pot lid."
+      },
+      "pita1": {
+        "1": "The first red ribbon at the east thicket. The cloth is still wet with dew.",
+        "2": "I mark it in my head and move on. Crickets stop every time I stop."
+      },
+      "pita2": {
+        "1": "The second ribbon on a tree by the horse trail. Far off, something runs away through the leaves.",
+        "2": "A deer, maybe. Or a dog. Everything moves away from this point.",
+        "3": "The trees are quiet now. I walk faster without deciding to."
+      },
+      "pita3": {
+        "1": "The third ribbon at the old tree. I made it.",
+        "2": "No animal sounds anymore. Even the wind stopped on the same leaf."
+      },
+      "suara": {
+        "1": "Something shifts the dry leaves behind me. I turn my head, there is nothing.",
+        "2": "Only my own feet, wet with dew."
+      },
+      "titik": {
+        "1": "The last point is in front of me. I've found all three red ribbons.",
+        "2": "Only the final part is left. Rudi said not to take long.",
+        "3": "Now or never.",
+        "c1": "Finish it now. Don't look.",
+        "c2": "I turn my head a little.",
+        "a": {
+          "1": "I keep my back to it. Behind me there is a light growing slowly.",
+          "2": "The air changes. The smell of smoke reaches my nose, gently, like an old greeting.",
+          "3": "I don't see what is burning. I only know I must not be here."
+        },
+        "b": {
+          "1": "I turn for a fraction of a second. Red light reflects on a tree trunk.",
+          "2": "All I see is my own shadow stretching on the wood.",
+          "3": "I look away fast. After that the air already smells of smoke."
+        }
+      },
+      "selesai": {
+        "1": "I walk away without running. Running feels like admitting guilt.",
+        "2": "At the forest edge I stop and look at my own hands. The hands that took the envelope this afternoon."
+      },
+      "keluar": {
+        "1": "On the terrace my shoes are muddy and the smell sticks. I don't wash them tonight.",
+        "2": "Tonight I sleep without dreams. That's the strangest part."
+      }
+    }
+  }
+}

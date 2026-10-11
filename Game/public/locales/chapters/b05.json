@@ -1,0 +1,174 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "read": "Baca",
+      "take": "Ambil",
+      "use": "Gunakan"
+    },
+    "b05": {
+      "obj": {
+        "beli": "Mampir ke warung Mak Yah. Dengar gosip warga soal kebakaran dan Joy.",
+        "pulang": "Cukup untuk malam ini. Kembali ke rumah."
+      },
+      "joy": {
+        "1": "Eh, Raka! Kapan kau pulang? Aku belum sempat menyapamu waktu bis tadi lewat.",
+        "2": "Aku ke ladang dulu, bawa karung sama senter. Nanti aku lewat sini lagi. Senandung dulu, ya, jalan ini sepi."
+      },
+      "mak_yah": {
+        "1": "Eh, si Raka! Kapan pulang, Nak? Udah gede kau ya sekarang.",
+        "2": "Duduklah di situ. Mau nasi bungkus, teh panas, atau cuma dengar gosip orang tua?",
+        "c1": "Tanya soal titik api bulan ini.",
+        "c2": "Tanya soal Joy di ladang.",
+        "c3": "Tanya warga soal orang baru.",
+        "c4": "Cukup. Aku pulang dulu."
+      },
+      "kembali": {
+        "1": "Ada lagi, Nak? Anggap saja gosip."
+      },
+      "tekan": "Desak sedikit. Siapa tahu ada yang kelewat.",
+      "lanjut": "Tanya topik lain.",
+      "topik_a": {
+        "1": "Kebakaran? Yang bulan ini bukan di sini, Nak. Titik api di ladang sebelah hutan, bukan ladang Joy.",
+        "2": "Warga bilang asapnya kelihatan dua malam. Tidak ada yang luka, cuma rumput habis. Itu sebelum kau pulang.",
+        "3": "Sudah segitu ceritanya. Mau tahu lagi?",
+        "tekan": {
+          "1": "Yang lihat bilang cuma semburat merah di balik pohon. Besok paginya sudah hitam semua.",
+          "2": "Jam berapa tidak ada yang pasti. Orang lebih suka tidur daripada jadi saksi."
+        }
+      },
+      "topik_b": {
+        "1": "Joy itu penjaga ladang titipan keluarga. Tinggal sendirian di pondok dekat hutan.",
+        "2": "Bukan hilang, Nak. Cuma memang jarang keluar. Ayahnya sakit di kota, dia disuruh jagu ladang.",
+        "3": "Suka bersenandung sambil kerja. Kalau malam begini, pasti dia sudah di ladang.",
+        "tekan": {
+          "1": "Kubilang sama dia, tinggal di pinggir hutan begitu kasihan. Dia cuma ketawa.",
+          "2": "Katanya dia senang sendiri. Ya sudah, Nak, biarkan dia."
+        }
+      },
+      "topik_c": {
+        "1": "Orang baru? Minggu ini ada mobil hitam berhenti dekat warung. Dua orang, jaket tebal, tidak kenal siapa siapa.",
+        "2": "Mereka minta jalan ke kebun, bayar pakai uang kertas baru. Pak Rudi yang nemeni.",
+        "3": "Sudah, sudah. Makan dulu, Nak, sebelum nasinya dingin.",
+        "tekan": {
+          "1": "Katanya disuruh jaga malam di kebun. Bayarannya per malam, langsung tunai.",
+          "2": "Aku cuma dengar dari orang lain. Kau tanya langsung ke Pak Rudi, nanti dia marah."
+        }
+      },
+      "selesai": {
+        "1": "Sudah pulang kamu, Nak. Hati-hati di jalan, malam ini gelap.",
+        "2": "Lain kali singgah. Jangan cuma datang waktu mau nanya."
+      },
+      "nasi": {
+        "1": "Aku duduk di bangku dekat pintu. Pesan makanan dulu, biar tidak kelihatan mengawasi.",
+        "2": "Mau yang mana?",
+        "c1": "Nasi bungkus ayam.",
+        "c2": "Nasi kuning saja.",
+        "c3": "Teh panas dulu, Mak.",
+        "a": { "1": "Ayam. Nanti kubagi porsi besar, kasihan kurus kau." },
+        "b": { "1": "Nasi kuning. Kau masih suka yang ini, ya." },
+        "c": { "1": "Teh panas. Uangmu simpan dulu, kau bayar besok." }
+      },
+      "warga": {
+        "1": "Dua orang di meja ujung bicara pelan. Sesekali mereka menoleh ke arahku.",
+        "2": "Makan sudah, Ri? Jangan pulang sendirian, jalan dekat kebun itu gelap."
+      },
+      "radio": {
+        "1": "Kering berkepanjangan sampai akhir bulan. Warga diminta tidak membakar sampah di pinggir lahan.",
+        "2": "Radio warung selalu terlalu keras. Malam ini suaranya sampai ke jalan."
+      },
+      "keluar": {
+        "1": "Aku berdiri di pintu warung. Di kejauhan, lampu ladang menyala satu per satu.",
+        "2": "Malam ini cukup. Aku pulang sebelum pikiran jalan sendiri."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "talk": "Talk",
+      "read": "Read",
+      "take": "Take",
+      "use": "Use"
+    },
+    "b05": {
+      "obj": {
+        "beli": "Stop by Mak Yah's warung. Listen to the villagers talk about the fire and Joy.",
+        "pulang": "Enough for tonight. Go back home."
+      },
+      "joy": {
+        "1": "Eh, Raka! When did you get back? I didn't get to wave when the bus passed earlier.",
+        "2": "I'm going to the field first, with this sack and a flashlight. I'll pass by again later. I'll hum a bit first, this road is quiet."
+      },
+      "mak_yah": {
+        "1": "Eh, Raka! When did you come home, dear? You're all grown now.",
+        "2": "Sit there. Want wrapped rice, hot tea, or just an old woman's gossip?",
+        "c1": "Ask about this month's fire.",
+        "c2": "Ask about Joy at the field.",
+        "c3": "Ask the villagers about strangers.",
+        "c4": "That's enough. I'll head home."
+      },
+      "kembali": {
+        "1": "Anything else, dear? Just treat it as gossip."
+      },
+      "tekan": "Press a little further. Something might slip out.",
+      "lanjut": "Ask another topic.",
+      "topik_a": {
+        "1": "The fire? That one this month wasn't here, dear. The fire was at the field by the forest, not Joy's field.",
+        "2": "Folks said the smoke showed for two nights. Nobody got hurt, only the grass was gone. That was before you came home.",
+        "3": "That's the whole story. Want to know more?",
+        "tekan": {
+          "1": "People who saw it said it was just a red glow behind the trees. By morning it was all black.",
+          "2": "Nobody is sure about the hour. People would rather sleep than be a witness."
+        }
+      },
+      "topik_b": {
+        "1": "Joy guards a field held for a family. She lives alone in the hut near the forest.",
+        "2": "She isn't missing, dear. She just rarely comes out. Her father is sick in the city, so she was told to mind the field.",
+        "3": "She likes to hum while she works. At this hour she must already be at the field.",
+        "tekan": {
+          "1": "I told her, living at the edge of the forest like that is pitiful. She only laughed.",
+          "2": "She said she likes being alone. Let her be, dear."
+        }
+      },
+      "topik_c": {
+        "1": "Strangers? This week a black car stopped by the warung. Two men, thick jackets, nobody knew them.",
+        "2": "They asked for the road to the garden, paying with brand new bills. Pak Rudi walked with them.",
+        "3": "Alright, alright. Eat first, dear, before the rice gets cold.",
+        "tekan": {
+          "1": "They said they were hired to watch the garden at night. Paid per night, in cash.",
+          "2": "I only heard it from someone else. Ask Rudi himself and he'll get angry."
+        }
+      },
+      "selesai": {
+        "1": "Go home now, dear. Careful on the road, it's dark tonight.",
+        "2": "Come by again some time. Don't only show up when you want to ask things."
+      },
+      "nasi": {
+        "1": "I sit on the bench by the door. I order food first, so I don't look like I'm watching.",
+        "2": "What will you have?",
+        "c1": "Wrapped rice with chicken.",
+        "c2": "Yellow rice.",
+        "c3": "Hot tea first, Mak.",
+        "a": { "1": "Chicken. I'll give you a bigger portion, you're too thin." },
+        "b": { "1": "Yellow rice. You still like that one, don't you." },
+        "c": { "1": "Hot tea. Keep your money, you can pay tomorrow." }
+      },
+      "warga": {
+        "1": "Two men at the far table talk quietly. Now and then they glance at me.",
+        "2": "Have you eaten, Ri? Don't go home alone, the road by the garden is dark."
+      },
+      "radio": {
+        "1": "Dry weather until the end of the month. Residents are asked not to burn trash near the fields.",
+        "2": "The warung radio is always too loud. Tonight it carries all the way to the road."
+      },
+      "keluar": {
+        "1": "I stand at the warung door. Far away, the field lights come on one by one.",
+        "2": "Tonight is enough. I go home before my thoughts start running on their own."
+      }
+    }
+  }
+}

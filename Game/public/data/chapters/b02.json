@@ -1,0 +1,187 @@
+{
+  "id": "b02",
+  "hari": 1,
+  "jam": "16:00",
+  "pov": "dimas",
+  "scene": "kedai_kopi",
+  "onEnter": [
+    { "op": "setLighting", "preset": "sore", "transition": 2 },
+    { "op": "objective", "id": "jelajahi", "text": "b02.obj.jelajahi" },
+    { "op": "playSound", "key": "ambience_cafe", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    {
+      "id": "foto_kedai",
+      "prompt": "ui.examine",
+      "position": [-2.5, 0, -3],
+      "onUse": [ { "op": "dialog", "node": "b02.foto_kedai" } ]
+    },
+    {
+      "id": "foto_sungai",
+      "prompt": "ui.examine",
+      "position": [-3, 0, -2],
+      "onUse": [ { "op": "dialog", "node": "b02.foto_sungai" } ]
+    },
+    {
+      "id": "korek_api",
+      "prompt": "ui.examine",
+      "position": [1.5, 0, -2.5],
+      "onUse": [ { "op": "dialog", "node": "b02.korek_api" } ]
+    },
+    {
+      "id": "gelas",
+      "prompt": "ui.examine",
+      "position": [2.5, 0, -3],
+      "onUse": [ { "op": "dialog", "node": "b02.gelas" } ]
+    },
+    {
+      "id": "meja_rudi",
+      "prompt": "ui.talk",
+      "position": [0, 0, -4.5],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b02_foto_sungai === true && flags.b02_korek === true",
+          "then": [ { "op": "dialog", "node": "b02.rudi" } ],
+          "else": [ { "op": "dialog", "node": "b02.rudi.nanti" } ]
+        }
+      ]
+    },
+    {
+      "id": "pintu_keluar",
+      "prompt": "ui.open",
+      "position": [1, 0, 0],
+      "onUse": [
+        { "op": "dialog", "node": "b02.keluar" },
+        {
+          "op": "if",
+          "condition": "flags.b02_keluar === true",
+          "then": [ { "op": "chapterEnd" } ]
+        }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b02.foto_kedai": [
+      {
+        "speaker": "Narator",
+        "text": "b02.foto_kedai.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b02_foto_kedai", "value": true } ]
+      },
+      { "speaker": "Dimas", "text": "b02.foto_kedai.2" }
+    ],
+    "b02.foto_sungai": [
+      {
+        "speaker": "Narator",
+        "text": "b02.foto_sungai.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b02_foto_sungai", "value": true },
+          { "op": "setLighting", "preset": "flashback", "transition": 1 }
+        ]
+      },
+      { "speaker": "Dimas", "text": "b02.foto_sungai.2" },
+      {
+        "speaker": "Narator",
+        "text": "b02.foto_sungai.3",
+        "onEnter": [ { "op": "setLighting", "preset": "sore", "transition": 1.5 } ]
+      }
+    ],
+    "b02.korek_api": [
+      {
+        "speaker": "Narator",
+        "text": "b02.korek_api.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b02_korek", "value": true } ]
+      },
+      { "speaker": "Dimas", "text": "b02.korek_api.2" },
+      { "speaker": "Narator", "text": "b02.korek_api.3" }
+    ],
+    "b02.gelas": [
+      { "speaker": "Narator", "text": "b02.gelas.1" },
+      { "speaker": "Dimas", "text": "b02.gelas.2" }
+    ],
+    "b02.rudi.nanti": [
+      { "speaker": "Rudi", "text": "b02.rudi.nanti.1" },
+      { "speaker": "Narator", "text": "b02.rudi.nanti.2" }
+    ],
+    "b02.rudi": [
+      {
+        "speaker": "Rudi",
+        "text": "b02.rudi.1",
+        "onEnter": [ { "op": "objective", "id": "obrol", "text": "b02.obj.obrol" } ]
+      },
+      { "speaker": "Dimas", "text": "b02.rudi.2" },
+      { "speaker": "Rudi", "text": "b02.rudi.3" },
+      { "speaker": "Dimas", "text": "b02.rudi.4" },
+      { "speaker": "Narator", "text": "b02.rudi.5" },
+      { "speaker": "Rudi", "text": "b02.rudi.6" },
+      {
+        "speaker": "Narator",
+        "text": "b02.rudi.7",
+        "choices": [
+          {
+            "text": "b02.rudi.cA",
+            "next": "b02.mengaku",
+            "important": true,
+            "onSelect": [ { "op": "setFlag", "flag": "b02_admit", "value": true } ]
+          },
+          {
+            "text": "b02.rudi.cB",
+            "next": "b02.tutup",
+            "important": true,
+            "onSelect": [ { "op": "setFlag", "flag": "b02_admit", "value": false } ]
+          }
+        ]
+      }
+    ],
+    "b02.mengaku": [
+      { "speaker": "Dimas", "text": "b02.mengaku.1" },
+      { "speaker": "Rudi", "text": "b02.mengaku.2" },
+      { "speaker": "Rudi", "text": "b02.mengaku.3" },
+      { "speaker": "Dimas", "text": "b02.mengaku.4" },
+      { "speaker": "Rudi", "text": "b02.mengaku.5" },
+      { "speaker": "Dimas", "text": "b02.mengaku.6" },
+      { "speaker": "Rudi", "text": "b02.mengaku.7" },
+      {
+        "speaker": "Narator",
+        "text": "b02.mengaku.8",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b02_talk", "value": true },
+          { "op": "objective", "id": "pulang", "text": "b02.obj.exit" }
+        ]
+      }
+    ],
+    "b02.tutup": [
+      { "speaker": "Dimas", "text": "b02.tutup.1" },
+      { "speaker": "Rudi", "text": "b02.tutup.2" },
+      { "speaker": "Rudi", "text": "b02.tutup.3" },
+      { "speaker": "Dimas", "text": "b02.tutup.4" },
+      { "speaker": "Rudi", "text": "b02.tutup.5" },
+      { "speaker": "Dimas", "text": "b02.tutup.6" },
+      { "speaker": "Rudi", "text": "b02.tutup.7" },
+      {
+        "speaker": "Narator",
+        "text": "b02.tutup.8",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b02_talk", "value": true },
+          { "op": "objective", "id": "pulang", "text": "b02.obj.exit" }
+        ]
+      }
+    ],
+    "b02.keluar": [
+      {
+        "speaker": "Narator",
+        "text": "b02.keluar.1",
+        "choices": [
+          { "text": "b02.keluar.cpergi", "next": "b02.keluar.pergi", "condition": "flags.b02_talk === true", "onSelect": [ { "op": "setFlag", "flag": "b02_keluar", "value": true } ] },
+          { "text": "b02.keluar.ctunggu", "next": "b02.keluar.tunggu" }
+        ]
+      }
+    ],
+    "b02.keluar.tunggu": [
+      { "speaker": "Dimas", "text": "b02.keluar.tunggu.1" }
+    ],
+    "b02.keluar.pergi": [
+      { "speaker": "Dimas", "text": "b02.keluar.pergi.1" }
+    ]
+  }
+}

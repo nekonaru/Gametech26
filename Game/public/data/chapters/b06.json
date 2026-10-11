@@ -1,0 +1,119 @@
+{
+  "id": "b06",
+  "hari": 1,
+  "jam": "23:00",
+  "pov": "dimas",
+  "scene": "rumah_dimas",
+  "onEnter": [
+    { "op": "setLighting", "preset": "malam_rumah", "transition": 2 },
+    { "op": "objective", "id": "jawab", "text": "b06.obj.jawab" },
+    { "op": "playSound", "key": "ambience_night", "options": { "category": "ambience", "loop": true, "volume": 0.3 } }
+  ],
+  "interactables": [
+    { "id": "kasur_raka", "prompt": "ui.examine", "position": [2.4, 0, -4.4], "onUse": [{ "op": "dialog", "node": "b06.kasur" }] },
+    { "id": "foto_orang_tua", "prompt": "ui.examine", "position": [-2.2, 0, -4], "onUse": [{ "op": "dialog", "node": "b06.foto" }] },
+    { "id": "tumpukan_tagihan", "prompt": "ui.read", "position": [1.4, 0, -2.8], "onUse": [{ "op": "dialog", "node": "b06.tagihan" }] },
+    { "id": "ponsel_pinjol", "prompt": "ui.interact", "position": [-1.6, 0, -2.6], "onUse": [{ "op": "dialog", "node": "b06.pinjol" }] },
+    { "id": "radio_kamar", "prompt": "ui.interact", "position": [-2.6, 0, -2.2], "onUse": [
+      { "op": "playSound", "key": "radio_berita", "options": { "category": "sfx", "volume": 0.3 } },
+      { "op": "dialog", "node": "b06.radio" }
+    ] },
+    { "id": "ponsel_rudi", "prompt": "ui.interact", "position": [0, 0, -3.2], "once": true, "onUse": [{ "op": "dialog", "node": "b06.rudi" }] },
+    { "id": "pintu_raka", "prompt": "ui.talk", "position": [2.8, 0, -5], "once": true, "onUse": [{ "op": "dialog", "node": "b06.cerita" }] },
+    { "id": "kasur_dimas", "prompt": "ui.interact", "position": [-2.8, 0, -4.6], "once": true, "onUse": [
+      { "op": "dialog", "node": "b06.tidur" },
+      { "op": "chapterEnd" }
+    ] }
+  ],
+  "dialogs": {
+    "b06.kasur": [
+      { "speaker": "Dimas", "text": "b06.kasur.1" },
+      { "speaker": "Dimas", "text": "b06.kasur.2" }
+    ],
+    "b06.foto": [
+      { "speaker": "Dimas", "text": "b06.foto.1" },
+      { "speaker": "Dimas", "text": "b06.foto.2" }
+    ],
+    "b06.tagihan": [
+      { "speaker": "Dimas", "text": "b06.tagihan.1" },
+      { "speaker": "Dimas", "text": "b06.tagihan.2" }
+    ],
+    "b06.pinjol": [
+      { "speaker": "Pinjol", "text": "b06.pinjol.1" },
+      { "speaker": "Pinjol", "text": "b06.pinjol.2" },
+      { "speaker": "Dimas", "text": "b06.pinjol.3", "choices": [
+        { "text": "b06.pinjol.c1", "next": "b06.pinjol.angkat" },
+        { "text": "b06.pinjol.c2", "next": "b06.pinjol.abaikan" },
+        { "text": "b06.pinjol.c3", "next": "b06.pinjol.diam" }
+      ] }
+    ],
+    "b06.pinjol.angkat": [
+      { "speaker": "Dimas", "text": "b06.pinjol.angkat.1" },
+      { "speaker": "Pinjol", "text": "b06.pinjol.angkat.2" },
+      { "speaker": "Dimas", "text": "b06.pinjol.angkat.3" }
+    ],
+    "b06.pinjol.abaikan": [
+      { "speaker": "Dimas", "text": "b06.pinjol.abaikan.1" },
+      { "speaker": "Dimas", "text": "b06.pinjol.abaikan.2" }
+    ],
+    "b06.pinjol.diam": [
+      { "speaker": "Dimas", "text": "b06.pinjol.diam.1" },
+      { "speaker": "Dimas", "text": "b06.pinjol.diam.2" }
+    ],
+    "b06.radio": [
+      { "speaker": "Radio", "text": "b06.radio.1" },
+      { "speaker": "Dimas", "text": "b06.radio.2" }
+    ],
+    "b06.rudi": [
+      { "speaker": "Dimas", "text": "b06.rudi.1" },
+      { "speaker": "Rudi", "text": "b06.rudi.2" },
+      { "speaker": "Dimas", "text": "b06.rudi.3", "choices": [
+        { "text": "b06.rudi.c1", "next": "b06.terima", "important": true },
+        { "text": "b06.rudi.c2", "next": "b06.tolak", "important": true }
+      ] }
+    ],
+    "b06.terima": [
+      { "speaker": "Dimas", "text": "b06.terima.1",
+        "onEnter": [
+          { "op": "checkpoint", "id": "b06" },
+          { "op": "addVar", "name": "terimaRudi", "value": true },
+          { "op": "modifyPercayaRudi", "value": true },
+          { "op": "setFlag", "flag": "b06_jawab", "value": true },
+          { "op": "objective", "id": "keputusan", "text": "b06.obj.keputusan" }
+        ] },
+      { "speaker": "Dimas", "text": "b06.terima.2" },
+      { "speaker": "Dimas", "text": "b06.terima.3" }
+    ],
+    "b06.tolak": [
+      { "speaker": "Dimas", "text": "b06.tolak.1",
+        "onEnter": [
+          { "op": "checkpoint", "id": "b06" },
+          { "op": "addVar", "name": "terimaRudi", "value": false },
+          { "op": "modifyPercayaRudi", "value": false },
+          { "op": "setFlag", "flag": "b06_jawab", "value": true },
+          { "op": "objective", "id": "keputusan", "text": "b06.obj.keputusan" }
+        ] },
+      { "speaker": "Rudi", "text": "b06.tolak.2" },
+      { "speaker": "Dimas", "text": "b06.tolak.3" }
+    ],
+    "b06.cerita": [
+      { "speaker": "Dimas", "text": "b06.cerita.1", "choices": [
+        { "text": "b06.cerita.c1", "next": "b06.raka.cerita" },
+        { "text": "b06.cerita.c2", "next": "b06.raka.simpan" }
+      ] }
+    ],
+    "b06.raka.cerita": [
+      { "speaker": "Dimas", "text": "b06.raka.cerita.1", "onEnter": [{ "op": "modifyPercayaDimas", "value": 1 }] },
+      { "speaker": "Raka", "text": "b06.raka.cerita.2" },
+      { "speaker": "Dimas", "text": "b06.raka.cerita.3" }
+    ],
+    "b06.raka.simpan": [
+      { "speaker": "Dimas", "text": "b06.raka.simpan.1", "onEnter": [{ "op": "modifyPercayaDimas", "value": -1 }] },
+      { "speaker": "Dimas", "text": "b06.raka.simpan.2" }
+    ],
+    "b06.tidur": [
+      { "speaker": "Dimas", "text": "b06.tidur.1" },
+      { "speaker": "Dimas", "text": "b06.tidur.2" }
+    ]
+  }
+}

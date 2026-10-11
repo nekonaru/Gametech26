@@ -1,0 +1,130 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "take": "Ambil",
+      "open": "Buka",
+      "close": "Tutup",
+      "read": "Baca",
+      "use": "Gunakan",
+      "talk": "Bicara"
+    },
+    "obj": {
+      "b15alt": {
+        "kejar": "Kejar Abang ke arah hutan"
+      }
+    },
+    "b15alt": {
+      "jejak": {
+        "1": "Jejak kaki di tanah baru. Masih dalam.",
+        "2": "Arahnya ke hutan. Langkahnya lebar, seperti orang yang berlari.",
+        "3": "Abang tidak membawa apa-apa. Ponselnya masih di kamar."
+      },
+      "warga": {
+        "1": "Nak Raka. Ada orang masuk jalur hutan tadi. Kami cegah, tapi tidak mau berhenti.",
+        "2": "Kabutnya belum naik, tapi asapnya sudah tercium. Jangan ikut masuk.",
+        "3": "Aku tidak bisa berhenti di sini."
+      },
+      "botol": {
+        "1": "Aku ambil botol air dari meja teras.",
+        "2": "Kalau kutemukan dia, pasti ia haus."
+      },
+      "pohon": {
+        "1": "Ranting patah setinggi bahu. Baru saja dipatahkan.",
+        "2": "Di baliknya jalur ke ladang. Arah yang sama seperti dulu."
+      },
+      "gerbang": {
+        "1": "Dari gerbang desa, asap tipis terlihat di ujung jalan.",
+        "2": "Tidak ada yang berlari keluar. Hanya aku yang berlari masuk."
+      },
+      "akhir": {
+        "1": "Aku berlari. Abang di depan, tapi jaraknya tidak pernah berkurang.",
+        "2": "Ia masuk jalur hutan. Aku menyusul setengah jalan.",
+        "3": "Aku tahu aku tidak akan sampai. Tapi aku harus mencoba.",
+        "c1": "Terus berlari sampai napas habis.",
+        "c2": "Berhenti dan berteriak memanggilnya."
+      },
+      "kejar": {
+        "lari": {
+          "1": "Aku terus berlari sampai lututku menolak.",
+          "2": "Kabut menutup jalur. Abang tidak terlihat lagi."
+        },
+        "teriak": {
+          "1": "Aku berteriak memanggilnya sampai suaraku pecah.",
+          "2": "Hanya kabut yang menjawab."
+        }
+      },
+      "pemakaman": {
+        "1": "Tiga hari kemudian.",
+        "2": "Bukan luka. Kelelahan, kabut, dan api yang tidak kelihatan.",
+        "3": "Kami yang menemukannya di pinggir. Tidak usah dibicarakan panjang.",
+        "4": "Aku berdiri di pemakaman. Aku terlambat sedikit."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "take": "Take",
+      "open": "Open",
+      "close": "Close",
+      "read": "Read",
+      "use": "Use",
+      "talk": "Talk"
+    },
+    "obj": {
+      "b15alt": {
+        "kejar": "Chase Bang towards the forest"
+      }
+    },
+    "b15alt": {
+      "jejak": {
+        "1": "Footprints in fresh soil. Still deep.",
+        "2": "They lead to the forest. The stride is wide, like someone running.",
+        "3": "Bang took nothing. His phone is still in his room."
+      },
+      "warga": {
+        "1": "Nak Raka. Someone went into the forest trail earlier. We tried to stop him, he would not.",
+        "2": "The fog has not risen yet, but the smoke is already in the air. Do not follow him in.",
+        "3": "I cannot stop here."
+      },
+      "botol": {
+        "1": "I take the water bottle from the terrace table.",
+        "2": "If I find him, he will be thirsty."
+      },
+      "pohon": {
+        "1": "A branch snapped at shoulder height. Just broken.",
+        "2": "Beyond it, the path to the field. The same direction as before."
+      },
+      "gerbang": {
+        "1": "From the village gate, thin smoke is visible at the end of the road.",
+        "2": "No one runs out. Only I run in."
+      },
+      "akhir": {
+        "1": "I run. Bang is ahead, but the gap never shrinks.",
+        "2": "He enters the forest trail. I follow halfway.",
+        "3": "I know I will not reach him. But I have to try.",
+        "c1": "Keep running until my breath runs out.",
+        "c2": "Stop and shout his name."
+      },
+      "kejar": {
+        "lari": {
+          "1": "I keep running until my knees refuse.",
+          "2": "Fog covers the trail. Bang is no longer visible."
+        },
+        "teriak": {
+          "1": "I shout his name until my voice breaks.",
+          "2": "Only the fog answers."
+        }
+      },
+      "pemakaman": {
+        "1": "Three days later.",
+        "2": "Not wounds. Exhaustion, fog, and a fire nobody could see.",
+        "3": "We were the ones who found him at the edge. No need to talk about it long.",
+        "4": "I stand at the funeral. I am a little too late."
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "id": {
+    "obj": {
+      "b09": {
+        "bersih": "Bersihkan abu bersama warga, lalu dengarkan berita pagi",
+        "pola": "Catat pola kebakaran di jurnal"
+      }
+    },
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "read": "Baca",
+      "use": "Gunakan"
+    },
+    "b09": {
+      "title": "Curiga Pertama",
+      "ember": {
+        "1": "Bak air di ujung jalan sudah ramai. Aku ambil ember, lalu serahkan ke Bu Sari.",
+        "2": "Airnya berat. Tangan sampai pergelangan basah.",
+        "3": "Ember berpindah tangan sampai tikungan. Tidak ada yang bicara, semua fokus ke abu.",
+        "cA": "Ikut sampai ember terakhir",
+        "cB": "Tanya soal api",
+        "a": { "1": "Aku ikut estafet sampai ember terakhir. Badan jadi hangat." },
+        "b": { "1": "Bu Sari hanya menggeleng. Katanya, biar nanti yang mengurus." }
+      },
+      "sapu": {
+        "1": "Sapu lidi menyapu abu tipis di aspal. Baunya masih baru.",
+        "2": "Seorang bapak menyiram supaya abu tidak beterbangan. Air langsung jadi kelabu."
+      },
+      "papan": {
+        "1": "Papan pengumuman balai desa. Jadwal ronda, kegiatan posyandu, satu kertas baru.",
+        "2": "Tiga titik lahan terbakar bulan ini. Tanggalnya rapat, arahnya selalu ke hutan.",
+        "freq": "Kertas baru itu ditulis tangan: 'Siaran radio balai desa: 104.5 FM. Info kebakaran tiap pagi.'",
+        "3": "Kalau ini cuma kebetulan, kenapa polanya rapi?",
+        "cA": "Telusuri sendiri",
+        "cB": "Serahkan pada warga",
+        "a": { "1": "Aku foto kertasnya. Nanti kubandingkan dengan berita radio." },
+        "b": { "1": "Mungkin memang musim kering. Tapi jariku tetap menulis tanggalnya." }
+      },
+      "radio": {
+        "1": "Berita pagi. Titik kebakaran lahan ketiga tercatat di kawasan hutan desa.",
+        "2": "Warga diimbau tidak membuka lahan dengan membakar. Api sulit dikendalikan.",
+        "3": "Tiga kali dalam sebulan. Hampir jam yang sama.",
+        "4": "Tanggalnya kucatat di jurnal, biar tidak lupa.",
+        "siap": {
+          "1": "Radio menyala, tapi yang keluar hanya desis. Jarinya melompat antar frekuensi.",
+          "2": "Di pengumuman papan tadi tertulis 104.5. Kutarik jarinya pelan-pelan."
+        }
+      },
+      "p1": {
+        "title": "Radio Warung",
+        "desc": "Siaran pagi tersembunyi di balik derik frekuensi. Putar ke angka yang benar.",
+        "hint1": "Frekuensi siaran desa tertulis di kertas papan pengumuman.",
+        "hint2": "104.5 FM. Empat angka tanpa titik: 1045."
+      },
+      "sepatu": {
+        "1": "Di teras, sepatu kerja Abang berdiri berjajar. Solnya penuh tanah liat.",
+        "2": "Tanahnya masih basah. Baunya asap dan lumpur.",
+        "3": "Semalam dia bilang kerja sampai malam. Tanah ini bukan dari proyek."
+      },
+      "pulang": {
+        "1": "Jalan mulai ramai. Aku pulang dulu, jurnal harus diisi sebelum lupa.",
+        "2": "Tiga tanggal, satu arah. Nanti aku tanya Abang pelan-pelan."
+      }
+    }
+  },
+  "en": {
+    "obj": {
+      "b09": {
+        "bersih": "Clear the ash with the villagers, then listen to the morning news",
+        "pola": "Record the fire pattern in the journal"
+      }
+    },
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "read": "Read",
+      "use": "Use"
+    },
+    "b09": {
+      "title": "First Suspicion",
+      "ember": {
+        "1": "The tank at the end of the road is already crowded. I take a bucket and hand it to Bu Sari.",
+        "2": "The water is heavy. My hands are wet to the wrists.",
+        "3": "The bucket changes hands down to the corner. No one speaks, all eyes on the ash.",
+        "cA": "Stay until the last bucket",
+        "cB": "Ask about the fire",
+        "a": { "1": "I keep passing buckets until the last one. My body warms up." },
+        "b": { "1": "Bu Sari only shakes her head. She says those in charge will come later." }
+      },
+      "sapu": {
+        "1": "A palm fibre broom sweeps thin ash from the asphalt. The smell is still fresh.",
+        "2": "A man pours water so the ash will not fly. The water turns grey at once."
+      },
+      "papan": {
+        "1": "The village hall notice board. Patrol roster, health clinic schedule, one new sheet.",
+        "2": "Three burned plots this month. The dates sit close together, always pointing at the forest.",
+        "freq": "That new sheet, handwritten: 'Village hall radio: 104.5 FM. Fire updates every morning.'",
+        "3": "If this is only coincidence, why is the pattern so neat?",
+        "cA": "Investigate on my own",
+        "cB": "Leave it to the villagers",
+        "a": { "1": "I photograph the sheet. Later I will compare it with the radio news." },
+        "b": { "1": "Maybe it really is the dry season. But my hand still writes the dates down." }
+      },
+      "radio": {
+        "1": "Morning news. The third land fire point is recorded near the village forest.",
+        "2": "Residents are urged not to clear land by burning. Fire is hard to control.",
+        "3": "Three times in a month. Almost the same hour.",
+        "4": "I write the dates in my journal so I do not forget.",
+        "siap": {
+          "1": "The radio comes on, but only static comes out. Its needle jumps between frequencies.",
+          "2": "The notice board said 104.5. I ease the needle across, slowly."
+        }
+      },
+      "p1": {
+        "title": "Warung Radio",
+        "desc": "The morning broadcast hides behind the static. Turn the dial to the right numbers.",
+        "hint1": "The village frequency is written on the sheet at the notice board.",
+        "hint2": "104.5 FM. Four digits without a dot: 1045."
+      },
+      "sepatu": {
+        "1": "On the porch, Abang's work boots stand in a row. The soles are caked with clay.",
+        "2": "The soil is still wet. It smells of smoke and mud.",
+        "3": "Last night he said he worked late. This soil is not from the construction site."
+      },
+      "pulang": {
+        "1": "The road is filling up. I head home, the journal has to be written before I forget.",
+        "2": "Three dates, one direction. Later I will ask Abang, gently."
+      }
+    }
+  }
+}

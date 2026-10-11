@@ -1,0 +1,164 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "take": "Ambil",
+      "open": "Buka",
+      "close": "Tutup",
+      "read": "Baca",
+      "use": "Gunakan",
+      "talk": "Bicara"
+    },
+    "obj": {
+      "b15": {
+        "masak": "Masak sarapan untuk Abang",
+        "temui": "Bawa sarapan ke kamar Abang"
+      }
+    },
+    "b15": {
+      "lemari_makan": {
+        "1": "Lemari makanan. Telur, nasi sisa kemarin, sedikit bawang.",
+        "2": "Abang jarang sarapan. Hari ini harus ada."
+      },
+      "resep": {
+        "1": "Resep ibu di kartu tipis. Lipatannya sudah pudar.",
+        "2": "'Nasi goreng, api kecil, jangan buru-buru.' Aku masih hafal.",
+        "3": "Sekian tahun, tanganku masih ingat urutannya."
+      },
+      "kompor": {
+        "1": "Bawang dulu. Tunggu sampai harum.",
+        "2": "Nasi masuk. Api kecil, aduk pelan.",
+        "3": "Kecap, garam, sedikit air. Aku cicipi. Pas."
+      },
+      "meja": {
+        "1": "Piring hangat kuletakkan di meja makan.",
+        "2": "Dulu meja ini ramai. Sekarang cuma dua kursi yang dipakai."
+      },
+      "teras": {
+        "1": "Dari jendela, kulihat Rudi melintas dengan motor.",
+        "2": "Hari ini ia menunduk dan mempercepat motor. Tidak menoleh ke rumah ini."
+      },
+      "pintu_terkunci": {
+        "1": "Pintu kamar Abang terkunci dari dalam.",
+        "2": "Aku ketuk dua kali dan menunggu."
+      },
+      "pintu_terbuka": {
+        "1": "Pintu kamar Abang setengah terbuka.",
+        "2": "Ia membiarkannya, seperti tadi malam ia menjawab ketukanku."
+      },
+      "pintu_polos": {
+        "1": "Pintu kamar Abang tertutup seperti biasa.",
+        "2": "Aku ketuk dan menunggu."
+      },
+      "konfrontasi": {
+        "1": "Pagi, Ran. Kok mukamu masam?",
+        "2": "Aku mau tanya soal malam-malam itu. Soal ladang Joy.",
+        "3": "Mulutku sudah terbuka. Kata-kata tinggal dipilih.",
+        "c1": "Langsung menuduh: 'Kau yang membakarnya.'",
+        "c2": "Bertanya dengan empati: 'Bang, kau kenapa berubah?'",
+        "c3": "Diam. Aku hanya menatapnya."
+      },
+      "a": {
+        "1": "'Kau yang membakarnya. Kau yang berbohong.'",
+        "2": "Kau lihat apa, Ran?",
+        "3": "Suaranya datar, terlalu datar. Aku tahu ini kasar. Tapi tidak ada waktu lagi untuk halus."
+      },
+      "b": {
+        "1": "'Bang, kau kenapa berubah? Aku cuma mau tahu.'",
+        "2": "Ia diam lama. 'Aku capek, Ran.'",
+        "3": "Ia menarik kursi dan duduk. Untuk pertama kalinya ia bicara pelan."
+      },
+      "c": {
+        "1": "Aku tidak bicara. Aku hanya menatapnya.",
+        "2": "'Kalau mau marah, marah saja, Ran.'",
+        "3": "Aku pergi tanpa jawaban. Tapi wajahnya masih kuingat."
+      },
+      "keluar": {
+        "1": "Piring di meja sudah kosong. Aku ambil tas.",
+        "2": "Hari ini belum selesai. Aku keluar rumah."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "take": "Take",
+      "open": "Open",
+      "close": "Close",
+      "read": "Read",
+      "use": "Use",
+      "talk": "Talk"
+    },
+    "obj": {
+      "b15": {
+        "masak": "Cook breakfast for Bang",
+        "temui": "Bring breakfast to Bang's room"
+      }
+    },
+    "b15": {
+      "lemari_makan": {
+        "1": "The food cupboard. Eggs, rice from yesterday, a little onion.",
+        "2": "Bang rarely eats breakfast. Today there has to be one."
+      },
+      "resep": {
+        "1": "Mother's recipe on a thin card. The fold has faded.",
+        "2": "'Fried rice, low heat, do not rush.' I still remember it.",
+        "3": "After all these years, my hands still know the order."
+      },
+      "kompor": {
+        "1": "Onions first. Wait until they smell sweet.",
+        "2": "Rice goes in. Low heat, stir slow.",
+        "3": "Soy sauce, salt, a little water. I taste it. Right."
+      },
+      "meja": {
+        "1": "I set the warm plate on the dining table.",
+        "2": "This table used to be crowded. Now only two chairs get used."
+      },
+      "teras": {
+        "1": "Through the window I see Rudi pass on his motorbike.",
+        "2": "Today he keeps his head down and speeds up. He does not look at this house."
+      },
+      "pintu_terkunci": {
+        "1": "Bang's door is locked from the inside.",
+        "2": "I knock twice and wait."
+      },
+      "pintu_terbuka": {
+        "1": "Bang's door stands half open.",
+        "2": "He left it that way, like last night when he answered my knock."
+      },
+      "pintu_polos": {
+        "1": "Bang's door is shut as usual.",
+        "2": "I knock and wait."
+      },
+      "konfrontasi": {
+        "1": "Morning, Ran. Why the long face?",
+        "2": "I want to ask about those nights. About Joy's field.",
+        "3": "My mouth is already open. The words only need choosing.",
+        "c1": "Accuse him straight: 'You burned it.'",
+        "c2": "Ask with care: 'Bang, why have you changed?'",
+        "c3": "Say nothing. I only look at him."
+      },
+      "a": {
+        "1": "'You burned it. You lied.'",
+        "2": "What did you see, Ran?",
+        "3": "His voice is flat, too flat. I know this is harsh. But there is no time left for gentle."
+      },
+      "b": {
+        "1": "'Bang, why have you changed? I only want to know.'",
+        "2": "He is quiet a long time. 'I am tired, Ran.'",
+        "3": "He pulls out a chair and sits. For the first time he speaks softly."
+      },
+      "c": {
+        "1": "I say nothing. I only look at him.",
+        "2": "'If you want to be angry, just be angry, Ran.'",
+        "3": "I leave without an answer. But I still carry his face."
+      },
+      "keluar": {
+        "1": "The plate on the table is empty. I pick up my bag.",
+        "2": "This day is not finished. I leave the house."
+      }
+    }
+  }
+}

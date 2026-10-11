@@ -1,0 +1,593 @@
+{
+  "id": "b01",
+  "hari": 1,
+  "jam": "07:00",
+  "pov": "dimas",
+  "scene": "rumah_dimas",
+  "scenes": {
+    "rumah_dimas": { "spawn": [-3.9, 0, -3.1], "yaw": -2.4, "label": "b01.tempat.rumah" },
+    "proyek": { "spawn": [1.2, 0, 11], "yaw": 0, "label": "b01.tempat.proyek" },
+    "pasar": { "spawn": [0, 0, 11], "yaw": 0, "label": "b01.tempat.pasar" }
+  },
+  "onEnter": [
+    { "op": "setLighting", "preset": "pagi_desa", "transition": 2 },
+    { "op": "objective", "id": "bangun", "text": "b01.obj.bangun" },
+    { "op": "playSound", "key": "ambience_morning", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
+  ],
+  "onSpawn": [
+    { "op": "cameraAnim", "kind": "wake", "duration": 2400 },
+    { "op": "dialog", "node": "b01.kasur" }
+  ],
+  "interactables": [
+    {
+      "id": "kasur",
+      "prompt": "ui.interact",
+      "position": [0, 0, -1.5],
+      "goalFor": ["bangun"],
+      "onUse": [
+        { "op": "cameraAnim", "kind": "wake", "duration": 2400 },
+        { "op": "dialog", "node": "b01.kasur" }
+      ]
+    },
+    {
+      "id": "dapur",
+      "prompt": "ui.examine",
+      "position": [-2, 0, -3],
+      "goalFor": ["rumah", "tagih"],
+      "onUse": [ { "op": "dialog", "node": "b01.dapur" } ]
+    },
+    {
+      "id": "amplop",
+      "prompt": "ui.read",
+      "position": [1.5, 0, -3],
+      "goalFor": ["rumah", "tagih"],
+      "onUse": [ { "op": "dialog", "node": "b01.amplop" } ]
+    },
+    {
+      "id": "dompet",
+      "prompt": "ui.examine",
+      "position": [2.5, 0, -3],
+      "goalFor": ["rumah", "tagih"],
+      "onUse": [ { "op": "dialog", "node": "b01.dompet" } ]
+    },
+    {
+      "id": "foto_keluarga",
+      "prompt": "ui.examine",
+      "position": [2.4, 0, -4.2],
+      "onUse": [ { "op": "dialog", "node": "b01.foto" } ]
+    },
+    {
+      "id": "ponsel",
+      "prompt": "ui.use",
+      "position": [1, 0, -2],
+      "goalFor": ["panggil"],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b01_pasar === true",
+          "then": [ { "op": "dialog", "node": "b01.panggilan" } ],
+          "else": [ { "op": "dialog", "node": "b01.halt.3" } ]
+        }
+      ]
+    },
+    {
+      "id": "obeng",
+      "prompt": "ui.take",
+      "position": [-4.1, 0, 4],
+      "condition": "!inventory.includes('obeng')",
+      "once": true,
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "inventory.includes('obeng')",
+          "then": [ { "op": "dialog", "node": "b01.obeng.sudah" } ],
+          "else": [
+            { "op": "dialog", "node": "b01.obeng" },
+            { "op": "giveItem", "id": "obeng" },
+            { "op": "setFlag", "flag": "b01_obeng", "value": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kotak_sekring",
+      "prompt": "ui.open",
+      "position": [-1.25, 0, 0.5],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b01_sekring === true",
+          "then": [ { "op": "dialog", "node": "b01.sekring.sudah" } ],
+          "else": [
+            {
+              "op": "if",
+              "condition": "inventory.includes('obeng')",
+              "then": [
+                { "op": "dialog", "node": "b01.sekring.buka" },
+                { "op": "giveItem", "id": "kunci_laci" },
+                { "op": "setFlag", "flag": "b01_sekring", "value": true }
+              ],
+              "else": [ { "op": "dialog", "node": "b01.sekring.terkunci" } ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laci",
+      "prompt": "ui.open",
+      "position": [1, 0, -3.7],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b01_senter === true",
+          "then": [ { "op": "dialog", "node": "b01.laci.kosong" } ],
+          "else": [
+            {
+              "op": "if",
+              "condition": "inventory.includes('kunci_laci')",
+              "then": [
+                {
+                  "op": "startPuzzle",
+                  "id": "b01_laci",
+                  "config": {
+                    "type": "dial",
+                    "title": "b01.p1.title",
+                    "description": "b01.p1.desc",
+                    "data": {
+                      "digits": 4,
+                      "solution": "0705",
+                      "hints": [ "b01.p1.hint1", "b01.p1.hint2" ]
+                    },
+                    "onSolve": [
+                      { "op": "giveItem", "id": "senter" },
+                      { "op": "setFlag", "flag": "b01_senter", "value": true }
+                    ],
+                    "onSkip": [
+                      { "op": "giveItem", "id": "senter" },
+                      { "op": "setFlag", "flag": "b01_senter", "value": true }
+                    ],
+                    "onHelp": [ { "op": "setEcho", "key": "help_b01_laci", "value": true } ]
+                  }
+                }
+              ],
+              "else": [ { "op": "dialog", "node": "b01.laci.terkunci" } ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pintu_depan",
+      "prompt": "ui.open",
+      "position": [0, 0, -5],
+      "goalFor": ["kerja", "ke_pasar", "pulang"],
+      "onUse": [
+        { "op": "dialog", "node": "b01.keluar" },
+        {
+          "op": "if",
+          "condition": "flags.b01_keluar === true",
+          "then": [ { "op": "chapterEnd" } ]
+        },
+        {
+          "op": "if",
+          "condition": "flags.b01_ke_proyek === true",
+          "then": [
+            { "op": "setFlag", "flag": "b01_ke_proyek", "value": false },
+            { "op": "objective", "id": "konstruksi", "text": "b01.obj.konstruksi" },
+            { "op": "gotoScene", "scene": "proyek" }
+          ]
+        },
+        {
+          "op": "if",
+          "condition": "flags.b01_ke_pasar === true",
+          "then": [
+            { "op": "setFlag", "flag": "b01_ke_pasar", "value": false },
+            { "op": "objective", "id": "ke_pasar", "text": "b01.obj.ke_pasar" },
+            { "op": "gotoScene", "scene": "pasar" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandor",
+      "scene": "proyek",
+      "prompt": "ui.talk",
+      "position": [7, 0, 0.5],
+      "goalFor": ["konstruksi", "kerja"],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b01_dompet === true",
+          "then": [ { "op": "dialog", "node": "b01.proyek" } ],
+          "else": [ { "op": "dialog", "node": "b01.halt.1" } ]
+        }
+      ]
+    },
+    {
+      "id": "jalan_proyek",
+      "scene": "proyek",
+      "prompt": "ui.leave",
+      "position": [4.5, 0, 11],
+      "goalFor": ["ke_pasar"],
+      "onUse": [
+        { "op": "dialog", "node": "b01.jalan" },
+        {
+          "op": "if",
+          "condition": "flags.b01_ke_pasar === true",
+          "then": [
+            { "op": "setFlag", "flag": "b01_ke_pasar", "value": false },
+            { "op": "objective", "id": "ke_pasar", "text": "b01.obj.ke_pasar" },
+            { "op": "gotoScene", "scene": "pasar" }
+          ]
+        },
+        {
+          "op": "if",
+          "condition": "flags.b01_ke_rumah === true",
+          "then": [
+            { "op": "setFlag", "flag": "b01_ke_rumah", "value": false },
+            { "op": "gotoScene", "scene": "rumah_dimas", "spawn": [0, 0, 3.4], "yaw": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tumpukan_semen",
+      "scene": "proyek",
+      "prompt": "ui.examine",
+      "position": [-2.6, 0, -2.5],
+      "onUse": [ { "op": "dialog", "node": "b01.semen" } ]
+    },
+    {
+      "id": "perancah",
+      "scene": "proyek",
+      "prompt": "ui.examine",
+      "position": [1.2, 0, 3.5],
+      "onUse": [ { "op": "dialog", "node": "b01.perancah" } ]
+    },
+    {
+      "id": "spanduk_proyek",
+      "scene": "proyek",
+      "prompt": "ui.read",
+      "position": [0, 0, -5.5],
+      "onUse": [ { "op": "dialog", "node": "b01.spanduk" } ]
+    },
+    {
+      "id": "pedagang",
+      "scene": "pasar",
+      "prompt": "ui.talk",
+      "position": [6, 0, 5],
+      "goalFor": ["ke_pasar"],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b01_proyek === true",
+          "then": [ { "op": "dialog", "node": "b01.pasar" } ],
+          "else": [ { "op": "dialog", "node": "b01.halt.2" } ]
+        }
+      ]
+    },
+    {
+      "id": "jalan_pasar",
+      "scene": "pasar",
+      "prompt": "ui.leave",
+      "position": [0, 0, 12.5],
+      "goalFor": ["panggil"],
+      "onUse": [
+        { "op": "dialog", "node": "b01.jalan_pasar" },
+        {
+          "op": "if",
+          "condition": "flags.b01_ke_rumah === true",
+          "then": [
+            { "op": "setFlag", "flag": "b01_ke_rumah", "value": false },
+            { "op": "gotoScene", "scene": "rumah_dimas", "spawn": [0, 0, 3.4], "yaw": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lapak_sayur",
+      "scene": "pasar",
+      "prompt": "ui.examine",
+      "position": [-2, 0, 4.4],
+      "onUse": [ { "op": "dialog", "node": "b01.lapak" } ]
+    },
+    {
+      "id": "keranjang",
+      "scene": "pasar",
+      "prompt": "ui.examine",
+      "position": [-3.3, 0, 3.7],
+      "onUse": [ { "op": "dialog", "node": "b01.keranjang" } ]
+    },
+    {
+      "id": "spanduk_pasar",
+      "scene": "pasar",
+      "prompt": "ui.read",
+      "position": [0, 0, 13],
+      "onUse": [ { "op": "dialog", "node": "b01.spanduk_pasar" } ]
+    }
+  ],
+  "dialogs": {
+    "b01.kasur": [
+      {
+        "speaker": "Narator",
+        "text": "b01.kasur.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b01_bangun", "value": true },
+          { "op": "objective", "id": "rumah", "text": "b01.obj.rumah" }
+        ]
+      },
+      { "speaker": "Dimas", "text": "b01.kasur.2" },
+      { "speaker": "Dimas", "text": "b01.kasur.3" }
+    ],
+    "b01.dapur": [
+      {
+        "speaker": "Narator",
+        "text": "b01.dapur.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b01_dapur", "value": true } ]
+      },
+      { "speaker": "Dimas", "text": "b01.dapur.2" }
+    ],
+    "b01.amplop": [
+      {
+        "speaker": "Narator",
+        "text": "b01.amplop.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b01_amplop", "value": true },
+          { "op": "objective", "id": "tagih", "text": "b01.obj.tagih" }
+        ]
+      },
+      { "speaker": "Dimas", "text": "b01.amplop.2" },
+      { "speaker": "Dimas", "text": "b01.amplop.3" }
+    ],
+    "b01.dompet": [
+      { "speaker": "Narator", "text": "b01.dompet.1" },
+      { "speaker": "Dimas", "text": "b01.dompet.2" },
+      {
+        "speaker": "Dimas",
+        "text": "b01.dompet.3",
+        "choices": [
+          { "text": "b01.dompet.ca", "next": "b01.dompet.a" },
+          { "text": "b01.dompet.cb", "next": "b01.dompet.b" }
+        ]
+      }
+    ],
+    "b01.dompet.a": [
+      { "speaker": "Dimas", "text": "b01.dompet.a.1", "autoNext": "b01.dompet.akhir" }
+    ],
+    "b01.dompet.b": [
+      { "speaker": "Dimas", "text": "b01.dompet.b.1", "autoNext": "b01.dompet.akhir" }
+    ],
+    "b01.dompet.akhir": [
+      {
+        "speaker": "Dimas",
+        "text": "b01.dompet.akhir.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b01_dompet", "value": true },
+          { "op": "objective", "id": "kerja", "text": "b01.obj.kerja" }
+        ]
+      }
+    ],
+    "b01.foto": [
+      { "speaker": "Narator", "text": "b01.foto.1" },
+      { "speaker": "Dimas", "text": "b01.foto.2" }
+    ],
+    "b01.obeng": [
+      { "speaker": "Narator", "text": "b01.obeng.1" },
+      { "speaker": "Dimas", "text": "b01.obeng.2" }
+    ],
+    "b01.obeng.sudah": [
+      { "speaker": "Narator", "text": "b01.obeng.sudah" }
+    ],
+    "b01.sekring.terkunci": [
+      { "speaker": "Narator", "text": "b01.sekring.terkunci.1" },
+      { "speaker": "Dimas", "text": "b01.sekring.terkunci.2" }
+    ],
+    "b01.sekring.buka": [
+      { "speaker": "Narator", "text": "b01.sekring.buka.1" },
+      { "speaker": "Dimas", "text": "b01.sekring.buka.2" }
+    ],
+    "b01.sekring.sudah": [
+      { "speaker": "Narator", "text": "b01.sekring.sudah.1" }
+    ],
+    "b01.laci.terkunci": [
+      { "speaker": "Narator", "text": "b01.laci.terkunci.1" },
+      { "speaker": "Dimas", "text": "b01.laci.terkunci.2" }
+    ],
+    "b01.laci.kosong": [
+      { "speaker": "Narator", "text": "b01.laci.kosong.1" }
+    ],
+    "b01.proyek": [
+      {
+        "speaker": "Narator",
+        "text": "b01.proyek.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b01_proyek", "value": true },
+          { "op": "objective", "id": "ke_pasar", "text": "b01.obj.ke_pasar" }
+        ]
+      },
+      { "speaker": "Mandor", "text": "b01.proyek.2" },
+      { "speaker": "Dimas", "text": "b01.proyek.3" },
+      { "speaker": "Narator", "text": "b01.proyek.4" }
+    ],
+    "b01.pasar": [
+      {
+        "speaker": "Narator",
+        "text": "b01.pasar.1",
+        "choices": [
+          { "text": "b01.pasar.cnasi", "next": "b01.pasar.nasi", "important": true },
+          { "text": "b01.pasar.chemat", "next": "b01.pasar.hemat", "important": true }
+        ]
+      }
+    ],
+    "b01.pasar.nasi": [
+      { "speaker": "Dimas", "text": "b01.pasar.nasi.1", "autoNext": "b01.pasar.kerja" }
+    ],
+    "b01.pasar.hemat": [
+      { "speaker": "Dimas", "text": "b01.pasar.hemat.1", "autoNext": "b01.pasar.kerja" }
+    ],
+    "b01.pasar.kerja": [
+      {
+        "speaker": "Narator",
+        "text": "b01.pasar.kerja.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b01_pasar", "value": true },
+          { "op": "objective", "id": "panggil", "text": "b01.obj.panggil" }
+        ]
+      },
+      { "speaker": "Pedagang", "text": "b01.pasar.kerja.2" },
+      { "speaker": "Dimas", "text": "b01.pasar.kerja.3" },
+      { "speaker": "Narator", "text": "b01.pasar.kerja.4" }
+    ],
+    "b01.panggilan": [
+      { "speaker": "Pinjol", "text": "b01.panggilan.1" },
+      { "speaker": "Narator", "text": "b01.panggilan.2" },
+      {
+        "speaker": "Narator",
+        "text": "b01.panggilan.3",
+        "choices": [
+          { "text": "b01.panggilan.cangkat", "next": "b01.panggil.angkat" },
+          { "text": "b01.panggilan.ctolak", "next": "b01.panggil.tolak" },
+          { "text": "b01.panggilan.cdiam", "next": "b01.panggil.diam" }
+        ]
+      }
+    ],
+    "b01.panggil.angkat": [
+      { "speaker": "Dimas", "text": "b01.panggil.angkat.1" },
+      { "speaker": "Pinjol", "text": "b01.panggil.angkat.2", "autoNext": "b01.panggil.akhir" }
+    ],
+    "b01.panggil.tolak": [
+      { "speaker": "Narator", "text": "b01.panggil.tolak.1", "autoNext": "b01.panggil.akhir" }
+    ],
+    "b01.panggil.diam": [
+      { "speaker": "Narator", "text": "b01.panggil.diam.1", "autoNext": "b01.panggil.akhir" }
+    ],
+    "b01.panggil.akhir": [
+      {
+        "speaker": "Narator",
+        "text": "b01.panggil.akhir.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b01_panggilan", "value": true },
+          { "op": "objective", "id": "pulang", "text": "b01.obj.pulang" }
+        ]
+      },
+      { "speaker": "Dimas", "text": "b01.panggil.akhir.2" }
+    ],
+    "b01.halt.1": [
+      { "speaker": "Dimas", "text": "b01.halt.1" }
+    ],
+    "b01.halt.2": [
+      { "speaker": "Dimas", "text": "b01.halt.2" }
+    ],
+    "b01.halt.3": [
+      { "speaker": "Dimas", "text": "b01.halt.3" }
+    ],
+    "b01.semen": [
+      { "speaker": "Narator", "text": "b01.semen.1" }
+    ],
+    "b01.perancah": [
+      { "speaker": "Narator", "text": "b01.perancah.1" },
+      { "speaker": "Dimas", "text": "b01.perancah.2" }
+    ],
+    "b01.spanduk": [
+      { "speaker": "Narator", "text": "b01.spanduk.1" }
+    ],
+    "b01.lapak": [
+      { "speaker": "Narator", "text": "b01.lapak.1" }
+    ],
+    "b01.keranjang": [
+      { "speaker": "Narator", "text": "b01.keranjang.1" }
+    ],
+    "b01.spanduk_pasar": [
+      { "speaker": "Narator", "text": "b01.spanduk_pasar.1" }
+    ],
+    "b01.keluar": [
+      {
+        "speaker": "Narator",
+        "text": "b01.keluar.1",
+        "choices": [
+          {
+            "text": "b01.keluar.ckerja",
+            "next": "b01.keluar.proyek",
+            "condition": "flags.b01_dompet === true && flags.b01_proyek !== true",
+            "onSelect": [ { "op": "setFlag", "flag": "b01_ke_proyek", "value": true } ]
+          },
+          {
+            "text": "b01.keluar.cpasar",
+            "next": "b01.keluar.pasar",
+            "condition": "flags.b01_proyek === true && flags.b01_pasar !== true",
+            "onSelect": [ { "op": "setFlag", "flag": "b01_ke_pasar", "value": true } ]
+          },
+          {
+            "text": "b01.keluar.cpergi",
+            "next": "b01.keluar.pergi",
+            "condition": "flags.b01_panggilan === true",
+            "onSelect": [ { "op": "setFlag", "flag": "b01_keluar", "value": true } ]
+          },
+          { "text": "b01.keluar.ctunggu", "next": "b01.keluar.tunggu" }
+        ]
+      }
+    ],
+    "b01.keluar.proyek": [
+      { "speaker": "Narator", "text": "b01.keluar.proyek.1" }
+    ],
+    "b01.keluar.pasar": [
+      { "speaker": "Narator", "text": "b01.keluar.pasar.1" }
+    ],
+    "b01.keluar.tunggu": [
+      { "speaker": "Dimas", "text": "b01.keluar.tunggu.1" }
+    ],
+    "b01.keluar.pergi": [
+      { "speaker": "Dimas", "text": "b01.keluar.pergi.1" }
+    ],
+    "b01.jalan": [
+      {
+        "speaker": "Narator",
+        "text": "b01.jalan.1",
+        "choices": [
+          {
+            "text": "b01.jalan.cpasar",
+            "next": "b01.jalan.pasar",
+            "condition": "flags.b01_proyek === true && flags.b01_pasar !== true",
+            "onSelect": [ { "op": "setFlag", "flag": "b01_ke_pasar", "value": true } ]
+          },
+          {
+            "text": "b01.jalan.crumah",
+            "next": "b01.jalan.rumah",
+            "onSelect": [ { "op": "setFlag", "flag": "b01_ke_rumah", "value": true } ]
+          },
+          { "text": "b01.jalan.ctunggu", "next": "b01.jalan.tunggu" }
+        ]
+      }
+    ],
+    "b01.jalan.pasar": [
+      { "speaker": "Dimas", "text": "b01.jalan.pasar.1" }
+    ],
+    "b01.jalan.rumah": [
+      { "speaker": "Dimas", "text": "b01.jalan.rumah.1" }
+    ],
+    "b01.jalan.tunggu": [
+      { "speaker": "Narator", "text": "b01.jalan.tunggu.1" }
+    ],
+    "b01.jalan_pasar": [
+      {
+        "speaker": "Narator",
+        "text": "b01.jalan_pasar.1",
+        "choices": [
+          {
+            "text": "b01.jalan_pasar.crumah",
+            "next": "b01.jalan_pasar.rumah",
+            "onSelect": [ { "op": "setFlag", "flag": "b01_ke_rumah", "value": true } ]
+          },
+          { "text": "b01.jalan_pasar.ctunggu", "next": "b01.jalan_pasar.tunggu" }
+        ]
+      }
+    ],
+    "b01.jalan_pasar.rumah": [
+      { "speaker": "Dimas", "text": "b01.jalan_pasar.rumah.1" }
+    ],
+    "b01.jalan_pasar.tunggu": [
+      { "speaker": "Narator", "text": "b01.jalan_pasar.tunggu.1" }
+    ]
+  }
+}

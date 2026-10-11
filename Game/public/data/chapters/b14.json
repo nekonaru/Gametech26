@@ -1,0 +1,167 @@
+{
+  "id": "b14",
+  "hari": 5,
+  "jam": "23:00",
+  "pov": "dimas",
+  "scene": "rumah_dimas",
+  "scenes": {
+    "mimpi": { "spawn": [0, 0, 4.5], "yaw": 0, "label": "b14.tempat.mimpi", "lighting": "mimpi" }
+  },
+  "onEnter": [
+    { "op": "setLighting", "preset": "teror", "transition": 3 },
+    { "op": "objective", "id": "cari", "text": "obj.b14.cari" },
+    { "op": "playSound", "key": "ambience_house", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    {
+      "id": "lemari",
+      "prompt": "ui.examine",
+      "position": [-2.4, 1.0, -3.4],
+      "once": false,
+      "onUse": [ { "op": "dialog", "node": "b14.lemari" } ]
+    },
+    {
+      "id": "jendela",
+      "prompt": "ui.examine",
+      "position": [2.2, 1.3, -4.2],
+      "once": true,
+      "onUse": [
+        { "op": "dialog", "node": "b14.jendela" },
+        { "op": "playSound", "key": "whisper_wind", "options": { "category": "ambience", "volume": 0.5 } }
+      ]
+    },
+    {
+      "id": "ponsel",
+      "prompt": "ui.read",
+      "position": [0.8, 0.6, -1.4],
+      "once": true,
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b13_sindir_rudi === true",
+          "then": [ { "op": "dialog", "node": "b14.pesan_rudi" } ],
+          "else": [ { "op": "dialog", "node": "b14.ponsel" } ]
+        }
+      ]
+    },
+    {
+      "id": "kasur",
+      "prompt": "ui.interact",
+      "position": [-1.2, 0.5, -2.6],
+      "once": true,
+      "goalFor": ["cari"],
+      "onUse": [
+        { "op": "cameraAnim", "kind": "sleep", "duration": 1600, "eyeHeight": 0.5, "pitch": 0.35 },
+        { "op": "dialog", "node": "b14.kasur" },
+        { "op": "setFlag", "flag": "b14_mimpi", "value": true },
+        { "op": "objective", "id": "pintu", "text": "obj.b14.pintu" },
+        { "op": "gotoScene", "scene": "mimpi", "lighting": "mimpi", "transition": 2.5 }
+      ]
+    },
+    {
+      "id": "cermin",
+      "prompt": "ui.examine",
+      "position": [-2.8, 1.4, -1.6],
+      "once": false,
+      "onUse": [ { "op": "dialog", "node": "b14.cermin" } ]
+    },
+    {
+      "id": "gerendel_pintu",
+      "prompt": "ui.use",
+      "scene": "mimpi",
+      "position": [0, 1.0, -11.2],
+      "once": true,
+      "goalFor": ["pintu"],
+      "onUse": [
+        { "op": "dialog", "node": "b14.pintu" },
+        { "op": "chapterEnd" }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b14.lemari": [
+      { "speaker": "Dimas", "text": "b14.lemari.1" },
+      { "speaker": "Dimas", "text": "b14.lemari.2" },
+      { "speaker": "Dimas", "text": "b14.lemari.3" }
+    ],
+    "b14.jendela": [
+      { "speaker": "Dimas", "text": "b14.jendela.1" },
+      { "speaker": "Dimas", "text": "b14.jendela.2" },
+      { "speaker": "Dimas", "text": "b14.jendela.3" }
+    ],
+    "b14.ponsel": [
+      { "speaker": "Dimas", "text": "b14.ponsel.1" },
+      { "speaker": "Dimas", "text": "b14.ponsel.2" },
+      { "speaker": "Dimas", "text": "b14.ponsel.3" }
+    ],
+    "b14.pesan_rudi": [
+      { "speaker": "Rudi", "text": "b14.pesan_rudi.1" },
+      { "speaker": "Rudi", "text": "b14.pesan_rudi.2" },
+      { "speaker": "Rudi", "text": "b14.pesan_rudi.3" },
+      { "speaker": "Dimas", "text": "b14.pesan_rudi.4" }
+    ],
+    "b14.kasur": [
+      { "speaker": "Dimas", "text": "b14.kasur.1" },
+      { "speaker": "Dimas", "text": "b14.kasur.2" },
+      {
+        "speaker": "Dimas",
+        "text": "b14.kasur.3",
+        "choices": [
+          { "text": "b14.kasur.c1", "next": "b14.mimpi.menoleh" },
+          { "text": "b14.kasur.c2", "next": "b14.mimpi.tidak" }
+        ]
+      }
+    ],
+    "b14.mimpi.menoleh": [
+      { "speaker": "Dimas", "text": "b14.mimpi.menoleh.1" },
+      { "speaker": "Dimas", "text": "b14.mimpi.menoleh.2" }
+    ],
+    "b14.mimpi.tidak": [
+      { "speaker": "Dimas", "text": "b14.mimpi.tidak.1" },
+      { "speaker": "Dimas", "text": "b14.mimpi.tidak.2" }
+    ],
+    "b14.cermin": [
+      { "speaker": "Dimas", "text": "b14.cermin.1" },
+      { "speaker": "Dimas", "text": "b14.cermin.2" },
+      { "speaker": "Dimas", "text": "b14.cermin.3" }
+    ],
+    "b14.pintu": [
+      { "speaker": "Dimas", "text": "b14.pintu.1" },
+      {
+        "speaker": "Dimas",
+        "text": "b14.pintu.2",
+        "choices": [
+          { "text": "b14.pintu.c1", "next": "b14.pintu.kunci", "important": true },
+          { "text": "b14.pintu.c2", "next": "b14.pintu.buka", "important": true }
+        ]
+      }
+    ],
+    "b14.pintu.kunci": [
+      {
+        "speaker": "Dimas",
+        "text": "b14.pintu.kunci.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b14_door_locked", "value": true },
+          { "op": "setFlag", "flag": "b14_door_open", "value": false },
+          { "op": "echo", "from": "b14", "to": "b15", "data": { "type": "pintu_kamar", "state": "terkunci" } }
+        ]
+      },
+      { "speaker": "Dimas", "text": "b14.pintu.kunci.2" },
+      { "speaker": "Dimas", "text": "b14.pintu.kunci.3" }
+    ],
+    "b14.pintu.buka": [
+      {
+        "speaker": "Dimas",
+        "text": "b14.pintu.buka.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b14_door_open", "value": true },
+          { "op": "setFlag", "flag": "b14_door_locked", "value": false },
+          { "op": "addNurani", "value": 1 },
+          { "op": "echo", "from": "b14", "to": "b15", "data": { "type": "pintu_kamar", "state": "terbuka" } }
+        ]
+      },
+      { "speaker": "Dimas", "text": "b14.pintu.buka.2" },
+      { "speaker": "Dimas", "text": "b14.pintu.buka.3" }
+    ]
+  }
+}

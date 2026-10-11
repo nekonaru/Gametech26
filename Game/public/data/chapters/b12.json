@@ -1,0 +1,110 @@
+{
+  "id": "b12",
+  "hari": 5,
+  "jam": "02:30",
+  "pov": "dimas",
+  "scene": "rumah_dimas",
+  "onEnter": [
+    { "op": "setLighting", "preset": "malam_rumah", "transition": 2 },
+    { "op": "objective", "id": "jejak", "text": "obj.b12.jejak" },
+    { "op": "playSound", "key": "ambience_house_night", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    { "id": "jejak_basah", "prompt": "ui.examine", "position": [1.2, 0, -2],
+      "onUse": [{ "op": "dialog", "node": "b12.jejak" }] },
+    { "id": "pintu_belakang", "prompt": "ui.open", "position": [-1.6, 0, -3.2],
+      "onUse": [
+        { "op": "dialog", "node": "b12.pintu" },
+        { "op": "echo", "from": "b12", "to": "b13", "data": { "jejak": "pintu_belakang" } },
+        { "op": "setEcho", "key": "b12_pintu_terbuka", "value": true }
+      ] },
+    { "id": "bayangan_lorong", "prompt": "ui.examine", "position": [0.4, 0, -4.4],
+      "onUse": [{ "op": "dialog", "node": "b12.bayangan" }] },
+    { "id": "telepon", "prompt": "ui.interact", "position": [2.4, 0, -1.6],
+      "onUse": [
+        { "op": "dialog", "node": "b12.telepon" },
+        { "op": "playSound", "key": "phone_vibrate", "options": { "category": "sfx", "volume": 0.5 } }
+      ] },
+    { "id": "jendela", "prompt": "ui.examine", "position": [-2.8, 0, -4.6],
+      "onUse": [{ "op": "dialog", "node": "b12.jendela" }] },
+    { "id": "kasur", "prompt": "ui.interact", "position": [3.2, 0, -4.2], "once": true,
+      "onUse": [
+        { "op": "setLighting", "preset": "malam_rumah", "transition": 2 },
+        { "op": "cameraAnim", "kind": "sleep", "duration": 1600, "eyeHeight": 0.5, "pitch": 0.35 },
+        { "op": "dialog", "node": "b12.kasur" },
+        { "op": "chapterEnd" }
+      ] }
+  ],
+  "dialogs": {
+    "b12.jejak": [
+      { "speaker": "Dimas", "text": "b12.jejak.1" },
+      { "speaker": "Dimas", "text": "b12.jejak.2" },
+      { "speaker": "Dimas", "text": "b12.jejak.3",
+        "choices": [
+          { "text": "b12.jejak.cA", "next": "b12.jejak.a" },
+          { "text": "b12.jejak.cB", "next": "b12.jejak.b" }
+        ] }
+    ],
+    "b12.jejak.a": [
+      { "speaker": "Dimas", "text": "b12.jejak.a.1" }
+    ],
+    "b12.jejak.b": [
+      { "speaker": "Dimas", "text": "b12.jejak.b.1" },
+      { "speaker": "Dimas", "text": "b12.jejak.b.2" }
+    ],
+    "b12.pintu": [
+      { "speaker": "Dimas", "text": "b12.pintu.1" },
+      { "speaker": "Narator", "text": "b12.pintu.2",
+        "onEnter": [{ "op": "playSound", "key": "wind_low", "options": { "category": "ambience", "volume": 0.5 } }] },
+      { "speaker": "Dimas", "text": "b12.pintu.3" }
+    ],
+    "b12.bayangan": [
+      { "speaker": "Dimas", "text": "b12.bayangan.1",
+        "onEnter": [{ "op": "setLighting", "preset": "teror", "transition": 1 }] },
+      { "speaker": "Dimas", "text": "b12.bayangan.2",
+        "onEnter": [{ "op": "playSound", "key": "footstep_wet", "options": { "category": "sfx", "volume": 0.6 } }] },
+      { "speaker": "Dimas", "text": "b12.bayangan.3",
+        "choices": [
+          { "text": "b12.bayangan.cA", "next": "b12.bayangan.a", "important": true },
+          { "text": "b12.bayangan.cB", "next": "b12.bayangan.b", "important": true }
+        ] }
+    ],
+    "b12.bayangan.a": [
+      { "speaker": "Dimas", "text": "b12.bayangan.a.1" },
+      { "speaker": "Dimas", "text": "b12.bayangan.a.2" }
+    ],
+    "b12.bayangan.b": [
+      { "speaker": "Dimas", "text": "b12.bayangan.b.1" },
+      { "speaker": "Dimas", "text": "b12.bayangan.b.2" }
+    ],
+    "b12.telepon": [
+      { "speaker": "Dimas", "text": "b12.telepon.1",
+        "onEnter": [{ "op": "playSound", "key": "phone_ring", "options": { "category": "sfx", "volume": 0.7 } }] },
+      { "speaker": "Dimas", "text": "b12.telepon.2" },
+      { "speaker": "Dimas", "text": "b12.telepon.3",
+        "choices": [
+          { "text": "b12.telepon.cA", "next": "b12.telepon.a", "important": true },
+          { "text": "b12.telepon.cB", "next": "b12.telepon.b", "important": true }
+        ] }
+    ],
+    "b12.telepon.a": [
+      { "speaker": "Dimas", "text": "b12.telepon.a.1" },
+      { "speaker": "Narator", "text": "b12.telepon.a.2" },
+      { "speaker": "Dimas", "text": "b12.telepon.a.3",
+        "onEnter": [{ "op": "setEcho", "key": "b12_telepon_diangkat", "value": true }] }
+    ],
+    "b12.telepon.b": [
+      { "speaker": "Dimas", "text": "b12.telepon.b.1" },
+      { "speaker": "Dimas", "text": "b12.telepon.b.2" },
+      { "speaker": "Narator", "text": "b12.telepon.b.3" }
+    ],
+    "b12.jendela": [
+      { "speaker": "Dimas", "text": "b12.jendela.1" },
+      { "speaker": "Dimas", "text": "b12.jendela.2" }
+    ],
+    "b12.kasur": [
+      { "speaker": "Dimas", "text": "b12.kasur.1" },
+      { "speaker": "Dimas", "text": "b12.kasur.2" }
+    ]
+  }
+}

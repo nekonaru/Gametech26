@@ -1,0 +1,109 @@
+{
+  "id": "b16",
+  "hari": 6,
+  "jam": "21:00",
+  "pov": "dimas",
+  "scene": "tepi_hutan",
+  "onEnter": [
+    { "op": "setLighting", "preset": "malam_rumah", "transition": 2 },
+    { "op": "objective", "id": "cari_jalan", "text": "b16.obj.cari_jalan" },
+    { "op": "playSound", "key": "ambience_forest", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    { "id": "sisa_makanan", "prompt": "ui.examine", "position": [-1.5, 0, -2], "onUse": [{ "op": "dialog", "node": "b16.makanan" }] },
+    { "id": "jejak_kaki", "prompt": "ui.examine", "position": [1.2, 0, -2.6], "onUse": [{ "op": "dialog", "node": "b16.jejak" }] },
+    { "id": "napas_berembun", "prompt": "ui.examine", "position": [0, 0, -3.4], "onUse": [
+      { "op": "playSound", "key": "whisper", "options": { "category": "sfx", "volume": 0.5 } },
+      { "op": "dialog", "node": "b16.napas" }
+    ] },
+    { "id": "ranting_patah", "prompt": "ui.examine", "position": [-1, 0, -4.4], "onUse": [
+      { "op": "playSound", "key": "footstep", "options": { "category": "sfx", "volume": 0.6 } },
+      { "op": "dialog", "node": "b16.ranting" }
+    ] },
+    { "id": "bayangan", "prompt": "ui.interact", "position": [0.8, 0, -5], "onUse": [
+      { "op": "dialog", "node": "b16.bayangan" },
+      { "op": "objective", "id": "lari", "text": "b16.obj.lari" }
+    ] },
+    { "id": "ujung_lari", "prompt": "ui.interact", "position": [0, 0, -5.8], "onUse": [{ "op": "dialog", "node": "b16.lari" }] },
+    { "id": "pulang", "prompt": "ui.interact", "position": [2, 0, -1.2], "once": true, "onUse": [
+      { "op": "dialog", "node": "b16.pulang" },
+      { "op": "echo", "from": "b16", "to": "b18", "data": { "item": "kalung_bulan_sabit", "place": "tepi_hutan" } },
+      { "op": "chapterEnd" }
+    ] }
+  ],
+  "dialogs": {
+    "b16.makanan": [
+      { "speaker": "Dimas", "text": "b16.makanan.1" },
+      { "speaker": "Dimas", "text": "b16.makanan.2" },
+      { "speaker": "Dimas", "text": "b16.makanan.3" }
+    ],
+    "b16.jejak": [
+      { "speaker": "Dimas", "text": "b16.jejak.1" },
+      { "speaker": "Dimas", "text": "b16.jejak.2" },
+      { "speaker": "Dimas", "text": "b16.jejak.3", "choices": [
+        { "text": "b16.jejak.cA", "next": "b16.jejak.a" },
+        { "text": "b16.jejak.cB", "next": "b16.jejak.b" }
+      ] }
+    ],
+    "b16.jejak.a": [
+      { "speaker": "Dimas", "text": "b16.jejak.a.1" },
+      { "speaker": "Dimas", "text": "b16.jejak.a.2" }
+    ],
+    "b16.jejak.b": [
+      { "speaker": "Dimas", "text": "b16.jejak.b.1" },
+      { "speaker": "Dimas", "text": "b16.jejak.b.2" }
+    ],
+    "b16.napas": [
+      { "speaker": "Dimas", "text": "b16.napas.1" },
+      { "speaker": "Dimas", "text": "b16.napas.2" },
+      { "speaker": "Dimas", "text": "b16.napas.3" }
+    ],
+    "b16.ranting": [
+      { "speaker": "Dimas", "text": "b16.ranting.1" },
+      { "speaker": "Dimas", "text": "b16.ranting.2" }
+    ],
+    "b16.bayangan": [
+      { "speaker": "Dimas", "text": "b16.bayangan.1" },
+      { "speaker": "Dimas", "text": "b16.bayangan.2" },
+      { "speaker": "Dimas", "text": "b16.bayangan.3", "choices": [
+        { "text": "b16.bayangan.cA", "next": "b16.bayangan.a" },
+        { "text": "b16.bayangan.cB", "next": "b16.bayangan.b" }
+      ] }
+    ],
+    "b16.bayangan.a": [
+      { "speaker": "Dimas", "text": "b16.bayangan.a.1" },
+      { "speaker": "Dimas", "text": "b16.bayangan.a.2" }
+    ],
+    "b16.bayangan.b": [
+      { "speaker": "Dimas", "text": "b16.bayangan.b.1" },
+      { "speaker": "Dimas", "text": "b16.bayangan.b.2" }
+    ],
+    "b16.lari": [
+      { "speaker": "Dimas", "text": "b16.lari.1" },
+      { "speaker": "Dimas", "text": "b16.lari.2" },
+      { "speaker": "Dimas", "text": "b16.lari.3", "choices": [
+        { "text": "b16.lari.cA", "next": "b16.lari.lari", "important": true },
+        { "text": "b16.lari.cB", "next": "b16.lari.berhenti", "important": true }
+      ] }
+    ],
+    "b16.lari.lari": [
+      { "speaker": "Dimas", "text": "b16.lari.lari.1", "onEnter": [{ "op": "setFlag", "flag": "b16_stop_look", "value": false }] },
+      { "speaker": "Dimas", "text": "b16.lari.lari.2" }
+    ],
+    "b16.lari.berhenti": [
+      { "speaker": "Dimas", "text": "b16.lari.berhenti.1", "onEnter": [
+        { "op": "setFlag", "flag": "b16_stop_look", "value": true },
+        { "op": "addNurani", "value": 1 },
+        { "op": "playSound", "key": "heartbeat", "options": { "category": "sfx", "volume": 0.4 } }
+      ] },
+      { "speaker": "Dimas", "text": "b16.lari.berhenti.2" },
+      { "speaker": "Dimas", "text": "b16.lari.berhenti.3" },
+      { "speaker": "Dimas", "text": "b16.lari.berhenti.4" }
+    ],
+    "b16.pulang": [
+      { "speaker": "Dimas", "text": "b16.pulang.1" },
+      { "speaker": "Dimas", "text": "b16.pulang.2" },
+      { "speaker": "Dimas", "text": "b16.pulang.3" }
+    ]
+  }
+}

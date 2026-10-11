@@ -1,0 +1,119 @@
+{
+  "id": "b20",
+  "hari": 7,
+  "jam": "21:00",
+  "pov": "raka",
+  "scene": "hutan_api",
+  "onEnter": [
+    { "op": "setLighting", "preset": "api", "transition": 2 },
+    { "op": "checkpoint", "id": "b20" },
+    { "op": "objective", "id": "capai_dimas", "text": "b20.obj.capai_dimas" },
+    { "op": "playSound", "key": "ambience_fire", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
+  ],
+  "interactables": [
+    { "id": "catatan_raka", "prompt": "ui.read", "position": [-1.5, 0, -2], "onUse": [{ "op": "dialog", "node": "b20.catatan" }] },
+    { "id": "ponsel_raka", "prompt": "ui.examine", "position": [1.4, 0, -2.4], "onUse": [{ "op": "dialog", "node": "b20.ponsel" }] },
+    { "id": "cincin_api", "prompt": "ui.use", "position": [0, 0, -3.5], "onUse": [
+      { "op": "dialog", "node": "b20.cincin" },
+      { "op": "startPuzzle", "id": "p6", "config": {
+        "type": "timing",
+        "title": "b20.puzzle.p6.title",
+        "description": "b20.puzzle.p6.desc",
+        "data": {
+          "rings": 3,
+          "speeds": [2600, 2000, 1500],
+          "hints": ["b20.puzzle.p6.hint1", "b20.puzzle.p6.hint2"]
+        },
+        "onSolve": [{ "op": "objective", "id": "pilih", "text": "b20.obj.pilih" }],
+        "onSkip": [{ "op": "objective", "id": "pilih", "text": "b20.obj.pilih" }],
+        "onHelp": [{ "op": "setEcho", "key": "help_p6", "value": true }]
+      } }
+    ] },
+    { "id": "bayangan_joy", "prompt": "ui.examine", "position": [-1.8, 0, -4.5], "onUse": [
+      { "op": "if", "condition": "vars.joyDitemui === true",
+        "then": [{ "op": "dialog", "node": "b20.joy.kenal" }],
+        "else": [{ "op": "dialog", "node": "b20.joy.asing" }] }
+    ] },
+    { "id": "suara_dimas", "prompt": "ui.talk", "position": [1, 0, -5], "onUse": [
+      { "op": "dialog", "node": "b20.dimas" },
+      { "op": "objective", "id": "pilih", "text": "b20.obj.pilih" }
+    ] },
+    { "id": "pilihan_akhir", "prompt": "ui.interact", "position": [0, 0, -5.8], "once": true, "onUse": [
+      { "op": "dialog", "node": "b20.pilihan" },
+      { "op": "calculateKeyakinan" },
+      { "op": "chapterEnd" }
+    ] }
+  ],
+  "dialogs": {
+    "b20.catatan": [
+      { "speaker": "Raka", "text": "b20.catatan.1" },
+      { "speaker": "Raka", "text": "b20.catatan.2" },
+      { "speaker": "Raka", "text": "b20.catatan.3" }
+    ],
+    "b20.ponsel": [
+      { "speaker": "Raka", "text": "b20.ponsel.1" },
+      { "speaker": "Raka", "text": "b20.ponsel.2" },
+      { "speaker": "Raka", "text": "b20.ponsel.3" }
+    ],
+    "b20.cincin": [
+      { "speaker": "Raka", "text": "b20.cincin.1" },
+      { "speaker": "Raka", "text": "b20.cincin.2" },
+      { "speaker": "Raka", "text": "b20.cincin.3" }
+    ],
+    "b20.joy.kenal": [
+      { "speaker": "Raka", "text": "b20.joy.kenal.1" },
+      { "speaker": "Raka", "text": "b20.joy.kenal.2" },
+      { "speaker": "Raka", "text": "b20.joy.kenal.3" }
+    ],
+    "b20.joy.asing": [
+      { "speaker": "Raka", "text": "b20.joy.asing.1" },
+      { "speaker": "Raka", "text": "b20.joy.asing.2" },
+      { "speaker": "Raka", "text": "b20.joy.asing.3" }
+    ],
+    "b20.dimas": [
+      { "speaker": "Dimas", "text": "b20.dimas.1" },
+      { "speaker": "Raka", "text": "b20.dimas.2" },
+      { "speaker": "Raka", "text": "b20.dimas.3", "choices": [
+        { "text": "b20.dimas.cA", "next": "b20.dimas.a" },
+        { "text": "b20.dimas.cB", "next": "b20.dimas.b" }
+      ] }
+    ],
+    "b20.dimas.a": [
+      { "speaker": "Dimas", "text": "b20.dimas.a.1" },
+      { "speaker": "Raka", "text": "b20.dimas.a.2" }
+    ],
+    "b20.dimas.b": [
+      { "speaker": "Raka", "text": "b20.dimas.b.1" },
+      { "speaker": "Raka", "text": "b20.dimas.b.2" }
+    ],
+    "b20.pilihan": [
+      { "speaker": "Raka", "text": "b20.pilihan.1" },
+      { "speaker": "Dimas", "text": "b20.pilihan.2" },
+      { "speaker": "Raka", "text": "b20.pilihan.3" },
+      { "speaker": "Raka", "text": "b20.pilihan.4", "choices": [
+        { "text": "b20.pilihan.cA", "next": "b20.pilihan.lapor", "important": true },
+        { "text": "b20.pilihan.cB", "next": "b20.pilihan.diam", "important": true },
+        { "text": "b20.pilihan.cC", "next": "b20.pilihan.biarkan", "important": true }
+      ] }
+    ],
+    "b20.pilihan.lapor": [
+      { "speaker": "Raka", "text": "b20.pilihan.lapor.1", "onEnter": [{ "op": "setB20Pilihan", "value": "selamatkan_lapor" }] },
+      { "speaker": "Raka", "text": "b20.pilihan.lapor.2" },
+      { "speaker": "Raka", "text": "b20.pilihan.lapor.3", "autoNext": "b20.pilihan.akhir" }
+    ],
+    "b20.pilihan.diam": [
+      { "speaker": "Raka", "text": "b20.pilihan.diam.1", "onEnter": [{ "op": "setB20Pilihan", "value": "diam" }] },
+      { "speaker": "Raka", "text": "b20.pilihan.diam.2" },
+      { "speaker": "Raka", "text": "b20.pilihan.diam.3", "autoNext": "b20.pilihan.akhir" }
+    ],
+    "b20.pilihan.biarkan": [
+      { "speaker": "Raka", "text": "b20.pilihan.biarkan.1", "onEnter": [{ "op": "setB20Pilihan", "value": "biarkan" }] },
+      { "speaker": "Raka", "text": "b20.pilihan.biarkan.2" },
+      { "speaker": "Raka", "text": "b20.pilihan.biarkan.3", "autoNext": "b20.pilihan.akhir" }
+    ],
+    "b20.pilihan.akhir": [
+      { "speaker": "Raka", "text": "b20.pilihan.akhir.1" },
+      { "speaker": "Raka", "text": "b20.pilihan.akhir.2" }
+    ]
+  }
+}

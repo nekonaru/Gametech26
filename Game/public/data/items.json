@@ -1,0 +1,104 @@
+{
+  "items": [
+    {
+      "id": "ponsel",
+      "name_id": "Ponsel",
+      "name_en": "Phone",
+      "description_id": "Ponsel lama dengan fitur dasar: pesan, panggilan, senter, radio. Baterai 長く持つ。",
+      "description_en": "Old phone with basic features: messages, calls, flashlight, radio. Long battery life.",
+      "type": "key",
+      "usable": true,
+      "icon": "📱"
+    },
+    {
+      "id": "kwitansi",
+      "name_id": "Kwitansi Pinjol",
+      "name_en": "Loan Receipt",
+      "description_id": "Tumpukan kwitansi pinjol online. Bunga 20% per minggu. Total 87 juta.",
+      "description_en": "Stack of online loan receipts. 20% weekly interest. Total 87 million.",
+      "type": "clue",
+      "usable": false,
+      "icon": "📄"
+    },
+    {
+      "id": "kalung",
+      "name_id": "Kalung Bulan Sabit",
+      "name_en": "Crescent Moon Necklace",
+      "description_id": "Kalung perak bentuk bulan sabit. Milik Joy, hadiah dari ibunya. Ditemukan di tepi hutan.",
+      "description_en": "Silver crescent moon necklace. Joy's, gift from mother. Found at forest edge.",
+      "type": "evidence",
+      "usable": false,
+      "icon": "🌙"
+    },
+    {
+      "id": "kartu_nama",
+      "name_id": "Kartu Nama PT Mandiri Lestari",
+      "name_en": "PT Mandiri Lestari Business Card",
+      "description_id": "Kartu nama perusahaan fiktif. Ditemukan di saku jaket Dimas. Bukti ada cukong di balik Rudi.",
+      "description_en": "Fictional company business card. Found in Dimas's jacket. Proof of mastermind behind Rudi.",
+      "type": "evidence",
+      "usable": false,
+      "icon": "🪪"
+    },
+    {
+      "id": "foto_joy",
+      "name_id": "Foto Joy & Kalung",
+      "name_en": "Photo of Joy & Necklace",
+      "description_id": "Foto Joy memakai kalung bulan sabit. Diambil ibu Joy ke balai desa saat melapor hilang.",
+      "description_en": "Photo of Joy wearing crescent necklace. Taken by Joy's mother when reporting missing.",
+      "type": "clue",
+      "usable": false,
+      "icon": "📷"
+    },
+    {
+      "id": "struk_robek",
+      "name_id": "Struk Robek",
+      "name_en": "Torn Receipt",
+      "description_id": "Potongan struk pinjol yang robek. Berisi rincian utang dan nama penyedia: PT Mandiri Lestari.",
+      "description_en": "Torn loan receipt pieces. Contains debt details and provider name: PT Mandiri Lestari.",
+      "type": "clue",
+      "usable": false,
+      "icon": "🧩"
+    },
+    {
+      "id": "peta_lahan",
+      "name_id": "Peta Lahan dengan Pita Merah",
+      "name_en": "Land Map with Red Tape",
+      "description_id": "Peta kertas dari Rudi. Titik-titik ditandai pita merah. Digunakan untuk pembakaran.",
+      "description_en": "Paper map from Rudi. Points marked with red tape. Used for arson.",
+      "type": "key",
+      "usable": true,
+      "icon": "🗺️"
+    },
+    {
+      "id": "uang_muka",
+      "name_id": "Uang Muka 5 Juta",
+      "name_en": "5 Million Down Payment",
+      "description_id": "Amplop berisi 5 juta rupiah. Uang muka dari Rudi untuk pekerjaan membakar lahan.",
+      "description_en": "Envelope with 5 million rupiah. Down payment from Rudi for land burning job.",
+      "type": "key",
+      "usable": false,
+      "icon": "💰"
+    },
+    {
+      "id": "nasi_goreng",
+      "name_id": "Nasi Goreng Buatan Raka",
+      "name_en": "Raka's Fried Rice",
+      "description_id": "Nasi goreng yang dimasak Raka pakai resep ibu. Masih hangat di wajan.",
+      "description_en": "Fried rice cooked by Raka using mother's recipe. Still warm in pan.",
+      "type": "consumable",
+      "usable": true,
+      "icon": "🍚"
+    },
+    {
+      "id": "senter",
+      "name_id": "Senter Ponsel",
+      "name_en": "Phone Flashlight",
+      "description_id": "Senter bawaan ponsel. Baterai terkuras pelan di malam hutan. Cahaya bulan redup saat habis.",
+      "description_en": "Built-in phone flashlight. Battery drains slowly in night forest. Dim moonlight when empty.",
+      "type": "tool",
+      "usable": true,
+      "icon": "🔦"
+    }
+  ]
+}

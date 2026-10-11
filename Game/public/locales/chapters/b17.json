@@ -1,0 +1,192 @@
+{
+  "id": {
+    "b17": {
+      "obj": {
+        "selinap": "Lewati pos patroli tanpa ketahuan",
+        "berhenti": "Berhenti dan katakan yang sebenarnya"
+      },
+      "semak": {
+        "1": "Pos patroli ada dua ratus meter di depan. Lampu senter bergerak bolak-balik.",
+        "2": "Ketua RT memimpin. Suaranya terdengar sampai ke semak ini.",
+        "3": "Aku bisa menunggu, atau lewat di bawah parit sekarang.",
+        "cA": "Tunggu sampai senter menghadap lain",
+        "cB": "Lewati parit sekarang",
+        "a": {
+          "1": "Aku menunggu. Senter itu bergerak ke kiri, lalu ke kanan.",
+          "2": "Saat menghadap jauh, aku melompati parit kecil dan masuk ke semak berikutnya."
+        },
+        "b": {
+          "1": "Aku merangkak. Tanah basah membasahi siku.",
+          "2": "Senter berhenti sebentar di atas kepalaku. Lalu berlanjut. Aku tidak bergerak sampai napasku tenang."
+        }
+      },
+      "cahaya": {
+        "1": "Kerucut senter memotong jalan. Debu beterbangan di dalam cahayanya.",
+        "2": "Kalau aku masuk ke cahaya itu, wajahku langsung terlihat.",
+        "3": "Ada jeda pendek sebelum lampu itu berputar lagi.",
+        "cA": "Lewati sekarang",
+        "cB": "Tunggu satu putaran lagi",
+        "a": {
+          "1": "Aku menunduk dan melintas. Tiga langkah, lalu gelap lagi.",
+          "2": "Tidak ada teriakan dari belakang. Berarti belum ada yang melihat."
+        },
+        "b": {
+          "1": "Aku menempel di dinding. Waktu terasa dua kali lebih lama dari biasanya.",
+          "2": "Saat lampu berputar, aku menyeberang dan menempel di pagar bambu."
+        }
+      },
+      "warga": {
+        "1": "Bukan kebetulan lagi. Empat kali, semua di malam hari.",
+        "2": "Cari yang kenal ladang itu. Jangan sebut-sebut nama anak orang dulu.",
+        "3": "Joy tinggal di situ seorang diri. Sekarang siapa yang menjaga?",
+        "4": "Aku bisa pergi sekarang, atau mendengar sampai habis.",
+        "cA": "Dengarkan sampai mereka pergi",
+        "cB": "Pergi sebelum ketahuan",
+        "a": {
+          "1": "Mereka menyalakan rokok dan bicara pelan. Nama Joy disebut sekali, lalu tidak lagi.",
+          "2": "Aku pergi sebelum kata berikutnya sampai ke telingaku."
+        },
+        "b": {
+          "1": "Aku mundur dari sudut warung. Suara mereka memudar di belakangku.",
+          "2": "Sepatu basahku meninggalkan jejak di tanah. Aku berharap besok hujan."
+        }
+      },
+      "patroli": {
+        "1": "Bagi dua. Yang ke hutan ambil senter panjang. Yang ke jalan jangan sendirian.",
+        "2": "Mereka membagi diri seperti mengejar binatang. Dan aku ada di antara mereka.",
+        "3": "Kalau ketemu, jangan main hakim sendiri. Panggil saya. Dengar?",
+        "4": "Aku bisa berdiri dan bicara sekarang. Kata-katanya sudah ada di ujung lidah.",
+        "5": "Tapi kaki ini siap lari. Dan malam ini aku sudah lari terlalu jauh.",
+        "6": "Aku ingin berhenti dan bicara. Tapi kata-kata itu tidak keluar.",
+        "7": "Lebih baik pergi sebelum ada yang memanggil namaku.",
+        "8": "Aku menunggu satu tarikan napas. Teriakan pertama membuat kakiku bergerak sendiri.",
+        "9": "Aku berdiri. Tangan kosong, supaya tidak salah paham.",
+        "10": "Pak RT, saya Dimas. Saya yang di ladang itu. Saya mau cerita semuanya.",
+        "11": "Senter berhenti di wajahku. Lalu dia mematikannya. Akhirnya kamu datang juga, katanya.",
+        "12": "Di bawah lampu jalan, aku bicara. Napasku panjang untuk pertama kalinya setelah tujuh hari.",
+        "13": "Aku berbalik dan lari. Teriakan di belakangku langsung berubah jadi perintah.",
+        "14": "Dua senter menyusul dari arah berbeda. Aku masuk gang sempit antara rumah.",
+        "15": "Jantungku nyaris keluar. Tapi malam ini aku tidak tertangkap.",
+        "cA": "Berhenti dan mengaku",
+        "cB": "Berlari. Mereka tidak boleh menangkapku.",
+        "cC": "Berlari sekarang",
+        "cD": "Tunggu satu tarikan napas"
+      },
+      "raka": {
+        "1": "Di ujung jalan seseorang berhenti. Bukan warga. Posturnya terlalu familiar.",
+        "2": "Raka. Adikku. Dia berdiri mendengar keributan, lalu berbalik ke rumah.",
+        "3": "Aku bisa melambaikan tangan, atau menghilang sebelum dia menoleh.",
+        "cA": "Lambaikan tangan",
+        "cB": "Menghilang sebelum dia menoleh",
+        "a": {
+          "1": "Tanganku terangkat setengah. Lalu turun lagi. Bukan malam ini.",
+          "2": "Raka menoleh sebentar ke arah gelap. Tidak ada yang terlihat. Dia jalan pulang."
+        },
+        "b": {
+          "1": "Aku mundur ke bayangan. Raka berjalan pulang tanpa tahu aku tadi di sini.",
+          "2": "Kalau dia tahu, besok pasti ada pertanyaan. Dan aku belum siap menjawab."
+        }
+      },
+      "pulang": {
+        "1": "Aku menyusup lewat pintu dapur yang sengaja tidak kukunci.",
+        "2": "Raka sudah di kamarnya. Lampunya menyala tipis di bawah pintu.",
+        "3": "Aku menutup pintu pelan. Malam ini aku masih di rumah. Besok, belum tentu."
+      }
+    }
+  },
+  "en": {
+    "b17": {
+      "obj": {
+        "selinap": "Get past the patrol post without being seen",
+        "berhenti": "Stop and tell the truth"
+      },
+      "semak": {
+        "1": "The patrol post is two hundred meters ahead. Flashlight beams swing back and forth.",
+        "2": "The neighborhood chief leads. His voice reaches these bushes.",
+        "3": "I can wait, or crawl under the ditch right now.",
+        "cA": "Wait until the beam faces away",
+        "cB": "Cross the ditch now",
+        "a": {
+          "1": "I wait. The beam moves left, then right.",
+          "2": "When it faces away, I step over the small ditch and enter the next bushes."
+        },
+        "b": {
+          "1": "I crawl. The wet soil soaks my elbows.",
+          "2": "The beam stops above my head for a moment. Then moves on. I stay still until my breath is calm."
+        }
+      },
+      "cahaya": {
+        "1": "A flashlight cone cuts across the road. Dust drifts inside the light.",
+        "2": "If I step into that light, my face is seen at once.",
+        "3": "There is a short pause before the lamp swings again.",
+        "cA": "Cross now",
+        "cB": "Wait one more turn",
+        "a": {
+          "1": "I duck and cross. Three steps, then dark again.",
+          "2": "No shout from behind. That means no one has seen me."
+        },
+        "b": {
+          "1": "I press against the wall. Time feels twice as long as usual.",
+          "2": "As the lamp turns, I cross and press myself against the bamboo fence."
+        }
+      },
+      "warga": {
+        "1": "This is no coincidence anymore. Four times, all of them at night.",
+        "2": "Look for someone who knows that field. Do not mention the girl's name yet.",
+        "3": "Joy lived there alone. Who guards it now?",
+        "4": "I can leave now, or listen until the end.",
+        "cA": "Listen until they leave",
+        "cB": "Leave before I am seen",
+        "a": {
+          "1": "They light cigarettes and talk softly. Joy's name is mentioned once, then never again.",
+          "2": "I leave before the next word can reach my ears."
+        },
+        "b": {
+          "1": "I step back from the corner of the shop. Their voices fade behind me.",
+          "2": "My wet shoes leave marks on the ground. I hope it rains tomorrow."
+        }
+      },
+      "patroli": {
+        "1": "Split in two. The ones going to the forest take the long flashlight. No one walks the road alone.",
+        "2": "They divide themselves like hunters. And I am standing between them.",
+        "3": "If you find someone, do not take justice into your own hands. Call me. Understood?",
+        "4": "I can stand up and speak now. The words are already on the tip of my tongue.",
+        "5": "But these legs are ready to run. And tonight I have already run too far.",
+        "6": "I want to stop and talk. But the words will not come out.",
+        "7": "Better to leave before anyone calls my name.",
+        "8": "I wait one breath. The first shout makes my legs move on their own.",
+        "9": "I stand up. Empty hands, so there is no misunderstanding.",
+        "10": "Chief, I am Dimas. I am the one from the field. I want to tell everything.",
+        "11": "The beam stops on my face. Then he switches it off. So you finally came, he says.",
+        "12": "Under the street lamp I talk. My breath is long for the first time in seven days.",
+        "13": "I turn and run. The shouts behind me turn into orders at once.",
+        "14": "Two flashlights follow from different directions. I slip into a narrow alley between houses.",
+        "15": "My heart nearly leaves my chest. But tonight I am not caught.",
+        "cA": "Stop and confess",
+        "cB": "Run. They must not catch me.",
+        "cC": "Run now",
+        "cD": "Wait one breath"
+      },
+      "raka": {
+        "1": "At the end of the road someone stops. Not a villager. The posture is too familiar.",
+        "2": "Raka. My brother. He stands listening to the commotion, then turns toward home.",
+        "3": "I can wave, or vanish before he looks back.",
+        "cA": "Wave",
+        "cB": "Vanish before he looks back",
+        "a": {
+          "1": "My hand comes up halfway. Then it drops again. Not tonight.",
+          "2": "Raka glances toward the dark. Nothing is visible. He walks home."
+        },
+        "b": {
+          "1": "I step back into the shadows. Raka walks home without knowing I was here.",
+          "2": "If he knows, there will be questions tomorrow. And I am not ready to answer."
+        }
+      },
+      "pulang": {
+        "1": "I slip in through the kitchen door, the one I left unlocked on purpose.",
+        "2": "Raka is already in his room. A thin light under his door.",
+        "3": "I close the door softly. Tonight I am still home. Tomorrow, maybe not."
+      }
+    }
+  }
+}

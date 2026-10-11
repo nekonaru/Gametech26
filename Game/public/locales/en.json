@@ -1,0 +1,370 @@
+{
+  "menu": {
+    "start": "Start Game",
+    "continue": "Continue",
+    "load": "Load Game",
+    "settings": "Settings",
+    "exit": "Exit",
+    "mainMenu": "Back to Main Menu",
+    "gallery": "Ending Gallery",
+    "language": "Language"
+  },
+  "settings": {
+    "title": "Settings",
+    "graphics": "Graphics",
+    "audio": "Audio",
+    "controls": "Controls",
+    "text": "Text",
+    "accessibility": "Accessibility",
+    "data": "Data",
+    "preset": "Preset",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "custom": "Custom",
+    "internalResolution": "Internal Resolution",
+    "resolutionNative": "Native",
+    "vertexJitter": "Vertex Jitter",
+    "dithering": "Dithering",
+    "colorQuantization": "Color Quantization",
+    "scanlines": "Scanlines",
+    "grain": "Grain",
+    "fogDistance": "Fog Distance",
+    "fov": "Field of View",
+    "brightness": "Brightness",
+    "maxFps": "Max FPS",
+    "masterVolume": "Master Volume",
+    "musicVolume": "Music Volume",
+    "sfxVolume": "SFX Volume",
+    "ambienceVolume": "Ambience Volume",
+    "dialogBlipVolume": "Dialog Blip Volume",
+    "muteOnBlur": "Mute on Blur",
+    "mouseSensitivity": "Mouse Sensitivity",
+    "touchSensitivity": "Touch Sensitivity",
+    "invertY": "Invert Y Axis",
+    "runToggle": "Run Toggle",
+    "keyBindings": "Key Bindings",
+    "joystickSize": "Joystick Size",
+    "joystickPosition": "Joystick Position",
+    "fontSize": "Font Size",
+    "typeSpeed": "Type Speed",
+    "autoPlay": "Auto-play Dialog",
+    "textBackground": "Text Background",
+    "dialogHistory": "Dialog History",
+    "reduceFlashing": "Reduce Flashing",
+    "reduceCameraShake": "Reduce Camera Shake",
+    "softHorror": "Soft Horror",
+    "highContrast": "High Contrast",
+    "colorBlindFriendly": "Color Blind Friendly",
+    "puzzleHintLevel": "Puzzle Hint Level",
+    "narrativeMode": "Narrative Mode",
+    "showKeyHints": "Show Key Hints (HUD)",
+    "help": "Controls & Key Reference",
+    "showKeyHints": "Show Key Hints (HUD)",
+    "exportSave": "Export Save",
+    "importSave": "Import Save",
+    "deleteSave": "Delete Save",
+    "resetSettings": "Reset Settings",
+    "resetConfirm": "Reset all settings to defaults?"
+  },
+  "compass": {
+    "n": "N",
+    "e": "E",
+    "s": "S",
+    "w": "W"
+  },
+  "help": {
+    "gameplay": "While Playing",
+    "dialog": "During Dialog",
+    "hotbar": "1-9: view hotbar item details",
+    "dNext": "Advance to the next line",
+    "dSkip": "Skip the whole dialog",
+    "dHistory": "Open dialog history",
+    "dChoice": "Move the choice highlight",
+    "dConfirm": "Confirm the highlighted option",
+    "dDirect": "Pick an option directly",
+    "dAuto": "Dialog auto-play (toggle)",
+    "rebind": "Keys can be changed in the Controls tab. The ` key locks/unlocks the cursor; E interacts; F flashlight (once you have it); Q phone; I inventory; Tab missions; Esc pause."
+  },
+  "ui": {
+    "interact": "Interact",
+    "clickToLook": "Click or press ` to lock the cursor",
+    "darkHint": "It's dark here. Press F to turn on the flashlight.",
+    "keys": {
+      "interact": "Interact",
+      "flashlight": "Flashlight",
+      "phone": "Phone",
+      "inventory": "Inventory",
+      "journal": "Missions & Journal",
+      "lock": "Lock/unlock cursor",
+      "pause": "Pause"
+    },
+    "examine": "Examine",
+    "take": "Take",
+    "open": "Open",
+    "close": "Close",
+    "read": "Read",
+    "use": "Use",
+    "talk": "Talk",
+    "save": "Save",
+    "load": "Load",
+    "pause": "Pause",
+    "resume": "Resume",
+    "continue": "Continue",
+    "date": "Date",
+    "restart": "Restart",
+    "quit": "Quit",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "back": "Back",
+    "next": "Next",
+    "skip": "Skip",
+    "hint": "Hint",
+    "objective": "Objective",
+    "objectiveTag": "Goal",
+    "arrivedAt": "Arriving at",
+    "leave": "Go",
+    "journal": "Journal",
+    "phone": "Phone",
+    "flashlight": "Flashlight",
+    "inventory": "Inventory",
+    "clues": "Clues",
+    "endings": "Endings",
+    "achievements": "Achievements",
+    "playtime": "Playtime",
+    "day": "Day",
+    "chapter": "Chapter",
+    "pov": "POV",
+    "variables": "Variables",
+    "flags": "Flags",
+    "checkpoint": "Checkpoint",
+    "autosave": "Auto-save",
+    "manualSave": "Manual Save",
+    "slot": "Slot",
+    "empty": "Empty",
+    "delete": "Delete",
+    "export": "Export",
+    "import": "Import",
+    "warning": "Warning",
+    "contentWarning": "Content Warning",
+    "contentWarningText": "This game contains themes of death, arson, debt pressure, psychological violence, and horror. Recommended for ages 17+.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "exitConfirm": "Quit the game?",
+    "exitFallback": "This tab can't be closed automatically. Please close it manually.",
+    "gameSaved": "Game saved",
+    "saveFailed": "Save failed",
+    "autosave": "Auto-save",
+    "autosaved": "Saved automatically",
+    "overwrite": "Overwrite the save in this slot?",
+    "boardEmpty": "No clues yet. Collect clues from the Journal first.",
+    "boardNoClues": "Every clue is already on the board. Click a placed clue to move it.",
+    "boardProgress": "Correct category: {correct} of {total} clues.",
+    "boardComplete": "Every clue is filed under the right category.",
+    "chapterComplete": "Chapter Complete",
+    "nextChapter": "Next Chapter",
+    "enteringChapter": "New Chapter",
+    "controls": "Controls"
+  },
+  "dialog": {
+    "hintNext": "SPACE/ENTER • next",
+    "hintSkip": "ESC • skip dialog",
+    "hintHistory": "H • history",
+    "hintChoice": "W/S choose, SPACE confirm, 1-4 direct",
+    "autoPlayOn": "P • Auto-play: ON",
+    "autoPlayOff": "P • Auto-play: OFF",
+    "history": "Dialog History",
+    "choicePrefix": "Choice: ",
+    "willBeRemembered": "This will be remembered..."
+  },
+  "phone": {
+    "title": "Phone",
+    "messages": "Messages",
+    "calls": "Calls",
+    "flashlight": "Flashlight",
+    "radio": "Radio",
+    "debt": "Debt",
+    "noMessages": "No messages",
+    "noCalls": "No calls",
+    "battery": "Battery",
+    "signal": "Signal"
+  },
+  "journal": {
+    "title": "Clue Journal",
+    "clues": "Clues",
+    "notes": "Notes",
+    "missions": "Missions",
+    "missionNow": "CURRENT OBJECTIVE",
+    "missionsDone": "Completed Steps",
+    "missionsNone": "No steps completed yet.",
+    "clueFound": "Clue found: ",
+    "noClues": "No clues yet",
+    "chapter": "Chapter",
+    "evidenceBoard": "Evidence Board",
+    "connectClues": "Connect clues to find the truth",
+    "categories": {
+      "motive": "Motive",
+      "time": "Time",
+      "location": "Location",
+      "victim": "Victim",
+      "physicalEvidence": "Physical Evidence"
+    }
+  },
+  "inventory": {
+    "kosong": "Your bag is still empty.",
+    "baru": "New item",
+    "noSenter": "You don't have a flashlight yet.",
+    "hint": "PRESS I TO OPEN AND CLOSE YOUR INVENTORY"
+  },
+  "item": {
+    "ponsel": {
+      "name": "Phone",
+      "desc": "Your old phone. Press Q to open it: messages, calls, and a backup light."
+    },
+    "senter": {
+      "name": "Flashlight",
+      "desc": "A battery flashlight. Press F to turn it on and off. Use it in dark places like hallways, the basement, and the forest at night."
+    },
+    "obeng": {
+      "name": "Screwdriver",
+      "desc": "An orange-handled screwdriver from the kitchen counter. The tip fits the fuse box on the living room wall (Chapter 1)."
+    },
+    "kunci_laci": {
+      "name": "Drawer Key",
+      "desc": "A small key on a rubber band from the fuse box. Use it to open the drawer in the living room (Chapter 1)."
+    },
+    "kwitansi": {
+      "name": "Receipt",
+      "desc": "An old receipt mentioning the debt and the name of the lender."
+    },
+    "peta_lahan": {
+      "name": "Land Map",
+      "desc": "The project land map. Its boundaries are marked in red ink that seems never to dry."
+    },
+    "uang_muka": {
+      "name": "Advance Pay",
+      "desc": "The foreman's advance, still warm from inside its envelope."
+    },
+    "kartu_nama": {
+      "name": "Business Card",
+      "desc": "A card from a jacket pocket. Inside it, a name and trade that should not have been there."
+    },
+    "struk_robek": {
+      "name": "Torn Receipt",
+      "desc": "A receipt torn in two. The date and figures are still legible if joined."
+    },
+    "nasi_goreng": {
+      "name": "Fried Rice",
+      "desc": "Freshly cooked fried rice, packed to bring along to meet someone."
+    }
+  },
+  "puzzle": {
+    "help": "Help",
+    "skip": "Skip Puzzle",
+    "skipConfirm": "Skip this puzzle? Clue will be given but 'Detective' achievement won't unlock.",
+    "solved": "Puzzle solved!",
+    "failed": "Try again",
+    "hint": "Hint: ",
+    "cancel": "Cancel"
+  },
+  "achievements": {
+    "title": "Achievements",
+    "locked": "Locked",
+    "detektif": {
+      "name": "Detective",
+      "desc": "Finish all six puzzles without using the Skip button."
+    }
+  },
+  "controls": {
+    "forward": "Forward",
+    "backward": "Backward",
+    "left": "Left",
+    "right": "Right",
+    "run": "Run",
+    "crouch": "Crouch",
+    "interact": "Interact",
+    "flashlight": "Flashlight",
+    "phone": "Phone",
+    "journal": "Journal",
+    "pause": "Pause",
+    "title": "Controls Guide",
+    "move": "Move",
+    "inventory": "Inventory",
+    "mouse": "Mouse: look · Left click: lock/unlock view",
+    "dismiss": "Press any key to close"
+  },
+  "prologue": {
+    "line1": "For as long as I remember, this village never stopped smoking. Chimney after chimney, day and night, the haze kept rising, like a heart that never stopped beating.",
+    "line2": "Then one night the smoke stopped rising. It did not go out; it only stood still, hanging low over the rooftops as if waiting for something.",
+    "line3": "Dimas came home because a debt was still owed to him. Raka came home because no one was waiting for him.",
+    "title": "Asap yang Tak Padam"
+  },
+  "ending": {
+    "title": "Ending",
+    "ending": "Ending",
+    "unlocked": "Ending unlocked: ",
+    "locked": "Locked",
+    "gallery": "Ending Gallery",
+    "replay": "Replay",
+    "chapterSelect": "Chapter Select",
+    "ending1": "Lonely Road",
+    "ending2": "A Little Too Late",
+    "ending3": "Justice",
+    "ending4": "Blood is Thicker",
+    "ending5": "Fire Retaliates",
+    "ending6": "Light at the End of Smoke (True Ending)",
+    "ending7": "Confession Under the Light",
+    "ending8": "Going Home Unknowing",
+    "ending9": "Those Who Run Never Return",
+    "epilog": "Epilogue",
+    "fateDimas": "Dimas's fate",
+    "fateRudi": "Rudi's fate"
+  },
+  "credits": {
+    "title": "Credits",
+    "gameDesign": "Game Design",
+    "programming": "Programming",
+    "art": "Art & Visual",
+    "audio": "Audio & Music",
+    "writing": "Writing",
+    "testing": "Testing & QA",
+    "specialThanks": "Special Thanks",
+    "tools": "Tools & Libraries",
+    "threejs": "Three.js",
+    "vite": "Vite",
+    "typescript": "TypeScript",
+    "contact": "Contact",
+    "ojkInfo": "Illegal online lending info: OJK 157"
+  },
+  "b01": {
+    "title": "The Bill",
+    "objective": "Learn financial situation and morning routine"
+  },
+  "b02": {
+    "title": "Coffee Shop",
+    "objective": "Talk with Rudi at the coffee shop"
+  },
+  "b03": {
+    "title": "Bus Home",
+    "objective": "Arrive at village and head home"
+  },
+  "b04": {
+    "title": "Empty House",
+    "objective": "Explore house and find debt evidence"
+  },
+  "b05": {
+    "title": "Warung and Gossip",
+    "objective": "Get information at Mak Yah's warung"
+  },
+  "b05b": {
+    "title": "Dinner Together",
+    "objective": "Have dinner with Dimas"
+  },
+  "b06": {
+    "title": "Second Offer",
+    "objective": "Decide to accept or refuse Rudi's offer"
+  }
+}

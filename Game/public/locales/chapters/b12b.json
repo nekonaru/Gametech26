@@ -1,0 +1,128 @@
+{
+  "id": {
+    "obj": {
+      "b12b": {
+        "titik": "Ikuti Rudi ke tepi hutan tanpa ketahuan warga"
+      }
+    },
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "read": "Baca",
+      "use": "Gunakan"
+    },
+    "b12b": {
+      "title": "Titik Terakhir",
+      "rudi": {
+        "1": "Titik ketiga, malam ini. Kalau besok belum jalan, orang suruhan yang turun.",
+        "2": "Aku diam. Angin dari hutan membawa bau tanah basah.",
+        "3": "Lu mau ikut atau mau jaga?",
+        "cA": "Berhenti. Ini sudah terlalu jauh.",
+        "cB": "Aku jaga. Lu yang jalan.",
+        "a": {
+          "1": "Terlalu jauh? Utang lu yang bikin ini jauh, Mas.",
+          "2": "Diem sana. Nanti juga kelar.",
+          "3": "Aku mengatakan yang benar. Tidak ada yang berubah.",
+          "4": "Rudi sudah berbalik. Kataku tertinggal di tanah."
+        },
+        "b": {
+          "1": "Nah. Bagus.",
+          "2": "Aku memilih menjaga. Lebih mudah begitu."
+        }
+      },
+      "aksi": {
+        "1": "Rudi berjalan menjauh ke arah gelap. Aku menoleh ke arah lain.",
+        "2": "Aku tidak melihat apa yang dia lakukan. Aku memilih untuk tidak melihat.",
+        "3": "Beberapa menit kemudian, langit di ujung hutan berubah oranye.",
+        "4": "Jauh di sana, asap naik tipis. Sesuatu di dadaku terasa hilang."
+      },
+      "semak": {
+        "1": "Semak bambu cukup rapat untuk bersembunyi. Aku menunduk.",
+        "2": "Anjing menggonggong dua kali, lalu diam.",
+        "3": "Aku baru berdiri setelah suara patroli menjauh."
+      },
+      "patroli": {
+        "1": "Senter dari arah jalan menyapu semak.",
+        "2": "Dua orang berjalan lambat, salah satunya membawa toa kecil.",
+        "3": "Mereka tidak menoleh ke arah hutan."
+      },
+      "catatan": {
+        "1": "Buku catatan Rudi tergeletak di batu. Tiga tanggal dilingkari.",
+        "2": "Tiga kebakaran, tiga malam berbeda. Aku menghafal tanpa ingin tahu.",
+        "3": "Aku menutup buku itu dan mengembalikannya."
+      },
+      "tanah": {
+        "1": "Tercium bau tanah basah dan asap.",
+        "2": "Rumput basah membasahi pergelangan kaki."
+      },
+      "pulang": {
+        "1": "Aku menyusul Rudi ke jalan setapak. Malam masih panjang.",
+        "2": "Dadaku berat, tapi kakiku terus melangkah."
+      }
+    }
+  },
+  "en": {
+    "obj": {
+      "b12b": {
+        "titik": "Follow Rudi to the forest edge without being seen"
+      }
+    },
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "talk": "Talk",
+      "read": "Read",
+      "use": "Use"
+    },
+    "b12b": {
+      "title": "The Last Point",
+      "rudi": {
+        "1": "The third point, tonight. If it doesn't move tomorrow, the courier comes down.",
+        "2": "I stay silent. Wind from the forest carries the smell of wet earth.",
+        "3": "You coming or keeping watch?",
+        "cA": "Stop. This has gone too far.",
+        "cB": "I keep watch. You go.",
+        "a": {
+          "1": "Too far? Your debt is what made this far, Mas.",
+          "2": "Keep quiet. It'll be over soon.",
+          "3": "I said the right thing. Nothing changes.",
+          "4": "Rudi has already turned away. My words stay on the ground."
+        },
+        "b": {
+          "1": "Good. That's more like it.",
+          "2": "I choose to watch. It is easier that way."
+        }
+      },
+      "aksi": {
+        "1": "Rudi walks away into the dark. I look the other way.",
+        "2": "I do not see what he does. I choose not to see.",
+        "3": "Minutes later, the sky at the edge of the forest turns orange.",
+        "4": "Far away, thin smoke rises. Something in my chest feels gone."
+      },
+      "semak": {
+        "1": "The bamboo thicket is dense enough to hide in. I crouch.",
+        "2": "A dog barks twice, then falls silent.",
+        "3": "I stand up only after the patrol sound moves away."
+      },
+      "patroli": {
+        "1": "A flashlight from the road sweeps across the bushes.",
+        "2": "Two men walk slowly, one carrying a small megaphone.",
+        "3": "They do not look toward the forest."
+      },
+      "catatan": {
+        "1": "Rudi's notebook lies on a rock. Three dates are circled.",
+        "2": "Three fires, three different nights. I memorize them without wanting to know more.",
+        "3": "I close the notebook and put it back."
+      },
+      "tanah": {
+        "1": "The smell of wet earth and smoke.",
+        "2": "Wet grass soaks my ankles."
+      },
+      "pulang": {
+        "1": "I follow Rudi to the footpath. The night is still long.",
+        "2": "My chest is heavy, but my feet keep moving."
+      }
+    }
+  }
+}

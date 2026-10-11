@@ -1,0 +1,84 @@
+{
+  "clues": [
+    {
+      "id": "c1",
+      "title_id": "Kwitansi Pinjol",
+      "title_en": "Loan Shark Receipt",
+      "description_id": "Tumpukan kwitansi pinjol online dengan bunga tinggi. Nama Dimas tertera sebagai peminjam. Total: 87 juta rupiah.",
+      "description_en": "Stack of online loan receipts with high interest. Dimas's name as borrower. Total: 87 million rupiah.",
+      "chapter": "B4",
+      "category": "motive",
+      "points": 1
+    },
+    {
+      "id": "c2a",
+      "title_id": "Lokasi Kebakaran",
+      "title_en": "Fire Location",
+      "description_id": "Warga membicarakan titik kebakaran di ladang sebelah hutan. Bukan ladang Joy. Kebakaran ini terjadi bulan lalu, bukan malam ini.",
+      "description_en": "Villagers discuss fire at field near forest. Not Joy's field. This fire happened last month, not tonight.",
+      "chapter": "B5",
+      "category": "location",
+      "points": 1
+    },
+    {
+      "id": "c2b",
+      "title_id": "Penjaga Ladang Joy",
+      "title_en": "Joy the Field Guardian",
+      "description_id": "Joy adalah penjaga ladang titipan keluarga, tinggal sendirian di pondok dekat hutan. Ayahnya sakit. Dia suka bersenandung sambil kerja.",
+      "description_en": "Joy guards family field, lives alone in hut near forest. Father is sick. She hums while working.",
+      "chapter": "B5",
+      "category": "victim",
+      "points": 1
+    },
+    {
+      "id": "c3",
+      "title_id": "Pola Kebakaran",
+      "title_en": "Fire Pattern",
+      "description_id": "Kebakaran terjadi berulang pada malam hari. Pola waktu konsisten: 22:00-23:00. Titik api selalu di area yang sama.",
+      "description_en": "Fires recur at night. Consistent pattern: 22:00-23:00. Ignition points always in same area.",
+      "chapter": "B9",
+      "category": "time",
+      "points": 1
+    },
+    {
+      "id": "c4",
+      "title_id": "Laporan Kehilangan Joy",
+      "title_en": "Joy Missing Report",
+      "description_id": "Ibu Joy melapor ke balai desa. Foto Joy memakai kalung bulan sabit. Joy hilang sejak malam kebakaran besar (Hari 3).",
+      "description_en": "Joy's mother reports to village hall. Photo of Joy wearing crescent moon necklace. Missing since big fire night (Day 3).",
+      "chapter": "B11",
+      "category": "victim",
+      "points": 1
+    },
+    {
+      "id": "c5",
+      "title_id": "Rincian Utang",
+      "title_en": "Debt Details",
+      "description_id": "Struk robek menunjukkan total utang Dimas: 87 juta. Bunga 20% per minggu. Peminjam: Dimas Pratama. Penyedia: PT Mandiri Lestari (fiktif).",
+      "description_en": "Torn receipt shows Dimas's debt: 87 million. 20% weekly interest. Borrower: Dimas Pratama. Provider: PT Mandiri Lestari (fictional).",
+      "chapter": "B13",
+      "category": "motive",
+      "points": 1
+    },
+    {
+      "id": "c6",
+      "title_id": "Jadwal Kebakaran & Dimas",
+      "title_en": "Fire Schedule & Dimas",
+      "description_id": "Tiga tanggal kebakaran cocok dengan jam Dimas pulang telat dari 'kerja'. 1) Hari 2 malam, 2) Hari 3 malam (kebakaran besar), 3) Hari 4 malam.",
+      "description_en": "Three fire dates match Dimas's late returns from 'work'. 1) Night Day 2, 2) Night Day 3 (big fire), 3) Night Day 4.",
+      "chapter": "B13",
+      "category": "time",
+      "points": 1
+    },
+    {
+      "id": "c7",
+      "title_id": "Bukti Cukong",
+      "title_en": "Mastermind Evidence",
+      "description_id": "Kartu nama perusahaan fiktif 'PT Mandiri Lestari' ditemukan di saku jaket Dimas. Ini bukti ada orang di balik Rudi.",
+      "description_en": "Business card of fictional 'PT Mandiri Lestari' found in Dimas's jacket pocket. Proof someone behind Rudi.",
+      "chapter": "B13",
+      "category": "physicalEvidence",
+      "points": 0
+    }
+  ]
+}

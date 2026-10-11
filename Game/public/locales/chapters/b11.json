@@ -1,0 +1,194 @@
+{
+  "id": {
+    "obj": {
+      "b11": {
+        "balai": "Datang ke balai desa dan ikut daftar pencarian",
+        "daftar": "Nama sudah tercatat, ikuti rapat warga"
+      }
+    },
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "read": "Baca",
+      "use": "Gunakan"
+    },
+    "b11": {
+      "title": "Berita yang Tenggelam",
+      "ibu": {
+        "1": "Nak, kenal Joy? Anak saya penjaga ladang di ujung sana.",
+        "2": "Kenal, Bu. Sedikit. Dia pernah menyapa saya di jalan.",
+        "3": "Tiga hari dia tidak menelepon. Padahal tiap pagi dia selalu.",
+        "cA": "Saya bantu cari, Bu.",
+        "cB": "Saya turut prihatin, Bu.",
+        "a": {
+          "1": "Ibu itu mengangguk. Matanya merah, tapi tidak menangis.",
+          "2": "Terima kasih. Cari di hutan ya, jangan di kampung."
+        },
+        "b": {
+          "1": "Kata-kataku terdengar kecil bahkan untukku sendiri.",
+          "2": "Iya. Terima kasih, Nak."
+        }
+      },
+      "laporan": {
+        "1": "Meja balai penuh kertas. Satu di antaranya laporan kehilangan atas nama Joy.",
+        "2": "Ada foto diselipkan. Joy tersenyum, memakai kalung bulan sabit.",
+        "3": "Aku tidak tahu kenapa detail itu melekat. Tanpa sadar aku mengingatnya."
+      },
+      "teman": {
+        "1": "Raka! Kapan balik? Katanya kuliahmu sibuk.",
+        "2": "Dengar soal ladang itu? Orang jaga hilang, api lagi.",
+        "3": "Mau tahu yang mana dulu?",
+        "cA": "Tanya soal kebakaran",
+        "cB": "Tanya soal Joy",
+        "cC": "Bicara hal biasa",
+        "api": {
+          "1": "Bulan ini tiga kali. Warga bilang kering, tapi polanya aneh.",
+          "2": "Jamnya selalu malam. Kalau kering, siang lebih mudah terjadi."
+        },
+        "joy": {
+          "1": "Joy? Diam-diam orangnya. Suka bernyanyi pelan kalau lewat.",
+          "2": "Ibunya tadi ke balai, bawa foto."
+        },
+        "biasa": {
+          "1": "Pokoknya mampir ke kedai. Kopinya masih sama seperti dulu."
+        }
+      },
+      "daftar": {
+        "1": "Kotak pensil dan daftar pencarian warga. Nama ditulis berurutan.",
+        "2": "Aku menulis namaku di baris terakhir."
+      },
+      "kumpul": {
+        "1": "Titik api ketiga semalam. Besok kita bagi regu.",
+        "2": "Aku memegang kertas catatan tanggal di saku.",
+        "3": "Tiga kejadian, satu arah. Kalau diam, tidak ada yang mengecek.",
+        "cA": "Bicara sekarang",
+        "cB": "Simpan dulu",
+        "a": {
+          "1": "Pak, titiknya berurutan. Menurut saya ini bukan kebetulan.",
+          "2": "Jangan bikin panik. Tapi catat itu, nak. Kita lihat besok.",
+          "3": "Kata-kataku sudah keluar. Tidak bisa ditarik lagi."
+        },
+        "b": {
+          "1": "Aku menarik tangan dari kertas.",
+          "2": "Besok mungkin lebih banyak bukti. Mungkin."
+        }
+      },
+      "dimas": {
+        "tangan": {
+          "1": "Abang lewat depan balai, tangan kanannya terbalut kain.",
+          "2": "Kainnya baru. Ujungnya ada bekas hangus kecil.",
+          "3": "Aku mau bertanya, tapi dia sudah masuk warung."
+        },
+        "baju": {
+          "1": "Abang lewat depan balai, bahu bajunya robek.",
+          "2": "Dia menunduk waktu melihatku."
+        },
+        "none": {
+          "1": "Abang lewat depan balai tanpa berhenti.",
+          "2": "Kami hanya melambai. Ada yang berubah di matanya."
+        }
+      },
+      "pintu": {
+        "1": "Aku keluar dari balai. Jalan desa terang, tapi rasanya gelap.",
+        "2": "Di saku ada satu nama yang belum selesai: Joy."
+      }
+    }
+  },
+  "en": {
+    "obj": {
+      "b11": {
+        "balai": "Go to the village hall and join the search list",
+        "daftar": "Your name is on the list, join the villagers' meeting"
+      }
+    },
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "talk": "Talk",
+      "read": "Read",
+      "use": "Use"
+    },
+    "b11": {
+      "title": "News That Sinks",
+      "ibu": {
+        "1": "Do you know Joy, dear? My daughter looks after the field at the far end.",
+        "2": "I know her, Ma'am. A little. She once greeted me on the road.",
+        "3": "Three days and she has not called. She calls every morning.",
+        "cA": "I will help look for her, Ma'am.",
+        "cB": "I am sorry to hear that, Ma'am.",
+        "a": {
+          "1": "She nods. Her eyes are red, but she does not cry.",
+          "2": "Thank you. Look in the forest, not in the village."
+        },
+        "b": {
+          "1": "My words sound small even to me.",
+          "2": "Yes. Thank you, dear."
+        }
+      },
+      "laporan": {
+        "1": "The hall table is covered in papers. One is a missing person report for Joy.",
+        "2": "A photo is tucked in. Joy smiles, wearing a crescent moon necklace.",
+        "3": "I do not know why that detail sticks. I remember it without meaning to."
+      },
+      "teman": {
+        "1": "Raka! When did you get back? They say your studies keep you busy.",
+        "2": "Heard about that field? The caretaker is gone, and fire again.",
+        "3": "Which one do you want to hear first?",
+        "cA": "Ask about the fires",
+        "cB": "Ask about Joy",
+        "cC": "Talk about something normal",
+        "api": {
+          "1": "Three times this month. People say it is dry, but the pattern is odd.",
+          "2": "It is always night. If it were dry weather, daytime would be more likely."
+        },
+        "joy": {
+          "1": "Joy? She kept to herself. She liked humming softly when she passed.",
+          "2": "Her mother came to the hall earlier, with a photo."
+        },
+        "biasa": {
+          "1": "Anyway, stop by the cafe. The coffee is the same as always."
+        }
+      },
+      "daftar": {
+        "1": "A pencil box and the residents' search list. Names written in order.",
+        "2": "I write my name on the last line."
+      },
+      "kumpul": {
+        "1": "The third fire point last night. Tomorrow we split into teams.",
+        "2": "I hold the paper with the dates in my pocket.",
+        "3": "Three incidents, one direction. If I stay quiet, no one checks.",
+        "cA": "Speak up now",
+        "cB": "Keep it for now",
+        "a": {
+          "1": "Sir, the points follow a sequence. I do not think it is coincidence.",
+          "2": "Do not cause a panic. But write that down, son. We will see tomorrow.",
+          "3": "My words are out. I cannot take them back."
+        },
+        "b": {
+          "1": "I pull my hand away from the paper.",
+          "2": "Tomorrow there may be more evidence. Maybe."
+        }
+      },
+      "dimas": {
+        "tangan": {
+          "1": "Abang passes the hall, his right hand wrapped in cloth.",
+          "2": "The cloth is new. There is a small burn mark at the edge.",
+          "3": "I want to ask, but he has already entered the shop."
+        },
+        "baju": {
+          "1": "Abang passes the hall, the shoulder of his shirt torn.",
+          "2": "He looks down when he sees me."
+        },
+        "none": {
+          "1": "Abang passes the hall without stopping.",
+          "2": "We only wave. Something has changed in his eyes."
+        }
+      },
+      "pintu": {
+        "1": "I step out of the hall. The village road is bright, but it feels dark.",
+        "2": "In my pocket there is one unfinished name: Joy."
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1a1a1a">
+  <meta name="description" content="Asap yang Tak Padam - Psychological Horror Narrative Game">
+  <title>Asap yang Tak Padam</title>
+  <link rel="stylesheet" href="/src/ui/styles.css">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: 'PixelFont', monospace;
+    }
+    #app {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    #game-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      gap: 16px;
+      color: #ccc;
+      font-family: 'PixelFont', monospace;
+    }
+    #loading-screen.hidden {
+      display: none;
+    }
+    .loading-bar {
+      width: 200px;
+      height: 4px;
+      background: #222;
+      border: 1px solid #333;
+      overflow: hidden;
+    }
+    .loading-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #ff6b35;
+      transition: width 0.3s ease;
+    }
+    .loading-text {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .version {
+      font-size: 10px;
+      color: #555;
+      margin-top: 8px;
+    }
+    .file-note {
+      position: fixed;
+      inset: 0;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+      padding: 6vh 8vw;
+      background: #0a0a0a;
+      color: #e0ddd5;
+      font-family: 'PixelFont', 'Courier New', monospace;
+      line-height: 1.7;
+    }
+    .file-note h1 {
+      font-size: 22px;
+      letter-spacing: 6px;
+      font-weight: normal;
+      color: #ff6b35;
+    }
+    .file-note h2 {
+      font-size: 14px;
+      letter-spacing: 4px;
+      font-weight: normal;
+      color: #999689;
+      margin-top: 8px;
+    }
+    .file-note p,
+    .file-note li {
+      font-size: 14px;
+      max-width: 70ch;
+    }
+    .file-note .lead {
+      font-size: 16px;
+      color: #ff6b35;
+    }
+    .file-note ol {
+      padding-left: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      max-width: 70ch;
+    }
+    .file-note code {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      padding: 1px 6px;
+      color: #ffcc00;
+    }
+    .file-note .muted {
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+  <script>
+    // Opening index.html by double click uses the file: protocol, which browsers
+    // block for module scripts and data fetches. Show instructions instead of a
+    // black loading screen that never finishes.
+    if (location.protocol === 'file:') {
+      document.addEventListener('DOMContentLoaded', function () {
+        var loading = document.getElementById('loading-screen');
+        if (loading && loading.parentNode) loading.parentNode.removeChild(loading);
+        var app = document.getElementById('app');
+        if (!app) return;
+        app.innerHTML = [
+          '<div class="file-note">',
+          '<h1>ASAP YANG TAK PADAM</h1>',
+          '<p class="lead">Game ini tidak bisa dibuka dengan klik ganda.</p>',
+          '<p><code>index.html</code> harus disajikan lewat server HTTP. '
+            + 'Browser memblokir modul JavaScript dan file data pada protocol <code>file:</code>, '
+            + 'itu sebabnya layar berhenti di "Memuat aset". Pesan merah di console bisa diabaikan.</p>',
+          '<h2>CARA MENJALANKAN</h2>',
+          '<ol>',
+          '<li><strong>Cara paling mudah:</strong> klik dua kali <code>MAINKAN.bat</code>, '
+            + 'tunggu sampai browser terbuka sendiri di <code>http://localhost:8000</code>.</li>',
+          '<li>Versi pengembangan: buka terminal di folder ini, jalankan '
+            + '<code>npm install</code> lalu <code>npm run dev</code>, '
+            + 'lalu buka <code>http://localhost:3000</code>.</li>',
+          '<li>Manual: jalankan <code>node serve.cjs</code> untuk menyajikan folder '
+            + '<code>dist</code> di <code>http://localhost:8000</code>.</li>',
+          '</ol>',
+          '<p class="muted">Folder <code>dist</code> sudah ikut terkirim. Tidak perlu build ulang '
+            + 'kalau hanya ingin memainkannya.</p>',
+          '</div>'
+        ].join('');
+      });
+    }
+  </script>
+</head>
+<body>
+  <div id="loading-screen" role="status" aria-live="polite">
+    <div class="loading-text">ASAP YANG TAK PADAM</div>
+    <div class="loading-bar">
+      <div class="loading-bar-fill" id="loading-bar-fill"></div>
+    </div>
+    <div class="loading-text" id="loading-status">Memuat aset...</div>
+    <div class="version">v1.0.0</div>
+  </div>
+  <div id="app">
+    <canvas id="game-canvas"></canvas>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

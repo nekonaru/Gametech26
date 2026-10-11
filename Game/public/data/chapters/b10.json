@@ -1,0 +1,113 @@
+{
+  "id": "b10",
+  "hari": 3,
+  "jam": "22:30",
+  "pov": "dimas",
+  "scene": "ladang_joy",
+  "onEnter": [
+    { "op": "setLighting", "preset": "hutan_malam", "transition": 2 },
+    { "op": "objective", "id": "cari", "text": "obj.b10.cari" },
+    { "op": "playSound", "key": "ambience_fire_distant", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    { "id": "jalur_asap", "prompt": "ui.interact", "position": [0.8, 0, -3],
+      "onUse": [{ "op": "dialog", "node": "b10.jalur" }] },
+    { "id": "pondok_joy", "prompt": "ui.examine", "position": [2.8, 0, -4.6],
+      "onUse": [{ "op": "dialog", "node": "b10.pondok" }] },
+    { "id": "ponsel", "prompt": "ui.interact", "position": [-1.4, 0, -1.6],
+      "onUse": [
+        { "op": "dialog", "node": "b10.rudi" },
+        { "op": "playSound", "key": "phone_hangup", "options": { "category": "sfx", "volume": 0.5 } }
+      ] },
+    { "id": "bekas_jalur", "prompt": "ui.examine", "position": [-2.6, 0, -4],
+      "onUse": [{ "op": "dialog", "node": "b10.jejak" }] },
+    { "id": "bekas_diri", "prompt": "ui.examine", "position": [1.6, 0, -1.2],
+      "onUse": [
+        { "op": "if", "condition": "flags.b10_choose_help === true",
+          "then": [{ "op": "dialog", "node": "b10.tangan" }],
+          "else": [
+            { "op": "if", "condition": "flags.b10_choose_run === true",
+              "then": [{ "op": "dialog", "node": "b10.baju" }],
+              "else": [{ "op": "dialog", "node": "b10.belum" }] }
+          ] }
+      ] },
+    { "id": "jalan_pulang", "prompt": "ui.interact", "position": [0, 0, -5.6], "once": true,
+      "onUse": [{ "op": "dialog", "node": "b10.pulang" }, { "op": "chapterEnd" }] }
+  ],
+  "dialogs": {
+    "b10.jalur": [
+      { "speaker": "Dimas", "text": "b10.jalur.1" },
+      { "speaker": "Dimas", "text": "b10.jalur.2" },
+      { "speaker": "Dimas", "text": "b10.jalur.3",
+        "choices": [
+          { "text": "b10.jalur.cA", "next": "b10.tolong", "important": true,
+            "onSelect": [
+              { "op": "setFlag", "flag": "b10_choose_help", "value": true },
+              { "op": "addNurani", "value": 1 },
+              { "op": "setEcho", "key": "jejak_b10_tangan", "value": true }
+            ] },
+          { "text": "b10.jalur.cB", "next": "b10.lari", "important": true,
+            "onSelect": [
+              { "op": "setFlag", "flag": "b10_choose_run", "value": true },
+              { "op": "setEcho", "key": "jejak_b10_baju", "value": true }
+            ] }
+        ] }
+    ],
+    "b10.tolong": [
+      { "speaker": "Dimas", "text": "b10.tolong.1" },
+      { "speaker": "Dimas", "text": "b10.tolong.2",
+        "onEnter": [{ "op": "playSound", "key": "heat_wave", "options": { "category": "sfx", "volume": 0.6 } }] },
+      { "speaker": "Dimas", "text": "b10.tolong.3" },
+      { "speaker": "Dimas", "text": "b10.tolong.4" },
+      { "speaker": "Dimas", "text": "b10.tolong.5" }
+    ],
+    "b10.lari": [
+      { "speaker": "Dimas", "text": "b10.lari.1" },
+      { "speaker": "Dimas", "text": "b10.lari.2",
+        "onEnter": [{ "op": "playSound", "key": "run_fast", "options": { "category": "sfx", "volume": 0.5 } }] },
+      { "speaker": "Dimas", "text": "b10.lari.3" },
+      { "speaker": "Dimas", "text": "b10.lari.4" },
+      { "speaker": "Dimas", "text": "b10.lari.5" }
+    ],
+    "b10.pondok": [
+      { "speaker": "Dimas", "text": "b10.pondok.1" },
+      { "speaker": "Dimas", "text": "b10.pondok.2" },
+      { "speaker": "Dimas", "text": "b10.pondok.3" }
+    ],
+    "b10.rudi": [
+      { "speaker": "Rudi", "text": "b10.rudi.1" },
+      { "speaker": "Dimas", "text": "b10.rudi.2",
+        "choices": [
+          { "text": "b10.rudi.cA", "next": "b10.rudi.a" },
+          { "text": "b10.rudi.cB", "next": "b10.rudi.b" }
+        ] }
+    ],
+    "b10.rudi.a": [
+      { "speaker": "Rudi", "text": "b10.rudi.a.1" },
+      { "speaker": "Dimas", "text": "b10.rudi.a.2" }
+    ],
+    "b10.rudi.b": [
+      { "speaker": "Dimas", "text": "b10.rudi.b.1" },
+      { "speaker": "Dimas", "text": "b10.rudi.b.2" }
+    ],
+    "b10.jejak": [
+      { "speaker": "Dimas", "text": "b10.jejak.1" },
+      { "speaker": "Dimas", "text": "b10.jejak.2" }
+    ],
+    "b10.tangan": [
+      { "speaker": "Dimas", "text": "b10.tangan.1" },
+      { "speaker": "Dimas", "text": "b10.tangan.2" }
+    ],
+    "b10.baju": [
+      { "speaker": "Dimas", "text": "b10.baju.1" },
+      { "speaker": "Dimas", "text": "b10.baju.2" }
+    ],
+    "b10.belum": [
+      { "speaker": "Dimas", "text": "b10.belum.1" }
+    ],
+    "b10.pulang": [
+      { "speaker": "Dimas", "text": "b10.pulang.1" },
+      { "speaker": "Dimas", "text": "b10.pulang.2" }
+    ]
+  }
+}

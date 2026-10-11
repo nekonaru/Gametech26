@@ -1,0 +1,148 @@
+{
+  "id": {
+    "obj": {
+      "b10": {
+        "cari": "Ikuti suara minta tolong menuju ladang"
+      }
+    },
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa"
+    },
+    "b10": {
+      "title": "Ladang Joy",
+      "jalur": {
+        "1": "Asap menyeberang jalur di depanku. Warnanya putih, bukan hitam.",
+        "2": "Dari arah ladang Joy terdengar suara minta tolong. Perempuan, lalu sunyi.",
+        "3": "Kalau aku berhenti sekarang, suara itu berhenti juga.",
+        "cA": "Coba tolong",
+        "cB": "Lari"
+      },
+      "tolong": {
+        "1": "Aku jalan ke arah suara. Asap menutup mata, aku menunduk.",
+        "2": "Panas datang dari depan seperti dinding. Kakiku berhenti sendiri.",
+        "3": "Tanganku tersentuh sesuatu yang panas. Aku menariknya dan mundur.",
+        "4": "Suara itu makin jauh. Lalu tidak ada lagi.",
+        "5": "Aku berdiri di situ sampai kaki tidak mau bergerak."
+      },
+      "lari": {
+        "1": "Aku berbalik dan berlari menyusuri jalur sementara.",
+        "2": "Api mengikuti dari belakang. Cahayanya membuat bayangan pohon jadi oranye.",
+        "3": "Ranting menyeret bajuku sampai robek. Aku tidak berhenti.",
+        "4": "Suara dari ladang mengecil di belakangku.",
+        "5": "Di jalan tanah tidak ada yang mengejar. Hanya asap."
+      },
+      "pondok": {
+        "1": "Pondok Joy terlihat dari kejauhan. Atapnya gelap, pintunya terbuka.",
+        "2": "Dari sini aku tidak bisa mendekat. Panasnya terasa di pipi.",
+        "3": "Lampu di pondok mati."
+      },
+      "rudi": {
+        "1": "Lu di mana? Jangan ke arah situ, udah beres.",
+        "2": "Layar ponsel menyala di telapak tanganku.",
+        "cA": "Angkat",
+        "cB": "Matikan ponsel",
+        "a": {
+          "1": "Halo? Gue dengerin cuma napas lu. Jangan jadi hero, Mas.",
+          "2": "Aku diamkan ponsel di telinga sampai sambungan putus."
+        },
+        "b": {
+          "1": "Layar padam. Aku simpan ponsel di saku.",
+          "2": "Kalau Rudi menelepon lagi, aku tidak akan angkat."
+        }
+      },
+      "jejak": {
+        "1": "Jalur tanah meninggalkan bekas kaki yang berulang.",
+        "2": "Bekasnya dua orang, aku dan Rudi. Tidak ada bekas ketiga."
+      },
+      "tangan": {
+        "1": "Tanganku dibalut kain dari saku. Nyerinya naik turun.",
+        "2": "Besok kalau ditanya, aku bilang tersengat."
+      },
+      "baju": {
+        "1": "Bajuku robek di bahu, kena ranting tadi.",
+        "2": "Aku biarkan begitu. Menjahitnya terasa seperti mengaku."
+      },
+      "belum": {
+        "1": "Aku belum memilih. Semua masih terbuka."
+      },
+      "pulang": {
+        "1": "Jalur pulang tertutup asap. Aku tunggu sebentar, lalu jalan.",
+        "2": "Malam ini aku tidak akan tidur nyenyak."
+      }
+    }
+  },
+  "en": {
+    "obj": {
+      "b10": {
+        "cari": "Follow the cry for help toward the field"
+      }
+    },
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine"
+    },
+    "b10": {
+      "title": "Joy's Field",
+      "jalur": {
+        "1": "Smoke crosses the path in front of me. It is white, not black.",
+        "2": "From Joy's field comes a cry for help. A woman, then silence.",
+        "3": "If I stop now, that voice stops too.",
+        "cA": "Try to help",
+        "cB": "Run"
+      },
+      "tolong": {
+        "1": "I walk toward the voice. Smoke burns my eyes, I look down.",
+        "2": "Heat comes from ahead like a wall. My legs stop on their own.",
+        "3": "My hand touches something hot. I pull it back and retreat.",
+        "4": "The voice grows farther away. Then it is gone.",
+        "5": "I stand there until my feet refuse to move."
+      },
+      "lari": {
+        "1": "I turn and run along the temporary path.",
+        "2": "The fire follows behind. Its light turns the tree shadows orange.",
+        "3": "A branch drags across my shirt and tears it. I do not stop.",
+        "4": "The sound from the field fades behind me.",
+        "5": "On the dirt road nothing chases me. Only smoke."
+      },
+      "pondok": {
+        "1": "Joy's hut is visible from here. Dark roof, open door.",
+        "2": "From here I cannot get closer. The heat reaches my cheeks.",
+        "3": "The lamp in the hut is out."
+      },
+      "rudi": {
+        "1": "Where are you? Don't go that way, it's done.",
+        "2": "The phone screen lights up in my palm.",
+        "cA": "Answer",
+        "cB": "Silence the phone",
+        "a": {
+          "1": "Hello? All I hear is your breathing. Don't be a hero, Mas.",
+          "2": "I hold the phone to my ear until the line dies."
+        },
+        "b": {
+          "1": "The screen goes dark. I put the phone in my pocket.",
+          "2": "If Rudi calls again, I will not answer."
+        }
+      },
+      "jejak": {
+        "1": "The dirt path leaves repeating footprints.",
+        "2": "Two sets of prints, mine and Rudi's. No third set."
+      },
+      "tangan": {
+        "1": "My hand is wrapped with cloth from my pocket. The pain comes and goes.",
+        "2": "Tomorrow if anyone asks, I will say I got stung."
+      },
+      "baju": {
+        "1": "My shirt is torn at the shoulder, caught by that branch.",
+        "2": "I leave it. Sewing it up would feel like confessing."
+      },
+      "belum": {
+        "1": "I have not chosen yet. Everything is still open."
+      },
+      "pulang": {
+        "1": "The way home is covered in smoke. I wait a while, then walk.",
+        "2": "I will not sleep well tonight."
+      }
+    }
+  }
+}

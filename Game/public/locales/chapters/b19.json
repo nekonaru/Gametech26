@@ -1,0 +1,130 @@
+{
+  "id": {
+    "b19": {
+      "obj": {
+        "keluar": "Keluar dari hutan yang berputar",
+        "menuju_cahaya": "Ikuti cahaya ke arah ladang"
+      },
+      "puzzle": {
+        "p5": {
+          "title": "Jalan Berputar",
+          "desc": "Dengarkan arah bisikan, lalu maju ke tanda yang benar.",
+          "hint1": "Bisikan selalu datang dari arah yang benar.",
+          "hint2": "Putar kompas dulu sampai jarum sejajar, baru maju.",
+          "hint3": "Setelah tiga tanda, putaran itu pecah.",
+          "lm1": "Batu Penanda",
+          "lm2": "Pohon Tumbang",
+          "lm3": "Cahaya Lilin",
+          "inst1": "Pilih Batu Penanda, putar kompas ke utara, lalu maju.",
+          "inst2": "Bisikan pindah ke timur. Pilih Pohon Tumbang, putar kompas, lalu maju.",
+          "inst3": "Arah terakhir: Cahaya Lilin ke selatan. Maju saat jarum sejajar."
+        }
+      },
+      "bisikan": {
+        "1": "Hutan ini terlalu rapi. Pohonnya sama besar, jaraknya sama jauh.",
+        "2": "Bisikan datang dari arah yang benar. Tapi tidak pernah cukup dekat.",
+        "3": "Aku sudah berputar dua kali. Kalau berputar lagi, aku kehabisan napas sebelum malam habis."
+      },
+      "pohon": {
+        "1": "Pohon yang sama. Bekas gergaji di batangnya, persis seperti tadi.",
+        "2": "Kalau aku berputar lagi, tanah ini akan jadi satu lingkaran yang rapi."
+      },
+      "papan": {
+        "1": "Aku mengeluarkan kompas dari saku. Jarinya bergetar, lalu diam.",
+        "2": "Ada tiga tanda di hutan ini: batu penanda, pohon tumbang, cahaya lilin.",
+        "3": "Aku harus memilih arah dulu, baru bergerak. Kalau salah, putaran ini belum selesai."
+      },
+      "api": {
+        "1": "Udara mendadak hangat. Ujung telingaku terasa perih.",
+        "2": "Di kejauhan ada cahaya jingga bergerak naik turun. Tapi tidak ada asap.",
+        "3": "Api ini tidak membakar. Dia hanya menakuti. Dan malam ini itu cukup."
+      },
+      "joy": {
+        "1": "Di depan, sosok berdiri di tengah jalan. Kali ini wajahnya terlihat.",
+        "2": "Joy. Atau bayangan yang memakai wajah Joy.",
+        "3": "Dingin di punggungku minta aku lari. Tapi kakiku berat.",
+        "cA": "Terus berlari. Jangan berhenti.",
+        "cB": "Berhenti. Aku minta maaf.",
+        "lari": {
+          "1": "Aku menunduk dan melewati sosok itu.",
+          "2": "Dingin menyentuh punggungku sebentar, lalu hilang. Rimba di depan membuka."
+        },
+        "maaf": {
+          "1": "Aku berhenti. Kakiku gemetar, tapi tetap di tempat.",
+          "2": "Joy, maafkan aku. Aku tahu kau tidak sendirian, dan aku tetap tidak menoleh.",
+          "3": "Sosok itu tidak menjawab. Tapi hutan di belakangnya diam, seolah lega.",
+          "4": "Dingin itu menyingkir ke samping. Ada jalan di sana."
+        }
+      },
+      "keluar": {
+        "1": "Aku keluar dari rimba dan berdiri di pinggir kebun warga.",
+        "2": "Di arah ladang, langit oranye. Bukan lampu desa.",
+        "3": "Aku berjalan ke sana. Kali ini aku tidak berlari."
+      }
+    }
+  },
+  "en": {
+    "b19": {
+      "obj": {
+        "keluar": "Get out of the looping forest",
+        "menuju_cahaya": "Follow the light toward the field"
+      },
+      "puzzle": {
+        "p5": {
+          "title": "The Looping Path",
+          "desc": "Listen for the direction of the whisper, then move to the right landmark.",
+          "hint1": "The whisper always comes from the right direction.",
+          "hint2": "Turn the compass until the needle lines up, then move.",
+          "hint3": "After the three landmarks, the loop breaks.",
+          "lm1": "Marker Stone",
+          "lm2": "Fallen Tree",
+          "lm3": "Candle Light",
+          "inst1": "Pick Marker Stone, turn the compass north, then move.",
+          "inst2": "The whisper shifts east. Pick Fallen Tree, turn the compass, then move.",
+          "inst3": "Last direction: Candle Light to the south. Move when the needle aligns."
+        }
+      },
+      "bisikan": {
+        "1": "This forest is too neat. Every tree is the same size, every gap the same width.",
+        "2": "The whisper comes from the right direction. But never close enough.",
+        "3": "I have gone around twice. If I go around again, I run out of breath before the night ends."
+      },
+      "pohon": {
+        "1": "The same tree. The saw marks on its trunk are exactly like before.",
+        "2": "If I go around again, this ground will become one clean circle."
+      },
+      "papan": {
+        "1": "I take the compass out of my pocket. The needle trembles, then stills.",
+        "2": "There are three marks in this forest: a marker stone, a fallen tree, a candle light.",
+        "3": "I must choose a direction before I move. If I am wrong, this loop is not over."
+      },
+      "api": {
+        "1": "The air turns warm at once. The tips of my ears start to sting.",
+        "2": "In the distance an orange light rises and falls. But there is no smoke.",
+        "3": "This fire does not burn. It only frightens. And tonight that is enough."
+      },
+      "joy": {
+        "1": "Ahead, a figure stands in the middle of the path. This time the face is visible.",
+        "2": "Joy. Or a shadow wearing Joy's face.",
+        "3": "The cold at my back tells me to run. But my legs feel heavy.",
+        "cA": "Keep running. Do not stop.",
+        "cB": "Stop. I say sorry.",
+        "lari": {
+          "1": "I lower my head and pass the figure.",
+          "2": "The cold touches my back for a moment, then is gone. The thicket ahead opens."
+        },
+        "maaf": {
+          "1": "I stop. My legs shake, but they stay in place.",
+          "2": "Joy, forgive me. I knew you were not alone, and I still did not look back.",
+          "3": "The figure does not answer. But the forest behind it goes quiet, as if relieved.",
+          "4": "The cold steps aside. There is a path there."
+        }
+      },
+      "keluar": {
+        "1": "I come out of the thicket and stand at the edge of a villager's garden.",
+        "2": "Toward the field, the sky is orange. Not from village lamps.",
+        "3": "I walk that way. This time I do not run."
+      }
+    }
+  }
+}

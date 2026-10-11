@@ -1,0 +1,170 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "use": "Gunakan",
+      "talk": "Bicara",
+      "open": "Buka"
+    },
+    "b03": {
+      "obj": {
+        "jalan": "Duduk, lihat keluar, atur earphone",
+        "chat": "Kirim pesan ke Bang",
+        "tiba": "Siap-siap turun di terminal"
+      },
+      "kursi": {
+        "1": "Raka duduk di kursi belakang. Kepala bersandar ke jendela.",
+        "2": "Paling tidak, sore ini sudah di rumah."
+      },
+      "jendela": {
+        "1": "Sawah lewat pelan di luar. Bukit kecil menutup cakrawala.",
+        "2": "Dari kota, desa kelihatan cuma titik.",
+        "3": "Bus berhenti sebentar di tikungan, lalu jalan lagi."
+      },
+      "lagu": {
+        "1": "Earphone masih nempel. Ganti lagu dulu.",
+        "ca": "Trek 1: Petang",
+        "cb": "Trek 2: Hujan Kecil",
+        "cc": "Trek 3: Jalan Pulang",
+        "a": {
+          "1": "Gitar pelan keluar dari earphone. Trek petang.",
+          "2": "Ini enak buat di jalan."
+        },
+        "b": {
+          "1": "Trek hujan kecil. Bunyi tetes di latar.",
+          "2": "Kota juga sering hujan begini."
+        },
+        "c": {
+          "1": "Trek jalan pulang. Irama sedang, tanpa suara.",
+          "2": "Terserah. Yang penting telinga keisi."
+        }
+      },
+      "chat": {
+        "1": "Raka membuka chat Bang Dimas. Hari terakhir kirim pesan seminggu lalu.",
+        "2": "Pesan apa yang enak dikirim?",
+        "cA": "Nada santai",
+        "cB": "Nada singkat",
+        "cC": "Nada cemas",
+        "santai": {
+          "1": "Bang, aku pulang hari ini. Sampai sore. Jemput gak usah, aku naik angkot.",
+          "2": "Pesan terkirim. Nada santai, seperti biasa."
+        },
+        "singkat": {
+          "1": "Bang, aku sore ini pulang. Gak usah jemput.",
+          "2": "Pesan terkirim. Tanpa basa-basi."
+        },
+        "cemas": {
+          "1": "Bang, kau di mana? Aku pulang hari ini. Balas ya.",
+          "2": "Pesan terkirim. Raka menunggu balasan yang tidak datang."
+        },
+        "akhir": {
+          "1": "Centang satu. Tidak dibalas.",
+          "2": "Sibuk kali ya. Atau HP-nya lowbat."
+        }
+      },
+      "flashback": {
+        "1": "Di saku ada foto lama. Halaman rumah, dua anak berlari.",
+        "2": "Makan dulu, baru main lagi!",
+        "3": "Warna foto memudar. Suara tertinggal di sana.",
+        "4": "Dulu kita berempat di halaman itu."
+      },
+      "sopir": {
+        "1": "Raka menoleh ke depan. Sopir itu menatap kaca spion.",
+        "2": "Matanya bertemu sebentar, lalu kembali ke jalan.",
+        "3": "Orang desa memang begitu. Kenal tanpa pernah bicara."
+      },
+      "turun": {
+        "1": "Bus berhenti di terminal. Di dalam terminal, lampu sudah menyala.",
+        "cpergi": "Turun dan bawa tas",
+        "ctunggu": "Duduk sebentar lagi",
+        "pergi": { "1": "Turun dulu. Rumah tinggal jalan kaki lima menit." },
+        "tunggu": { "1": "Belum kirim pesan ke Bang. Nanti dia mikir aku cuek." }
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "use": "Use",
+      "talk": "Talk",
+      "open": "Open"
+    },
+    "b03": {
+      "obj": {
+        "jalan": "Sit down, look out, set the earphone",
+        "chat": "Send a message to Bang",
+        "tiba": "Get ready to leave at the terminal"
+      },
+      "kursi": {
+        "1": "Raka sits in the back seat. His head rests against the window.",
+        "2": "At least I will be home by this evening."
+      },
+      "jendela": {
+        "1": "Fields slide past outside. A small hill blocks the horizon.",
+        "2": "From the city, the village is just a dot.",
+        "3": "The bus stops briefly at the bend, then moves on."
+      },
+      "lagu": {
+        "1": "The earphone is still in. Change the track first.",
+        "ca": "Track 1: Evening",
+        "cb": "Track 2: Small Rain",
+        "cc": "Track 3: Road Home",
+        "a": {
+          "1": "Soft guitar comes from the earphone. The evening track.",
+          "2": "This one fits the road."
+        },
+        "b": {
+          "1": "The small rain track. Drops ticking in the back.",
+          "2": "The city often rains like this too."
+        },
+        "c": {
+          "1": "The way home track. Medium rhythm, no voices.",
+          "2": "Anything. As long as my ears are filled."
+        }
+      },
+      "chat": {
+        "1": "Raka opens Bang Dimas's chat. The last message was a week ago.",
+        "2": "What kind of message would feel right?",
+        "cA": "Relaxed tone",
+        "cB": "Short tone",
+        "cC": "Worried tone",
+        "santai": {
+          "1": "Bang, I am coming home today. By this evening. No need to pick me up, I will take a minibus.",
+          "2": "Message sent. Relaxed tone, as usual."
+        },
+        "singkat": {
+          "1": "Bang, heading home this afternoon. No need to pick me up.",
+          "2": "Message sent. No small talk."
+        },
+        "cemas": {
+          "1": "Bang, where are you now? I am coming home today. Reply, okay.",
+          "2": "Message sent. Raka waits for an answer that does not come."
+        },
+        "akhir": {
+          "1": "One tick. No reply.",
+          "2": "Maybe he is busy. Or his battery is low."
+        }
+      },
+      "flashback": {
+        "1": "An old photo in his pocket. The front yard, two kids running.",
+        "2": "Eat first, then play again!",
+        "3": "The colors of the photo fade. The voices stay there.",
+        "4": "The four of us used to be in that yard."
+      },
+      "sopir": {
+        "1": "Raka looks to the front. The driver watches the mirror.",
+        "2": "Their eyes meet for a moment, then return to the road.",
+        "3": "Village people are like that. They know you without ever speaking."
+      },
+      "turun": {
+        "1": "The bus stops at the terminal. Inside the terminal, the lights are already on.",
+        "cpergi": "Get off and take the bag",
+        "ctunggu": "Sit a moment longer",
+        "pergi": { "1": "Time to get off. Home is only a five minute walk." },
+        "tunggu": { "1": "I never sent the message to Bang. He will think I do not care." }
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "b15alt",
+  "hari": 6,
+  "jam": "10:00",
+  "pov": "raka",
+  "scene": "jalan_desa",
+  "onEnter": [
+    { "op": "setLighting", "preset": "sore", "transition": 2 },
+    { "op": "objective", "id": "kejar", "text": "obj.b15alt.kejar" },
+    { "op": "playSound", "key": "ambience_village", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
+  ],
+  "interactables": [
+    {
+      "id": "jejak_kaki",
+      "prompt": "ui.examine",
+      "position": [0.4, 0.2, -3.0],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b15alt.jejak" } ]
+    },
+    {
+      "id": "warga_dua",
+      "prompt": "ui.talk",
+      "position": [-2.2, 1.0, -4.0],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b15alt.warga" } ]
+    },
+    {
+      "id": "botol_air",
+      "prompt": "ui.take",
+      "position": [-1.0, 0.7, -1.5],
+      "once": true,
+      "onUse": [
+        { "op": "dialog", "node": "b15alt.botol" },
+        { "op": "addEmpati", "value": 1 }
+      ]
+    },
+    {
+      "id": "pohon_patah",
+      "prompt": "ui.examine",
+      "position": [2.4, 1.0, -4.6],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b15alt.pohon" } ]
+    },
+    {
+      "id": "gerbang_desa",
+      "prompt": "ui.examine",
+      "position": [0.0, 1.2, -5.4],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b15alt.gerbang" } ]
+    },
+    {
+      "id": "jalan_ke_hutan",
+      "prompt": "ui.interact",
+      "position": [1.4, 0.4, -5.8],
+      "once": true,
+      "onUse": [
+        { "op": "dialog", "node": "b15alt.akhir" },
+        { "op": "ending", "id": "ending_2" }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b15alt.jejak": [
+      { "speaker": "Raka", "text": "b15alt.jejak.1" },
+      { "speaker": "Raka", "text": "b15alt.jejak.2" },
+      { "speaker": "Raka", "text": "b15alt.jejak.3" }
+    ],
+    "b15alt.warga": [
+      { "speaker": "Ketua RT", "text": "b15alt.warga.1" },
+      { "speaker": "Mak Yah", "text": "b15alt.warga.2" },
+      { "speaker": "Raka", "text": "b15alt.warga.3" }
+    ],
+    "b15alt.botol": [
+      { "speaker": "Raka", "text": "b15alt.botol.1" },
+      { "speaker": "Raka", "text": "b15alt.botol.2" }
+    ],
+    "b15alt.pohon": [
+      { "speaker": "Raka", "text": "b15alt.pohon.1" },
+      { "speaker": "Raka", "text": "b15alt.pohon.2" }
+    ],
+    "b15alt.gerbang": [
+      { "speaker": "Raka", "text": "b15alt.gerbang.1" },
+      { "speaker": "Raka", "text": "b15alt.gerbang.2" }
+    ],
+    "b15alt.akhir": [
+      { "speaker": "Raka", "text": "b15alt.akhir.1" },
+      { "speaker": "Raka", "text": "b15alt.akhir.2" },
+      {
+        "speaker": "Raka",
+        "text": "b15alt.akhir.3",
+        "choices": [
+          { "text": "b15alt.akhir.c1", "next": "b15alt.kejar.lari", "important": true },
+          { "text": "b15alt.akhir.c2", "next": "b15alt.kejar.teriak", "important": true }
+        ]
+      }
+    ],
+    "b15alt.kejar.lari": [
+      { "speaker": "Raka", "text": "b15alt.kejar.lari.1" },
+      { "speaker": "Raka", "text": "b15alt.kejar.lari.2", "autoNext": "b15alt.pemakaman" }
+    ],
+    "b15alt.kejar.teriak": [
+      { "speaker": "Raka", "text": "b15alt.kejar.teriak.1" },
+      { "speaker": "Raka", "text": "b15alt.kejar.teriak.2", "autoNext": "b15alt.pemakaman" }
+    ],
+    "b15alt.pemakaman": [
+      {
+        "speaker": "Narator",
+        "text": "b15alt.pemakaman.1",
+        "onEnter": [ { "op": "setTime", "hari": 9, "jam": "16:00" } ]
+      },
+      { "speaker": "Ketua RT", "text": "b15alt.pemakaman.2" },
+      { "speaker": "Ketua RT", "text": "b15alt.pemakaman.3" },
+      { "speaker": "Raka", "text": "b15alt.pemakaman.4" }
+    ]
+  }
+}

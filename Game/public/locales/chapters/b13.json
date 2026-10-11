@@ -1,0 +1,286 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "take": "Ambil",
+      "open": "Buka",
+      "close": "Tutup",
+      "read": "Baca",
+      "use": "Gunakan",
+      "talk": "Bicara"
+    },
+    "obj": {
+      "b13": {
+        "geledah": "Geledah kamar Abang, lalu ambil keputusan di depan pintunya",
+        "kalender": "Cek kalender di dinding",
+        "keputusan": "Ambil keputusan di depan kamar Abang"
+      }
+    },
+    "b13": {
+      "lemari": {
+        "1": "Lemari Abang kubuka pelan. Bau tanah basah langsung keluar.",
+        "2": "Sepatu kerja di pojok bawah masih basah. Solnya berlumpur.",
+        "3": "Dua hari lalu Abang bilang ia kerja sampai malam. Kupercaya.",
+        "c1": "Periksa sol sepatu itu.",
+        "c2": "Kain pembalut di rak atas.",
+        "c3": "Baju robek di bawah tumpukan.",
+        "c4": "Biarkan. Aku cari yang lain.",
+        "sepatu": {
+          "1": "Tanah di sol hitam pekat. Bukan tanah kebun.",
+          "2": "Ini tanah ladang di tepi hutan. Ladang yang pernah terbakar."
+        },
+        "tangan": {
+          "1": "Tangan Abang terbalut kain di rak atas. Ada bekas merah di pergelangan.",
+          "2": "Ia bilang jatuh dari motor. Kainnya sudah diganti dua kali minggu ini."
+        },
+        "robek": {
+          "1": "Baju lengan panjang robek di bahu. Tiga jahitan lepas.",
+          "2": "Abang bilang kena ranting. Tapi robekannya lurus dan bersih."
+        },
+        "akhiri": {
+          "1": "Kututup lemari itu. Aku lanjut ke meja."
+        }
+      },
+      "jaket": {
+        "1": "Jaket Abang tergantung di kursi miring. Bau tanah basah menempel.",
+        "2": "Ada benjolan di saku dalam. Bukan dompet, bukan kunci.",
+        "3": "Kartu nama. Satu lembar, ujungnya sobek sedikit.",
+        "4": "Nama pemilik lahan di sisi hutan. Di belakangnya tertulis nomor plat mobil hitam."
+      },
+      "catatan": {
+        "1": "Buku catatan kecil di meja samping kasur. Tulisan Abang.",
+        "2": "Tiga malam terakhir ia pulang lewat tengah malam. Selalu satu alasan.",
+        "3": "Aku tulis jamnya. Nanti kucocokkan dengan kalender di dinding."
+      },
+      "rudi": {
+        "1": "Raka? Wo, siang begini ada apa?",
+        "2": "Aku mau tanya soal Abang. Kalian kerja bertiga kan?",
+        "c1": "Santai dulu. Tanya kabar.",
+        "c2": "Tekan. Bilang aku tahu dia sering keluar malam.",
+        "c3": "Korek halus. Tanya jam pulang.",
+        "c4": "Ceritakan kecurigaanku pada Rudi.",
+        "santai": {
+          "1": "Baik, bro. Cuma panas terus, jadi pada nongkrong di pondok.",
+          "2": "Aku buka pelan-pelan. Rudi masih santai."
+        },
+        "tekan": {
+          "1": "...apaan sih, bro. Gua kerja, pulang, tidur. Gitu aja.",
+          "2": "Suaranya naik. Ada yang ditutup-tutup."
+        },
+        "halus": {
+          "1": "Jam sembilan bro, kadang lewat. Proyek kan jauh.",
+          "2": "Jam sembilan. Tapi Abang selalu pulang lewat tengah malam."
+        },
+        "curiga": {
+          "1": "Aku bilang ada yang salah dengan malam-malam itu.",
+          "2": "Kok curiga ke gua, bro?",
+          "3": "Tidak. Aku cuma cerita. Tapi tolong jangan bilang siapa-siapa."
+        }
+      },
+      "konf_kurang": {
+        "1": "Tanganku sudah di kenop pintu kamar Abang.",
+        "2": "Aku belum punya cukup bukti. Kalau salah, ia akan menutup diri selamanya.",
+        "c1": "Tetap konfrontasi sekarang.",
+        "c2": "Tunggu bukti lebih kuat.",
+        "yes": {
+          "1": "Aku ketuk pintu itu. Kata-kata keluar sebelum sempat kupertimbangkan.",
+          "2": "Abang membuka. Wajahnya kaku. Aku tahu ini terlalu cepat."
+        },
+        "tidak": {
+          "1": "Aku tarik tanganku dari kenop.",
+          "2": "Belum. Kumpulkan dulu buktinya."
+        }
+      },
+      "konf_cukup": {
+        "1": "Aku ketuk pintu kamar Abang.",
+        "2": "Pagi, Ran. Ada apa?",
+        "3": "Malam-malam itu. Kau di mana?",
+        "c1": "Konfrontasi sekarang.",
+        "c2": "Tunggu bukti lebih kuat.",
+        "yes": {
+          "1": "Aku taruh struk robek itu di meja. Lalu kutunjuk tanggal di kalender.",
+          "2": "Kau ngaco.",
+          "3": "Suaranya pecah di tengah. Ia menyangkal, tapi tubuhnya goyah. Aku jadi lebih sedikit percaya padanya."
+        },
+        "tidak": {
+          "1": "Aku batalkan. Waktunya belum pas.",
+          "2": "Aku turun ke bawah dan mengumpulkan lagi."
+        }
+      },
+      "keluar": {
+        "1": "Struk, kalender, kartu nama. Semua sudah masuk jurnal.",
+        "2": "Siang ini terasa lebih berat dari kemarin. Aku keluar kamar."
+      },
+      "p2": {
+        "title": "Struk Robek",
+        "desc": "Rakit kembali struk itu. Baca jumlah dan tanggalnya.",
+        "h1": "Mulai dari potongan tepi.",
+        "h2": "Struk ini menyimpan jumlah utang dan satu tanggal."
+      },
+      "p3": {
+        "title": "Kalender Dinding",
+        "desc": "Tarik tiga berita ke tanggal yang ditandai pensil.",
+        "h1": "Tanggalnya ditandai pensil, bukan tinta.",
+        "h2": "Cocokkan dengan catatan jam pulang Abang.",
+        "month": {
+          "mei": "Mei"
+        },
+        "ev1": {
+          "t": "Kebakaran semak dekat musala",
+          "d": "Warga memadamkan sendiri. Tidak ada yang melapor."
+        },
+        "ev2": {
+          "t": "Asap tipis dari arah hutan",
+          "d": "Terlihat sore hari. Keesokan harinya hilang."
+        },
+        "ev3": {
+          "t": "Ladang tepi hutan hangus sebagian",
+          "d": "Api mulai sebelum subuh. Penyebabnya tidak jelas."
+        }
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "take": "Take",
+      "open": "Open",
+      "close": "Close",
+      "read": "Read",
+      "use": "Use",
+      "talk": "Talk"
+    },
+    "obj": {
+      "b13": {
+        "geledah": "Search Bang's room, then make a decision at his door",
+        "kalender": "Check the calendar on the wall",
+        "keputusan": "Make a decision at Bang's door"
+      }
+    },
+    "b13": {
+      "lemari": {
+        "1": "I open Bang's wardrobe slowly. The smell of wet soil comes straight out.",
+        "2": "His work boots in the bottom corner are still wet. The soles are muddy.",
+        "3": "Two days ago Bang said he worked until late. I believed him.",
+        "c1": "Check the soles of those boots.",
+        "c2": "The bandage on the top shelf.",
+        "c3": "The torn shirt under the pile.",
+        "c4": "Leave it. I will look elsewhere.",
+        "sepatu": {
+          "1": "The soil on the sole is pitch black. Not garden soil.",
+          "2": "This is field soil from the forest edge. The field that once burned."
+        },
+        "tangan": {
+          "1": "Bang's hand is wrapped in cloth on the top shelf. There is a red mark on his wrist.",
+          "2": "He said he fell off his motorbike. The cloth has been changed twice this week."
+        },
+        "robek": {
+          "1": "A long sleeved shirt is torn at the shoulder. Three seams came loose.",
+          "2": "Bang said a branch caught it. But the tear is straight and clean."
+        },
+        "akhiri": {
+          "1": "I close the wardrobe. I move on to the desk."
+        }
+      },
+      "jaket": {
+        "1": "Bang's jacket hangs on a crooked chair. The smell of wet soil clings to it.",
+        "2": "There is a lump in the inner pocket. Not a wallet, not keys.",
+        "3": "A business card. One sheet, one corner slightly torn.",
+        "4": "The name of the landowner by the forest. On the back, a black car's plate number."
+      },
+      "catatan": {
+        "1": "A small notebook on the table by the bed. Bang's handwriting.",
+        "2": "For three nights he came home after midnight. Always the same excuse.",
+        "3": "I write down the hours. Later I will match them with the calendar on the wall."
+      },
+      "rudi": {
+        "1": "Raka? Hey, what is up this time of day?",
+        "2": "I want to ask about Bang. You three work together, right?",
+        "c1": "Keep it light. Ask how he is doing.",
+        "c2": "Press him. Say I know he goes out at night.",
+        "c3": "Dig gently. Ask about his hours.",
+        "c4": "Tell Rudi my suspicions.",
+        "santai": {
+          "1": "All good, bro. Just hot all the time, so everyone hangs out at the shed.",
+          "2": "I ease into it. Rudi is still relaxed."
+        },
+        "tekan": {
+          "1": "...what is this, bro. I work, I go home, I sleep. That is it.",
+          "2": "His voice goes up. Something is being covered."
+        },
+        "halus": {
+          "1": "Nine o'clock, bro, sometimes later. The site is far.",
+          "2": "Nine o'clock. But Bang always comes home after midnight."
+        },
+        "curiga": {
+          "1": "I say there is something wrong about those nights.",
+          "2": "Why suspect me, bro?",
+          "3": "I do not. I am just talking. But please tell no one."
+        }
+      },
+      "konf_kurang": {
+        "1": "My hand is already on the knob of Bang's door.",
+        "2": "I do not have enough evidence yet. If I am wrong, he will close himself off forever.",
+        "c1": "Confront him now anyway.",
+        "c2": "Wait for stronger evidence.",
+        "yes": {
+          "1": "I knock on the door. The words come out before I can think them through.",
+          "2": "Bang opens. His face is stiff. I know this is too soon."
+        },
+        "tidak": {
+          "1": "I pull my hand off the knob.",
+          "2": "Not yet. Gather the evidence first."
+        }
+      },
+      "konf_cukup": {
+        "1": "I knock on Bang's door.",
+        "2": "Morning, Ran. What is it?",
+        "3": "Those nights. Where were you?",
+        "c1": "Confront him now.",
+        "c2": "Wait for stronger evidence.",
+        "yes": {
+          "1": "I put the torn receipt on the table. Then I point at the dates on the calendar.",
+          "2": "You are crazy.",
+          "3": "His voice breaks in the middle. He denies it, but his body sways. I end up believing him a little less."
+        },
+        "tidak": {
+          "1": "I call it off. The time is not right.",
+          "2": "I go back down and gather more."
+        }
+      },
+      "keluar": {
+        "1": "Receipt, calendar, business card. All of it is in the journal.",
+        "2": "This afternoon feels heavier than yesterday. I leave the room."
+      },
+      "p2": {
+        "title": "Torn Receipt",
+        "desc": "Put the receipt back together. Read the total and the date.",
+        "h1": "Start with the pieces from the edge.",
+        "h2": "This receipt holds a debt total and one date."
+      },
+      "p3": {
+        "title": "Wall Calendar",
+        "desc": "Drag the three news items to the dates marked in pencil.",
+        "h1": "The dates are marked in pencil, not ink.",
+        "h2": "Match them with your notes on Bang's hours.",
+        "month": {
+          "mei": "May"
+        },
+        "ev1": {
+          "t": "Brush fire near the prayer hall",
+          "d": "Villagers put it out themselves. No one reported it."
+        },
+        "ev2": {
+          "t": "Thin smoke from the forest",
+          "d": "Seen in the evening. Gone the next day."
+        },
+        "ev3": {
+          "t": "Field by the forest scorched in parts",
+          "d": "The fire started before dawn. The cause is unclear."
+        }
+      }
+    }
+  }
+}

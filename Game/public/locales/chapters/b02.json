@@ -1,0 +1,150 @@
+{
+  "id": {
+    "ui": {
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "open": "Buka"
+    },
+    "b02": {
+      "obj": {
+        "jelajahi": "Periksa kedai: foto lama dan barang di meja",
+        "obrol": "Duduk dan bicara dengan Rudi",
+        "exit": "Pulang sebelum gelap"
+      },
+      "foto_kedai": {
+        "1": "Foto lama kedai ini. Meja kayu yang sama, gelas yang sama.",
+        "2": "Tempat ini gak berubah. Yang berubah cuma gue."
+      },
+      "foto_sungai": {
+        "1": "Foto tua di dinding. Sungai belakang sekolah, airnya jernih.",
+        "2": "Dulu kita ke sini tiap sore. Sebelum semuanya berubah.",
+        "3": "Dingin sesaat di kulit, lalu hilang."
+      },
+      "korek_api": {
+        "1": "Korek api hitam tertinggal di meja. Nama Rudi tercetak di pelatnya.",
+        "2": "Barang Rudi. Dia ke dapur tadi, tidak bawa apa-apa.",
+        "3": "Ada sisa hitam yang mengering di mulut korek itu."
+      },
+      "gelas": {
+        "1": "Gelas di depanmu sudah dingin. Busa kopinya pecah.",
+        "2": "Udah lama gue duduk di sini?"
+      },
+      "rudi": {
+        "1": "Woy, Mas. Lama gak keliatan. Sehat lu?",
+        "2": "Sehat, sehat aja. Cuma, ya gitu lah.",
+        "3": "Inget gak dulu kita mancing di sungai belakang sekolah? Sampe lupa waktu, dimarahin bapak lu.",
+        "4": "Inget. Lu yang kabur duluan pas bapak dateng.",
+        "5": "Kalian tertawa sebentar. Hening datang lagi.",
+        "6": "Dengar-dengar lu lagi susah ya, Mas?",
+        "7": "Dimas menatap gelasnya. Jawaban mana pun terasa berat.",
+        "cA": "Mengaku soal pinjol",
+        "cB": "Menutupi",
+        "nanti": {
+          "1": "Duduk dulu, Mas. Lihat-lihat kedainya dulu, capek lu pasti.",
+          "2": "Rudi tertawa. Tangannya menunjuk ke rak foto."
+        }
+      },
+      "mengaku": {
+        "1": "Pinjol, Di. Numpuk. Gue udah cari kerja ke mana-mana, gak ada yang nerima.",
+        "2": "Lu harusnya bilang dari dulu, Mas. Gue temen lu, bukan tukang nagih.",
+        "3": "Gue ada proyek nih. Lumayan buat nutup utang lu.",
+        "4": "Proyek apa?",
+        "5": "Buka lahan. Ada yang mau garap kebun gede-gedean di hutan belakang desa. Bayarannya gede, Mas, buat beberapa hari kerja doang.",
+        "6": "Buka lahan gimana maksudnya?",
+        "7": "Udah, nanti gue jelasin detailnya. Yang penting lu mau apa kagak?",
+        "8": "Dimas tidak menjawab. Kopinya sudah dingin."
+      },
+      "tutup": {
+        "1": "Gak, biasa aja. Cuma lagi banyak pengeluaran.",
+        "2": "Begitu. Kalau gitu lu butuh duit cepat, Mas.",
+        "3": "Gue ada proyek. Bayarannya gede, buat beberapa hari kerja doang.",
+        "4": "Proyek apa?",
+        "5": "Buka lahan di hutan belakang desa. Lu gak usah mikirin utang sebulan ini.",
+        "6": "Buka lahan gimana maksudnya?",
+        "7": "Nanti gue jelasin. Yang penting lu mau apa kagak? Jangan sok kuat, Mas.",
+        "8": "Dimas menyeruput kopinya yang dingin. Jawaban tertahan di tenggorokan."
+      },
+      "keluar": {
+        "1": "Rudi melambai. Sore mulai beranjak.",
+        "cpergi": "Pulang",
+        "ctunggu": "Tinggal sebentar lagi",
+        "pergi": { "1": "Makasih kopinya, Di. Gue duluan ya." },
+        "tunggu": { "1": "Sebentar lagi. Masih ada yang mau kutanya ke Rudi." }
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "examine": "Examine",
+      "talk": "Talk",
+      "open": "Open"
+    },
+    "b02": {
+      "obj": {
+        "jelajahi": "Check the shop: old photos and items on the table",
+        "obrol": "Sit down and talk with Rudi",
+        "exit": "Go home before dark"
+      },
+      "foto_kedai": {
+        "1": "An old photo of this shop. The same wooden table, the same glasses.",
+        "2": "This place never changes. Only I do."
+      },
+      "foto_sungai": {
+        "1": "An old photo on the wall. The river behind the school, the water clear.",
+        "2": "We used to come here every afternoon. Before everything changed.",
+        "3": "A brief cold on the skin, then it is gone."
+      },
+      "korek_api": {
+        "1": "A black lighter left on the table. Rudi's name is pressed into the plate.",
+        "2": "Rudi's thing. He went to the back earlier and took nothing with him.",
+        "3": "A dried black residue sits at the mouth of the lighter."
+      },
+      "gelas": {
+        "1": "The glass in front of you is already cold. The foam has broken.",
+        "2": "How long have I been sitting here?"
+      },
+      "rudi": {
+        "1": "Woy, Mas. Long time no see. You healthy?",
+        "2": "Healthy, sure. Just, you know how it is.",
+        "3": "Remember fishing at the river behind the school? Lost track of time, your dad yelled at us.",
+        "4": "I remember. You ran first when my dad showed up.",
+        "5": "You both laugh for a moment. Then the silence comes back.",
+        "6": "I hear you are having a rough time, Mas?",
+        "7": "Dimas stares at his glass. Either answer feels heavy.",
+        "cA": "Admit the loan debt",
+        "cB": "Hide it",
+        "nanti": {
+          "1": "Sit first, Mas. Look around the shop, you must be tired.",
+          "2": "Rudi laughs. His hand points to the shelf of photos."
+        }
+      },
+      "mengaku": {
+        "1": "Loan apps, Di. They pile up. I looked for work everywhere, nobody takes me.",
+        "2": "You should have said it earlier, Mas. I am your friend, not a debt collector.",
+        "3": "I have a project. Good enough to cover your debt.",
+        "4": "What project?",
+        "5": "Clearing land. Someone wants to work a big garden at the back of the forest. The pay is good, Mas, only a few days of work.",
+        "6": "Clearing land, what do you mean?",
+        "7": "I will explain the details later. The point is, do you want it or not?",
+        "8": "Dimas does not answer. His coffee is already cold."
+      },
+      "tutup": {
+        "1": "Nothing, just normal. Only a lot of expenses lately.",
+        "2": "I see. Then you need money fast, Mas.",
+        "3": "I have a project. The pay is good, only a few days of work.",
+        "4": "What project?",
+        "5": "Clearing land at the back of the forest. You will not worry about debt for a month.",
+        "6": "Clearing land, what do you mean?",
+        "7": "I will explain later. The point is, do you want it or not? Do not act tough, Mas.",
+        "8": "Dimas sips his cold coffee. The answer sticks in his throat."
+      },
+      "keluar": {
+        "1": "Rudi waves. The afternoon starts to move on.",
+        "cpergi": "Head home",
+        "ctunggu": "Stay a while longer",
+        "pergi": { "1": "Thanks for the coffee, Di. I am off." },
+        "tunggu": { "1": "A little longer. I still want to ask Rudi something." }
+      }
+    }
+  }
+}

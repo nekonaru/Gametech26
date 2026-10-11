@@ -1,0 +1,358 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "read": "Baca",
+      "talk": "Bicara",
+      "use": "Gunakan",
+      "open": "Buka"
+    },
+    "b01": {
+      "obj": {
+        "bangun": "Bangun dari kasur",
+        "rumah": "Periksa rumah: dapur, amplop, dompet",
+        "tagih": "Catat tagihan di amplop, lalu cek dapur dan dompet",
+        "kerja": "Cari kerja: proyek bangunan, lalu pasar",
+        "konstruksi": "Datang ke proyek, tanya pekerjaan ke mandor",
+        "ke_pasar": "Tawarkan jasa di pasar",
+        "panggil": "Ponsel berdering di rumah. Balik dan jawab telepon pinjol",
+        "pulang": "Selesaikan urusan pagi, lalu keluar rumah"
+      },
+      "tempat": {
+        "rumah": "Rumah Dimas",
+        "proyek": "Proyek Bangunan",
+        "pasar": "Pasar Desa"
+      },
+      "kasur": {
+        "1": "Jam dinding menunjuk tujuh lewat lima. Sinar pagi masuk lewat celah jendela.",
+        "2": "Hari baru. Semoga hari ini beda.",
+        "3": "Kaki menyentuh lantai. Dingin. Tapi harus bangun."
+      },
+      "dapur": {
+        "1": "Dapur hanya berisi kompor mati dan satu panci kosong.",
+        "2": "Beras tinggal segenggam. Nanti beli di pasar."
+      },
+      "amplop": {
+        "1": "Di meja makan ada tumpukan amplop. Semua belum dibuka.",
+        "2": "Tagihan, tagihan, lagi. Tanggal jatuh temponya sudah lewat semua.",
+        "3": "Kutulis lagi di catatan ponsel. Angkanya tidak pernah berubah."
+      },
+      "dompet": {
+        "1": "Dompet kulit itu tipis. Isinya bisa dihitung pakai satu tangan.",
+        "2": "Delapan puluh lima ribu. Cukup buat sekali makan. Tidak cukup buat apa pun.",
+        "3": "Dihitung lagi atau sudah?",
+        "ca": "Hitung sekali lagi",
+        "cb": "Simpan dompet",
+        "a": { "1": "Sama saja. Angkanya tidak berubah." },
+        "b": { "1": "Sudahlah. Nanti juga dapat uang." },
+        "akhir": { "1": "Oke. Berangkat. Cari kerja dulu." }
+      },
+      "foto": {
+        "1": "Foto keluarga di dinding: empat orang berdiri di depan rumah lama.",
+        "2": "Cat di bingkai sudah mengelupas. Wajah di dalamnya belum berubah."
+      },
+      "obeng": {
+        "1": "Di sisa perkakas dapur ada obeng bergagang oranye. Gagangnya masih terasa hangat.",
+        "2": "Kotak sekring di dinding ruang tengah. Tutupnya dipegang sekrup. Ini pasti pas.",
+        "sudah": "Obeng sudah ada di tasmu."
+      },
+      "sekring": {
+        "terkunci": {
+          "1": "Kotak sekring tertutup rapat. Empat sekrup menatapmu dari balik pelat logam.",
+          "2": "Butuh obeng. Di dapur tadi ada perkakas. Siapa tahu ada yang cocok."
+        },
+        "buka": {
+          "1": "Sekrup berputar satu per satu. Tutup pelat terlepas dengan bunyi letih.",
+          "2": "Di baliknya, menggantung di antara kabel, ada kunci kecil bertali karet. Kunci laci."
+        },
+        "sudah": {
+          "1": "Kotak sekring sudah terbuka. Isinya tinggal kabel yang diam."
+        }
+      },
+      "laci": {
+        "terkunci": {
+          "1": "Laci ruang tengah tidak mau membuka. Ada empat angka di pelat kuncinya.",
+          "2": "Kunci kecil Ibu... dia selalu menyimpannya di kotak sekring, katanya biar tidak hilang."
+        },
+        "kosong": {
+          "1": "Laci sudah terbuka dan kosong. Senter yang tadi di dalamnya kini di tasmu."
+        }
+      },
+      "p1": {
+        "title": "Laci Ruang Tengah",
+        "desc": "Kunci sudah terpasang, tapi tutupnya dijaga empat angka. Senter di dalam menunggu.",
+        "hint1": "Jam dinding di rumah ini berhenti. Angka yang ditunjuknya sempat kau baca saat bangun.",
+        "hint2": "Tujuh lewat lima. Empat angka tanpa titik."
+      },
+      "proyek": {
+        "1": "Di proyek bangunan, mandor sedang mengecek tumpukan semen.",
+        "2": "Maaf, Mas. Lagi gak buka lowongan. Bulan depan coba lagi lah.",
+        "3": "Iya, Pak. Makasih.",
+        "4": "Tangan Dimas kosong saat berbalik ke jalan."
+      },
+      "pasar": {
+        "1": "Pedagang nasi bungkus masih buka. Bau santan naik ke hidung.",
+        "cnasi": "Beli nasi bungkus, lima belas ribu",
+        "chemat": "Hemat dulu, tahan lapar",
+        "nasi": { "1": "Ambil satu. Malam nanti masih harus makan." },
+        "hemat": { "1": "Tahan dulu. Uang ini buat jaga-jaga." },
+        "kerja": {
+          "1": "Sambil di pasar, Dimas menawarkan diri mengangkut barang.",
+          "2": "Anak si Fulan udah bantu saya, Mas. Sori ya.",
+          "3": "Gak apa-apa, Pak. Makasih infonya.",
+          "4": "Pulang dengan tangan kosong."
+        }
+      },
+      "panggilan": {
+        "1": "Bapak Dimas, ini terkait tunggakan pembayaran yang sudah lewat empat belas hari. Kami harap Bapak menunjukkan itikad baik.",
+        "2": "Telepon bergetar di tangan. Jari Dimas menggantung di atas layar.",
+        "3": "Telepon itu tidak akan berhenti sendiri.",
+        "cangkat": "Angkat",
+        "ctolak": "Tolak",
+        "cdiam": "Diamkan"
+      },
+      "panggil": {
+        "angkat": {
+          "1": "Pak, saya masih cari kerja. Bulan ini pasti saya bayar.",
+          "2": "Kami tunggu sampai akhir bulan, Bapak."
+        },
+        "tolak": { "1": "Telepon dipatikan sebelum penagih selesai bicara." },
+        "diam": { "1": "Telepon berdering sampai berhenti sendiri. Ruangan terasa lebih sepi." },
+        "akhir": {
+          "1": "Dimas duduk di lantai, menyandar ke dinding.",
+          "2": "Angka-angka itu tidak berubah. Besok harus ada yang berubah."
+        }
+      },
+      "halt": {
+        "1": "Nanti dulu. Lihat isi rumah dulu.",
+        "2": "Ke proyek dulu. Pagi-pagi biasanya mandor ada di sana.",
+        "3": "Belum ke pasar. Mampir dulu, siapa tahu ada yang butuh tangan."
+      },
+      "semen": {
+        "1": "Semen ditumpuk rapi di sudut. Nama pabriknya sudah pudar kena hujan."
+      },
+      "perancah": {
+        "1": "Perancah bambu setinggi dua lantai. Papan pijakannya goyang ketika disentuh.",
+        "2": "Kalau jatuh dari sini, tidak ada yang tahu sampai sore."
+      },
+      "spanduk": {
+        "1": "Spanduk proyek: DIBUKA KERJA HARIAN. Di sudut kiri ada catatan tulisan tangan."
+      },
+      "lapak": {
+        "1": "Sayuran tertata rapi per jenis. Harga ditulis di papan tulis kecil."
+      },
+      "keranjang": {
+        "1": "Keranjang anyaman penuh kulit bawang. Entah berapa kali dipindah hari ini."
+      },
+      "spanduk_pasar": {
+        "1": "Papan selamat datang di pintu pasar. Catnya mengelupas di beberapa huruf."
+      },
+      "keluar": {
+        "1": "Pagi sudah tinggi. Pintu depan menunggu.",
+        "ckerja": "Pergi ke proyek bangunan",
+        "cpasar": "Pergi ke pasar",
+        "cpergi": "Buka pintu dan keluar",
+        "ctunggu": "Tunggu sebentar",
+        "proyek": { "1": "Pintu ditutup. Jalan kampung menuju proyek terasa panas walau matahari baru naik." },
+        "pasar": { "1": "Pintu ditutup. Pasar sudah ramai ketika kaki menyentuh tanah lapang." },
+        "pergi": { "1": "Kunci pintunya. Semoga sore nanti ada kabar baik." },
+        "tunggu": { "1": "Belum. Masih ada yang harus dibereskan dulu." }
+      },
+      "jalan": {
+        "1": "Pintu keluar proyek. Dari sini jalan bercabang: ke pasar atau balik ke rumah.",
+        "cpasar": "Lanjut ke pasar",
+        "crumah": "Balik ke rumah",
+        "ctunggu": "Tunggu sebentar",
+        "pasar": { "1": "Kaki memutar melewati tumpukan batu. Bau semen masih menempel di baju." },
+        "rumah": { "1": "Belum ada kabar. Pulang dulu, siapa tahu ada yang meninggalkan pesan." },
+        "tunggu": { "1": "Di bawah bayang perancah, debu proyek berputar di udara pagi." }
+      },
+      "jalan_pasar": {
+        "1": "Keluar pasar. Jalan setapak kembali ke rumah menyeberangi lapang.",
+        "crumah": "Pulang",
+        "ctunggu": "Tunggu sebentar",
+        "rumah": { "1": "Langkah diputar ke rumah. Ponsel masih di meja. Entah siapa yang menelepon tadi." },
+        "tunggu": { "1": "Keranjang ditata ulang. Penjual sibuk dengan urusannya sendiri." }
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "read": "Read",
+      "talk": "Talk",
+      "use": "Use",
+      "open": "Open"
+    },
+    "b01": {
+      "obj": {
+        "bangun": "Get up from the bed",
+        "rumah": "Check the house: kitchen, envelopes, wallet",
+        "tagih": "Note the bills in the envelopes, then check kitchen and wallet",
+        "kerja": "Look for work: building site, then the market",
+        "konstruksi": "Go to the site and ask the foreman for work",
+        "ke_pasar": "Offer your services at the market",
+        "panggil": "The phone is ringing at home. Go back and answer the loan call",
+        "pulang": "Finish the morning, then leave the house"
+      },
+      "tempat": {
+        "rumah": "Dimas's House",
+        "proyek": "Construction Site",
+        "pasar": "Village Market"
+      },
+      "kasur": {
+        "1": "The wall clock reads five past seven. Morning light slips through the window gap.",
+        "2": "A new day. I hope today is different.",
+        "3": "My feet touch the floor. Cold. But I have to get up."
+      },
+      "dapur": {
+        "1": "The kitchen holds nothing but a dead stove and one empty pot.",
+        "2": "Only a handful of rice left. I will buy some at the market later."
+      },
+      "amplop": {
+        "1": "A stack of envelopes sits on the table. None of them are open.",
+        "2": "Bills, bills, again. Every due date has already passed.",
+        "3": "I write them into my phone notes again. The numbers never change."
+      },
+      "dompet": {
+        "1": "The leather wallet is thin. I can count what is inside with one hand.",
+        "2": "Eighty five thousand. Enough for one meal. Not enough for anything.",
+        "3": "Count again, or leave it?",
+        "ca": "Count once more",
+        "cb": "Put the wallet away",
+        "a": { "1": "Same result. The numbers do not change." },
+        "b": { "1": "Never mind. Money will come somehow." },
+        "akhir": { "1": "Okay. Time to go. Work first." }
+      },
+      "foto": {
+        "1": "A family photo on the wall: four people standing in front of the old house.",
+        "2": "The paint on the frame has peeled. The faces inside have not changed."
+      },
+      "obeng": {
+        "1": "Among the leftover kitchen tools lies a screwdriver with an orange handle. It still feels warm.",
+        "2": "The fuse box on the living room wall. Its cover is held by screws. This must fit.",
+        "sudah": "The screwdriver is already in your bag."
+      },
+      "sekring": {
+        "terkunci": {
+          "1": "The fuse box is shut tight. Four screws stare at you from behind the metal plate.",
+          "2": "You need a screwdriver. There were tools in the kitchen. Maybe one fits."
+        },
+        "buka": {
+          "1": "The screws turn one by one. The plate comes loose with a tired click.",
+          "2": "Behind it, hanging between the wires, is a small key on a rubber band. A drawer key."
+        },
+        "sudah": {
+          "1": "The fuse box is already open. Only the silent wires remain inside."
+        }
+      },
+      "laci": {
+        "terkunci": {
+          "1": "The living room drawer won't budge. Four numbers sit on its lock plate.",
+          "2": "Mother's little key... she always kept it in the fuse box, she said, so it wouldn't get lost."
+        },
+        "kosong": {
+          "1": "The drawer is open and empty. The flashlight that was inside is now in your bag."
+        }
+      },
+      "p1": {
+        "title": "Living Room Drawer",
+        "desc": "The key is in, but four numbers guard the lock. The flashlight inside is waiting.",
+        "hint1": "The wall clock in this house has stopped. You read its numbers when you woke up.",
+        "hint2": "Five past seven. Four digits without a dot."
+      },
+      "proyek": {
+        "1": "At the building site, the foreman is checking stacks of cement.",
+        "2": "Sorry, Mas. We are not taking anyone right now. Try again next month.",
+        "3": "Yes, sir. Thank you.",
+        "4": "Dimas's hands are empty when he turns back to the road."
+      },
+      "pasar": {
+        "1": "The rice wrap seller is still open. The smell of coconut milk reaches his nose.",
+        "cnasi": "Buy a rice wrap, fifteen thousand",
+        "chemat": "Save money, hold the hunger",
+        "nasi": { "1": "Take one. I still have to eat tonight." },
+        "hemat": { "1": "Hold on. This money is for emergencies." },
+        "kerja": {
+          "1": "While at the market, Dimas offers to carry goods.",
+          "2": "Fulan's boy already helps me, Mas. Sorry.",
+          "3": "That is fine, sir. Thanks for the information.",
+          "4": "He walks home with empty hands."
+        }
+      },
+      "panggilan": {
+        "1": "Mr Dimas, this concerns a payment overdue by fourteen days. We hope you show good faith.",
+        "2": "The phone buzzes in his hand. Dimas's finger hovers over the screen.",
+        "3": "The call will not stop on its own.",
+        "cangkat": "Answer",
+        "ctolak": "Decline",
+        "cdiam": "Let it ring"
+      },
+      "panggil": {
+        "angkat": {
+          "1": "Sir, I am still looking for work. I will pay this month, I promise.",
+          "2": "We will wait until the end of the month, sir."
+        },
+        "tolak": { "1": "The call is cut before the collector finishes speaking." },
+        "diam": { "1": "The phone rings until it stops by itself. The room feels emptier." },
+        "akhir": {
+          "1": "Dimas sits on the floor, leaning against the wall.",
+          "2": "The numbers do not change. Tomorrow something has to change."
+        }
+      },
+      "halt": {
+        "1": "Later. Let me see what is in the house first.",
+        "2": "To the site first. The foreman is usually there early.",
+        "3": "Not the market yet. A stop first, in case someone needs hands."
+      },
+      "semen": {
+        "1": "Cement bags are stacked neatly in the corner, the mill's name faded by rain."
+      },
+      "perancah": {
+        "1": "Bamboo scaffolding two storeys high. The planks wobble when touched.",
+        "2": "If someone falls from here, nobody would know until evening."
+      },
+      "spanduk": {
+        "1": "Site banner: DAILY WORKERS WANTED. There is a handwritten note in the left corner."
+      },
+      "lapak": {
+        "1": "Vegetables sorted neatly by type. Prices are written on a small chalkboard."
+      },
+      "keranjang": {
+        "1": "Woven baskets full of onion skins. Who knows how many times they moved today."
+      },
+      "spanduk_pasar": {
+        "1": "A welcome board at the market gate. The paint is peeling off some letters."
+      },
+      "keluar": {
+        "1": "The morning is high now. The front door waits.",
+        "ckerja": "Go to the construction site",
+        "cpasar": "Go to the market",
+        "cpergi": "Open the door and leave",
+        "ctunggu": "Wait a moment",
+        "proyek": { "1": "The door closes. The path to the site already feels hot, though the sun has just risen." },
+        "pasar": { "1": "The door closes. The market is already busy when his feet touch the open ground." },
+        "pergi": { "1": "Lock the door. I hope there is good news by evening." },
+        "tunggu": { "1": "Not yet. There is still something to finish first." }
+      },
+      "jalan": {
+        "1": "The way out of the site. From here the road forks: to the market, or back home.",
+        "cpasar": "Continue to the market",
+        "crumah": "Back home",
+        "ctunggu": "Wait a moment",
+        "pasar": { "1": "He cuts past the brick stacks. Cement dust still clings to his shirt." },
+        "rumah": { "1": "No news yet. Head home first, maybe someone left a message." },
+        "tunggu": { "1": "Under the scaffold's shadow, site dust spins in the morning air." }
+      },
+      "jalan_pasar": {
+        "1": "Out of the market. The path home crosses the field.",
+        "crumah": "Go home",
+        "ctunggu": "Wait a moment",
+        "rumah": { "1": "He turns for home. The phone is still on the table, who could be calling?" },
+        "tunggu": { "1": "The woven baskets are stacked again. The sellers are busy with their own affairs." }
+      }
+    }
+  }
+}

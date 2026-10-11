@@ -1,0 +1,174 @@
+{
+  "id": {
+    "b20": {
+      "obj": {
+        "capai_dimas": "Sampai ke Abang melewati cahaya",
+        "pilih": "Pilih sebelum cahaya redup"
+      },
+      "puzzle": {
+        "p6": {
+          "title": "Lintas Api Ilusi",
+          "desc": "Lewati cincin cahaya saat celah terbuka.",
+          "hint1": "Setiap denyut punya jeda. Tunggu, jangan buru-buru.",
+          "hint2": "Tidak ada yang mati di sini. Tetap saja, satu langkah pada satu waktu."
+        }
+      },
+      "catatan": {
+        "1": "Aku mengeluarkan catatan. Tujuh kartu, satu papan, satu nama.",
+        "2": "Semuanya menunjuk ke arah yang sama: ke ladang, ke malam, ke orang yang berpura-pura tidak tahu.",
+        "3": "Malam ini aku harus memilih. Sebelum cahaya ini memutuskan untukku."
+      },
+      "ponsel": {
+        "1": "Sinyal hilang sejak tadi. Layar ponsel hanya memantulkan wajahku.",
+        "2": "Pesan terakhir dari Abang: jangan ke sini.",
+        "3": "Jam menunjuk lewat sembilan. Waktunya sudah lewat untuk mengabaikan pesan itu."
+      },
+      "cincin": {
+        "1": "Cahaya berdenyut di depanku, seperti nadi. Ada jeda di antara tiap tarikan.",
+        "2": "Aku harus melewatinya saat celah terbuka. Tidak ada yang mati di tempat ini.",
+        "3": "Tapi tubuhku tetap menolak. Satu langkah, satu napas, satu kesempatan."
+      },
+      "joy": {
+        "kenal": {
+          "1": "Bayangan perempuan berdiri di sisi cahaya, tenang.",
+          "2": "Itu Joy yang kemarin. Yang berdiri di ladang dan tidak marah padaku.",
+          "3": "Dia tidak bicara. Tapi arah matanya menuju Abang."
+        },
+        "asing": {
+          "1": "Bayangan perempuan berdiri di sisi cahaya. Wajahnya tidak jelas.",
+          "2": "Dia tidak mendekat. Hanya berdiri, seolah menunggu aku memilih.",
+          "3": "Entah kenapa, aku merasa dia bukan bagian dari cahaya ini."
+        }
+      },
+      "dimas": {
+        "1": "Raka! Jangan masuk! Ini bukan api yang asli!",
+        "2": "Suara Abang terputus di tengah kalimat. Dia masih berdiri di sana.",
+        "3": "Aku bisa memanggil namanya, atau langsung bergerak.",
+        "cA": "Berteriak memanggil Abang",
+        "cB": "Diam. Bergerak sekarang.",
+        "a": {
+          "1": "Aku di sini! Jangan sentuh apa-apa!",
+          "2": "Suara Abang masih kuat. Berarti dia masih berdiri, bukan jatuh."
+        },
+        "b": {
+          "1": "Aku tidak menjawab. Aku menghitung detik di antara denyut cahaya itu.",
+          "2": "Pikiran panik hanya memperlambat."
+        }
+      },
+      "pilihan": {
+        "1": "Aku sampai di sisi Abang. Lingkaran cahaya menyusut, lalu melebar lagi.",
+        "2": "Kau tidak harus melakukan ini, Raka.",
+        "3": "Malam ini aku memilih. Tidak ada lagi yang menunggu.",
+        "4": "Aku sudah di ujung. Tidak ada jalan lain selain memilih.",
+        "cA": "Selamatkan Abang, lalu lapor",
+        "cB": "Selamatkan Abang, diam-diam",
+        "cC": "Biarkan. Aku tidak sanggup.",
+        "lapor": {
+          "1": "Aku menarik Abang keluar saat celah cahaya terbuka.",
+          "2": "Setelah ini kita bicara. Dengan polisi, dengan warga, dengan siapa pun.",
+          "3": "Abang menatapku lama, lalu mengangguk."
+        },
+        "diam": {
+          "1": "Aku menarik Abang keluar dan menariknya ke balik semak.",
+          "2": "Tidak ada laporan. Tidak ada nama. Kita berdua berjalan pulang dalam diam.",
+          "3": "Rahasia ini tinggal berdua, sampai salah satu dari kami tidak kuat."
+        },
+        "biarkan": {
+          "1": "Aku mundur. Kakiku memilih sebelum kepalaku.",
+          "2": "Cahaya itu menutup pelan, seperti menelan.",
+          "3": "Aku berbalik. Langkahku berat, tapi tidak berhenti."
+        },
+        "akhir": {
+          "1": "Cahaya berdenyut terakhir, lalu redup.",
+          "2": "Aku tidak menoleh lagi."
+        }
+      }
+    }
+  },
+  "en": {
+    "b20": {
+      "obj": {
+        "capai_dimas": "Reach your brother through the light",
+        "pilih": "Choose before the light fades"
+      },
+      "puzzle": {
+        "p6": {
+          "title": "Cross the Illusion Fire",
+          "desc": "Pass the ring of light when the gap opens.",
+          "hint1": "Every pulse has a pause. Wait, do not rush.",
+          "hint2": "No one dies here. Still, one step at a time."
+        }
+      },
+      "catatan": {
+        "1": "I take out my notes. Seven cards, one board, one name.",
+        "2": "They all point the same way: to the field, to the night, to the person pretending not to know.",
+        "3": "Tonight I must choose. Before this light decides for me."
+      },
+      "ponsel": {
+        "1": "The signal has been gone for a while. The phone screen only reflects my face.",
+        "2": "The last message from my brother: do not come here.",
+        "3": "The clock reads past nine. It is too late to ignore that message."
+      },
+      "cincin": {
+        "1": "The light pulses in front of me, like a pulse. There is a pause between each beat.",
+        "2": "I must cross while the gap is open. No one dies in this place.",
+        "3": "But my body still refuses. One step, one breath, one chance."
+      },
+      "joy": {
+        "kenal": {
+          "1": "A female shadow stands beside the light, calm.",
+          "2": "That is the Joy from yesterday. The one who stood in the field and was not angry with me.",
+          "3": "She does not speak. But her eyes point toward my brother."
+        },
+        "asing": {
+          "1": "A female shadow stands beside the light. Her face is not clear.",
+          "2": "She does not come closer. She only stands, as if waiting for me to choose.",
+          "3": "For some reason I feel she is not part of this light."
+        }
+      },
+      "dimas": {
+        "1": "Raka! Do not come in! This is not real fire!",
+        "2": "My brother's voice breaks mid sentence. He is still standing there.",
+        "3": "I can call his name, or move right now.",
+        "cA": "Shout and call my brother",
+        "cB": "Stay quiet. Move now.",
+        "a": {
+          "1": "I am here! Do not touch anything!",
+          "2": "His voice is still strong. That means he is still standing, not fallen."
+        },
+        "b": {
+          "1": "I do not answer. I count the seconds between the pulses of light.",
+          "2": "A panicked mind only slows me down."
+        }
+      },
+      "pilihan": {
+        "1": "I reach my brother's side. The ring of light narrows, then widens again.",
+        "2": "You do not have to do this, Raka.",
+        "3": "Tonight I choose. Nothing is waiting for me anymore.",
+        "4": "I am at the edge. There is no way out except to choose.",
+        "cA": "Save my brother, then report it",
+        "cB": "Save my brother in secret",
+        "cC": "Let it be. I cannot do this.",
+        "lapor": {
+          "1": "I pull my brother out while the gap in the light opens.",
+          "2": "After this we talk. To the police, to the villagers, to anyone.",
+          "3": "My brother looks at me a long time, then nods."
+        },
+        "diam": {
+          "1": "I pull my brother out and drag him behind the bushes.",
+          "2": "No report. No names. We two walk home in silence.",
+          "3": "This secret stays with us two, until one of us cannot hold it."
+        },
+        "biarkan": {
+          "1": "I step back. My legs choose before my head does.",
+          "2": "The light closes slowly, as if swallowing.",
+          "3": "I turn around. My steps are heavy, but they do not stop."
+        },
+        "akhir": {
+          "1": "The light gives one last pulse, then fades.",
+          "2": "I do not look back again."
+        }
+      }
+    }
+  }
+}

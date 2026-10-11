@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="fire" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a0a00"/>
+      <stop offset="50%" style="stop-color:#ff4400"/>
+      <stop offset="100%" style="stop-color:#ffaa00"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" fill="#0a0a0a"/>
+  <path d="M96 160 Q70 120 80 80 Q85 60 96 40 Q107 60 112 80 Q122 120 96 160" fill="url(#fire)" opacity="0.9"/>
+  <path d="M96 150 Q78 115 85 85 Q89 70 96 55 Q103 70 107 85 Q114 115 96 150" fill="#ff6600" opacity="0.7"/>
+  <ellipse cx="96" cy="70" rx="8" ry="6" fill="#fff8cc" opacity="0.9"/>
+  <ellipse cx="96" cy="70" rx="4" ry="3" fill="#ffcc00"/>
+</svg>

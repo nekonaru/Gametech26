@@ -1,0 +1,239 @@
+{
+  "id": "b04",
+  "hari": 1,
+  "jam": "17:30",
+  "pov": "raka",
+  "scene": "rumah_dimas",
+  "onEnter": [
+    { "op": "setLighting", "preset": "malam_rumah", "transition": 2 },
+    { "op": "objective", "id": "jelajahi", "text": "b04.obj.jelajahi" },
+    { "op": "playSound", "key": "ambience_house", "options": { "category": "ambience", "loop": true, "volume": 0.3 } }
+  ],
+  "interactables": [
+    {
+      "id": "kulkas",
+      "prompt": "ui.open",
+      "position": [-2, 0, -3],
+      "onUse": [ { "op": "dialog", "node": "b04.kulkas" } ]
+    },
+    {
+      "id": "foto_keluarga",
+      "prompt": "ui.examine",
+      "position": [2, 0, -3],
+      "onUse": [ { "op": "dialog", "node": "b04.foto" } ]
+    },
+    {
+      "id": "amplop",
+      "prompt": "ui.read",
+      "position": [1.5, 0, -2.5],
+      "onUse": [ { "op": "dialog", "node": "b04.amplop" } ]
+    },
+    {
+      "id": "radio",
+      "prompt": "ui.use",
+      "position": [-1, 0, -2],
+      "onUse": [ { "op": "dialog", "node": "b04.radio" } ]
+    },
+    {
+      "id": "kamar_dimas",
+      "prompt": "ui.open",
+      "position": [0, 0, -4.5],
+      "onUse": [ { "op": "dialog", "node": "b04.kamar" } ]
+    },
+    {
+      "id": "kalender",
+      "prompt": "ui.read",
+      "position": [-2.5, 0, -2],
+      "onUse": [ { "op": "dialog", "node": "b04.kalender" } ]
+    },
+    {
+      "id": "laci",
+      "prompt": "ui.use",
+      "position": [1.5, 0, -4.5],
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "clues.includes('c1')",
+          "then": [ { "op": "dialog", "node": "b04.kwitansi" } ],
+          "else": [
+            {
+              "op": "if",
+              "condition": "flags.b04_kamar === true",
+              "then": [
+                {
+                  "op": "startPuzzle",
+                  "id": "p1",
+                  "config": {
+                    "type": "dial",
+                    "title": "b04.p1.title",
+                    "description": "b04.p1.desc",
+                    "data": {
+                      "digits": 4,
+                      "solution": "1709",
+                      "hints": [ "b04.p1.hint1", "b04.p1.hint2" ]
+                    },
+                    "onSolve": [
+                      { "op": "giveClue", "id": "c1" },
+                      { "op": "objective", "id": "kwitansi", "text": "b04.obj.kwitansi" }
+                    ],
+                    "onSkip": [
+                      { "op": "giveClue", "id": "c1" },
+                      { "op": "objective", "id": "kwitansi", "text": "b04.obj.kwitansi" }
+                    ],
+                    "onHelp": [ { "op": "setEcho", "key": "help_p1", "value": true } ]
+                  }
+                }
+              ],
+              "else": [ { "op": "dialog", "node": "b04.laci.kunci" } ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pintu_keluar",
+      "prompt": "ui.open",
+      "position": [0, 0, 0.5],
+      "onUse": [
+        { "op": "dialog", "node": "b04.keluar" },
+        {
+          "op": "if",
+          "condition": "flags.b04_keluar === true",
+          "then": [ { "op": "chapterEnd" } ]
+        }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b04.kulkas": [
+      {
+        "speaker": "Narator",
+        "text": "b04.kulkas.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b04_kulkas", "value": true } ]
+      },
+      { "speaker": "Raka", "text": "b04.kulkas.2" }
+    ],
+    "b04.foto": [
+      {
+        "speaker": "Narator",
+        "text": "b04.foto.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b04_foto", "value": true } ]
+      },
+      { "speaker": "Narator", "text": "b04.foto.2" },
+      { "speaker": "Raka", "text": "b04.foto.3" },
+      { "speaker": "Narator", "text": "b04.foto.4" }
+    ],
+    "b04.amplop": [
+      {
+        "speaker": "Narator",
+        "text": "b04.amplop.1",
+        "onEnter": [
+          {
+            "op": "echo",
+            "from": "b01",
+            "to": "b04",
+            "data": { "source": "dimas", "target": "raka", "object": "amplop_tagihan" }
+          },
+          { "op": "setFlag", "flag": "b04_amplop", "value": true }
+        ]
+      },
+      { "speaker": "Raka", "text": "b04.amplop.2" },
+      { "speaker": "Narator", "text": "b04.amplop.3" }
+    ],
+    "b04.radio": [
+      {
+        "speaker": "Radio",
+        "text": "b04.radio.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b04_radio", "value": true } ]
+      },
+      { "speaker": "Raka", "text": "b04.radio.2" },
+      { "speaker": "Narator", "text": "b04.radio.3" }
+    ],
+    "b04.kamar": [
+      {
+        "speaker": "Narator",
+        "text": "b04.kamar.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b04_kamar", "value": true },
+          { "op": "objective", "id": "laci", "text": "b04.obj.laci" }
+        ]
+      },
+      { "speaker": "Narator", "text": "b04.kamar.2" },
+      { "speaker": "Raka", "text": "b04.kamar.3" }
+    ],
+    "b04.kalender": [
+      {
+        "speaker": "Narator",
+        "text": "b04.kalender.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b04_kalender", "value": true } ]
+      },
+      { "speaker": "Narator", "text": "b04.kalender.2" },
+      { "speaker": "Raka", "text": "b04.kalender.3" }
+    ],
+    "b04.laci.kunci": [
+      { "speaker": "Raka", "text": "b04.laci.kunci.1" }
+    ],
+    "b04.kwitansi": [
+      { "speaker": "Narator", "text": "b04.kwitansi.1" },
+      { "speaker": "Raka", "text": "b04.kwitansi.2" },
+      {
+        "speaker": "Narator",
+        "text": "b04.kwitansi.3",
+        "choices": [
+          {
+            "text": "b04.kwitansi.cA",
+            "next": "b04.kwitansi.simpan",
+            "important": true,
+            "onSelect": [ { "op": "giveItem", "id": "kwitansi" } ]
+          },
+          {
+            "text": "b04.kwitansi.cB",
+            "next": "b04.kwitansi.foto",
+            "important": true
+          }
+        ]
+      }
+    ],
+    "b04.kwitansi.simpan": [
+      {
+        "speaker": "Raka",
+        "text": "b04.kwitansi.simpan.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b04_sudah_baca", "value": true },
+          { "op": "objective", "id": "keluar", "text": "b04.obj.keluar" }
+        ]
+      }
+    ],
+    "b04.kwitansi.foto": [
+      {
+        "speaker": "Raka",
+        "text": "b04.kwitansi.foto.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b04_sudah_baca", "value": true },
+          { "op": "objective", "id": "keluar", "text": "b04.obj.keluar" }
+        ]
+      }
+    ],
+    "b04.keluar": [
+      {
+        "speaker": "Narator",
+        "text": "b04.keluar.1",
+        "choices": [
+          {
+            "text": "b04.keluar.cpergi",
+            "next": "b04.keluar.pergi",
+            "condition": "clues.includes('c1')",
+            "onSelect": [ { "op": "setFlag", "flag": "b04_keluar", "value": true } ]
+          },
+          { "text": "b04.keluar.ctunggu", "next": "b04.keluar.tunggu" }
+        ]
+      }
+    ],
+    "b04.keluar.tunggu": [
+      { "speaker": "Raka", "text": "b04.keluar.tunggu.1" }
+    ],
+    "b04.keluar.pergi": [
+      { "speaker": "Raka", "text": "b04.keluar.pergi.1" }
+    ]
+  }
+}

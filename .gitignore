@@ -1,0 +1,11 @@
+# Dependensi & hasil build
+node_modules/
+dist/
+
+# Artefak debug (screenshot verifikasi, ratusan MB)
+shots/
+
+# Faktur/berkas lokal editor
+*.local
+.DS_Store
+Thumbs.db

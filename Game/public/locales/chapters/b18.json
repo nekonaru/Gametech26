@@ -1,0 +1,166 @@
+{
+  "id": {
+    "b18": {
+      "obj": {
+        "telusuri": "Telusuri jejak malam tadi",
+        "susun_papan": "Susun papan petunjuk sebelum matahari tinggi",
+        "simpulan": "Papan sudah rapi. Sekarang buat keputusan"
+      },
+      "puzzle": {
+        "p4": {
+          "title": "Papan Petunjuk",
+          "desc": "Hubungkan kartu petunjuk ke lima kategori.",
+          "hint1": "Mulai dari waktu. Kapan semua kebakaran terjadi?",
+          "hint2": "Motif harus menjelaskan kenapa, bukan bagaimana.",
+          "hint3": "Bukti fisik harus benda yang bisa disentuh."
+        }
+      },
+      "jejak": {
+        "1": "Jejak semalam masih ada. Tanah kering menyisakan cetakan sepatu kecil.",
+        "2": "Satu jejak sendirian, berhenti di rerumputan. Tidak ada jejak yang kembali.",
+        "3": "Dan di depannya, benda kecil memantulkan matahari."
+      },
+      "kalung": {
+        "1": "Kalung bulan sabit. Tempelannya lepas, tapi bentuknya masih utuh.",
+        "2": "Ini kalung di foto Joy yang diberikan Ibu Joy padaku.",
+        "3": "Aku memasukkannya ke saku. Sekarang foto itu dan kalung ini saling menjawab."
+      },
+      "foto": {
+        "yes": {
+          "1": "Foto di jurnal: Joy tersenyum, kalung bulan sabit di lehernya.",
+          "2": "Aku pegang kalung tadi. Ukurannya cocok. Bekas pakainya juga.",
+          "3": "Sudah jelas. Sekarang tinggal menyusun sisanya."
+        },
+        "no": {
+          "1": "Di jurnalku hanya ada catatan dan tanggal. Foto dari Ibu Joy tidak kubawa.",
+          "2": "Aku menggambarnya dari ingatan: bulan sabit, tali hitam.",
+          "3": "Tapi ingatan bukan bukti. Aku harus menyusun yang lain dulu."
+        }
+      },
+      "papan": {
+        "1": "Aku keluarkan semua kartu. Kwitansi, tanggal, lokasi, nama.",
+        "2": "Satu papan kecil, benang, dan waktu sebentar sebelum matahari tinggi."
+      },
+      "rudi": {
+        "1": "Rumah Rudi gelap. Pagar terkunci, jendela ditutup kain.",
+        "2": "Tetangga bilang dia berangkat subuh, bawa satu tas kecil.",
+        "3": "Kalau dia tidak mau ditemui, berarti dia juga tidak mau mendengar."
+      },
+      "keputusan": {
+        "1": "Papan itu belum menjawab semuanya. Masih ada ruang kosong di sana.",
+        "2": "Aku sudah di sini dua hari. Hutan ini tidak menunggu aku selamanya.",
+        "3": "Terserah aku sekarang: jalan masuk, atau jalan pulang.",
+        "cA": "Aku belum yakin. Aku pulang ke kota.",
+        "cB": "Aku tetap coba. Aku cari Abang.",
+        "tenang": {
+          "1": "Aku duduk di batu yang sama seperti tadi pagi. Napasku pelan.",
+          "2": "Kalimat yang mau kuucapkan sudah siap. Tinggal langkah."
+        },
+        "lanjut": {
+          "1": "Aku menutup papan dan memasukkan kartu ke map.",
+          "2": "Kalau Abang masih di luar sana, dia tidak sendirian. Aku percaya itu.",
+          "3": "Aku kembali ke teras untuk mengambil senter."
+        },
+        "pulang": {
+          "1": "Aku belum yakin. Mungkin aku hanya lelah dan terlalu jauh berpikir.",
+          "2": "Aku menutup papan, memasukkan kartu ke map, lalu berjalan ke halte.",
+          "3": "Kota menunggu. Dari sana, aku tidak akan pernah tahu apa yang terjadi di hutan."
+        }
+      },
+      "keputusan_yakin": {
+        "1": "Papan itu penuh. Semua kartu saling menunjuk ke satu arah.",
+        "2": "Aku tidak butuh pengakuan untuk tahu apa yang terjadi di hutan ini.",
+        "3": "Tinggal satu langkah lagi, atau tidak sama sekali.",
+        "cA": "Aku cukup yakin. Aku cari Abang.",
+        "cB": "Duduk sebentar. Atur napas dulu."
+      },
+      "selesai": {
+        "1": "Aku ambil tas dan senter dari teras.",
+        "2": "Kalung di sakuku terasa dingin walaupun matahari sudah tinggi.",
+        "3": "Matahari sudah tinggi. Waktunya mencari Abang."
+      }
+    }
+  },
+  "en": {
+    "b18": {
+      "obj": {
+        "telusuri": "Trace last night's tracks",
+        "susun_papan": "Set up the evidence board before the sun climbs high",
+        "simpulan": "The board is set. Now make a decision"
+      },
+      "puzzle": {
+        "p4": {
+          "title": "Evidence Board",
+          "desc": "Connect the clue cards to the five categories.",
+          "hint1": "Start with time. When did all the fires happen?",
+          "hint2": "The motive must explain why, not how.",
+          "hint3": "Physical evidence must be something you can touch."
+        }
+      },
+      "jejak": {
+        "1": "Last night's prints are still there. The dry soil keeps a small shoe shape.",
+        "2": "One lone print, stopped in the grass. No print comes back.",
+        "3": "And in front of it, a small thing reflects the sun."
+      },
+      "kalung": {
+        "1": "A crescent moon necklace. The clasp came loose, but the shape is intact.",
+        "2": "This is the necklace in Joy's photo, the one Ibu Joy gave me.",
+        "3": "I put it in my pocket. Now the photo and the necklace answer each other."
+      },
+      "foto": {
+        "yes": {
+          "1": "The photo in my journal: Joy smiling, the crescent moon necklace at her neck.",
+          "2": "I hold the necklace. The size matches. The wear marks match too.",
+          "3": "It is clear. Now only the rest has to be laid out."
+        },
+        "no": {
+          "1": "My journal only holds notes and dates. The photo from Ibu Joy stayed behind.",
+          "2": "I draw it from memory: a crescent moon, a black cord.",
+          "3": "But memory is not evidence. I have to lay out the rest first."
+        }
+      },
+      "papan": {
+        "1": "I take out every card. Receipts, dates, places, names.",
+        "2": "A small board, some thread, and a little time before the sun climbs."
+      },
+      "rudi": {
+        "1": "Rudi's house is dark. The gate is locked, the window covered with cloth.",
+        "2": "The neighbor says he left at dawn with one small bag.",
+        "3": "If he does not want to be found, he does not want to listen either."
+      },
+      "keputusan": {
+        "1": "The board does not answer everything. There is still an empty space on it.",
+        "2": "I have been here two days. This forest will not wait for me forever.",
+        "3": "It is up to me now: the way in, or the way home.",
+        "cA": "I am not sure yet. I go back to the city.",
+        "cB": "I will still try. I will find my brother.",
+        "tenang": {
+          "1": "I sit on the same stone as this morning. My breath slows.",
+          "2": "The words I want to say are ready. Only the steps are missing."
+        },
+        "lanjut": {
+          "1": "I close the board and put the cards into the folder.",
+          "2": "If my brother is still out there, he is not alone. I believe that.",
+          "3": "I go back to the terrace to take the flashlight."
+        },
+        "pulang": {
+          "1": "I am not sure yet. Maybe I am only tired and thinking too far.",
+          "2": "I close the board, put the cards into the folder, then walk to the bus stop.",
+          "3": "The city is waiting. From there I will never know what happened in the forest."
+        }
+      },
+      "keputusan_yakin": {
+        "1": "The board is full. Every card points in the same direction.",
+        "2": "I do not need a confession to know what happened in this forest.",
+        "3": "Only one step left, or none at all.",
+        "cA": "I am sure enough. I will find my brother.",
+        "cB": "Sit a while. Breathe first."
+      },
+      "selesai": {
+        "1": "I take my bag and the flashlight from the terrace.",
+        "2": "The necklace in my pocket feels cold even though the sun is high.",
+        "3": "The sun is high. Time to find my brother."
+      }
+    }
+  }
+}

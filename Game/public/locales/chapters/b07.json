@@ -1,0 +1,126 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "read": "Baca",
+      "take": "Ambil",
+      "use": "Gunakan"
+    },
+    "b07": {
+      "obj": {
+        "briefing": "Datang ke gubuk di tepi kebun. Ikuti briefing Rudi.",
+        "malam": "Istirahat dulu. Jam 22:00 malam nanti kembali ke gubuk."
+      },
+      "rudi": {
+        "1": "Mas, sini. Kita mulai sebelum panas naik.",
+        "2": "Malam ini ada tiga titik. Semuanya di area yang sama, sudah aku cek kemarin.",
+        "3": "Tiap orang pegang satu titik. Jam sepuluh kumpul di gubuk ini, selesai sebelum subuh.",
+        "4": "Peta ini buat kau. Tiga pita merah, satu buat satu orang. Jangan sampai tertukar.",
+        "5": "Jawab sekarang, Mas. Aku tidak suka orang bertanya lalu menghilang.",
+        "c1": "Siapa yang bayar semua ini, Rud?",
+        "c2": "Diam, terima saja.",
+        "tanya": {
+          "1": "Uang mah uang, Mas. Yang penting kau dibayar dan pulang.",
+          "2": "Tanya nanti, kalau kau sudah punya nyali.",
+          "3": "Pertanyaan itu hilang sendiri. Aku mengambil peta dari tangannya."
+        },
+        "diam": {
+          "1": "Aku tidak bertanya. Uang masuk, itu cukup untuk malam ini.",
+          "2": "Nah, gitu dong, Mas."
+        }
+      },
+      "pekerja": {
+        "1": "Kau yang baru? Aku bagian timur, dia bagian selatan. Kau tengah, dekat jalur kuda.",
+        "2": "Kalau dengar suara motor, berhenti dulu dan diam. Bukan urusan kita.",
+        "3": "Sudah tiga malam begini. Yang bayar tidak pernah kelihatan, cuma uangnya yang datang.",
+        "4": "Aku mengangguk. Tiga malam, dan tidak ada warga yang tahu apa-apa."
+      },
+      "peta": {
+        "1": "Peta kertas bengkok di sudutnya. Tiga tanda pita merah: semak timur, jalur kuda, pohon tua.",
+        "2": "Aku menghafal posisinya dua kali lalu melipatnya lagi."
+      },
+      "amplop": {
+        "1": "Ini uang muka, Mas. Hitung dulu, jangan sampai kurang.",
+        "2": "Aku hitung sambil berdiri. Lima juta, uangnya masih kaku.",
+        "3": "Malam ini juga aku setor sebagian ke aplikasi. Angkanya turun, setidaknya sekejap."
+      },
+      "mobil": {
+        "1": "Mobil pickup hitam parkir di balik semak gubuk. Platnya luar kota, debunya masih basah.",
+        "2": "Di kursi pengemudi ada jaket tertinggal. Di saku dalamnya, kartu nama perusahaan pengelola lahan.",
+        "3": "Aku ambil kartu itu dan menyelipkannya ke saku jaket. Tidak ada yang melihat."
+      },
+      "meja": {
+        "1": "Di meja ada radio warga, termos, dan daftar tulisan tangan: malam satu, malam dua, malam tiga.",
+        "2": "Namaku belum ada di situ. Baru Rudi dan dua nama lain."
+      },
+      "keluar": {
+        "1": "Aku keluar dari gubuk. Cahaya pagi masih lembut, kebun terlihat seperti kebun biasa.",
+        "2": "Malam nanti semuanya akan terlihat berbeda. Setidaknya begitu kata mereka."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "talk": "Talk",
+      "read": "Read",
+      "take": "Take",
+      "use": "Use"
+    },
+    "b07": {
+      "obj": {
+        "briefing": "Come to the hut at the edge of the garden. Join Rudi's briefing.",
+        "malam": "Rest first. Come back to the hut at 22:00 tonight."
+      },
+      "rudi": {
+        "1": "Mas, come here. We start before the heat rises.",
+        "2": "Three points tonight. All in the same area, I checked it yesterday.",
+        "3": "Everyone takes one point. Gather here at ten, finish before dawn.",
+        "4": "This map is for you. Three red ribbons, one for each person. Don't mix them up.",
+        "5": "Answer now, Mas. I don't like people who ask and then vanish.",
+        "c1": "Who's paying for all this, Rud?",
+        "c2": "Stay silent and take it.",
+        "tanya": {
+          "1": "Money is money, Mas. What matters is you get paid and go home.",
+          "2": "Ask later, when you have the nerve.",
+          "3": "The question disappears by itself. I take the map from his hand."
+        },
+        "diam": {
+          "1": "I don't ask. Money comes in, that's enough for tonight.",
+          "2": "That's the spirit, Mas."
+        }
+      },
+      "pekerja": {
+        "1": "You're the new one? I take the east side, he takes the south. You take the middle, by the horse trail.",
+        "2": "If you hear a motorbike, stop and stay quiet. It's none of our business.",
+        "3": "Three nights like this already. The one who pays never shows up, only the money.",
+        "4": "I nod. Three nights, and not one villager knows a thing."
+      },
+      "peta": {
+        "1": "The paper map is bent at the corners. Three red ribbon marks: east thicket, horse trail, old tree.",
+        "2": "I memorize the positions twice, then fold it again."
+      },
+      "amplop": {
+        "1": "Here's the down payment, Mas. Count it first, don't let it be short.",
+        "2": "I count standing up. Five million, the bills still stiff.",
+        "3": "Tonight I send part of it to the app. The number drops, if only for a moment."
+      },
+      "mobil": {
+        "1": "A black pickup is parked behind the hut's bushes. Out-of-town plates, the dust still wet.",
+        "2": "A jacket is left on the driver's seat. Inside the inner pocket, a business card of the land managing company.",
+        "3": "I take the card and slip it into my jacket pocket. Nobody sees it."
+      },
+      "meja": {
+        "1": "On the table there's a village radio, a thermos, and a handwritten list: night one, night two, night three.",
+        "2": "My name isn't on it yet. Only Rudi and two other names."
+      },
+      "keluar": {
+        "1": "I step out of the hut. The morning light is still soft, the garden looks like any garden.",
+        "2": "Tonight everything will look different. Or so they say."
+      }
+    }
+  }
+}

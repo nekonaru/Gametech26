@@ -1,0 +1,82 @@
+{
+  "id": "b08",
+  "hari": 2,
+  "jam": "22:00",
+  "pov": "dimas",
+  "scene": "hutan_kecil",
+  "onEnter": [
+    { "op": "setLighting", "preset": "hutan_malam", "transition": 2 },
+    { "op": "objective", "id": "pita", "text": "b08.obj.pita" },
+    { "op": "playSound", "key": "ambience_hutan", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
+  ],
+  "interactables": [
+    { "id": "peta", "prompt": "ui.read", "position": [1.4, 0, -2], "onUse": [{ "op": "dialog", "node": "b08.peta" }] },
+    { "id": "pita_1", "prompt": "ui.examine", "position": [-1.8, 0, -3.4], "once": true, "onUse": [{ "op": "dialog", "node": "b08.pita1" }] },
+    { "id": "pita_2", "prompt": "ui.examine", "position": [2, 0, -4.6], "once": true, "onUse": [{ "op": "dialog", "node": "b08.pita2" }] },
+    { "id": "semak", "prompt": "ui.examine", "position": [-2.6, 0, -5], "onUse": [
+      { "op": "playSound", "key": "langkah_kering", "options": { "category": "sfx", "volume": 0.5 } },
+      { "op": "dialog", "node": "b08.suara" }
+    ] },
+    { "id": "pita_3", "prompt": "ui.examine", "position": [0.6, 0, -5.5], "once": true, "onUse": [{ "op": "dialog", "node": "b08.pita3" }] },
+    { "id": "titik", "prompt": "ui.use", "position": [-0.8, 0, -5.8], "once": true, "onUse": [{ "op": "dialog", "node": "b08.titik" }] },
+    { "id": "jalur_pulang", "prompt": "ui.interact", "position": [0, 0, 1.5], "once": true, "onUse": [
+      { "op": "dialog", "node": "b08.keluar" },
+      { "op": "echo", "from": "b08", "to": "b09", "data": { "jejak": "sepatu_berlumpur", "teras": true } },
+      { "op": "chapterEnd" }
+    ] }
+  ],
+  "dialogs": {
+    "b08.peta": [
+      { "speaker": "Dimas", "text": "b08.peta.1" },
+      { "speaker": "Dimas", "text": "b08.peta.2" }
+    ],
+    "b08.pita1": [
+      { "speaker": "Dimas", "text": "b08.pita1.1" },
+      { "speaker": "Dimas", "text": "b08.pita1.2" }
+    ],
+    "b08.pita2": [
+      { "speaker": "Dimas", "text": "b08.pita2.1",
+        "onEnter": [
+          { "op": "objective", "id": "jangan", "text": "b08.obj.jangan" },
+          { "op": "playSound", "key": "satwa_kabur", "options": { "category": "sfx", "volume": 0.45 } }
+        ] },
+      { "speaker": "Dimas", "text": "b08.pita2.2" },
+      { "speaker": "Dimas", "text": "b08.pita2.3" }
+    ],
+    "b08.pita3": [
+      { "speaker": "Dimas", "text": "b08.pita3.1" },
+      { "speaker": "Dimas", "text": "b08.pita3.2" }
+    ],
+    "b08.suara": [
+      { "speaker": "Dimas", "text": "b08.suara.1" },
+      { "speaker": "Dimas", "text": "b08.suara.2" }
+    ],
+    "b08.titik": [
+      { "speaker": "Dimas", "text": "b08.titik.1" },
+      { "speaker": "Dimas", "text": "b08.titik.2" },
+      { "speaker": "Dimas", "text": "b08.titik.3", "choices": [
+        { "text": "b08.titik.c1", "next": "b08.titik.a", "important": true },
+        { "text": "b08.titik.c2", "next": "b08.titik.b", "important": true }
+      ] }
+    ],
+    "b08.titik.a": [
+      { "speaker": "Dimas", "text": "b08.titik.a.1", "onEnter": [{ "op": "playSound", "key": "bara_jauh", "options": { "category": "sfx", "volume": 0.35 } }] },
+      { "speaker": "Dimas", "text": "b08.titik.a.2" },
+      { "speaker": "Dimas", "text": "b08.titik.a.3", "autoNext": "b08.selesai" }
+    ],
+    "b08.titik.b": [
+      { "speaker": "Dimas", "text": "b08.titik.b.1", "onEnter": [{ "op": "playSound", "key": "bara_jauh", "options": { "category": "sfx", "volume": 0.35 } }] },
+      { "speaker": "Dimas", "text": "b08.titik.b.2" },
+      { "speaker": "Dimas", "text": "b08.titik.b.3", "autoNext": "b08.selesai" }
+    ],
+    "b08.selesai": [
+      { "speaker": "Dimas", "text": "b08.selesai.1",
+        "onEnter": [{ "op": "objective", "id": "pulang", "text": "b08.obj.pulang" }] },
+      { "speaker": "Dimas", "text": "b08.selesai.2" }
+    ],
+    "b08.keluar": [
+      { "speaker": "Dimas", "text": "b08.keluar.1" },
+      { "speaker": "Dimas", "text": "b08.keluar.2" }
+    ]
+  }
+}

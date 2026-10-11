@@ -1,0 +1,140 @@
+{
+  "id": "b17",
+  "hari": 6,
+  "jam": "22:00",
+  "pov": "dimas",
+  "scene": "jalan_desa",
+  "onEnter": [
+    { "op": "setLighting", "preset": "malam_rumah", "transition": 2 },
+    { "op": "objective", "id": "selinap", "text": "b17.obj.selinap" },
+    { "op": "playSound", "key": "ambience_village", "options": { "category": "ambience", "loop": true, "volume": 0.3 } },
+    { "op": "checkpoint", "id": "b17" }
+  ],
+  "interactables": [
+    { "id": "semak_parit", "prompt": "ui.interact", "position": [-1.6, 0, -3], "onUse": [{ "op": "dialog", "node": "b17.semak" }] },
+    { "id": "kerucut_cahaya", "prompt": "ui.examine", "position": [1.4, 0, -4], "onUse": [
+      { "op": "playSound", "key": "static", "options": { "category": "sfx", "volume": 0.3 } },
+      { "op": "dialog", "node": "b17.cahaya" }
+    ] },
+    { "id": "warga_berkumpul", "prompt": "ui.examine", "position": [2, 0, -5], "onUse": [{ "op": "dialog", "node": "b17.warga" }] },
+    { "id": "pos_patroli", "prompt": "ui.interact", "position": [0, 0, -5.5], "onUse": [
+      { "op": "if", "condition": "vars.nurani >= 2",
+        "then": [{ "op": "dialog", "node": "b17.patroli" }],
+        "else": [{ "op": "dialog", "node": "b17.patroli.tanpa" }] }
+    ] },
+    { "id": "sosok_raka", "prompt": "ui.examine", "position": [-2, 0, -4.5], "onUse": [{ "op": "dialog", "node": "b17.raka" }] },
+    { "id": "gerbang_pulang", "prompt": "ui.interact", "position": [1, 0, -1], "once": true, "onUse": [
+      { "op": "dialog", "node": "b17.pulang" },
+      { "op": "chapterEnd" }
+    ] }
+  ],
+  "dialogs": {
+    "b17.semak": [
+      { "speaker": "Dimas", "text": "b17.semak.1" },
+      { "speaker": "Dimas", "text": "b17.semak.2" },
+      { "speaker": "Dimas", "text": "b17.semak.3", "choices": [
+        { "text": "b17.semak.cA", "next": "b17.semak.a" },
+        { "text": "b17.semak.cB", "next": "b17.semak.b" }
+      ] }
+    ],
+    "b17.semak.a": [
+      { "speaker": "Dimas", "text": "b17.semak.a.1" },
+      { "speaker": "Dimas", "text": "b17.semak.a.2" }
+    ],
+    "b17.semak.b": [
+      { "speaker": "Dimas", "text": "b17.semak.b.1" },
+      { "speaker": "Dimas", "text": "b17.semak.b.2" }
+    ],
+    "b17.cahaya": [
+      { "speaker": "Dimas", "text": "b17.cahaya.1" },
+      { "speaker": "Dimas", "text": "b17.cahaya.2" },
+      { "speaker": "Dimas", "text": "b17.cahaya.3", "choices": [
+        { "text": "b17.cahaya.cA", "next": "b17.cahaya.a" },
+        { "text": "b17.cahaya.cB", "next": "b17.cahaya.b" }
+      ] }
+    ],
+    "b17.cahaya.a": [
+      { "speaker": "Dimas", "text": "b17.cahaya.a.1" },
+      { "speaker": "Dimas", "text": "b17.cahaya.a.2" }
+    ],
+    "b17.cahaya.b": [
+      { "speaker": "Dimas", "text": "b17.cahaya.b.1" },
+      { "speaker": "Dimas", "text": "b17.cahaya.b.2" }
+    ],
+    "b17.warga": [
+      { "speaker": "Warga", "text": "b17.warga.1" },
+      { "speaker": "Warga", "text": "b17.warga.2" },
+      { "speaker": "Warga", "text": "b17.warga.3" },
+      { "speaker": "Dimas", "text": "b17.warga.4", "choices": [
+        { "text": "b17.warga.cA", "next": "b17.warga.a" },
+        { "text": "b17.warga.cB", "next": "b17.warga.b" }
+      ] }
+    ],
+    "b17.warga.a": [
+      { "speaker": "Dimas", "text": "b17.warga.a.1" },
+      { "speaker": "Dimas", "text": "b17.warga.a.2" }
+    ],
+    "b17.warga.b": [
+      { "speaker": "Dimas", "text": "b17.warga.b.1" },
+      { "speaker": "Dimas", "text": "b17.warga.b.2" }
+    ],
+    "b17.patroli": [
+      { "speaker": "Ketua RT", "text": "b17.patroli.1" },
+      { "speaker": "Dimas", "text": "b17.patroli.2" },
+      { "speaker": "Ketua RT", "text": "b17.patroli.3" },
+      { "speaker": "Dimas", "text": "b17.patroli.4" },
+      { "speaker": "Dimas", "text": "b17.patroli.5", "choices": [
+        { "text": "b17.patroli.cA", "next": "b17.patroli.mengaku", "important": true },
+        { "text": "b17.patroli.cB", "next": "b17.patroli.kabur", "important": true }
+      ] }
+    ],
+    "b17.patroli.tanpa": [
+      { "speaker": "Ketua RT", "text": "b17.patroli.1" },
+      { "speaker": "Dimas", "text": "b17.patroli.6" },
+      { "speaker": "Ketua RT", "text": "b17.patroli.3" },
+      { "speaker": "Dimas", "text": "b17.patroli.7", "choices": [
+        { "text": "b17.patroli.cC", "next": "b17.patroli.kabur" },
+        { "text": "b17.patroli.cD", "next": "b17.patroli.tunggu" }
+      ] }
+    ],
+    "b17.patroli.tunggu": [
+      { "speaker": "Dimas", "text": "b17.patroli.8", "autoNext": "b17.patroli.kabur" }
+    ],
+    "b17.patroli.mengaku": [
+      { "speaker": "Dimas", "text": "b17.patroli.9", "onEnter": [
+        { "op": "setFlag", "flag": "b17_confess", "value": true },
+        { "op": "addNurani", "value": 1 },
+        { "op": "objective", "id": "berhenti", "text": "b17.obj.berhenti" }
+      ] },
+      { "speaker": "Dimas", "text": "b17.patroli.10" },
+      { "speaker": "Ketua RT", "text": "b17.patroli.11" },
+      { "speaker": "Dimas", "text": "b17.patroli.12", "onExit": [{ "op": "ending", "id": "ending_7" }] }
+    ],
+    "b17.patroli.kabur": [
+      { "speaker": "Dimas", "text": "b17.patroli.13" },
+      { "speaker": "Dimas", "text": "b17.patroli.14" },
+      { "speaker": "Dimas", "text": "b17.patroli.15" }
+    ],
+    "b17.raka": [
+      { "speaker": "Dimas", "text": "b17.raka.1" },
+      { "speaker": "Dimas", "text": "b17.raka.2" },
+      { "speaker": "Dimas", "text": "b17.raka.3", "choices": [
+        { "text": "b17.raka.cA", "next": "b17.raka.a" },
+        { "text": "b17.raka.cB", "next": "b17.raka.b" }
+      ] }
+    ],
+    "b17.raka.a": [
+      { "speaker": "Dimas", "text": "b17.raka.a.1" },
+      { "speaker": "Dimas", "text": "b17.raka.a.2" }
+    ],
+    "b17.raka.b": [
+      { "speaker": "Dimas", "text": "b17.raka.b.1" },
+      { "speaker": "Dimas", "text": "b17.raka.b.2" }
+    ],
+    "b17.pulang": [
+      { "speaker": "Dimas", "text": "b17.pulang.1" },
+      { "speaker": "Dimas", "text": "b17.pulang.2" },
+      { "speaker": "Dimas", "text": "b17.pulang.3" }
+    ]
+  }
+}

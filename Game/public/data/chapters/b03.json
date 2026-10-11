@@ -1,0 +1,223 @@
+{
+  "id": "b03",
+  "hari": 1,
+  "jam": "15:00",
+  "pov": "raka",
+  "scene": "bus",
+  "onEnter": [
+    { "op": "setLighting", "preset": "sore", "transition": 2 },
+    { "op": "objective", "id": "jalan", "text": "b03.obj.jalan" },
+    { "op": "playSound", "key": "ambience_bus", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    {
+      "id": "kursi",
+      "prompt": "ui.interact",
+      "position": [0, 0, -1.5],
+      "onUse": [ { "op": "dialog", "node": "b03.kursi" } ]
+    },
+    {
+      "id": "jendela",
+      "prompt": "ui.examine",
+      "position": [-2, 0, -3],
+      "onUse": [ { "op": "dialog", "node": "b03.jendela" } ]
+    },
+    {
+      "id": "earphone",
+      "prompt": "ui.use",
+      "position": [2, 0, -2.5],
+      "onUse": [ { "op": "dialog", "node": "b03.lagu" } ]
+    },
+    {
+      "id": "hp_chat",
+      "prompt": "ui.use",
+      "position": [1.5, 0, -3.5],
+      "onUse": [ { "op": "dialog", "node": "b03.chat" } ]
+    },
+    {
+      "id": "foto_halaman",
+      "prompt": "ui.examine",
+      "position": [-1.5, 0, -3.5],
+      "onUse": [ { "op": "dialog", "node": "b03.flashback" } ]
+    },
+    {
+      "id": "sopir",
+      "prompt": "ui.talk",
+      "position": [0, 0, -4.5],
+      "onUse": [ { "op": "dialog", "node": "b03.sopir" } ]
+    },
+    {
+      "id": "pintu_bus",
+      "prompt": "ui.open",
+      "position": [0, 0, 1],
+      "onUse": [
+        { "op": "dialog", "node": "b03.turun" },
+        {
+          "op": "if",
+          "condition": "flags.b03_turun === true",
+          "then": [ { "op": "chapterEnd" } ]
+        }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b03.kursi": [
+      {
+        "speaker": "Narator",
+        "text": "b03.kursi.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b03_duduk", "value": true } ]
+      },
+      { "speaker": "Raka", "text": "b03.kursi.2" }
+    ],
+    "b03.jendela": [
+      {
+        "speaker": "Narator",
+        "text": "b03.jendela.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b03_jendela", "value": true } ]
+      },
+      { "speaker": "Raka", "text": "b03.jendela.2" },
+      { "speaker": "Narator", "text": "b03.jendela.3" }
+    ],
+    "b03.lagu": [
+      {
+        "speaker": "Raka",
+        "text": "b03.lagu.1",
+        "choices": [
+          { "text": "b03.lagu.ca", "next": "b03.lagu.a" },
+          { "text": "b03.lagu.cb", "next": "b03.lagu.b" },
+          { "text": "b03.lagu.cc", "next": "b03.lagu.c" }
+        ]
+      }
+    ],
+    "b03.lagu.a": [
+      {
+        "speaker": "Narator",
+        "text": "b03.lagu.a.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b03_lagu", "value": true },
+          { "op": "playSound", "key": "music_trek_petang", "options": { "category": "music", "loop": true, "volume": 0.3 } }
+        ]
+      },
+      { "speaker": "Raka", "text": "b03.lagu.a.2" }
+    ],
+    "b03.lagu.b": [
+      {
+        "speaker": "Narator",
+        "text": "b03.lagu.b.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b03_lagu", "value": true },
+          { "op": "playSound", "key": "music_trek_hujan", "options": { "category": "music", "loop": true, "volume": 0.3 } }
+        ]
+      },
+      { "speaker": "Raka", "text": "b03.lagu.b.2" }
+    ],
+    "b03.lagu.c": [
+      {
+        "speaker": "Narator",
+        "text": "b03.lagu.c.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b03_lagu", "value": true },
+          { "op": "playSound", "key": "music_trek_pulang", "options": { "category": "music", "loop": true, "volume": 0.3 } }
+        ]
+      },
+      { "speaker": "Raka", "text": "b03.lagu.c.2" }
+    ],
+    "b03.chat": [
+      {
+        "speaker": "Narator",
+        "text": "b03.chat.1",
+        "onEnter": [ { "op": "objective", "id": "chat", "text": "b03.obj.chat" } ]
+      },
+      {
+        "speaker": "Raka",
+        "text": "b03.chat.2",
+        "choices": [
+          {
+            "text": "b03.chat.cA",
+            "next": "b03.chat.santai",
+            "important": true,
+            "onSelect": [ { "op": "setFlag", "flag": "b03_chat_santai", "value": true } ]
+          },
+          {
+            "text": "b03.chat.cB",
+            "next": "b03.chat.singkat",
+            "important": true,
+            "onSelect": [ { "op": "setFlag", "flag": "b03_chat_singkat", "value": true } ]
+          },
+          {
+            "text": "b03.chat.cC",
+            "next": "b03.chat.cemas",
+            "important": true,
+            "onSelect": [ { "op": "setFlag", "flag": "b03_chat_cemas", "value": true } ]
+          }
+        ]
+      }
+    ],
+    "b03.chat.santai": [
+      { "speaker": "Raka", "text": "b03.chat.santai.1" },
+      { "speaker": "Narator", "text": "b03.chat.santai.2", "autoNext": "b03.chat.akhir" }
+    ],
+    "b03.chat.singkat": [
+      { "speaker": "Raka", "text": "b03.chat.singkat.1" },
+      { "speaker": "Narator", "text": "b03.chat.singkat.2", "autoNext": "b03.chat.akhir" }
+    ],
+    "b03.chat.cemas": [
+      { "speaker": "Raka", "text": "b03.chat.cemas.1" },
+      { "speaker": "Narator", "text": "b03.chat.cemas.2", "autoNext": "b03.chat.akhir" }
+    ],
+    "b03.chat.akhir": [
+      {
+        "speaker": "Narator",
+        "text": "b03.chat.akhir.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b03_chat", "value": true },
+          { "op": "objective", "id": "tiba", "text": "b03.obj.tiba" }
+        ]
+      },
+      { "speaker": "Raka", "text": "b03.chat.akhir.2" }
+    ],
+    "b03.flashback": [
+      {
+        "speaker": "Narator",
+        "text": "b03.flashback.1",
+        "onEnter": [
+          { "op": "setFlag", "flag": "b03_flashback", "value": true },
+          { "op": "setLighting", "preset": "flashback", "transition": 1.5 }
+        ]
+      },
+      { "speaker": "Ibu", "text": "b03.flashback.2" },
+      { "speaker": "Narator", "text": "b03.flashback.3" },
+      {
+        "speaker": "Raka",
+        "text": "b03.flashback.4",
+        "onEnter": [ { "op": "setLighting", "preset": "sore", "transition": 1.5 } ]
+      }
+    ],
+    "b03.sopir": [
+      {
+        "speaker": "Narator",
+        "text": "b03.sopir.1",
+        "onEnter": [ { "op": "setFlag", "flag": "b03_sopir", "value": true } ]
+      },
+      { "speaker": "Narator", "text": "b03.sopir.2" },
+      { "speaker": "Raka", "text": "b03.sopir.3" }
+    ],
+    "b03.turun": [
+      {
+        "speaker": "Narator",
+        "text": "b03.turun.1",
+        "onEnter": [ { "op": "setLighting", "preset": "malam_rumah", "transition": 2 } ],
+        "choices": [
+          { "text": "b03.turun.cpergi", "next": "b03.turun.pergi", "condition": "flags.b03_chat === true", "onSelect": [ { "op": "setFlag", "flag": "b03_turun", "value": true } ] },
+          { "text": "b03.turun.ctunggu", "next": "b03.turun.tunggu" }
+        ]
+      }
+    ],
+    "b03.turun.tunggu": [
+      { "speaker": "Raka", "text": "b03.turun.tunggu.1" }
+    ],
+    "b03.turun.pergi": [
+      { "speaker": "Raka", "text": "b03.turun.pergi.1" }
+    ]
+  }
+}

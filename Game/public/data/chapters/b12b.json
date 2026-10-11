@@ -1,0 +1,81 @@
+{
+  "id": "b12b",
+  "hari": 4,
+  "jam": "22:00",
+  "pov": "dimas",
+  "scene": "tepi_hutan",
+  "onEnter": [
+    { "op": "setLighting", "preset": "hutan_malam", "transition": 2 },
+    { "op": "objective", "id": "titik", "text": "obj.b12b.titik" },
+    { "op": "playSound", "key": "ambience_forest_night", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
+  ],
+  "interactables": [
+    { "id": "rudi", "prompt": "ui.talk", "position": [1.2, 0, -2.4],
+      "onUse": [{ "op": "dialog", "node": "b12b.rudi" }] },
+    { "id": "semak_berlindung", "prompt": "ui.use", "position": [-1.8, 0, -3],
+      "onUse": [{ "op": "dialog", "node": "b12b.semak" }] },
+    { "id": "patroli_jauh", "prompt": "ui.examine", "position": [2.6, 0, -4.6],
+      "onUse": [{ "op": "dialog", "node": "b12b.patroli" }] },
+    { "id": "catatan_rudi", "prompt": "ui.read", "position": [-2.8, 0, -4.4],
+      "onUse": [{ "op": "dialog", "node": "b12b.catatan" }] },
+    { "id": "tanah_malam", "prompt": "ui.examine", "position": [0.6, 0, -1.4],
+      "onUse": [{ "op": "dialog", "node": "b12b.tanah" }] },
+    { "id": "jalan_pulang", "prompt": "ui.interact", "position": [0, 0, -5.6], "once": true,
+      "onUse": [{ "op": "dialog", "node": "b12b.pulang" }, { "op": "chapterEnd" }] }
+  ],
+  "dialogs": {
+    "b12b.rudi": [
+      { "speaker": "Rudi", "text": "b12b.rudi.1" },
+      { "speaker": "Dimas", "text": "b12b.rudi.2" },
+      { "speaker": "Rudi", "text": "b12b.rudi.3",
+        "choices": [
+          { "text": "b12b.rudi.cA", "next": "b12b.rudi.a", "important": true,
+            "onSelect": [{ "op": "setFlag", "flag": "b12b_cegah_rudi", "value": true }] },
+          { "text": "b12b.rudi.cB", "next": "b12b.rudi.b", "important": true,
+            "onSelect": [{ "op": "setFlag", "flag": "b12b_cegah_rudi", "value": false }] }
+        ] }
+    ],
+    "b12b.rudi.a": [
+      { "speaker": "Rudi", "text": "b12b.rudi.a.1" },
+      { "speaker": "Rudi", "text": "b12b.rudi.a.2" },
+      { "speaker": "Dimas", "text": "b12b.rudi.a.3" },
+      { "speaker": "Dimas", "text": "b12b.rudi.a.4", "autoNext": "b12b.aksi" }
+    ],
+    "b12b.rudi.b": [
+      { "speaker": "Rudi", "text": "b12b.rudi.b.1" },
+      { "speaker": "Dimas", "text": "b12b.rudi.b.2", "autoNext": "b12b.aksi" }
+    ],
+    "b12b.aksi": [
+      { "speaker": "Dimas", "text": "b12b.aksi.1" },
+      { "speaker": "Dimas", "text": "b12b.aksi.2",
+        "onEnter": [{ "op": "playSound", "key": "distant_glow", "options": { "category": "sfx", "volume": 0.5 } }] },
+      { "speaker": "Dimas", "text": "b12b.aksi.3" },
+      { "speaker": "Dimas", "text": "b12b.aksi.4" }
+    ],
+    "b12b.semak": [
+      { "speaker": "Dimas", "text": "b12b.semak.1" },
+      { "speaker": "Dimas", "text": "b12b.semak.2",
+        "onEnter": [{ "op": "playSound", "key": "dog_bark", "options": { "category": "sfx", "volume": 0.6 } }] },
+      { "speaker": "Dimas", "text": "b12b.semak.3" }
+    ],
+    "b12b.patroli": [
+      { "speaker": "Dimas", "text": "b12b.patroli.1" },
+      { "speaker": "Dimas", "text": "b12b.patroli.2" },
+      { "speaker": "Dimas", "text": "b12b.patroli.3" }
+    ],
+    "b12b.catatan": [
+      { "speaker": "Dimas", "text": "b12b.catatan.1" },
+      { "speaker": "Dimas", "text": "b12b.catatan.2" },
+      { "speaker": "Dimas", "text": "b12b.catatan.3",
+        "onEnter": [{ "op": "setEcho", "key": "b12b_tiga_tanggal", "value": true }] }
+    ],
+    "b12b.tanah": [
+      { "speaker": "Narator", "text": "b12b.tanah.1" },
+      { "speaker": "Dimas", "text": "b12b.tanah.2" }
+    ],
+    "b12b.pulang": [
+      { "speaker": "Dimas", "text": "b12b.pulang.1" },
+      { "speaker": "Dimas", "text": "b12b.pulang.2" }
+    ]
+  }
+}

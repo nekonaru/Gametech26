@@ -1,0 +1,136 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "read": "Baca",
+      "take": "Ambil",
+      "use": "Gunakan",
+      "open": "Buka"
+    },
+    "b05b": {
+      "obj": {
+        "sajikan": "Siapkan makan malam. Abang pulang malam ini.",
+        "tidur": "Masuk kamar dan istirahat."
+      },
+      "piring": {
+        "1": "Aku keluarkan dua piring dari lemari. Yang bawah sedikit retak, seperti biasa.",
+        "2": "Abang belum pulang, tapi piringnya sudah aku taruh."
+      },
+      "air": {
+        "1": "Aku isi dua gelas di wastafel. Airnya jernih, cuma dingin.",
+        "2": "Satu buat Abang, satu buat aku."
+      },
+      "kulkas": {
+        "1": "Isi kulkas cuma telur dua butir dan sambal kemarin.",
+        "2": "Abang bilang nanti dia beli beras. Sudah dua minggu aku dengar kalimat itu."
+      },
+      "foto": {
+        "1": "Foto orang tua di dinding ruang makan. Mereka berdua tersenyum di halaman yang kini penuh rumput.",
+        "2": "Abang tidak pernah memindahkannya."
+      },
+      "makan": {
+        "1": "Aku pulang. Maaf, telat. Tadi aku muter-muter cari kerja.",
+        "2": "Piringnya sudah aku siapkan, Abang. Duduklah.",
+        "3": "Harum. Kau masak apa?",
+        "4": "Nasi goreng dari nasi kemarin. Bumbunya cuma kecap sama bawang.",
+        "5": "Kita makan pelan-pelan. Ada yang sudah lama ingin aku tanyakan.",
+        "c1": "Abang dapat kerja baru, ya?",
+        "c2": "Di laci ada kwitansi pinjol. Itu apa, Bang?",
+        "c3": "Kuliahku mulai minggu depan."
+      },
+      "kerja": {
+        "1": "Kerjaan? Belum pasti. Rudi masih mau ngomong malam ini.",
+        "2": "Abang capek. Makan dulu, nanti urusannya dipikir besok.",
+        "3": "Iya. Nanti aku kabari kalau sudah jelas."
+      },
+      "kwitansi": {
+        "1": "Kau buka laciku?",
+        "2": "Kebuka sendiri waktu aku cari baterai. Aku cuma baca sebentar.",
+        "3": "Itu urusan aku. Kau tidak usah pikirkan, ya."
+      },
+      "kuliah": {
+        "1": "Kuliahku mulai minggu depan. Aku mau minta tolong soal biaya semester.",
+        "2": "Nanti Abang urus. Pelan-pelan, tapi pasti.",
+        "3": "Dia bilang begitu sambil memutar nasi di piringnya. Aku percaya, setengah."
+      },
+      "ponsel": {
+        "1": "Ponsel Abang bergetar di meja. Dia mematikannya tanpa melihat layar.",
+        "2": "Bukan apa-apa. Nasinya enak, Raka.",
+        "3": "Aku tidak bertanya lagi."
+      },
+      "tidur": {
+        "1": "Aku masuk kamar. Di ruang makan, Abang masih duduk memandang ponselnya yang gelap.",
+        "2": "Malam ini tidak ada yang dijelaskan. Tapi setidaknya kita makan bersama."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "talk": "Talk",
+      "read": "Read",
+      "take": "Take",
+      "use": "Use",
+      "open": "Open"
+    },
+    "b05b": {
+      "obj": {
+        "sajikan": "Prepare dinner. Abang comes home tonight.",
+        "tidur": "Go to your room and rest."
+      },
+      "piring": {
+        "1": "I take two plates out of the cupboard. The bottom one is a little cracked, as usual.",
+        "2": "Abang isn't home yet, but I've already set his plate."
+      },
+      "air": {
+        "1": "I fill two glasses at the sink. The water is clear, just cold.",
+        "2": "One for Abang, one for me."
+      },
+      "kulkas": {
+        "1": "The fridge only has two eggs and yesterday's chili paste.",
+        "2": "Abang said he would buy rice later. I've been hearing that sentence for two weeks."
+      },
+      "foto": {
+        "1": "Our parents' photo on the dining room wall. Both of them smiling in the yard that is now full of grass.",
+        "2": "Abang never moved it."
+      },
+      "makan": {
+        "1": "I'm home. Sorry, it's late. I've been driving around looking for work.",
+        "2": "I already set your plate, Abang. Sit down.",
+        "3": "Smells good. What did you cook?",
+        "4": "Fried rice from yesterday's rice. Only soy sauce and onion.",
+        "5": "Let's eat slowly. There's something I've wanted to ask for a long time.",
+        "c1": "You got a new job, didn't you?",
+        "c2": "There's a loan receipt in the drawer. What is it, Bang?",
+        "c3": "My college starts next week."
+      },
+      "kerja": {
+        "1": "A job? Not sure yet. Rudi still wants to talk tonight.",
+        "2": "You're tired, Abang. Eat first, we'll think about it tomorrow.",
+        "3": "Okay. I'll let you know when it's clear."
+      },
+      "kwitansi": {
+        "1": "You opened my drawer?",
+        "2": "It opened by itself while I looked for a battery. I only read a little.",
+        "3": "That's my business. Don't worry about it."
+      },
+      "kuliah": {
+        "1": "My college starts next week. I want to ask for help with the semester fee.",
+        "2": "I'll handle it. Slowly, but surely.",
+        "3": "He said that while pushing rice around his plate. I believe him, halfway."
+      },
+      "ponsel": {
+        "1": "Abang's phone buzzes on the table. He silences it without looking at the screen.",
+        "2": "It's nothing. The rice is good, Raka.",
+        "3": "I don't ask again."
+      },
+      "tidur": {
+        "1": "I go to my room. In the dining room, Abang still sits staring at his dark phone.",
+        "2": "Nothing was explained tonight. But at least we ate together."
+      }
+    }
+  }
+}

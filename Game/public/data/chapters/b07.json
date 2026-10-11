@@ -1,0 +1,83 @@
+{
+  "id": "b07",
+  "hari": 2,
+  "jam": "10:00",
+  "pov": "dimas",
+  "scene": "gubuk_briefing",
+  "onEnter": [
+    { "op": "setLighting", "preset": "pagi_desa", "transition": 2 },
+    { "op": "objective", "id": "briefing", "text": "b07.obj.briefing" },
+    { "op": "playSound", "key": "ambience_pagi", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    { "id": "rudi", "prompt": "ui.talk", "position": [0, 0, -4.2], "onUse": [{ "op": "dialog", "node": "b07.rudi" }] },
+    { "id": "pekerja", "prompt": "ui.talk", "position": [1.8, 0, -3.2], "onUse": [{ "op": "dialog", "node": "b07.pekerja" }] },
+    { "id": "peta_kertas", "prompt": "ui.read", "position": [-1.6, 0, -3], "onUse": [
+      { "op": "dialog", "node": "b07.peta" },
+      { "op": "giveItem", "id": "peta_lahan" }
+    ] },
+    { "id": "amplop", "prompt": "ui.take", "position": [-0.8, 0, -4.6], "once": true, "onUse": [
+      { "op": "dialog", "node": "b07.amplop" },
+      { "op": "giveItem", "id": "uang_muka" }
+    ] },
+    { "id": "mobil", "prompt": "ui.examine", "position": [-2.6, 0, -2], "onUse": [
+      { "op": "dialog", "node": "b07.mobil" },
+      { "op": "setEcho", "key": "b07_kartu_nama", "value": true },
+      { "op": "echo", "from": "b07", "to": "b13", "data": { "item": "kartu_nama", "lokasi": "saku_jaket" } }
+    ] },
+    { "id": "meja_gubuk", "prompt": "ui.examine", "position": [1, 0, -2.4], "onUse": [{ "op": "dialog", "node": "b07.meja" }] },
+    { "id": "jalan_keluar", "prompt": "ui.interact", "position": [0, 0, 1.5], "once": true, "onUse": [
+      { "op": "dialog", "node": "b07.keluar" },
+      { "op": "chapterEnd" }
+    ] }
+  ],
+  "dialogs": {
+    "b07.rudi": [
+      { "speaker": "Rudi", "text": "b07.rudi.1" },
+      { "speaker": "Rudi", "text": "b07.rudi.2" },
+      { "speaker": "Rudi", "text": "b07.rudi.3" },
+      { "speaker": "Rudi", "text": "b07.rudi.4" },
+      { "speaker": "Rudi", "text": "b07.rudi.5", "choices": [
+        { "text": "b07.rudi.c1", "next": "b07.rudi.tanya", "important": true },
+        { "text": "b07.rudi.c2", "next": "b07.rudi.diam", "important": true }
+      ] }
+    ],
+    "b07.rudi.tanya": [
+      { "speaker": "Rudi", "text": "b07.rudi.tanya.1" },
+      { "speaker": "Rudi", "text": "b07.rudi.tanya.2" },
+      { "speaker": "Dimas", "text": "b07.rudi.tanya.3" }
+    ],
+    "b07.rudi.diam": [
+      { "speaker": "Dimas", "text": "b07.rudi.diam.1" },
+      { "speaker": "Rudi", "text": "b07.rudi.diam.2" }
+    ],
+    "b07.pekerja": [
+      { "speaker": "Pekerja", "text": "b07.pekerja.1" },
+      { "speaker": "Pekerja", "text": "b07.pekerja.2" },
+      { "speaker": "Pekerja", "text": "b07.pekerja.3" },
+      { "speaker": "Dimas", "text": "b07.pekerja.4" }
+    ],
+    "b07.peta": [
+      { "speaker": "Dimas", "text": "b07.peta.1" },
+      { "speaker": "Dimas", "text": "b07.peta.2" }
+    ],
+    "b07.amplop": [
+      { "speaker": "Rudi", "text": "b07.amplop.1" },
+      { "speaker": "Dimas", "text": "b07.amplop.2" },
+      { "speaker": "Dimas", "text": "b07.amplop.3" }
+    ],
+    "b07.mobil": [
+      { "speaker": "Dimas", "text": "b07.mobil.1" },
+      { "speaker": "Dimas", "text": "b07.mobil.2" },
+      { "speaker": "Dimas", "text": "b07.mobil.3" }
+    ],
+    "b07.meja": [
+      { "speaker": "Dimas", "text": "b07.meja.1" },
+      { "speaker": "Dimas", "text": "b07.meja.2" }
+    ],
+    "b07.keluar": [
+      { "speaker": "Dimas", "text": "b07.keluar.1", "onEnter": [{ "op": "objective", "id": "malam", "text": "b07.obj.malam" }] },
+      { "speaker": "Dimas", "text": "b07.keluar.2" }
+    ]
+  }
+}

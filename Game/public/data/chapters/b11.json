@@ -1,0 +1,129 @@
+{
+  "id": "b11",
+  "hari": 4,
+  "jam": "09:00",
+  "pov": "raka",
+  "scene": "balai_desa",
+  "onEnter": [
+    { "op": "setLighting", "preset": "pagi_desa", "transition": 2 },
+    { "op": "objective", "id": "balai", "text": "obj.b11.balai" },
+    { "op": "playSound", "key": "ambience_hall", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    { "id": "ibu_joy", "prompt": "ui.talk", "position": [1.6, 0, -2.4],
+      "onUse": [{ "op": "dialog", "node": "b11.ibu" }] },
+    { "id": "laporan_kehilangan", "prompt": "ui.read", "position": [-2.2, 0, -3.4],
+      "onUse": [
+        { "op": "dialog", "node": "b11.laporan" },
+        { "op": "giveClue", "id": "c4" }
+      ] },
+    { "id": "teman_lama", "prompt": "ui.talk", "position": [2.8, 0, -4.4],
+      "onUse": [{ "op": "dialog", "node": "b11.teman" }] },
+    { "id": "daftar_pencarian", "prompt": "ui.use", "position": [-1.2, 0, -1.8],
+      "onUse": [
+        { "op": "dialog", "node": "b11.daftar" },
+        { "op": "objective", "id": "daftar", "text": "obj.b11.daftar" }
+      ] },
+    { "id": "kumpul_warga", "prompt": "ui.talk", "position": [0, 0, -5],
+      "onUse": [{ "op": "dialog", "node": "b11.kumpul" }] },
+    { "id": "dimas_singgah", "prompt": "ui.examine", "position": [3.4, 0, -1.6],
+      "onUse": [
+        { "op": "if", "condition": "flags.b10_choose_help === true",
+          "then": [{ "op": "dialog", "node": "b11.dimas.tangan" }],
+          "else": [
+            { "op": "if", "condition": "flags.b10_choose_run === true",
+              "then": [{ "op": "dialog", "node": "b11.dimas.baju" }],
+              "else": [{ "op": "dialog", "node": "b11.dimas.none" }] }
+          ] }
+      ] },
+    { "id": "pintu_balai", "prompt": "ui.interact", "position": [0.4, 0, -5.8], "once": true,
+      "onUse": [{ "op": "dialog", "node": "b11.pintu" }, { "op": "chapterEnd" }] }
+  ],
+  "dialogs": {
+    "b11.ibu": [
+      { "speaker": "Ibu Joy", "text": "b11.ibu.1" },
+      { "speaker": "Raka", "text": "b11.ibu.2" },
+      { "speaker": "Ibu Joy", "text": "b11.ibu.3",
+        "choices": [
+          { "text": "b11.ibu.cA", "next": "b11.ibu.a" },
+          { "text": "b11.ibu.cB", "next": "b11.ibu.b" }
+        ] }
+    ],
+    "b11.ibu.a": [
+      { "speaker": "Raka", "text": "b11.ibu.a.1" },
+      { "speaker": "Ibu Joy", "text": "b11.ibu.a.2" }
+    ],
+    "b11.ibu.b": [
+      { "speaker": "Raka", "text": "b11.ibu.b.1" },
+      { "speaker": "Ibu Joy", "text": "b11.ibu.b.2" }
+    ],
+    "b11.laporan": [
+      { "speaker": "Raka", "text": "b11.laporan.1" },
+      { "speaker": "Raka", "text": "b11.laporan.2" },
+      { "speaker": "Raka", "text": "b11.laporan.3",
+        "onEnter": [{ "op": "setEcho", "key": "b11_lihat_kalung", "value": true }] }
+    ],
+    "b11.teman": [
+      { "speaker": "Wawan", "text": "b11.teman.1" },
+      { "speaker": "Wawan", "text": "b11.teman.2" },
+      { "speaker": "Wawan", "text": "b11.teman.3",
+        "choices": [
+          { "text": "b11.teman.cA", "next": "b11.teman.api" },
+          { "text": "b11.teman.cB", "next": "b11.teman.joy" },
+          { "text": "b11.teman.cC", "next": "b11.teman.biasa" }
+        ] }
+    ],
+    "b11.teman.api": [
+      { "speaker": "Wawan", "text": "b11.teman.api.1" },
+      { "speaker": "Wawan", "text": "b11.teman.api.2" }
+    ],
+    "b11.teman.joy": [
+      { "speaker": "Wawan", "text": "b11.teman.joy.1" },
+      { "speaker": "Wawan", "text": "b11.teman.joy.2" }
+    ],
+    "b11.teman.biasa": [
+      { "speaker": "Wawan", "text": "b11.teman.biasa.1" }
+    ],
+    "b11.daftar": [
+      { "speaker": "Raka", "text": "b11.daftar.1" },
+      { "speaker": "Raka", "text": "b11.daftar.2" }
+    ],
+    "b11.kumpul": [
+      { "speaker": "Ketua RT", "text": "b11.kumpul.1" },
+      { "speaker": "Raka", "text": "b11.kumpul.2" },
+      { "speaker": "Raka", "text": "b11.kumpul.3",
+        "choices": [
+          { "text": "b11.kumpul.cA", "next": "b11.kumpul.a", "important": true,
+            "onSelect": [{ "op": "setKonfrontasiDini", "value": true }] },
+          { "text": "b11.kumpul.cB", "next": "b11.kumpul.b", "important": true,
+            "onSelect": [{ "op": "setKonfrontasiDini", "value": false }] }
+        ] }
+    ],
+    "b11.kumpul.a": [
+      { "speaker": "Raka", "text": "b11.kumpul.a.1" },
+      { "speaker": "Ketua RT", "text": "b11.kumpul.a.2" },
+      { "speaker": "Raka", "text": "b11.kumpul.a.3" }
+    ],
+    "b11.kumpul.b": [
+      { "speaker": "Raka", "text": "b11.kumpul.b.1" },
+      { "speaker": "Raka", "text": "b11.kumpul.b.2" }
+    ],
+    "b11.dimas.tangan": [
+      { "speaker": "Dimas", "text": "b11.dimas.tangan.1" },
+      { "speaker": "Raka", "text": "b11.dimas.tangan.2" },
+      { "speaker": "Raka", "text": "b11.dimas.tangan.3" }
+    ],
+    "b11.dimas.baju": [
+      { "speaker": "Dimas", "text": "b11.dimas.baju.1" },
+      { "speaker": "Raka", "text": "b11.dimas.baju.2" }
+    ],
+    "b11.dimas.none": [
+      { "speaker": "Dimas", "text": "b11.dimas.none.1" },
+      { "speaker": "Raka", "text": "b11.dimas.none.2" }
+    ],
+    "b11.pintu": [
+      { "speaker": "Raka", "text": "b11.pintu.1" },
+      { "speaker": "Raka", "text": "b11.pintu.2" }
+    ]
+  }
+}

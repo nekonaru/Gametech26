@@ -1,0 +1,166 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "take": "Ambil",
+      "open": "Buka",
+      "close": "Tutup",
+      "read": "Baca",
+      "use": "Gunakan",
+      "talk": "Bicara"
+    },
+    "obj": {
+      "b14": {
+        "cari": "Cari sumber suara di kamarmu",
+        "pintu": "Selesaikan soal pintu kamar"
+      }
+    },
+    "b14": {
+      "tempat": {
+        "mimpi": "Mimpi"
+      },
+      "lemari": {
+        "1": "Lemari kubuka sedikit. Bau tanah basah masih menempel.",
+        "2": "Jejak kaki di lantai kayu masih ada. Dari kamar ke pintu belakang.",
+        "3": "Sudah kuberhapus tadi malam. Pagi ini muncul lagi."
+      },
+      "jendela": {
+        "1": "Jendela kubuka selebar tangan. Udara malam masuk, dingin.",
+        "2": "Dari arah hutan, ada yang memanggil namaku. Pelan dan jelas.",
+        "3": "Aku tutup jendela. Panggilan itu tidak datang dua kali."
+      },
+      "ponsel": {
+        "1": "Layar ponsel menyala. Angka utang masih di situ.",
+        "2": "Pesan dari nomor pinjol masuk lagi. Isinya cuma ancaman basa-basi.",
+        "3": "Aku letakkan ponsel telungkup. Angkanya tetap terbaca di kepalaku."
+      },
+      "pesan_rudi": {
+        "1": "Mas, ada orang nanya gua soal malem itu.",
+        "2": "Gua bilang nggak tau. Tapi kok jadi panas, ya.",
+        "3": "Jangan cerita-cerita dulu, Mas. Please.",
+        "4": "Raka bicara dengan Rudi siang tadi. Sekarang Rudi gelisah."
+      },
+      "kasur": {
+        "1": "Aku berbaring. Lampu kamar mati. Langit-langit berubah jadi ladang.",
+        "2": "Ladang itu terbakar, tapi apinya tidak panas. Yang panas bisikannya.",
+        "3": "Joy berdiri di ujung. Aku tidak bisa memanggilnya.",
+        "c1": "Menoleh mencarinya.",
+        "c2": "Tetap menatap ke depan."
+      },
+      "mimpi": {
+        "menoleh": {
+          "1": "Aku menoleh. Ia sudah ada di belakangku, dekat sekali.",
+          "2": "Mataku terbuka. Kipas langit-langit berputar pelan. Cuma mimpi."
+        },
+        "tidak": {
+          "1": "Aku terus menatap depan. Bisikan itu makin jauh.",
+          "2": "Mataku terbuka. Keringat di pelipis. Cuma mimpi."
+        }
+      },
+      "cermin": {
+        "1": "Cermin di lemari memantulkan kamar yang gelap.",
+        "2": "Napasku menguap di kaca. Padahal kamar tidak dingin.",
+        "3": "Aku bergeser. Cermin tidak ikut bergeser sepersekian detik."
+      },
+      "pintu": {
+        "1": "Dua ketukan di ambang pintu. Pelan, lalu beri jeda.",
+        "2": "Suara Raka dari balik sana: 'Bang, kau belum tidur?'",
+        "c1": "Kunci gerendel.",
+        "c2": "Biarkan terbuka. Aku jawab ketukan itu.",
+        "kunci": {
+          "1": "Gerendel kucerahkan. Suara klik keras di malam yang sunyi.",
+          "2": "Aku tidak menjawab. Suara Raka berhenti di luar pintu.",
+          "3": "Pintu terkunci. Malam ini aku sendiri."
+        },
+        "buka": {
+          "1": "Aku geser gerendelnya. Pintu kumundurkan sedikit.",
+          "2": "Sudah, Ran. Aku mau tidur.",
+          "3": "Suaraku serak. Raka diam sejenak, lalu langkahnya menjauh. Aku menjawabnya."
+        }
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "take": "Take",
+      "open": "Open",
+      "close": "Close",
+      "read": "Read",
+      "use": "Use",
+      "talk": "Talk"
+    },
+    "obj": {
+      "b14": {
+        "cari": "Find the source of the sound in your room",
+        "pintu": "Settle the matter of your bedroom door"
+      }
+    },
+    "b14": {
+      "tempat": {
+        "mimpi": "The Dream"
+      },
+      "lemari": {
+        "1": "I open the wardrobe a little. The smell of wet soil still clings.",
+        "2": "The footprints on the wooden floor are still there. From the room to the back door.",
+        "3": "I wiped them away last night. This morning they came back."
+      },
+      "jendela": {
+        "1": "I open the window a hand wide. The night air comes in, cold.",
+        "2": "From the forest, someone is calling my name. Slow and clear.",
+        "3": "I close the window. That call does not come twice."
+      },
+      "ponsel": {
+        "1": "The phone screen lights up. The debt number is still there.",
+        "2": "Another message from the loan shark number. Only polite threats.",
+        "3": "I lay the phone face down. The number stays printed in my head."
+      },
+      "pesan_rudi": {
+        "1": "Mas, someone was asking me about that night.",
+        "2": "I said I don't know. But why did it get tense.",
+        "3": "Don't tell anyone yet, Mas. Please.",
+        "4": "Raka talked to Rudi this afternoon. Now Rudi is restless."
+      },
+      "kasur": {
+        "1": "I lie down. The room light goes out. The ceiling turns into a field.",
+        "2": "The field is burning, but the fire is not hot. The whispering is hot.",
+        "3": "Joy stands at the far end. I cannot call out to her.",
+        "c1": "Turn around to look for her.",
+        "c2": "Keep looking straight ahead."
+      },
+      "mimpi": {
+        "menoleh": {
+          "1": "I turn. She is already behind me, very close.",
+          "2": "My eyes open. The ceiling fan turns slowly. Only a dream."
+        },
+        "tidak": {
+          "1": "I keep looking ahead. The whispering moves further away.",
+          "2": "My eyes open. Sweat on my temples. Only a dream."
+        }
+      },
+      "cermin": {
+        "1": "The mirror on the wardrobe reflects the dark room.",
+        "2": "My breath fogs the glass. The room is not even cold.",
+        "3": "I shift. The mirror does not shift with me for a split second."
+      },
+      "pintu": {
+        "1": "Two knocks on the door frame. Slow, then a pause.",
+        "2": "Raka's voice from the other side: 'Bang, are you still awake?'",
+        "c1": "Lock the latch.",
+        "c2": "Leave it open. I will answer the knock.",
+        "kunci": {
+          "1": "I slide the latch shut. A hard click in the quiet night.",
+          "2": "I do not answer. Raka's voice stops outside the door.",
+          "3": "The door is locked. Tonight I am alone."
+        },
+        "buka": {
+          "1": "I slide the latch open. I push the door back a little.",
+          "2": "It is fine, Ran. I am going to sleep.",
+          "3": "My voice is rough. Raka is quiet for a moment, then his steps move away. I answered him."
+        }
+      }
+    }
+  }
+}

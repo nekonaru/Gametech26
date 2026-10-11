@@ -1,0 +1,329 @@
+{
+  "id": "b19",
+  "hari": 7,
+  "jam": "20:00",
+  "pov": "dimas",
+  "scene": "hutan_berputar",
+  "onEnter": [
+    {
+      "op": "setLighting",
+      "preset": "hutan_malam",
+      "transition": 2
+    },
+    {
+      "op": "objective",
+      "id": "keluar",
+      "text": "b19.obj.keluar"
+    },
+    {
+      "op": "playSound",
+      "key": "ambience_forest",
+      "options": {
+        "category": "ambience",
+        "loop": true,
+        "volume": 0.4
+      }
+    }
+  ],
+  "interactables": [
+    {
+      "id": "bisikan_pertama",
+      "prompt": "ui.examine",
+      "position": [
+        0.5,
+        0,
+        -2.5
+      ],
+      "onUse": [
+        {
+          "op": "playSound",
+          "key": "whisper",
+          "options": {
+            "category": "sfx",
+            "volume": 0.5
+          }
+        },
+        {
+          "op": "dialog",
+          "node": "b19.bisikan"
+        }
+      ]
+    },
+    {
+      "id": "pohon_sama",
+      "prompt": "ui.examine",
+      "position": [
+        -1.4,
+        0,
+        -3.2
+      ],
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b19.pohon"
+        }
+      ]
+    },
+    {
+      "id": "kompas_jalan",
+      "prompt": "ui.use",
+      "position": [
+        0,
+        0,
+        -4
+      ],
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b19.papan"
+        },
+        {
+          "op": "startPuzzle",
+          "id": "p5",
+          "config": {
+            "type": "navigation",
+            "title": "b19.puzzle.p5.title",
+            "description": "b19.puzzle.p5.desc",
+            "data": {
+              "landmarks": [
+                {
+                  "name": "b19.puzzle.p5.lm1",
+                  "direction": 0
+                },
+                {
+                  "name": "b19.puzzle.p5.lm2",
+                  "direction": 90
+                },
+                {
+                  "name": "b19.puzzle.p5.lm3",
+                  "direction": 180
+                }
+              ],
+              "instructions": [
+                "b19.puzzle.p5.inst1",
+                "b19.puzzle.p5.inst2",
+                "b19.puzzle.p5.inst3"
+              ],
+              "hints": [
+                "b19.puzzle.p5.hint1",
+                "b19.puzzle.p5.hint2",
+                "b19.puzzle.p5.hint3"
+              ]
+            },
+            "onSolve": [
+              {
+                "op": "objective",
+                "id": "menuju_cahaya",
+                "text": "b19.obj.menuju_cahaya"
+              }
+            ],
+            "onSkip": [
+              {
+                "op": "objective",
+                "id": "menuju_cahaya",
+                "text": "b19.obj.menuju_cahaya"
+              }
+            ],
+            "onHelp": [
+              {
+                "op": "setEcho",
+                "key": "help_p5",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "api_ilusi",
+      "prompt": "ui.examine",
+      "position": [
+        1.6,
+        0,
+        -5
+      ],
+      "onUse": [
+        {
+          "op": "setLighting",
+          "preset": "teror",
+          "transition": 2
+        },
+        {
+          "op": "dialog",
+          "node": "b19.api"
+        }
+      ]
+    },
+    {
+      "id": "sosok_joy",
+      "prompt": "ui.interact",
+      "position": [
+        -0.6,
+        0,
+        -5.6
+      ],
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b19.joy"
+        }
+      ]
+    },
+    {
+      "id": "keluar_kebun",
+      "prompt": "ui.interact",
+      "position": [
+        2,
+        0,
+        -1.5
+      ],
+      "once": true,
+      "onUse": [
+        {
+          "op": "dialog",
+          "node": "b19.keluar"
+        },
+        {
+          "op": "chapterEnd"
+        }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b19.bisikan": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.bisikan.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.bisikan.2"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.bisikan.3"
+      }
+    ],
+    "b19.pohon": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.pohon.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.pohon.2"
+      }
+    ],
+    "b19.papan": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.papan.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.papan.2"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.papan.3"
+      }
+    ],
+    "b19.api": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.api.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.api.2"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.api.3"
+      }
+    ],
+    "b19.joy": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.2"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.3",
+        "choices": [
+          {
+            "text": "b19.joy.cA",
+            "next": "b19.joy.lari",
+            "important": true
+          },
+          {
+            "text": "b19.joy.cB",
+            "next": "b19.joy.maaf",
+            "important": true
+          }
+        ]
+      }
+    ],
+    "b19.joy.lari": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.lari.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.lari.2"
+      }
+    ],
+    "b19.joy.maaf": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.maaf.1",
+        "onEnter": [
+          {
+            "op": "addNurani",
+            "value": 1
+          },
+          {
+            "op": "playSound",
+            "key": "breath",
+            "options": {
+              "category": "sfx",
+              "volume": 0.4
+            }
+          }
+        ]
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.maaf.2"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.maaf.3"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.joy.maaf.4"
+      }
+    ],
+    "b19.keluar": [
+      {
+        "speaker": "Dimas",
+        "text": "b19.keluar.1"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.keluar.2"
+      },
+      {
+        "speaker": "Dimas",
+        "text": "b19.keluar.3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "id": {
+    "obj": {
+      "b12": {
+        "jejak": "Telusuri jejak basah di rumah"
+      }
+    },
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "open": "Buka"
+    },
+    "b12": {
+      "title": "Teror Kecil",
+      "jejak": {
+        "1": "Jejak kaki basah ada di lantai kayu. Dari kamar ke ruang tengah.",
+        "2": "Ukurannya kecil. Airnya masih mengilap.",
+        "3": "Jejak itu berhenti di pintu belakang.",
+        "cA": "Sendiri dulu",
+        "cB": "Bangunkan Raka",
+        "a": { "1": "Aku jalan sendiri. Lantai berderit di titik yang sama." },
+        "b": {
+          "1": "Aku berhenti di depan pintu kamar Raka. Napasnya teratur, dia tidur.",
+          "2": "Aku tidak jadi mengetuk."
+        }
+      },
+      "pintu": {
+        "1": "Pintu belakang tidak terkunci. Pegangan besinya dingin.",
+        "2": "Tercium bau tanah basah dan asap.",
+        "3": "Di arah hutan, ada siluet berambut panjang berjalan menjauh."
+      },
+      "bayangan": {
+        "1": "Ujung lorong terasa lebih gelap dari biasanya.",
+        "2": "Siluet berambut panjang melintas sekali. Saat menoleh, tidak ada siapa-siapa.",
+        "3": "Aku harus memilih cara menatapnya.",
+        "cA": "Tatap lurus ke lorong",
+        "cB": "Menoleh cepat ke belakang",
+        "a": {
+          "1": "Aku menatap lurus. Siluet itu berhenti, lalu larut seperti asap.",
+          "2": "Yang menatap duluan selalu menang. Setidaknya begitu aku bilang."
+        },
+        "b": {
+          "1": "Aku menoleh cepat. Tidak ada yang berdiri di belakangku.",
+          "2": "Waktu aku balik menghadap, lorongnya kosong. Tapi terasa lebih dekat."
+        }
+      },
+      "telepon": {
+        "1": "Ponsel bergetar di meja jam dua tiga puluh.",
+        "2": "Nomor tidak dikenal. Layar bergetar, berhenti, bergetar lagi.",
+        "3": "Satu panggilan yang tidak akan menjelaskan apa pun.",
+        "cA": "Angkat",
+        "cB": "Biarkan",
+        "a": {
+          "1": "Aku angkat. Tidak ada kata, hanya napas yang dekat.",
+          "2": "Sebuah senandung pelan terdengar sekali, lalu putus.",
+          "3": "Layar mati. Tertulis dua detik, nomor tak dikenal."
+        },
+        "b": {
+          "1": "Aku biarkan bergetar sampai berhenti.",
+          "2": "Beberapa detik kemudian, pesan masuk dari nomor yang sama.",
+          "3": "Isinya satu baris kosong."
+        }
+      },
+      "jendela": {
+        "1": "Kaca jendela berembun. Lampu teras berkedip sekali lalu stabil.",
+        "2": "Dari luar masuk bau asap tipis, pelan seperti napas."
+      },
+      "kasur": {
+        "1": "Aku berbaring menghadap pintu.",
+        "2": "Mataku terbuka sampai langit di jendela berubah."
+      }
+    }
+  },
+  "en": {
+    "obj": {
+      "b12": {
+        "jejak": "Trace the wet footprints through the house"
+      }
+    },
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "open": "Open"
+    },
+    "b12": {
+      "title": "Small Terror",
+      "jejak": {
+        "1": "Wet footprints on the wooden floor. From the room to the living area.",
+        "2": "They are small. The water still shines.",
+        "3": "The prints stop at the back door.",
+        "cA": "Alone for now",
+        "cB": "Wake Raka",
+        "a": { "1": "I go alone. The floor creaks at the same spot." },
+        "b": {
+          "1": "I stop at Raka's door. His breathing is even, he is asleep.",
+          "2": "I do not knock after all."
+        }
+      },
+      "pintu": {
+        "1": "The back door is unlocked. The metal handle is cold.",
+        "2": "The smell of wet earth and smoke.",
+        "3": "Toward the forest, a long-haired silhouette walks away."
+      },
+      "bayangan": {
+        "1": "The end of the hallway feels darker than usual.",
+        "2": "A long-haired silhouette passes once. When I turn, no one is there.",
+        "3": "I have to choose how to look at it.",
+        "cA": "Stare straight down the hall",
+        "cB": "Turn around quickly",
+        "a": {
+          "1": "I stare straight ahead. The silhouette stops, then dissolves like smoke.",
+          "2": "Whoever looks first always wins. Or so I tell myself."
+        },
+        "b": {
+          "1": "I turn quickly. No one stands behind me.",
+          "2": "When I face forward again, the hall is empty. But it feels closer."
+        }
+      },
+      "telepon": {
+        "1": "The phone vibrates on the table at half past two.",
+        "2": "Unknown number. The screen buzzes, stops, buzzes again.",
+        "3": "One call that will not explain anything.",
+        "cA": "Answer",
+        "cB": "Leave it",
+        "a": {
+          "1": "I answer. No words, only close breathing.",
+          "2": "A soft hum is heard once, then cut off.",
+          "3": "The screen goes dark. Two seconds, unknown number."
+        },
+        "b": {
+          "1": "I let it buzz until it stops.",
+          "2": "Seconds later, a message arrives from the same number.",
+          "3": "It holds one empty line."
+        }
+      },
+      "jendela": {
+        "1": "The window glass fogs over. The porch light flickers once, then holds.",
+        "2": "A thin smell of smoke comes in from outside, slow as breathing."
+      },
+      "kasur": {
+        "1": "I lie down facing the door.",
+        "2": "My eyes stay open until the sky at the window changes."
+      }
+    }
+  }
+}

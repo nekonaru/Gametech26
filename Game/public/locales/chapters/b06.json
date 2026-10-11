@@ -1,0 +1,182 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "talk": "Bicara",
+      "read": "Baca",
+      "take": "Ambil",
+      "use": "Gunakan"
+    },
+    "b06": {
+      "obj": {
+        "jawab": "Rudi menunggu jawabanku. Lihat sekeliling dulu sebelum memutuskan.",
+        "keputusan": "Keputusan dibuat. Sekarang istirahat."
+      },
+      "kasur": {
+        "1": "Raka tidur menyamping, satu tangan di bawah bantal. Dia tidak tahu apa-apa.",
+        "2": "Aku berdiri di ambang pintu lebih lama dari yang perlu."
+      },
+      "foto": {
+        "1": "Foto orang tua di atas lemari. Mereka pergi sebelum kita berdua bisa bayar sekolah.",
+        "2": "Aku menatap foto itu tiap kali ada surat baru."
+      },
+      "tagihan": {
+        "1": "Tumpukan surat. Tanggal paling baru tertulis minggu lalu.",
+        "2": "Bunganya naik lagi. Angka di ponsel tidak pernah bergerak turun."
+      },
+      "pinjol": {
+        "1": "Halo, Dimas. Kami dari layanan pinjaman. Tenggat pembayaran sudah lewat tiga hari.",
+        "2": "Kalau sampai Jumat tidak masuk, kami hubungi kontak darurat yang kamu daftarkan.",
+        "3": "Aku menatap layar. Jari telunjukku gemetar.",
+        "c1": "Angkat dan bicara.",
+        "c2": "Abaikan panggilan.",
+        "c3": "Diam sampai panggilan putus.",
+        "angkat": {
+          "1": "Aku angkat. Minggu depan ada cairan kerjaan, sisanya kubayar.",
+          "2": "Kami catat, Pak. Terima kasih.",
+          "3": "Suara orang lain selalu membuat angka terasa lebih nyata."
+        },
+        "abaikan": {
+          "1": "Aku tekan tombol merah. Layar kembali gelap.",
+          "2": "Tiga puluh detik kemudian, nomor yang sama muncul lagi."
+        },
+        "diam": {
+          "1": "Aku tidak menyentuhnya. Suara dari speaker terdengar jauh, seperti dari balik kaca.",
+          "2": "Sampai sendiri berhenti. Baru kusadari aku menahan napas."
+        }
+      },
+      "radio": {
+        "1": "Berita: kebakaran lahan terjadi di desa sebelah tadi malam. Tidak ada korban jiwa.",
+        "2": "Aku biarkan radio menyala pelan. Desa lain, pikirku. Semoga bukan kita."
+      },
+      "rudi": {
+        "1": "Pesan Rudi masuk jam 22.50. Mas, besok gubuk di tepi kebun, jam sepuluh.",
+        "2": "Bawa jaket. Uang muka langsung turun, tinggal balas SEKARANG.",
+        "3": "Aku sudah tahu jawabannya sejak tadi. Yang belum tahu adalah aku mau atau tidak.",
+        "c1": "Terima. Aku butuh uang itu.",
+        "c2": "Tolak. Cari jalan lain."
+      },
+      "terima": {
+        "1": "Aku ketik oke, besok jam sepuluh. Kirim. Selesai dalam dua detik.",
+        "2": "Angka uang muka berputar di kepalaku. Sebagian ke pinjol, sisanya buat beras.",
+        "3": "Aku tutup ponsel dan melihat pintu kamar Raka. Dia mungkin sudah tidur."
+      },
+      "tolak": {
+        "1": "Aku ketik tidak usah, Rud. Lalu kuhapus. Lalu kuketik lagi, lebih pendek: tidak.",
+        "2": "Balasannya cepat. Sayanglu, Mas. Setelah itu tidak ada lagi.",
+        "3": "Rasanya lega, tapi perut kosong. Besok aku harus cari kerja yang benar."
+      },
+      "cerita": {
+        "1": "Aku berdiri di depan pintu kamar Raka. Lampunya masih menyala.",
+        "c1": "Ceritakan soal tawaran Rudi.",
+        "c2": "Simpan sendiri."
+      },
+      "raka": {
+        "cerita": {
+          "1": "Aku bisikkan, Rudi menawari aku kerja malam.",
+          "2": "Hati-hati, Bang. Kalau ada yang tidak enak, bilang padaku.",
+          "3": "Aku menutup pintunya pelan. Setidaknya sekarang ada yang tahu."
+        },
+        "simpan": {
+          "1": "Aku biarkan pintunya tertutup. Urusan ini urusanku.",
+          "2": "Di balik pintu, halaman bukunya berbunyi pelan. Dia tidak tidur juga."
+        }
+      },
+      "tidur": {
+        "1": "Aku berbaring tanpa menyalakan lampu. Ponselku di cas, layarnya gelap.",
+        "2": "Besok semua ini akan terasa lebih jelas. Atau tidak."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "talk": "Talk",
+      "read": "Read",
+      "take": "Take",
+      "use": "Use"
+    },
+    "b06": {
+      "obj": {
+        "jawab": "Rudi is waiting for my answer. Look around first, then decide.",
+        "keputusan": "The decision is made. Now rest."
+      },
+      "kasur": {
+        "1": "Raka sleeps on his side, one hand under the pillow. He knows nothing.",
+        "2": "I stand at his door longer than I need to."
+      },
+      "foto": {
+        "1": "Our parents' photo on top of the cupboard. They left before either of us could pay for school.",
+        "2": "I look at that photo every time a new letter comes."
+      },
+      "tagihan": {
+        "1": "A stack of letters. The newest date is written last week.",
+        "2": "The interest went up again. The number on my phone never moves down."
+      },
+      "pinjol": {
+        "1": "Hello, Dimas. Calling from the loan service. Your payment deadline passed three days ago.",
+        "2": "If nothing comes in by Friday, we will call the emergency contact you registered.",
+        "3": "I stare at the screen. My index finger trembles.",
+        "c1": "Pick up and talk.",
+        "c2": "Ignore the call.",
+        "c3": "Stay silent until it hangs up.",
+        "angkat": {
+          "1": "I pick up. Work money comes in next week, I'll pay the rest.",
+          "2": "We've noted it, sir. Thank you.",
+          "3": "Someone else's voice always makes the number feel more real."
+        },
+        "abaikan": {
+          "1": "I press the red button. The screen goes dark again.",
+          "2": "Thirty seconds later, the same number shows up."
+        },
+        "diam": {
+          "1": "I don't touch it. The voice from the speaker sounds far away, like from behind glass.",
+          "2": "Until it stops by itself. Only then I notice I was holding my breath."
+        }
+      },
+      "radio": {
+        "1": "News: a land fire broke out in the next village last night. No casualties.",
+        "2": "I leave the radio on low. Another village, I think. Not us, I hope."
+      },
+      "rudi": {
+        "1": "Rudi's message arrives at 22.50. Hut at the edge of the garden tomorrow, ten o'clock.",
+        "2": "Bring a jacket. The down payment drops right away, just reply NOW.",
+        "3": "I already knew the answer since earlier. What I don't know is whether I want it.",
+        "c1": "Accept. I need that money.",
+        "c2": "Refuse. Find another way."
+      },
+      "terima": {
+        "1": "I type: okay, tomorrow at ten. Send. Two seconds.",
+        "2": "The down payment turns in my head. Part to the loan app, the rest for rice.",
+        "3": "I close the phone and look at Raka's door. He's probably asleep."
+      },
+      "tolak": {
+        "1": "I type: no need, Rud. Then I delete it. Then I type it again, shorter: no.",
+        "2": "The reply comes fast. What a shame, Mas. Then nothing more.",
+        "3": "It feels light, but my stomach is empty. Tomorrow I have to find real work."
+      },
+      "cerita": {
+        "1": "I stand in front of Raka's door. His light is still on.",
+        "c1": "Tell him about Rudi's offer.",
+        "c2": "Keep it to myself."
+      },
+      "raka": {
+        "cerita": {
+          "1": "I whisper that Rudi offered me night work.",
+          "2": "Careful, Bang. If something feels wrong, tell me.",
+          "3": "I close the door softly. At least someone knows now."
+        },
+        "simpan": {
+          "1": "I leave the door closed. This is my business.",
+          "2": "Behind the door, pages turn softly. He isn't sleeping either."
+        }
+      },
+      "tidur": {
+        "1": "I lie down without turning on the light. My phone is charging, screen dark.",
+        "2": "Tomorrow all of this will feel clearer. Or not."
+      }
+    }
+  }
+}

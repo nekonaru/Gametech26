@@ -1,0 +1,176 @@
+{
+  "id": "b15",
+  "hari": 6,
+  "jam": "10:00",
+  "pov": "raka",
+  "scene": "rumah_dimas",
+  "onEnter": [
+    { "op": "setLighting", "preset": "pagi_desa", "transition": 2 },
+    { "op": "objective", "id": "masak", "text": "obj.b15.masak" },
+    { "op": "playSound", "key": "ambience_morning", "options": { "category": "ambience", "loop": true, "volume": 0.4 } },
+    { "op": "checkpoint", "id": "b15" }
+  ],
+  "interactables": [
+    {
+      "id": "lemari_makan",
+      "prompt": "ui.examine",
+      "position": [-2.5, 1.1, -3.2],
+      "once": false,
+      "onUse": [ { "op": "dialog", "node": "b15.lemari_makan" } ]
+    },
+    {
+      "id": "catatan_resep",
+      "prompt": "ui.read",
+      "position": [-2.2, 0.7, -1.4],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b15.resep" } ]
+    },
+    {
+      "id": "kompor",
+      "prompt": "ui.use",
+      "position": [0.4, 0.7, -2.8],
+      "once": true,
+      "onUse": [
+        { "op": "dialog", "node": "b15.kompor" },
+        { "op": "addEmpati", "value": 1 },
+        { "op": "giveItem", "id": "nasi_goreng" },
+        { "op": "objective", "id": "temui", "text": "obj.b15.temui" }
+      ]
+    },
+    {
+      "id": "meja_makan",
+      "prompt": "ui.examine",
+      "position": [1.8, 0.8, -2.2],
+      "once": false,
+      "onUse": [ { "op": "dialog", "node": "b15.meja" } ]
+    },
+    {
+      "id": "jendela_teras",
+      "prompt": "ui.examine",
+      "position": [3.0, 1.4, -3.6],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b15.teras" } ]
+    },
+    {
+      "id": "pintu_kamar_dimas",
+      "prompt": "ui.interact",
+      "position": [0.0, 1.0, -4.8],
+      "once": true,
+      "onUse": [
+        {
+          "op": "if",
+          "condition": "flags.b14_door_locked === true",
+          "then": [ { "op": "dialog", "node": "b15.pintu_terkunci" } ],
+          "else": [
+            {
+              "op": "if",
+              "condition": "flags.b14_door_open === true",
+              "then": [ { "op": "dialog", "node": "b15.pintu_terbuka" } ],
+              "else": [ { "op": "dialog", "node": "b15.pintu_polos" } ]
+            }
+          ]
+        },
+        { "op": "dialog", "node": "b15.konfrontasi" }
+      ]
+    },
+    {
+      "id": "pintu_depan",
+      "prompt": "ui.interact",
+      "position": [3.4, 1.0, -4.6],
+      "once": true,
+      "onUse": [
+        { "op": "dialog", "node": "b15.keluar" },
+        { "op": "chapterEnd" }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b15.lemari_makan": [
+      { "speaker": "Raka", "text": "b15.lemari_makan.1" },
+      { "speaker": "Raka", "text": "b15.lemari_makan.2" }
+    ],
+    "b15.resep": [
+      { "speaker": "Raka", "text": "b15.resep.1" },
+      { "speaker": "Raka", "text": "b15.resep.2" },
+      { "speaker": "Raka", "text": "b15.resep.3" }
+    ],
+    "b15.kompor": [
+      { "speaker": "Raka", "text": "b15.kompor.1" },
+      { "speaker": "Raka", "text": "b15.kompor.2" },
+      { "speaker": "Raka", "text": "b15.kompor.3" }
+    ],
+    "b15.meja": [
+      { "speaker": "Raka", "text": "b15.meja.1" },
+      { "speaker": "Raka", "text": "b15.meja.2" }
+    ],
+    "b15.teras": [
+      { "speaker": "Raka", "text": "b15.teras.1" },
+      { "speaker": "Raka", "text": "b15.teras.2" }
+    ],
+    "b15.pintu_terkunci": [
+      { "speaker": "Raka", "text": "b15.pintu_terkunci.1" },
+      { "speaker": "Raka", "text": "b15.pintu_terkunci.2" }
+    ],
+    "b15.pintu_terbuka": [
+      { "speaker": "Raka", "text": "b15.pintu_terbuka.1" },
+      { "speaker": "Raka", "text": "b15.pintu_terbuka.2" }
+    ],
+    "b15.pintu_polos": [
+      { "speaker": "Raka", "text": "b15.pintu_polos.1" },
+      { "speaker": "Raka", "text": "b15.pintu_polos.2" }
+    ],
+    "b15.konfrontasi": [
+      { "speaker": "Dimas", "text": "b15.konfrontasi.1" },
+      { "speaker": "Raka", "text": "b15.konfrontasi.2" },
+      {
+        "speaker": "Raka",
+        "text": "b15.konfrontasi.3",
+        "choices": [
+          { "text": "b15.konfrontasi.c1", "next": "b15.a", "important": true },
+          { "text": "b15.konfrontasi.c2", "next": "b15.b", "important": true },
+          { "text": "b15.konfrontasi.c3", "next": "b15.c" }
+        ]
+      }
+    ],
+    "b15.a": [
+      { "speaker": "Raka", "text": "b15.a.1", "onEnter": [ { "op": "modifyPercayaDimas", "value": -2 } ] },
+      { "speaker": "Dimas", "text": "b15.a.2" },
+      {
+        "speaker": "Raka",
+        "text": "b15.a.3",
+        "onExit": [
+          {
+            "op": "if",
+            "condition": "vars.investigasi < 4",
+            "then": [
+              { "op": "setKonfrontasiDini", "value": true },
+              { "op": "checkpoint", "id": "b15_konfrontasi" },
+              { "op": "loadScene", "scene": "b15alt" }
+            ]
+          }
+        ]
+      }
+    ],
+    "b15.b": [
+      {
+        "speaker": "Raka",
+        "text": "b15.b.1",
+        "onEnter": [
+          { "op": "setEmpatiB15", "value": true },
+          { "op": "modifyPercayaDimas", "value": 1 }
+        ]
+      },
+      { "speaker": "Dimas", "text": "b15.b.2" },
+      { "speaker": "Dimas", "text": "b15.b.3" }
+    ],
+    "b15.c": [
+      { "speaker": "Raka", "text": "b15.c.1" },
+      { "speaker": "Dimas", "text": "b15.c.2" },
+      { "speaker": "Raka", "text": "b15.c.3" }
+    ],
+    "b15.keluar": [
+      { "speaker": "Raka", "text": "b15.keluar.1" },
+      { "speaker": "Raka", "text": "b15.keluar.2" }
+    ]
+  }
+}

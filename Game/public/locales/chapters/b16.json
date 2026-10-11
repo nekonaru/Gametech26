@@ -1,0 +1,150 @@
+{
+  "id": {
+    "b16": {
+      "obj": {
+        "cari_jalan": "Cari jalan pulang sebelum malam larut",
+        "lari": "Jangan berhenti. Jangan menoleh."
+      },
+      "makanan": {
+        "1": "Di atas batu teras ada mangkuk nasi. Ditutup daun pisang.",
+        "2": "Raka masak tadi malam. Dia menyisakan porsi untukku.",
+        "3": "Aku belum sempat bilang terima kasih. Kalau malam ini berlalu, aku akan bilang."
+      },
+      "jejak": {
+        "1": "Tanah di tepi hutan masih basah. Jejak kaki baru tercetak di sini.",
+        "2": "Ukurannya kecil. Arahnya dari pondok Joy, bukan ke jalan desa.",
+        "3": "Aku bisa mengikuti jejak ini beberapa langkah. Atau membiarkannya.",
+        "cA": "Ikuti jejaknya sebentar",
+        "cB": "Biarkan. Aku harus pulang.",
+        "a": {
+          "1": "Jejak berhenti di akar pohon besar. Tidak ada tanda kembali.",
+          "2": "Di belakangku ada suara ranting patah. Lalu sunyi lagi."
+        },
+        "b": {
+          "1": "Aku buang jejak itu dari kepalaku. Malam ini bukan waktunya mencari.",
+          "2": "Langkahku menuju rumah makin cepat."
+        }
+      },
+      "napas": {
+        "1": "Udara mendadak dingin. Napasku jadi kabut putih.",
+        "2": "Biasanya begini kalau ada yang berdiri dekat. Tanpa suara, tanpa langkah.",
+        "3": "Aku mempercepat langkah. Mataku tetap di jalan."
+      },
+      "ranting": {
+        "1": "Ranting patah di belakangku. Aku tidak menoleh.",
+        "2": "Kalau aku menoleh sekarang, aku akan berhenti. Dan aku tidak boleh berhenti."
+      },
+      "bayangan": {
+        "1": "Antara batang pohon ada sosok berdiri. Rambutnya jatuh sampai bahu.",
+        "2": "Sosok itu tidak bergerak. Hanya menatap, seperti menunggu aku sadar.",
+        "3": "Aku bisa berteriak, atau mundur. Dua-duanya membuat aku berhenti sebentar.",
+        "cA": "Berteriak. Biar dia tahu aku melihat.",
+        "cB": "Diam. Mundur selangkah.",
+        "a": {
+          "1": "Aku berteriak. Suaraku sendiri yang kembali dari pepohonan.",
+          "2": "Sosok itu tetap di tempat. Malah dinginnya yang makin dekat."
+        },
+        "b": {
+          "1": "Aku mundur satu langkah. Kakiku menyentuh semak, lalu berlari.",
+          "2": "Aku tidak mendengar langkah dari belakang. Hanya napasku sendiri."
+        }
+      },
+      "lari": {
+        "1": "Kakiku hampir menyerah. Napas terasa sesak dan dingin.",
+        "2": "Sosok itu makin dekat. Aku bisa merasakan dinginnya tanpa menoleh.",
+        "3": "Tinggal beberapa langkah lagi ke pinggir jalan.",
+        "cA": "Terus lari. Jangan menoleh.",
+        "cB": "Berhenti. Aku menoleh.",
+        "lari": {
+          "1": "Aku terus berlari. Mataku hanya pada tanah di depanku.",
+          "2": "Dingin di belakangku perlahan menjauh. Sampai aku tidak mendengar apa-apa lagi."
+        },
+        "berhenti": {
+          "1": "Aku berhenti. Kakiku berhenti sebelum kepala sempat protes.",
+          "2": "Aku menoleh. Sosok itu berdiri lima langkah dariku, menatap saja.",
+          "3": "Tidak ada teriakan. Tidak ada marah. Hanya tatapan yang lama sekali.",
+          "4": "Lalu dingin itu membiarkanku pergi."
+        }
+      },
+      "pulang": {
+        "1": "Aku sampai di pinggir jalan desa. Lampu rumahku masih menyala.",
+        "2": "Tanganku meraba saku. Kalung yang selama ini kubawa tidak ada lagi.",
+        "3": "Aku berhenti sebentar. Lalu melanjutkan langkah. Biar saja malam ini."
+      }
+    }
+  },
+  "en": {
+    "b16": {
+      "obj": {
+        "cari_jalan": "Find your way home before the night gets later",
+        "lari": "Do not stop. Do not look back."
+      },
+      "makanan": {
+        "1": "On the terrace stone there is a bowl of rice. Covered with a banana leaf.",
+        "2": "Raka cooked last night. He left a portion for me.",
+        "3": "I have not had the chance to say thank you. If tonight passes, I will say it."
+      },
+      "jejak": {
+        "1": "The soil at the forest edge is still wet. Fresh footprints are printed here.",
+        "2": "They are small. They lead from Joy's hut, not toward the village road.",
+        "3": "I can follow these prints for a few steps. Or leave them alone.",
+        "cA": "Follow the prints a little",
+        "cB": "Leave them. I have to get home.",
+        "a": {
+          "1": "The prints stop at the roots of a big tree. There is no sign of a way back.",
+          "2": "Behind me a branch snaps. Then silence again."
+        },
+        "b": {
+          "1": "I push the prints out of my head. Tonight is not the time to look.",
+          "2": "My steps toward home grow faster."
+        }
+      },
+      "napas": {
+        "1": "The air suddenly turns cold. My breath turns to white fog.",
+        "2": "This usually happens when someone stands close. Without a sound, without footsteps.",
+        "3": "I quicken my pace. My eyes stay on the road."
+      },
+      "ranting": {
+        "1": "A branch snaps behind me. I do not look back.",
+        "2": "If I look back now, I will stop. And I must not stop."
+      },
+      "bayangan": {
+        "1": "Between the tree trunks a figure stands. Her hair falls to the shoulders.",
+        "2": "The figure does not move. It only watches, as if waiting for me to realize.",
+        "3": "I can scream, or step back. Either one makes me stop for a moment.",
+        "cA": "Scream. Let it know I see it.",
+        "cB": "Stay quiet. Step back.",
+        "a": {
+          "1": "I scream. Only my own voice comes back from the trees.",
+          "2": "The figure stays where it is. The cold is what moves closer."
+        },
+        "b": {
+          "1": "I step back once. My foot touches the bushes, then I run.",
+          "2": "I hear no footsteps behind me. Only my own breath."
+        }
+      },
+      "lari": {
+        "1": "My legs are about to give up. My breath feels tight and cold.",
+        "2": "The figure is closer. I can feel its cold without looking back.",
+        "3": "Only a few steps left to the edge of the road.",
+        "cA": "Keep running. Do not look back.",
+        "cB": "Stop. I turn around.",
+        "lari": {
+          "1": "I keep running. My eyes stay on the ground in front of me.",
+          "2": "The cold behind me slowly fades. Until I hear nothing anymore."
+        },
+        "berhenti": {
+          "1": "I stop. My feet stop before my head can protest.",
+          "2": "I turn around. The figure stands five steps from me, simply staring.",
+          "3": "No scream. No anger. Only a gaze that lasts a long time.",
+          "4": "Then the cold lets me go."
+        }
+      },
+      "pulang": {
+        "1": "I reach the edge of the village road. The light in my house is still on.",
+        "2": "My hand pats my pocket. The necklace I always carried is gone.",
+        "3": "I stop for a moment. Then I keep walking. Let tonight be."
+      }
+    }
+  }
+}
