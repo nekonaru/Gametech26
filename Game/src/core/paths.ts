@@ -2,7 +2,8 @@
  * Penyelesaian path aset relatif terhadap base deployment.
  *
  * Vite menyetel `import.meta.env.BASE_URL` sesuai opsi `--base`:
- * `'/'` untuk build lokal/dev, `'/Gametech26/'` untuk build GitHub Pages.
+ * `'/'` untuk build lokal/dev, `'/<nama-repo>/'` untuk build GitHub Pages
+ * (mis. `'/gametech26/'`; workflow membaca nama repo secara dinamis).
  * Semua fetch data & referensi aset publik harus melewati helper ini agar
  * game tetap jalan di subpath (bukan hanya di root domain).
  */

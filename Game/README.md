@@ -1,7 +1,7 @@
-# Asap yang Tak Padam
+﻿# Asap yang Tak Padam
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://nekonaru.github.io/Gametech26/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://nekonaru.github.io/gametech26/)
 
 Game horor naratif psikologis orang pertama bergaya PS1, berbahasa Indonesia dengan penuh English (ID/EN). dibangun dengan Vite + Three.js + TypeScript. Kode di repositori ini berada di bawah [Lisensi MIT](../LICENSE).
 
@@ -23,7 +23,7 @@ npm run preview  # sajikan dist memakai Vite, http://localhost:4173
 
 `DEV.bat` menjalankan mode pengembangan. `node serve.cjs` memakai modul bawaan Node, jadi tetap jalan tanpa `node_modules`.
 
-Hasil `npm run build` berupa situs statis di folder `dist/`. Seluruh pemuatan data (babak, locale, aset) memakai helper `src/core/paths.ts` yang berpatok pada `BASE_URL`, jadi `dist/` bisa disajikan dari root domain maupun subfolder (misalnya GitHub Pages di `/Gametech26/`). Build Pages memakai `vite build --base=/Gametech26/` yang diotomatiskan oleh workflow `.github/workflows/deploy-pages.yml`.
+Hasil `npm run build` berupa situs statis di folder `dist/`. Seluruh pemuatan data (babak, locale, aset) memakai helper `src/core/paths.ts` yang berpatok pada `BASE_URL`, jadi `dist/` bisa disajikan dari root domain maupun subfolder (misalnya GitHub Pages di `/gametech26/`). Build Pages memakai `vite build --base=/<nama-repo>/` (nama repo dibaca dinamis dari `github.event.repository.name`), jadi menamai ulang repositori tidak memerlukan perubahan apa pun; diotomatiskan oleh workflow `.github/workflows/deploy-pages.yml`.
 
 
 ## Kontrol
@@ -42,11 +42,11 @@ Desktop:
 | Lanjut dialog | Klik, Spasi, atau Enter |
 | Pilihan dialog | 1 sampai 4 |
 
-Mobile: joystick sentuh di sisi layar untuk bergerak dan menoleh, tap untuk lanjut dialog, tombol interaksi muncul di dekat objek.
+Mobile: joystick sentuh di sisi kiri untuk bergerak (dorong ke tepi = lari), geser sisi kanan untuk menoleh, tap untuk berinteraksi, dan tombol aksi di tepi kanan untuk lari, senter, ponsel, jurnal, inventaris, dan jeda.
 
 ## Struktur proyek
 
-- `src/core` events, i18n, settings, save IndexedDB, audio sintesis, input, achievements
+- `src/core` events, i18n, settings, save IndexedDB, audio (rekaman + sintesis fallback), input, achievements
 - `src/render` material PSX, post process 360p dengan dithering, kamera, partikel, pencahayaan, 18 pembangun adegan
 - `src/game` state, script runner op JSON, dialog, interaksi, jurnal, manajer babak, tension, ending, main
 - `src/ui` boot, menu, pengaturan, simpan muat, HUD, jurnal, papan petunjuk, ponsel, dialog, galeri, puzzle, ending, prolog
@@ -69,12 +69,19 @@ Mobile: joystick sentuh di sisi layar untuk bergerak dan menoleh, tap untuk lanj
 - Terjemahan penuh ID/EN, seluruh teks diambil dari i18n, tidak ada teks keras di kode (diaudit 120 kunci statis)
 - Gaya PS1: render internal 360p, vertex snapping, dithering, kuantisasi warna, kabut, dan gerak snap
 - Desktop dan mobile controls, layar peringatan konten, manifest PWA
-- Audio disintesis prosedural, tidak ada file audio eksternal
+- Audio rekaman bebas lisensi (Mixkit) untuk 36 kunci suara, dengan sintesis prosedural sebagai fallback offline
+
+## Aset dan lisensi
+
+- Seluruh audio di `public/assets/audio` diambil dari [Mixkit](https://mixkit.co) dengan Mixkit License: bebas dipakai, termasuk komersial, tanpa atribusi wajib
+- Pemetaan kunci suara ke ID Mixkit beserta langkah pemrosesan (loudnorm, crossfade loop) tercatat di `tools/_build-audio.ps1`, jadi bisa diunduh ulang kapan saja
+- `AudioManager` memuat rekaman itu ke buffer dengan kunci yang sama milik resep sintesis, sehingga pemanggilan yang ada tidak perlu diubah; bila unduhan gagal, permainan tetap diam dan memakai sintesis
+- Kode berada di bawah Lisensi MIT; lihat `../LICENSE`
 
 ## Penyimpangan dan pekerjaan yang belum ada
 
-- Tidak ada file audio OGG per babak. Seluruh suara dibangkitkan prosedural oleh `AudioManager`
-- Tidak ada aset 3D, tekstur, atau font eksternal. Semua adegan dibangun prosedural dari geometri sederhana, folder `assets/` hanya berisi subfolder kosong
+- Tidak ada file audio per babak. 36 rekaman umum dipakai lintas babak; nada khas tiap adegan masih disintesis prosedural bila rekaman belum tersedia
+- Tidak ada aset 3D, tekstur, atau font eksternal. Semua adegan dibangun prosedural dari geometri sederhana; folder `assets/` hanya berisi audio
 - Ikon PWA memakai SVG satu berkas, tanpa PNG 192 dan 512 piksel
 - Penanda konfirmasi puzzle memakai dialog bawaan browser, belum diganti dengan dialog dalam game
 - Tidak ada sistem pencapaian selain "Detektif", baru ada satu pencapaian karena GDD hanya menyebut satu
