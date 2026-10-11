@@ -72,6 +72,19 @@ export class InputManager {
   private joystickDX = 0;
   private joystickDY = 0;
   private joystickRadius = 60;
+  /**
+   * Lari lewat joystick layar sentuh: mendorong stik sampai tepi luar
+   * (>=88% radius) mengaktifkan lari tanpa tombol terpisah. Konvensi umum
+   * game FPS mobile dan tidak memakan ruang layar. Dipisah dari state.run
+   * supaya logika latch lari keyboard (tahan/sekali-tekan) tidak terganggu.
+   */
+  private touchRunning = false;
+  /**
+   * Sakelar lari untuk tombol "Lari" pada kontrol sentuh (toggle, bukan
+   * menahan). Berbeda dari touchRunning (dorong-stik) supaya pemain bisa
+   * mengunci lari sambil tangan lain menoleh.
+   */
+  private touchRunToggle = false;
 
   /**
    * Ukuran joystick sentuh dari Pengaturan (diameter piksel 80-200).
@@ -336,6 +349,11 @@ export class InputManager {
    * tombol akan nyangkut dan karakter jalan terus tanpa diperintah.
    */
   private releaseDeviceActions(): void {
+    // Joystick yang tersangkut (gesture dibatalkan browser) harus dilepas
+    // juga, termasuk flag lari sentuhnya: tanpa ini karakter bisa terus lari
+    // setelah tab kehilangan fokus.
+    this.touchRunning = false;
+    this.touchRunToggle = false;
     for (const action of ALL_ACTIONS) {
       const latchedRun = action === 'run' && this.runToggle && this.state.run;
       if (!this.actionPressed.has(action) && !latchedRun) continue;
@@ -403,8 +421,28 @@ export class InputManager {
   isRunning(): boolean {
     // state.run sudah dibalik oleh onKeyDown pada mode "sekali tekan". Membalik
     // lagi di frame tekanan membuat frame pertama justru dihitung berjalan -
-    // lari mati tepat saat baru diaktifkan.
-    return this.state.run;
+    // lari mati tepat saat baru diaktifkan. Lari sentuh (dorong joystick ke
+    // tepi) dan sakelar tombol Lari digabungkan di sini supaya kamera memakai
+    // kecepatan lari.
+    return this.state.run || this.touchRunning || this.touchRunToggle;
+  }
+
+  /**
+   * Tombol "Aksi" pada kontrol layar sentuh: mendaftarkan satu tekan interaksi
+   * persis seperti tap cepat pada kanvas, sehingga seluruh penjaga konsumsi
+   * (dialog, teka-teki, overlay) tetap berlaku tanpa perubahan di pemanggil.
+   */
+  queueInteract(): void {
+    this.tapQueued = true;
+  }
+
+  /**
+   * Sakelar lari untuk tombol sentuh. Mengembalikan status baru supaya penampil
+   * (HUD) bisa langsung menyalakan indikator tanpa membaca state tiap frame.
+   */
+  toggleTouchRun(): boolean {
+    this.touchRunToggle = !this.touchRunToggle;
+    return this.touchRunToggle;
   }
 
   requestPointerLock(fromClick = false): void {
@@ -643,6 +681,10 @@ export class InputManager {
         this.joystickDY = dy;
       }
       this.touchMoved = Math.max(this.touchMoved, dist);
+      // Dorong stik ke tepi = lari. Hanya saat joystick benar-benar aktif,
+      // dan dihitung ulang tiap gerakan supaya langsung merespons.
+      this.touchRunning = Math.hypot(this.joystickDX, this.joystickDY)
+        / this.joystickRadius >= 0.88;
     } else if (this.touchActive) {
       // Delta mentah dalam piksel; FPSController yang menerapkan sensitivitas.
       const dx = x - this.touchStartX;
@@ -662,6 +704,7 @@ export class InputManager {
       this.joystickActive = false;
       this.joystickDX = 0;
       this.joystickDY = 0;
+      this.touchRunning = false;
       this.setAction('forward', false);
       this.setAction('backward', false);
       this.setAction('left', false);

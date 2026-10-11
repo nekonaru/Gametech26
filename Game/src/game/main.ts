@@ -226,6 +226,44 @@ export class Game {
     });
     eventBus.on('ui:openJournal', () => this.showJournal());
     eventBus.on('ui:openEvidenceBoard', () => this.openEvidenceBoard());
+    // Tombol kontrol layar sentuh (HUD). Memakai penjaga yang sama persis
+    // dengan pintasan keyboard supaya tidak ada jalur alternatif yang bisa
+    // membuka overlay saat dialog/teka-teki sedang menutup layar.
+    eventBus.on<any>('hud:touchAction', (data) => {
+      const action = String(data?.action ?? '');
+      const playing = this.gameState === 'playing';
+      if (action === 'run') {
+        // Sakelar lari diizinkan di luar dialog (gerak bebas saat bermain).
+        if (playing && !gameState.get('inDialog')) {
+          this.hud?.setTouchRunActive(inputManager.toggleTouchRun());
+        }
+        return;
+      }
+      if (action === 'pause') {
+        if (playing && !gameState.get('inDialog') && !this.isModalOpen()) this.pauseGame();
+        return;
+      }
+      if (!playing || gameState.get('inDialog') || this.isModalOpen()) return;
+      switch (action) {
+        case 'journal':
+          this.showJournal();
+          break;
+        case 'phone':
+          this.showPhone();
+          break;
+        case 'inventory':
+          // Tombol yang sama membuka dan menutup, seperti pintasan I.
+          if (this.currentScreen === 'InventoryScreen' && this.overlayActive) this.hideInventory();
+          else this.showInventory();
+          break;
+        case 'flashlight':
+          eventBus.emit('phone:flashlight', { on: !phoneManager.getFlashlightState().on });
+          break;
+        case 'interact':
+          inputManager.queueInteract();
+          break;
+      }
+    });
     eventBus.on<any>('achievement:unlocked', (data) => {
       if (data && typeof data.id === 'string') this.showAchievementToast(data.id);
     });
@@ -436,6 +474,15 @@ export class Game {
       this.hud?.setKeyHints(null);
       return;
     }
+    // Layar sentuh: label keyboard (E/Q/I/Tab) tidak ada artinya dan hanya
+    // membanjiri layar sempit. Kendali setara tersedia lewat tombol sentuh.
+    if (!this.coarsePointer && typeof matchMedia === 'function') {
+      this.coarsePointer = matchMedia('(pointer: coarse)');
+    }
+    if (this.coarsePointer?.matches) {
+      this.hud?.setKeyHints(null);
+      return;
+    }
     const items = [
       { key: 'E', label: t('ui.keys.interact') },
       { key: 'Q', label: t('ui.keys.phone') },
@@ -471,6 +518,9 @@ export class Game {
     }
     const show = !this.coarsePointer?.matches && !this.pointerLocked && active;
     this.hud?.setPointerHint(show);
+    // Tombol aksi layar sentuh: hanya saat benar-benar bermain dan tidak ada
+    // overlay/dialog yang menutup layar (penjaga sama dengan pointer-hint).
+    this.hud?.setTouchControlsVisible(!!this.coarsePointer?.matches && active);
   }
 
   private startBootSequence(): void {

@@ -40,6 +40,11 @@ html, body {
   font-size: 16px;
   user-select: none;
   -webkit-user-select: none;
+  /* Tarik-untuk-refresh & rubber-band gestur di HP dimatikan: gesture di sini
+     seluruhnya dipakai untuk menoleh, bergerak, dan tombol HUD. */
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
 }
 
 button { font-family: var(--font); cursor: pointer; }
@@ -321,7 +326,8 @@ input[type="checkbox"].ui-checkbox {
 }
 .objective {
   position: absolute;
-  top: 20px; left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  left: calc(20px + env(safe-area-inset-left, 0px));
   background: rgba(0,0,0,0.6);
   padding: 8px 16px;
   border-left: 3px solid var(--clr-accent);
@@ -403,7 +409,8 @@ input[type="checkbox"].ui-checkbox {
 }
 .day-indicator {
   position: absolute;
-  top: 16px; right: 16px;
+  top: calc(16px + env(safe-area-inset-top, 0px));
+  right: calc(16px + env(safe-area-inset-right, 0px));
   background: rgba(0,0,0,0.6);
   padding: 6px 14px;
   font-size: 13px;
@@ -412,7 +419,8 @@ input[type="checkbox"].ui-checkbox {
 }
 .flashlight-indicator {
   position: absolute;
-  bottom: 20px; right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  right: calc(20px + env(safe-area-inset-right, 0px));
   display: flex; align-items: center; gap: 8px;
   background: rgba(0,0,0,0.6);
   padding: 6px 12px;
@@ -1607,7 +1615,7 @@ input[type="checkbox"].ui-checkbox {
 .hotbar {
   position: fixed;
   left: 50%;
-  bottom: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   transform: translateX(-50%);
   z-index: 40;
   pointer-events: none;
@@ -1694,6 +1702,57 @@ input[type="checkbox"].ui-checkbox {
   border: 1px solid var(--clr-accent);
   color: var(--clr-accent);
   font-weight: bold;
+}
+/* Tombol aksi layar sentuh: kumpulan kecil di tepi kanan, hanya tampil di
+   perangkat sentuh (lihat main.refreshPointerHint). Dua kolom agar muat di
+   landscape HP tanpa menutupi retikel di tengah. */
+.touch-controls {
+  position: fixed;
+  right: calc(6px + env(safe-area-inset-right, 0px));
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  grid-template-columns: repeat(2, 46px);
+  gap: 7px;
+  z-index: 60;
+  /* Wadah tak menerima sentuh; hanya tombolnya yang aktif, supaya jari yang
+     mengenai celah di antara tombol tetap menoleh seperti biasa. */
+  pointer-events: none;
+}
+.touch-btn {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  touch-action: manipulation;
+  background: rgba(8, 8, 10, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  color: var(--clr-fg);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.touch-btn:active {
+  background: rgba(255, 107, 53, 0.35);
+  border-color: var(--clr-accent);
+}
+/* Sakelar lari aktif: sorot emas supaya pemain tahu lari terkunci. */
+.touch-btn.active {
+  background: rgba(255, 217, 160, 0.22);
+  border-color: var(--clr-accent2);
+  color: var(--clr-accent);
+}
+/* Tombol jeda selalu lebar penuh (baris terakhir) agar mudah ditemukan. */
+.touch-btn[data-action="pause"] { grid-column: 1 / -1; }
+@media (max-height: 460px) {
+  /* Landscape HP: rapatkan tombol supaya tidak melewati tinggi layar. */
+  .touch-controls { grid-template-columns: repeat(2, 40px); gap: 5px; }
+  .touch-btn { width: 40px; height: 40px; font-size: 15px; }
 }
 /* Tab Petunjuk di layar Pengaturan: daftar tombol + keterangannya. */
 .help-heading {

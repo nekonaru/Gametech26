@@ -88,6 +88,7 @@
   "ui": {
     "interact": "Interaksi",
     "clickToLook": "Klik atau tekan ` untuk mengunci kursor",
+    "touchTap": "Ketuk",
     "darkHint": "Gelap di sini. Tekan F untuk menyalakan senter.",
     "keys": {
       "interact": "Berinteraksi",

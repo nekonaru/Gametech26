@@ -2,6 +2,7 @@ import { UIManager, UIElement, escapeHtml } from './base.js';
 import { i18n, t } from '../core/i18n.js';
 import { settingsManager } from '../core/settings.js';
 import { ITEM_ICON } from './inventory.js';
+import { eventBus } from '../core/events.js';
 
 /** Kompas HUD: piksel per derajat (tampilan ±90 derajat pada lebar 260px). */
 const COMPASS_PX_PER_DEG = 1.4;
@@ -33,14 +34,22 @@ export class HUD implements UIElement {
   private sensoryTimer: number | null = null;
   private flickerTimer: number | null = null;
   private visible = true;
+  private touchControlsElement: HTMLElement | null = null;
+  private coarsePointer = false;
+  private runIndicator: HTMLElement | null = null;
 
   constructor() {
     this.element = this.createElement();
+    // Deteksi perangkat sentuh sekali; dipakai prompt, petunjuk, dan visibilitas
+    // kontrol sentuh. MediaQueryList ikut berubah bila perangkat berpindah.
+    this.coarsePointer = typeof matchMedia === 'function'
+      && matchMedia('(pointer: coarse)').matches;
     this.cacheElements();
     this.updateText();
     i18n.subscribe(() => this.updateText());
     // Rebind kunci harus langsung tercermin di prompt interaksi.
     settingsManager.subscribe(() => this.updatePromptKey());
+    this.wireTouchControls();
   }
 
   private createElement(): HTMLElement {
@@ -79,6 +88,15 @@ export class HUD implements UIElement {
       </div>
       <div id="hotbar-popup" class="hotbar-popup hidden" aria-live="polite"></div>
       <div id="key-hints" class="key-hints hidden" aria-label="key hints"></div>
+      <div id="touch-controls" class="touch-controls hidden" aria-label="touch controls">
+        <button type="button" class="touch-btn touch-run" data-action="run" aria-label="run"></button>
+        <button type="button" class="touch-btn" data-action="interact" aria-label="interact"></button>
+        <button type="button" class="touch-btn" data-action="flashlight" aria-label="flashlight"></button>
+        <button type="button" class="touch-btn" data-action="phone" aria-label="phone"></button>
+        <button type="button" class="touch-btn" data-action="journal" aria-label="journal"></button>
+        <button type="button" class="touch-btn" data-action="inventory" aria-label="inventory"></button>
+        <button type="button" class="touch-btn" data-action="pause" aria-label="pause"></button>
+      </div>
       <div id="sensory-text" class="sensory-text hidden"></div>
       <div id="horror-vignette" class="horror-vignette"></div>
     `;
@@ -91,8 +109,24 @@ export class HUD implements UIElement {
       if (key) el.textContent = t(key);
     });
     this.updatePromptKey();
+    this.updateTouchLabels();
     // Nama barang di hotbar ikut bahasa yang aktif.
     this.renderHotbar(this.hotbarItems, new Set());
+  }
+
+  /** Label (aria/title) tombol sentuh mengikuti bahasa yang aktif. */
+  private updateTouchLabels(): void {
+    const labels: Record<string, string> = {
+      run: 'controls.run', interact: 'ui.interact', flashlight: 'ui.keys.flashlight',
+      phone: 'ui.keys.phone', journal: 'ui.keys.journal',
+      inventory: 'ui.keys.inventory', pause: 'ui.keys.pause'
+    };
+    this.touchControlsElement?.querySelectorAll<HTMLElement>('.touch-btn').forEach(btn => {
+      const labelKey = labels[btn.dataset.action ?? ''];
+      const label = labelKey ? t(labelKey) : (btn.dataset.action ?? '');
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
+    });
   }
 
   /**
@@ -103,6 +137,11 @@ export class HUD implements UIElement {
   private updatePromptKey(): void {
     const el = this.interactionPromptElement?.querySelector('.prompt-key');
     if (!el) return;
+    // Perangkat sentuh tidak punya tombol "E": pakai ajakan mengetuk layar.
+    if (this.coarsePointer) {
+      el.textContent = t('ui.touchTap');
+      return;
+    }
     const binding = settingsManager.get('controls')?.keyBindings?.interact || 'KeyE';
     const names: Record<string, string> = {
       Space: 'Space',
@@ -156,6 +195,7 @@ export class HUD implements UIElement {
     this.compassElement = this.element.querySelector('#compass');
     this.compassTape = this.element.querySelector('.compass-tape');
     this.compassGoal = this.element.querySelector('.compass-goal');
+    this.touchControlsElement = this.element.querySelector('#touch-controls');
     this.buildCompassTape();
   }
 
@@ -287,9 +327,12 @@ export class HUD implements UIElement {
     }
     slots.innerHTML = cells.join('');
     // Slot berisi bisa disorot kursor (saat kursor bebas) dan langsung
-    // menampilkan keterangan singkat tanpa menekan tombol angka.
+    // menampilkan keterangan singkat tanpa menekan tombol angka. Klik juga
+    // dipakai di layar sentuh, di mana tidak ada mouseenter.
     slots.querySelectorAll<HTMLElement>('.hotbar-slot:not(.empty)').forEach(slot => {
-      slot.addEventListener('mouseenter', () => this.showHotbarInfo(Number(slot.dataset.index)));
+      const index = Number(slot.dataset.index);
+      slot.addEventListener('mouseenter', () => this.showHotbarInfo(index));
+      slot.addEventListener('click', () => this.selectHotbarSlot(index));
     });
   }
 
@@ -441,6 +484,49 @@ export class HUD implements UIElement {
   setPointerHint(visible: boolean): void {
     if (!this.pointerHintElement) return;
     this.pointerHintElement.classList.toggle('hidden', !visible);
+  }
+
+  /**
+   * Kontrol layar sentuh hanya tampil di perangkat sentuh dan selama benar-benar
+   * sedang bermain (tidak saat dialog/teka-teki/menu menutup layar).
+   */
+  setTouchControlsVisible(visible: boolean): void {
+    if (!this.touchControlsElement) return;
+    this.touchControlsElement.classList.toggle('hidden', !visible);
+  }
+
+  /** Sorot tombol Lari agar pemain tahu sakelar lari sedang aktif. */
+  setTouchRunActive(active: boolean): void {
+    this.runIndicator?.classList.toggle('active', active);
+  }
+
+  /**
+   * Pasang satu handler delegasi untuk semua tombol sentuh. Setiap tombol
+   * memancarkan `hud:touchAction` yang ditangani main.ts memakai penjaga yang
+   * sama persis dengan pintasan keyboard, jadi tidak ada jalur alternatif yang
+   * bisa membuka layar di saat seharusnya terkunci.
+   */
+  private wireTouchControls(): void {
+    const icons: Record<string, string> = {
+      run: '≫', interact: '◉', flashlight: '☀', phone: '☎',
+      journal: '☰', inventory: '▦', pause: '❚❚'
+    };
+    this.touchControlsElement?.querySelectorAll<HTMLElement>('.touch-btn').forEach(btn => {
+      const action = btn.dataset.action ?? '';
+      btn.textContent = icons[action] ?? '';
+      if (action === 'run') this.runIndicator = btn;
+      btn.addEventListener('click', (e) => {
+        // Tombol di atas kanvas: cegah gerakan menoleh tersentak saat menekan.
+        e.stopPropagation();
+        // Umpan balik getar singkat (opsional; HP tanpa motor getar diabaikan
+        // browser tanpa error) supaya pemain tahu tombol benar-benar terkena.
+        try {
+          navigator.vibrate?.(12);
+        } catch { /* platform tanpa getar: abaikan */ }
+        eventBus.emit('hud:touchAction', { action });
+      });
+    });
+    this.updateTouchLabels();
   }
 
   setVisible(visible: boolean): void {

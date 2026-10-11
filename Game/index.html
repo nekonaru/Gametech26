@@ -2,9 +2,19 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#1a1a1a">
   <meta name="description" content="Asap yang Tak Padam - Psychological Horror Narrative Game">
+  <!-- Tampilan web-app penuh di iOS: tanpa bar alamat, dan bilah status ikut
+       memakai inset aman (notch) berkat viewport-fit=cover. -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Asap yang Tak Padam">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Asap yang Tak Padam">
+  <meta property="og:description" content="Game horor naratif psikologis orang pertama bergaya PS1, berbahasa Indonesia dan Inggris.">
+  <meta property="og:url" content="https://nekonaru.github.io/gametech26/">
   <title>Asap yang Tak Padam</title>
   <link rel="stylesheet" href="/src/ui/styles.css">
   <link rel="manifest" href="/manifest.json">
@@ -23,6 +33,10 @@
       overflow: hidden;
       background: #000;
       font-family: 'PixelFont', monospace;
+      /* Gestur pull-to-refresh / rubber-band dimatikan: seluruh gesture di
+         halaman ini dipakai untuk menoleh dan bergerak. */
+      overscroll-behavior: none;
+      -webkit-tap-highlight-color: transparent;
     }
     #app {
       width: 100%;

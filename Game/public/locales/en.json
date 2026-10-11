@@ -89,6 +89,7 @@
   "ui": {
     "interact": "Interact",
     "clickToLook": "Click or press ` to lock the cursor",
+    "touchTap": "Tap",
     "darkHint": "It's dark here. Press F to turn on the flashlight.",
     "keys": {
       "interact": "Interact",

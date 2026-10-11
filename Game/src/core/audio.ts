@@ -56,6 +56,12 @@ export class AudioManager {
 
     document.addEventListener('click', () => this.resume(), { once: true });
     document.addEventListener('keydown', () => this.resume(), { once: true });
+    // iOS/Safari memakai kebijakan autoplay yang ketat: konteks hanya boleh
+    // di-resume di dalam gesture pengguna. `touchstart` dipasang agar unlock
+    // terjadi tepat saat jari menyentuh layar; `click` pertama (mis. tombol
+    // menu) tetap dipakai sebagai jaring pengaman di desktop.
+    document.addEventListener('touchstart', () => this.resume(), { once: true, passive: true });
+    document.addEventListener('pointerdown', () => this.resume(), { once: true, passive: true });
   }
 
   async loadAudio(key: string, url: string): Promise<void> {
