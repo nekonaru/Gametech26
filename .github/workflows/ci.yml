@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    # Build + audit + unduhan Chromium + auto-play 23 bab (~4-7 menit).
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Game/package-lock.json
+
+      - name: Instal dependensi
+        working-directory: Game
+        run: npm ci
+
+      - name: Audit validator (7 suite)
+        working-directory: Game
+        run: npm run audit
+
+      - name: Build produksi
+        working-directory: Game
+        run: npm run build
+
+      # Playwright hanya dipakai CI (tidak masuk devDependencies supaya
+      # instalasi lokal tidak menambah ratusan MB tanpa diminta). Versi
+      # di-pin supaya kegagalan = regression, bukan perubahan tools.
+      - name: Pasang Playwright + Chromium
+        working-directory: Game
+        run: |
+          npm install --no-save playwright@1.64.0
+          npx playwright install --with-deps chromium
+
+      - name: Auto-play penuh (b01 -> ending, deteksi stall/error)
+        working-directory: Game
+        run: node tools/auto-play-ci.mjs
