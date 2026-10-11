@@ -13,7 +13,7 @@ import { LightingManager } from '../render/lighting.js';
 import { ParticleSystem } from '../render/particles.js';
 import { PostProcessManager } from '../render/postprocess.js';
 import { sceneFactory, BuiltScene, updateFigures, updateDynamics, setDrawerOpen, setDrawerSenterVisible, animatePickup, hidePickupInstantly } from '../render/scenes.js';
-import { getSoftDotTexture } from '../render/textures.js';
+import { getSoftDotTexture, getDiamondTexture, getBeamTexture } from '../render/textures.js';
 import { gameState } from './state.js';
 import { scriptRunner } from './scriptRunner.js';
 import { dialogueManager } from './dialogue.js';
@@ -45,6 +45,16 @@ type ScreenName =
 
 /** Setengah sisi kubus penanda objek interaktif. */
 const PROP_HALF = 0.28;
+
+/**
+ * Palet penanda tujuan.
+ *
+ * Hanya penanda UTAMA yang memakai emas; tujuan lain dan interaksi biasa memakai
+ * netral. Tanpa ini mata pemain tersebar ke beberapa titik kuning sekaligus,
+ * padahal hanya satu yang benar-benar menggerakkan alur.
+ */
+const MARKER_GOLD = 0xffd9a0;
+const MARKER_NEUTRAL = 0x9a9a92;
 
 export class Game {
   private engine: Engine | null = null;
@@ -2016,10 +2026,20 @@ export class Game {
   /**
    * Penanda interaktif.
    *
-   * - `goal` (tujuan cerita): cincin emas besar, denyut terang, opsional
-   *   label mengambang berisi teks objektif supaya pemain tahu harus ke mana.
-   * - `flavor` (interaksi biasa): cincin kecil, warna dingin, redup: hanya
-   *   terlihat saat didekati (lihat updatePropPulse), sehingga ruangan tidak
+   * Dua bagian yang selalu menghadap kamera atau selalu tegak:
+   * - `diamond` belah ketupat berongga: penanda utama yang terbaca seperti
+   *   penunjuk arah, bukan lingkaran datar yang terlihat seperti geometri debug.
+   * - `beam` pilar cahaya tegak: menandai posisi objek dari jauh dan di balik
+   *   dinding, sekaligus memberi penanda bobot visual.
+   * - `core` gumpalan cahaya lembut di pusat belah ketupat.
+   *
+   * Warna ditentukan peran, bukan dibekukan di sini: hanya tujuan utama yang
+   * emas, sisanya netral (lihat applyMarkerGoalStyle + updatePropPulse).
+   *
+   * - `goal` (tujuan cerita): belah ketupat besar, pilar cahaya, opsional label
+   *   mengambang berisi teks objektif supaya pemain tahu harus ke mana.
+   * - `flavor` (interaksi biasa): belah ketupat kecil tanpa pilar, warna
+   *   netral, redup: hanya terlihat saat didekati, sehingga ruangan tidak
    *   dipenuhi penanda sekaligus.
    */
   private createPropMesh(
@@ -2031,48 +2051,73 @@ export class Game {
   ): THREE.Group {
     const group = new THREE.Group();
     const isGoal = role === 'goal';
+    // Warna awal; bisa berubah tiap objektif berganti (applyMarkerGoalStyle).
+    const tint = isGoal ? MARKER_GOLD : MARKER_NEUTRAL;
 
-    // Cincin penunjuk selalu menghadap kamera (billboard) supaya terbaca dari
-    // arah mana pun: seperti retikel interaksi pada game aksi, bukan kotak
-    // debug yang mengambang.
-    const ring = new THREE.Mesh(
-      new THREE.RingGeometry(
-        isGoal ? 0.2 : 0.13,
-        isGoal ? 0.27 : 0.175,
-        20
-      ),
+    // Belah ketupat berongga: selalu menghadap kamera (billboard) supaya
+    // terbaca dari arah mana pun. Berongga agar objek di belakangnya tetap
+    // terlihat.
+    const diamondSize = isGoal ? 0.34 : 0.2;
+    const diamond = new THREE.Mesh(
+      new THREE.PlaneGeometry(diamondSize, diamondSize),
       new THREE.MeshBasicMaterial({
-        color: isGoal ? 0xffd9a0 : 0x9fb6cc,
+        map: getDiamondTexture(),
+        color: tint,
         transparent: true,
-        opacity: isGoal ? 0.5 : 0.22,
+        opacity: isGoal ? 0.9 : 0.34,
         side: THREE.DoubleSide,
         depthWrite: false
       })
     );
-    group.add(ring);
+    diamond.position.y = isGoal ? 0.58 : 0.42;
+    group.add(diamond);
+
+    // Pilar cahaya: silinder terbuka yang selalu tegak lurus lantai. Berbeda
+    // dengan diamond yang billboard, silinder rotasional simetris sehingga
+    // terbaca sebagai pancaran dari sudut mana pun tanpa diputar.
+    let beam: THREE.Mesh | null = null;
+    let beamHeight = 0;
+    if (isGoal) {
+      beamHeight = 0.9;
+      beam = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.07, 0.3, beamHeight, 20, 1, true),
+        new THREE.MeshBasicMaterial({
+          map: getBeamTexture(),
+          color: tint,
+          transparent: true,
+          opacity: 0.4,
+          side: THREE.DoubleSide,
+          depthWrite: false,
+          blending: THREE.AdditiveBlending
+        })
+      );
+      // Pangkal berkas di objek, puncaknya berhenti sedikit di bawah diamond.
+      beam.position.y = 0.58 - beamHeight / 2;
+      group.add(beam);
+    }
 
     // Inti: gumpalan cahaya lembut (sprite radial), pengganti oktahedron
-    // yang terlihat seperti geometri debug. Warna mengikuti peran: emas
-    // hangat untuk tujuan, biru pucat untuk interaksi biasa.
+    // yang terlihat seperti geometri debug. Warnanya mengikuti peran.
     const core = new THREE.Sprite(
       new THREE.SpriteMaterial({
         map: getSoftDotTexture(),
-        color: isGoal ? 0xffd9a0 : 0x9fb6cc,
+        color: tint,
         transparent: true,
-        opacity: isGoal ? 0.55 : 0.3,
+        opacity: isGoal ? 0.5 : 0.26,
         depthWrite: false,
         blending: THREE.AdditiveBlending
       })
     );
-    const coreScale = isGoal ? 0.46 : 0.26;
+    const coreScale = isGoal ? 0.44 : 0.24;
     core.scale.setScalar(coreScale);
+    core.position.y = diamond.position.y;
     group.add(core);
 
-    // Label tujuan: teks objektif melayang di atas penanda emas.
+    // Label tujuan: teks objektif melayang di atas penanda utama.
     if (isGoal && labelKey) {
       const sprite = this.makeMarkerLabel(t(labelKey));
       if (sprite) {
-        sprite.position.y = 0.5;
+        sprite.position.y = 0.92;
         group.add(sprite);
         group.userData.label = sprite;
       }
@@ -2082,7 +2127,9 @@ export class Game {
     group.name = `prop_${index}`;
     group.userData.baseY = pos[1];
     group.userData.role = role;
-    group.userData.ring = ring;
+    group.userData.diamond = diamond;
+    group.userData.beam = beam;
+    group.userData.beamHeight = beamHeight;
     group.userData.core = core;
     group.userData.coreBase = coreScale;
     // Label dinamis mengganti isinya tiap objektif berganti.
@@ -2102,16 +2149,26 @@ export class Game {
     return marker.userData.staticGoal !== false;
   }
 
-  /** Ganti warna penanda ketika status tujuan/biasanya berubah. */
-  private applyMarkerGoalStyle(marker: THREE.Object3D, isGoal: boolean): void {
-    const ring = marker.userData.ring as THREE.Mesh | undefined;
-    if (ring) {
-      (ring.material as THREE.MeshBasicMaterial).color.setHex(isGoal ? 0xffd9a0 : 0x9fb6cc);
+  /**
+   * Ganti warna penanda ketika status tujuan atau status UTAMA berubah.
+   *
+   * Emas hanya untuk penanda utama; sisanya netral abu-abu. Perbedaan warna
+   * (bukan sekadar kecerahan) yang membuat mata langsung tertuju ke satu
+   * tujuan, sesuai harapan "cuma satu yang kuning".
+   */
+  private applyMarkerGoalStyle(marker: THREE.Object3D, isPrimary: boolean): void {
+    const color = isPrimary ? MARKER_GOLD : MARKER_NEUTRAL;
+    const diamond = marker.userData.diamond as THREE.Mesh | undefined;
+    if (diamond) {
+      (diamond.material as THREE.MeshBasicMaterial).color.setHex(color);
+    }
+    const beam = marker.userData.beam as THREE.Mesh | undefined;
+    if (beam) {
+      (beam.material as THREE.MeshBasicMaterial).color.setHex(color);
     }
     const core = marker.userData.core as THREE.Sprite | undefined;
     if (core) {
-      const coreMat = core.material as THREE.SpriteMaterial;
-      coreMat.color.setHex(isGoal ? 0xffd9a0 : 0x9fb6cc);
+      core.material.color.setHex(color);
     }
   }
 
@@ -2196,7 +2253,7 @@ export class Game {
         if (!key) continue;
         const sprite = this.makeMarkerLabel(t(key));
         if (!sprite) continue;
-        sprite.position.y = 0.5;
+        sprite.position.y = 0.92;
         group.add(sprite);
         group.userData.label = sprite;
         continue;
@@ -2364,8 +2421,8 @@ export class Game {
 
       const active = targetId !== null && marker.userData.interactableId === targetId;
       const isGoal = this.isMarkerGoal(marker);
-      // Hanya penanda utama yang menyala penuh; tujuan lain tetap berwarna
-      // kuning tapi redup supaya mata hanya tertuju ke satu objektif.
+      // Hanya penanda utama yang berwarna emas; tujuan lain netral abu-abu
+      // supaya mata hanya tertuju ke satu objektif (lihat applyMarkerGoalStyle).
       const bright = i === primaryIdx;
       const dist = cam
         ? Math.hypot(marker.position.x - camPos.x, marker.position.z - camPos.z)
@@ -2382,11 +2439,15 @@ export class Game {
         continue;
       }
 
-      // Status tujuan bisa berubah kapan saja (objektif baru): gaya disegarkan
-      // hanya saat berubah agar tidak menulis material tiap frame.
-      if (marker.userData.goalActive !== isGoal) {
+      // Status tujuan bisa berubah kapan saja (objektif baru), dan status
+      // UTAMA bisa berganti tiap kali pemain menoleh atau objektif berganti.
+      // Gaya disegarkan hanya saat salah satunya berubah agar tidak menulis
+      // material tiap frame.
+      if (marker.userData.goalActive !== isGoal
+        || marker.userData.primaryActive !== bright) {
         marker.userData.goalActive = isGoal;
-        this.applyMarkerGoalStyle(marker, isGoal);
+        marker.userData.primaryActive = bright;
+        this.applyMarkerGoalStyle(marker, bright);
       }
 
       // Non-tujuan (termasuk `goalFor` yang sedang tidak berlaku): samar dan
@@ -2410,18 +2471,31 @@ export class Game {
       const scale = (active ? 1.3 + Math.sin(now * 0.006) * 0.05 : 1) * (bright ? 1 : 0.72);
       marker.scale.setScalar(scale);
 
-      const ring = marker.userData.ring as THREE.Mesh | undefined;
-      if (ring) {
-        if (camQuat) ring.quaternion.copy(camQuat);
-        const ringMat = ring.material as THREE.MeshBasicMaterial;
+      // Belah ketupat selalu menghadap kamera (billboard) supaya terbaca dari
+      // arah mana pun; pilar cahaya justru harus tetap tegak lurus lantai,
+      // jadi tidak ikut diputar.
+      const diamond = marker.userData.diamond as THREE.Mesh | undefined;
+      if (diamond) {
+        if (camQuat) diamond.quaternion.copy(camQuat);
+        const diamondMat = diamond.material as THREE.MeshBasicMaterial;
         if (bright) {
           // Denyut halus: tujuan terasa "hidup" tanpa berkedip agresif.
-          const pulse = 0.55 + Math.sin(now * 0.003 + i) * 0.18;
-          ringMat.opacity = active ? 0.95 : pulse;
+          const pulse = 0.72 + Math.sin(now * 0.003 + i) * 0.2;
+          diamondMat.opacity = active ? 0.98 : pulse;
         } else {
-          // Tujuan yang meredup tetap terbaca sebagai kuning (bukan biru
-          // netral), hanya dengan intensitas yang jauh lebih rendah.
-          ringMat.opacity = active ? 0.75 : isGoal ? 0.32 : 0.22;
+          // Bukan penanda utama: netral dan jauh lebih redup.
+          diamondMat.opacity = active ? 0.6 : isGoal ? 0.3 : 0.2;
+        }
+      }
+
+      const beam = marker.userData.beam as THREE.Mesh | undefined;
+      if (beam) {
+        const beamMat = beam.material as THREE.MeshBasicMaterial;
+        if (bright) {
+          const pulse = 0.32 + Math.sin(now * 0.0026 + i) * 0.1;
+          beamMat.opacity = active ? 0.5 : pulse;
+        } else {
+          beamMat.opacity = active ? 0.26 : isGoal ? 0.14 : 0.1;
         }
       }
 
@@ -2456,7 +2530,7 @@ export class Game {
           }
           const fade = Math.min(1, Math.max(0, (dist - 0.9) / 0.9));
           mat.opacity = (active ? 1 : 0.82) * fade;
-          label.position.y = 0.5 + Math.sin(now * 0.0018 + i) * 0.03;
+          label.position.y = 0.92 + Math.sin(now * 0.0018 + i) * 0.03;
         }
       }
     }

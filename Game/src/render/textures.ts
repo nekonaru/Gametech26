@@ -476,6 +476,110 @@ export function getFlameGradientTexture(): THREE.Texture {
   return texture;
 }
 
+let diamondOutline: THREE.Texture | null = null;
+
+/**
+ * Belah ketupat berongga untuk penanda tujuan.
+ *
+ * Bentuk belah ketupat dipilih karena empat sudutnya mengarah ke luar seperti
+ * penunjuk arah, sehingga mata langsung tertuju ke titik itu walau penanda
+ * kecil. Berongga (hanya garis tepi) supaya objek di belakangnya tetap
+ * terlihat: penanda yang menutupi barang yang mau diperiksa justru mengganggu.
+ */
+export function getDiamondTexture(): THREE.Texture {
+  if (diamondOutline) return diamondOutline;
+
+  const size = 128;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+  const c = size / 2;
+  const half = size / 2 - 4;
+
+  // Pendar lembut di sekeliling garis: penanda tampak menyala, bukan garis datar.
+  ctx.strokeStyle = 'rgba(255,255,255,0.28)';
+  ctx.lineWidth = 9;
+  ctx.lineJoin = 'miter';
+  ctx.beginPath();
+  ctx.moveTo(c, c - half);
+  ctx.lineTo(c + half, c);
+  ctx.lineTo(c, c + half);
+  ctx.lineTo(c - half, c);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Garis inti yang tegas.
+  ctx.strokeStyle = 'rgba(255,255,255,1)';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(c, c - half);
+  ctx.lineTo(c + half, c);
+  ctx.lineTo(c, c + half);
+  ctx.lineTo(c - half, c);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Titik pusat kecil: penanda tetap terbaca saat berdiri tepat di depannya.
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.beginPath();
+  ctx.arc(c, c, 5, 0, Math.PI * 2);
+  ctx.fill();
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+
+  diamondOutline = texture;
+  return texture;
+}
+
+let beamGradient: THREE.Texture | null = null;
+
+/**
+ * Berkas cahaya tegak: terang di pangkal lalu memudar ke atas.
+ *
+ * Dipakai sebagai pilar penanda tujuan. Karena berbentuk silinder, berkas ini
+ * selalu tegak lurus lantai dan terbaca dari sudut mana pun tanpa perlu
+ * billboard; gradasi inilah yang membuatnya tampak seperti pancaran cahaya
+ * alih-alih tabung solid.
+ */
+export function getBeamTexture(): THREE.Texture {
+  if (beamGradient) return beamGradient;
+
+  const w = 32;
+  const h = 128;
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d')!;
+
+  // Sisi kiri-kanan diturunkan nilainya agar tepi berkas lembut, bukan garis keras.
+  const across = ctx.createLinearGradient(0, 0, w, 0);
+  across.addColorStop(0, 'rgba(255,255,255,0)');
+  across.addColorStop(0.5, 'rgba(255,255,255,1)');
+  across.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = across;
+  ctx.fillRect(0, 0, w, h);
+
+  // Pangkal terang, puncak lenyap: konteks "cahaya yang jatuh ke objek".
+  ctx.globalCompositeOperation = 'destination-in';
+  const up = ctx.createLinearGradient(0, h, 0, 0);
+  up.addColorStop(0, 'rgba(255,255,255,1)');
+  up.addColorStop(0.45, 'rgba(255,255,255,0.75)');
+  up.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = up;
+  ctx.fillRect(0, 0, w, h);
+  ctx.globalCompositeOperation = 'source-over';
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+
+  beamGradient = texture;
+  return texture;
+}
+
 export function disposeTextures(): void {
   cache.forEach(t => t.dispose());
   cache.clear();
@@ -486,5 +590,13 @@ export function disposeTextures(): void {
   if (flameGradient) {
     flameGradient.dispose();
     flameGradient = null;
+  }
+  if (diamondOutline) {
+    diamondOutline.dispose();
+    diamondOutline = null;
+  }
+  if (beamGradient) {
+    beamGradient.dispose();
+    beamGradient = null;
   }
 }
