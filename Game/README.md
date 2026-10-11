@@ -42,7 +42,7 @@ Desktop:
 | Lanjut dialog | Klik, Spasi, atau Enter |
 | Pilihan dialog | 1 sampai 4 |
 
-Mobile: joystick sentuh di sisi kiri untuk bergerak (dorong ke tepi = lari), geser sisi kanan untuk menoleh, tap untuk berinteraksi, dan tombol aksi di tepi kanan untuk lari, senter, ponsel, jurnal, inventaris, dan jeda.
+Mobile: joystick sentuh di sisi kiri untuk bergerak (dorong ke tepi = lari), geser sisi kanan untuk menoleh, tap untuk berinteraksi, dan tombol aksi di tepi kanan untuk lari, interaksi, senter, ponsel, jurnal, inventaris, dan jeda.
 
 ## Struktur proyek
 
@@ -66,7 +66,7 @@ Mobile: joystick sentuh di sisi kiri untuk bergerak (dorong ke tepi = lari), ges
 - Pencapaian "Detektif" untuk menyelesaikan semua puzzle tanpa tombol Lewati, lengkap dengan notifikasi dan tampilan di Galeri Ending
 - Pilih Babak dari menu utama untuk mengulang babak yang sudah terbuka
 - Ringkasan Hari menampilkan jumlah poin clue dan daftar clue yang terlewat
-- Terjemahan penuh ID/EN, seluruh teks diambil dari i18n, tidak ada teks keras di kode (diaudit 120 kunci statis)
+- Terjemahan penuh ID/EN, seluruh teks diambil dari i18n, tidak ada teks keras di kode (diaudit 83 rujukan `t()` statis di kode, 300 kunci locale id/en)
 - Gaya PS1: render internal 360p, vertex snapping, dithering, kuantisasi warna, kabut, dan gerak snap
 - Desktop dan mobile controls, layar peringatan konten, manifest PWA
 - Audio rekaman bebas lisensi (Mixkit) untuk 36 kunci suara, dengan sintesis prosedural sebagai fallback offline
