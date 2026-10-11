@@ -55,6 +55,8 @@ if (fs.existsSync(chapterLocaleDir)) {
 }
 
 const files = fs.readdirSync(chaptersDir).filter(f => f.endsWith('.json'));
+// loadScene merujuk bab lain: id bab = nama file tanpa ekstensi.
+const chapterIds = new Set(files.map((f) => f.replace(/\.json$/, '')));
 const problems = [];
 const note = (file, msg) => problems.push(`[${file}] ${msg}`);
 
@@ -74,7 +76,15 @@ for (const f of files) {
       if (!op || typeof op.op !== 'string') { note(f, `operasi tidak valid di ${where}`); continue; }
       if (!KNOWN_OPS.has(op.op)) note(f, `operasi tidak dikenal "${op.op}" di ${where}`);
       if (op.op === 'dialog') checkDialogRef(op.node, where);
-      if (op.op === 'loadScene') note(f, `loadScene "${op.scene}" di ${where} (cek keberadaan chapter)`);
+      if (op.op === 'loadScene') {
+        // loadScene memuat bab lain (file chapters) atau scene dalam bab ini.
+        // Dulu setiap pemakaian dicatat manual tanpa divalidasi; kini referensi
+        // rusak benar-benar terdeteksi, yang valid tidak menimbulkan suara.
+        if (typeof op.scene !== 'string'
+          || (!chapterIds.has(op.scene) && op.scene !== script.scene && !(script.scenes || {})[op.scene])) {
+          note(f, `loadScene "${op.scene}" tidak ada sebagai chapter/scene (di ${where})`);
+        }
+      }
       if (op.op === 'gotoScene') {
         const known = script.scenes || {};
         if (typeof op.scene !== 'string' || (op.scene !== script.scene && !known[op.scene])) {
@@ -140,7 +150,9 @@ for (const f of files) {
     if (!inter.position) continue;
     const [x, y, z] = inter.position;
     if (![x, y, z].every(Number.isFinite)) note(f, `posisi interactable ${inter.id} tidak valid`);
-    if (y !== 0) note(f, `posisi y interactable ${inter.id} = ${y} (default data memakai 0)`);
+    // y ≠ 0 itu sah (b13-b15 memang menempatkan prompt pada ketinggian
+    // berbeda); dulu setiap nilai non-nol ikut dicatat dan menimbulkan 27
+    // keluhan noise yang menutupi masalah sungguhan.
   }
 }
 
@@ -155,3 +167,8 @@ console.log(`Masalah konten    : ${problems.length}`);
 for (const p of problems) console.log('  - ' + p);
 if (missingEn.length) console.log(`\nKunci tanpa terjemahan EN (${missingEn.length}):\n  ` + missingEn.slice(0, 40).join('\n  ') + (missingEn.length > 40 ? '\n  ...' : ''));
 if (missingId.length) console.log(`\nKunci tanpa terjemahan ID (${missingId.length}):\n  ` + missingId.slice(0, 40).join('\n  ') + (missingId.length > 40 ? '\n  ...' : ''));
+
+// Selama ini file ini selalu exit 0 - masalah konten baru tidak pernah bisa
+// menggagalkan apa pun. Kini daftar masalah benar-benar berbobot: audit dan
+// CI berhenti bila ada referensi rusak.
+if (problems.length) process.exitCode = 1;
