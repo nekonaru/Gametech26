@@ -457,7 +457,9 @@ export class Game {
     if (!gameState.hasInventory('senter')) return;
     if (phoneManager.getFlashlightState().on) return;
     this.darkHintShown = true;
-    this.hud?.showSensoryText(t('ui.darkHint'), 5000);
+    // Senter di sentuh dinyalakan lewat tombol, bukan tombol F.
+    this.hud?.showSensoryText(
+      t(this.isCoarsePointer() ? 'ui.darkHintTouch' : 'ui.darkHint'), 5000);
   }
 
   /**
@@ -476,10 +478,7 @@ export class Game {
     }
     // Layar sentuh: label keyboard (E/Q/I/Tab) tidak ada artinya dan hanya
     // membanjiri layar sempit. Kendali setara tersedia lewat tombol sentuh.
-    if (!this.coarsePointer && typeof matchMedia === 'function') {
-      this.coarsePointer = matchMedia('(pointer: coarse)');
-    }
-    if (this.coarsePointer?.matches) {
+    if (this.isCoarsePointer()) {
       this.hud?.setKeyHints(null);
       return;
     }
@@ -513,14 +512,24 @@ export class Game {
 
     // MediaQueryList dibuat sekali; properti .matches-nya ikut berubah bila
     // perangkat berpindah mouse <-> sentuh, tanpa membuat objek baru tiap frame.
-    if (!this.coarsePointer && typeof matchMedia === 'function') {
-      this.coarsePointer = matchMedia('(pointer: coarse)');
-    }
-    const show = !this.coarsePointer?.matches && !this.pointerLocked && active;
+    const coarse = this.isCoarsePointer();
+    const show = !coarse && !this.pointerLocked && active;
     this.hud?.setPointerHint(show);
     // Tombol aksi layar sentuh: hanya saat benar-benar bermain dan tidak ada
     // overlay/dialog yang menutup layar (penjaga sama dengan pointer-hint).
-    this.hud?.setTouchControlsVisible(!!this.coarsePointer?.matches && active);
+    this.hud?.setTouchControlsVisible(coarse && active);
+  }
+
+  /**
+   * Apakah perangkat memakai penunjuk kasar (sentuh). MediaQueryList dibuat
+   * sekali lalu dipakai ulang: .matches-nya ikut berubah bila perangkat
+   * berpindah mouse <-> sentuh, jadi tidak perlu membuat objek baru tiap frame.
+   */
+  private isCoarsePointer(): boolean {
+    if (!this.coarsePointer && typeof matchMedia === 'function') {
+      this.coarsePointer = matchMedia('(pointer: coarse)');
+    }
+    return !!this.coarsePointer?.matches;
   }
 
   private startBootSequence(): void {

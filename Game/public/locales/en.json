@@ -91,6 +91,7 @@
     "clickToLook": "Click or press ` to lock the cursor",
     "touchTap": "Tap",
     "darkHint": "It's dark here. Press F to turn on the flashlight.",
+    "darkHintTouch": "It's dark here. Tap the flashlight button to turn it on.",
     "keys": {
       "interact": "Interact",
       "flashlight": "Flashlight",
@@ -217,17 +218,21 @@
   "inventory": {
     "kosong": "Your bag is still empty.",
     "baru": "New item",
+    "title": "Inventory",
     "noSenter": "You don't have a flashlight yet.",
-    "hint": "PRESS I TO OPEN AND CLOSE YOUR INVENTORY"
+    "hint": "PRESS I TO OPEN AND CLOSE YOUR INVENTORY",
+    "hintTouch": "TAP THE INVENTORY BUTTON TO OPEN AND CLOSE"
   },
   "item": {
     "ponsel": {
       "name": "Phone",
-      "desc": "Your old phone. Press Q to open it: messages, calls, and a backup light."
+      "desc": "Your old phone. Press Q to open it: messages, calls, and a backup light.",
+      "descTouch": "Your old phone. Tap the phone button to open it: messages, calls, and a backup light."
     },
     "senter": {
       "name": "Flashlight",
-      "desc": "A battery flashlight. Press F to turn it on and off. Use it in dark places like hallways, the basement, and the forest at night."
+      "desc": "A battery flashlight. Press F to turn it on and off. Use it in dark places like hallways, the basement, and the forest at night.",
+      "descTouch": "A battery flashlight. Tap the flashlight button to turn it on and off. Use it in dark places like hallways, the basement, and the forest at night."
     },
     "obeng": {
       "name": "Screwdriver",

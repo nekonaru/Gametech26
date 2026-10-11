@@ -1,4 +1,4 @@
-import { UIElement, escapeHtml } from './base.js';
+import { UIElement, escapeHtml, itemDescKey } from './base.js';
 import { i18n, t } from '../core/i18n.js';
 
 /**
@@ -31,6 +31,12 @@ export class InventoryScreen implements UIElement {
     this.element = this.createElement();
     this.render();
     i18n.subscribe(() => this.render());
+    // Perangkat berpindah sentuh <-> mouse saat game berjalan: ganti petunjuk
+    // "TEKAN I" <-> "KETUK TOMBOL" supaya tidak menyesatkan pemain.
+    if (typeof matchMedia === 'function') {
+      matchMedia('(pointer: coarse)')
+        .addEventListener('change', () => this.render());
+    }
   }
 
   private createElement(): HTMLElement {
@@ -64,6 +70,17 @@ export class InventoryScreen implements UIElement {
       if (key) el.textContent = t(key);
     });
 
+    // Setelah loop, petunjuk pembuka/tutup ditimpa dengan varian yang sesuai
+    // perangkat (sentuh tidak punya tombol I). Teks disetel langsung, bukan lewat
+    // mutasi atribut data-i18n, supaya pilihan kunci dihitung ulang tiap render
+    // dan tidak lengket pada satu varian.
+    const hintEl = this.element.querySelector<HTMLElement>('.inventory-footer span');
+    if (hintEl) {
+      hintEl.textContent = t(typeof matchMedia === 'function'
+        && matchMedia('(pointer: coarse)').matches
+        ? 'inventory.hintTouch' : 'inventory.hint');
+    }
+
     const grid = this.element.querySelector('#inventory-grid');
     if (!grid) return;
 
@@ -75,7 +92,7 @@ export class InventoryScreen implements UIElement {
     grid.innerHTML = this.items.map(id => {
       const icon = ITEM_ICON[id] ?? '📦';
       const nameKey = `item.${id}.name`;
-      const descKey = `item.${id}.desc`;
+      const descKey = itemDescKey(id);
       // Barang tanpa terjemahan tetap tampil (pakai id mentah): daftar
       // inventori tidak boleh menghilang hanya karena locale kurang kunci.
       const name = i18n.hasKey(nameKey) ? t(nameKey) : id;

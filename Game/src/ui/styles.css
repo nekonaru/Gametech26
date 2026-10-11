@@ -770,6 +770,13 @@ input[type="checkbox"].ui-checkbox {
 /* Baris pilihan dan status auto-play ditonjolkan supaya mudah ditemukan. */
 .dialog-hints .hint-choice { color: var(--clr-accent); }
 .dialog-hints .hint-auto.active { color: var(--clr-accent); }
+/* Seluruh baris petunjuk dialog menyebut tombol keyboard (SPASI, ESC, H, P,
+   W/S) yang tidak ada di layar sentuh. Lanjut dialog = ketuk layar, riwayat =
+   tombol di kepala dialog, pilihan = tombol pilihan. Menyebut tombol yang tak
+   bisa ditekan menyesatkan, jadi baris ini disembunyikan di penunjuk kasar. */
+@media (pointer: coarse) {
+  .dialog-hints { display: none; }
+}
 .dialog-history {
   position: absolute; inset: 0;
   background: rgba(0,0,0,0.95);

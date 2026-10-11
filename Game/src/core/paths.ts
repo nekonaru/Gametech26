@@ -13,7 +13,7 @@ const base = (): string => {
   return url.endsWith('/') ? url : `${url}/`;
 };
 
-/** Contoh: assetUrl('data/clues.json') -> '/data/clues.json' (atau '/Gametech26/data/clues.json'). */
+/** Contoh: assetUrl('data/clues.json') -> '/data/clues.json' (atau '/gametech26/data/clues.json'). */
 export function assetUrl(path: string): string {
   return base() + path.replace(/^\/+/, '');
 }

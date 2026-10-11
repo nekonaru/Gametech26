@@ -1,4 +1,4 @@
-import { UIManager, UIElement, escapeHtml } from './base.js';
+import { UIManager, UIElement, escapeHtml, itemDescKey } from './base.js';
 import { i18n, t } from '../core/i18n.js';
 import { settingsManager } from '../core/settings.js';
 import { ITEM_ICON } from './inventory.js';
@@ -35,15 +35,21 @@ export class HUD implements UIElement {
   private flickerTimer: number | null = null;
   private visible = true;
   private touchControlsElement: HTMLElement | null = null;
-  private coarsePointer = false;
+  /**
+   * MediaQueryList pointer:coarse. Disimpan sebagai objek (bukan `.matches`)
+   * supaya ikut berubah bila perangkat berpindah sentuh <-> mouse, dan
+   * pendengar `change` memicu ulang prompt. Tanpa ini pemain yang mencolokkan
+   * mouse ke tablet akan terjebak prompt "Ketuk" tanpa tombol sentuh.
+   */
+  private coarsePointer: MediaQueryList | null = null;
   private runIndicator: HTMLElement | null = null;
 
   constructor() {
     this.element = this.createElement();
-    // Deteksi perangkat sentuh sekali; dipakai prompt, petunjuk, dan visibilitas
-    // kontrol sentuh. MediaQueryList ikut berubah bila perangkat berpindah.
-    this.coarsePointer = typeof matchMedia === 'function'
-      && matchMedia('(pointer: coarse)').matches;
+    if (typeof matchMedia === 'function') {
+      this.coarsePointer = matchMedia('(pointer: coarse)');
+      this.coarsePointer.addEventListener('change', () => this.updatePromptKey());
+    }
     this.cacheElements();
     this.updateText();
     i18n.subscribe(() => this.updateText());
@@ -89,7 +95,7 @@ export class HUD implements UIElement {
       <div id="hotbar-popup" class="hotbar-popup hidden" aria-live="polite"></div>
       <div id="key-hints" class="key-hints hidden" aria-label="key hints"></div>
       <div id="touch-controls" class="touch-controls hidden" aria-label="touch controls">
-        <button type="button" class="touch-btn touch-run" data-action="run" aria-label="run"></button>
+        <button type="button" class="touch-btn" data-action="run" aria-label="run"></button>
         <button type="button" class="touch-btn" data-action="interact" aria-label="interact"></button>
         <button type="button" class="touch-btn" data-action="flashlight" aria-label="flashlight"></button>
         <button type="button" class="touch-btn" data-action="phone" aria-label="phone"></button>
@@ -138,7 +144,7 @@ export class HUD implements UIElement {
     const el = this.interactionPromptElement?.querySelector('.prompt-key');
     if (!el) return;
     // Perangkat sentuh tidak punya tombol "E": pakai ajakan mengetuk layar.
-    if (this.coarsePointer) {
+    if (this.coarsePointer?.matches) {
       el.textContent = t('ui.touchTap');
       return;
     }
@@ -352,7 +358,7 @@ export class HUD implements UIElement {
     const id = this.hotbarItems[index];
     if (!id || !this.hotbarPopupElement) return;
     const nameKey = `item.${id}.name`;
-    const descKey = `item.${id}.desc`;
+    const descKey = itemDescKey(id);
     const name = i18n.hasKey(nameKey) ? t(nameKey) : id;
     const desc = i18n.hasKey(descKey) ? t(descKey) : '';
     this.hotbarPopupElement.innerHTML = `<span class="hp-num">${index + 1}</span>`

@@ -90,6 +90,7 @@
     "clickToLook": "Klik atau tekan ` untuk mengunci kursor",
     "touchTap": "Ketuk",
     "darkHint": "Gelap di sini. Tekan F untuk menyalakan senter.",
+    "darkHintTouch": "Gelap di sini. Ketuk tombol senter untuk menyalakan.",
     "keys": {
       "interact": "Berinteraksi",
       "flashlight": "Senter",
@@ -216,17 +217,21 @@
   "inventory": {
     "kosong": "Tas masih kosong.",
     "baru": "Barang baru",
+    "title": "Inventaris",
     "noSenter": "Kau belum punya senter.",
-    "hint": "TEKAN I UNTUK MEMBUKA DAN MENUTUP INVENTARIS"
+    "hint": "TEKAN I UNTUK MEMBUKA DAN MENUTUP INVENTARIS",
+    "hintTouch": "KETUK TOMBOL INVENTARIS UNTUK MEMBUKA DAN MENUTUP"
   },
   "item": {
     "ponsel": {
       "name": "Ponsel",
-      "desc": "Ponsel lamamu. Tekan Q untuk membukanya: pesan, panggilan, dan senter cadangan."
+      "desc": "Ponsel lamamu. Tekan Q untuk membukanya: pesan, panggilan, dan senter cadangan.",
+      "descTouch": "Ponsel lamamu. Ketuk tombol ponsel untuk membukanya: pesan, panggilan, dan senter cadangan."
     },
     "senter": {
       "name": "Senter",
-      "desc": "Senter baterai. Tekan F untuk menyalakan dan mematikan. Pakai di ruang gelap seperti lorong rumah, ruang bawah tanah, dan hutan malam."
+      "desc": "Senter baterai. Tekan F untuk menyalakan dan mematikan. Pakai di ruang gelap seperti lorong rumah, ruang bawah tanah, dan hutan malam.",
+      "descTouch": "Senter baterai. Ketuk tombol senter untuk menyalakan dan mematikan. Pakai di ruang gelap seperti lorong rumah, ruang bawah tanah, dan hutan malam."
     },
     "obeng": {
       "name": "Obeng",

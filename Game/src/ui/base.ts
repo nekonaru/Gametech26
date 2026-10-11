@@ -1,4 +1,4 @@
-import { t } from '../core/i18n.js';
+import { t, i18n } from '../core/i18n.js';
 
 export interface UIElement {
   element: HTMLElement;
@@ -189,6 +189,21 @@ export function escapeHtml(value: string): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+/**
+ * Kunci deskripsi barang yang sesuai perangkat.
+ *
+ * Sebagian deskripsi menyebut tombol keyboard ("Tekan Q", "Tekan F") yang
+ * tidak ada di layar sentuh. Varian `item.<id>.descTouch` dipakai bila ada dan
+ * perangkat memakai penunjuk kasar; kalau tidak ada, kunci biasa dipakai
+ * apa adanya sehingga teks yang belum dibuat varian tidak hilang.
+ */
+export function itemDescKey(id: string): string {
+  const touchKey = `item.${id}.descTouch`;
+  const coarse = typeof matchMedia === 'function'
+    && matchMedia('(pointer: coarse)').matches;
+  return coarse && i18n.hasKey(touchKey) ? touchKey : `item.${id}.desc`;
 }
 
 export function createKeyBindingInput(currentKey: string, onChange: (key: string) => void, className = ''): HTMLDivElement {
