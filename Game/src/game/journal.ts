@@ -1,6 +1,7 @@
 import { eventBus, GameEvents } from '../core/events.js';
 import { gameState } from './state.js';
 import { i18n, t } from '../core/i18n.js';
+import { assetUrl } from '../core/paths.js';
 
 export interface ClueData {
   id: string;
@@ -47,7 +48,7 @@ export class JournalManager {
 
   async loadDefinitions(): Promise<void> {
     try {
-      const response = await fetch('/data/clues.json');
+      const response = await fetch(assetUrl('data/clues.json'));
       if (response.ok) {
         const data = await response.json();
         const list = Array.isArray(data) ? data : data?.clues;

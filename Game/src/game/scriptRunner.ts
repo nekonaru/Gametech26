@@ -4,6 +4,7 @@ import { i18n, t } from '../core/i18n.js';
 import { saveManager } from '../core/save.js';
 import { assetManager } from '../core/assets.js';
 import { audioManager } from '../core/audio.js';
+import { assetUrl } from '../core/paths.js';
 import { journalManager } from './journal.js';
 import { TransitionLayer } from '../ui/transitions.js';
 
@@ -304,7 +305,7 @@ export class ScriptRunner {
 
       eventBus.emit(GameEvents.SCENE_LOAD_START, { sceneId: chapterId });
 
-      const response = await fetch(`/data/chapters/${chapterId}.json`);
+      const response = await fetch(assetUrl(`data/chapters/${chapterId}.json`));
       if (!response.ok) throw new Error(`Failed to load chapter: ${chapterId}`);
 
       const script: ChapterScript = await response.json();
@@ -437,7 +438,7 @@ export class ScriptRunner {
 
   private async loadChapterLocale(chapterId: string): Promise<void> {
     try {
-      const response = await fetch(`/locales/chapters/${chapterId}.json`);
+      const response = await fetch(assetUrl(`locales/chapters/${chapterId}.json`));
       if (!response.ok) return;
       const data = await response.json();
       if (data && typeof data === 'object') {

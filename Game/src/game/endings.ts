@@ -2,6 +2,7 @@ import { eventBus, GameEvents } from '../core/events.js';
 import { gameState, GameVariables } from './state.js';
 import { saveManager } from '../core/save.js';
 import { i18n, t } from '../core/i18n.js';
+import { assetUrl } from '../core/paths.js';
 
 export interface EndingResult {
   id: string;
@@ -32,7 +33,7 @@ export class EndingManager {
   async loadFromData(): Promise<void> {
     if (!this.raw) {
       try {
-        const response = await fetch('/data/endings.json');
+        const response = await fetch(assetUrl('data/endings.json'));
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const payload = await response.json();
         const list: any[] = Array.isArray(payload) ? payload : (payload?.endings ?? []);

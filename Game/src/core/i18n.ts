@@ -1,3 +1,5 @@
+import { assetUrl } from './paths.js';
+
 export type Locale = 'id' | 'en';
 
 export interface LocalizationData {
@@ -14,7 +16,7 @@ export class I18nManager {
   async loadLocale(locale: Locale): Promise<void> {
     if (this.locales.has(locale)) return;
     try {
-      const response = await fetch(`/locales/${locale}.json`);
+      const response = await fetch(assetUrl(`locales/${locale}.json`));
       if (response.ok) {
         const data = await response.json();
         this.locales.set(locale, data);

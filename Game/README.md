@@ -1,6 +1,9 @@
 # Asap yang Tak Padam
 
-Game horor naratif psikologis orang pertama bergaya PS1, berbahasa Indonesia dengan penuh English (ID/EN). dibangun dengan Vite + Three.js + TypeScript.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../LICENSE)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://nekonaru.github.io/Gametech26/)
+
+Game horor naratif psikologis orang pertama bergaya PS1, berbahasa Indonesia dengan penuh English (ID/EN). dibangun dengan Vite + Three.js + TypeScript. Kode di repositori ini berada di bawah [Lisensi MIT](../LICENSE).
 
 ## Menjalankan
 
@@ -20,7 +23,7 @@ npm run preview  # sajikan dist memakai Vite, http://localhost:4173
 
 `DEV.bat` menjalankan mode pengembangan. `node serve.cjs` memakai modul bawaan Node, jadi tetap jalan tanpa `node_modules`.
 
-Hasil `npm run build` berupa situs statis di folder `dist/`. folder itu bisa disajikan dengan server statis apa pun asal dipasang di root (bukan subfolder), karena data babak dan locale diambil dari path absolut `/data` dan `/locales`.
+Hasil `npm run build` berupa situs statis di folder `dist/`. Seluruh pemuatan data (babak, locale, aset) memakai helper `src/core/paths.ts` yang berpatok pada `BASE_URL`, jadi `dist/` bisa disajikan dari root domain maupun subfolder (misalnya GitHub Pages di `/Gametech26/`). Build Pages memakai `vite build --base=/Gametech26/` yang diotomatiskan oleh workflow `.github/workflows/deploy-pages.yml`.
 
 
 ## Kontrol

@@ -3,6 +3,7 @@ import { i18n, t } from '../core/i18n.js';
 import { settingsManager } from '../core/settings.js';
 import { audioManager } from '../core/audio.js';
 import { eventBus, GameEvents } from '../core/events.js';
+import { assetUrl } from '../core/paths.js';
 
 /** Help unlocks after two minutes without progress, per the design document. */
 const HELP_DELAY_MS = 120000;
@@ -262,7 +263,7 @@ export class PuzzleScreen implements UIElement {
         </div>
         <div class="jigsaw-pieces">
           ${shuffled.map((piece, i) => `
-            <div class="jigsaw-piece" draggable="true" data-piece="${piece.id}" data-index="${i}" style="background-image: url(${piece.image}); transform: rotate(${piece.rotation || 0}deg);">
+            <div class="jigsaw-piece" draggable="true" data-piece="${piece.id}" data-index="${i}" style="background-image: url(${assetUrl(piece.image)}); transform: rotate(${piece.rotation || 0}deg);">
               <button class="rotate-btn" data-piece="${piece.id}">↻</button>
             </div>
           `).join('')}
