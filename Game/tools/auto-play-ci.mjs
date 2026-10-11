@@ -109,6 +109,17 @@ try {
   const chapterAwal = await page.evaluate(() => window.__asap.gameState.get('currentChapter'));
   console.log('Masuk bab: ' + chapterAwal + ' - menjalankan auto-play...');
 
+  // Headless selalu dianggap "visible", jadi rAF loop engine terus
+  // me-render lewat SwiftShader (software) dan memonopoli CPU runner:
+  // interval 25 ms harness melambat 4x sehingga auto-play penuh bisa
+  // melebihi 40 menit. Smoke test ini menguji logika permainan (bab,
+  // objektif, dialog, ending), bukan kebenaran piksel - jadi render
+  // dimatikan. Logika tetap utuh: engine.update() tidak menyentuh
+  // renderer, dan harness menggerakkannya sendiri per tick.
+  await page.evaluate(() => {
+    window.__asap.game.engine.render = () => {};
+  });
+
   await page.evaluate(async () => {
     const src = await (await fetch('/tools/auto-play.js')).text();
     eval(src);
