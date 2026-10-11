@@ -1,7 +1,6 @@
-import { UIManager, createButton, UIElement, confirmAction } from './base.js';
+import { UIElement, confirmAction } from './base.js';
 import { i18n, t } from '../core/i18n.js';
-import { saveManager, SaveSlot, SaveData } from '../core/save.js';
-import { eventBus, GameEvents } from '../core/events.js';
+import { saveManager, SaveSlot } from '../core/save.js';
 
 export class LoadGameScreen implements UIElement {
   element: HTMLElement;

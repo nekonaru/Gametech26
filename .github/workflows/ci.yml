@@ -24,6 +24,10 @@ jobs:
         working-directory: Game
         run: npm ci
 
+      - name: Lint TypeScript (0 error)
+        working-directory: Game
+        run: npm run lint
+
       - name: Audit validator (7 suite)
         working-directory: Game
         run: npm run audit

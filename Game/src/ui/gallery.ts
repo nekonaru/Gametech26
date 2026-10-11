@@ -1,7 +1,6 @@
-import { UIManager, UIElement } from './base.js';
+import { UIElement } from './base.js';
 import { i18n, t } from '../core/i18n.js';
 import { achievementManager } from '../core/achievements.js';
-import { settingsManager } from '../core/settings.js';
 
 export interface EndingData {
   id: string;

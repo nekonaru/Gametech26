@@ -347,7 +347,7 @@ export class AudioManager {
       return {
         duration: radio ? 7 : 1.2,
         peak: radio ? 0.45 : 0.4,
-        sample: (t, i) => {
+        sample: (t, _i) => {
           const noise = rnd();
           if (!radio) return noise;
           const voice = Math.max(0,
@@ -437,7 +437,7 @@ export class AudioManager {
         peak: 0.45,
         sample: (t) => {
           const sweep = Math.sin(Math.PI * t / 1.4);
-          let s = brownNoise() * 4 * sweep;
+          const s = brownNoise() * 4 * sweep;
           const scatter = t < 0.9 ? Math.sin(2 * Math.PI * (2600 + 1400 * t) * t) * Math.exp(-t * 3) : 0;
           return s * 0.5 + scatter * 0.5;
         }

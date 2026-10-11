@@ -1,8 +1,7 @@
 import { eventBus, GameEvents } from '../core/events.js';
-import { gameState, GameVariables } from './state.js';
+import { gameState } from './state.js';
 import { scriptRunner } from './scriptRunner.js';
 import { saveManager } from '../core/save.js';
-import { i18n, t } from '../core/i18n.js';
 
 export interface ChapterData {
   id: string;

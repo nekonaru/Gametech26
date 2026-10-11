@@ -1,6 +1,5 @@
 import { eventBus, GameEvents } from '../core/events.js';
-import { gameState, GameVariables } from './state.js';
-import { saveManager } from '../core/save.js';
+import { gameState } from './state.js';
 import { i18n, t } from '../core/i18n.js';
 import { assetUrl } from '../core/paths.js';
 

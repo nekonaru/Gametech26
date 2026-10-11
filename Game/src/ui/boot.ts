@@ -1,7 +1,6 @@
-import { UIManager, createButton, UIElement } from './base.js';
+import { UIElement } from './base.js';
 import { i18n, t } from '../core/i18n.js';
 import { settingsManager } from '../core/settings.js';
-import { eventBus, GameEvents } from '../core/events.js';
 
 export class BootScreen implements UIElement {
   element: HTMLElement;

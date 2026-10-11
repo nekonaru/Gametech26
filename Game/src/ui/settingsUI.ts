@@ -1,7 +1,6 @@
-import { UIManager, createButton, createSlider, createSelect, createCheckbox, createKeyBindingInput, UIElement, confirmAction, escapeHtml } from './base.js';
+import { createButton, createSlider, createSelect, createCheckbox, createKeyBindingInput, UIElement, confirmAction, escapeHtml } from './base.js';
 import { i18n, t } from '../core/i18n.js';
-import { settingsManager, GameSettings, GraphicsSettings, AudioSettings, ControlSettings, TextSettings, AccessibilitySettings } from '../core/settings.js';
-import { eventBus, GameEvents } from '../core/events.js';
+import { settingsManager, GameSettings } from '../core/settings.js';
 
 export class SettingsScreen implements UIElement {
   element: HTMLElement;

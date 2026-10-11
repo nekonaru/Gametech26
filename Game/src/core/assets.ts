@@ -177,7 +177,9 @@ export class AssetManager {
     while (this.activeLoads < this.maxConcurrentLoads && this.loadQueue.length > 0) {
       const task = this.loadQueue.shift();
       if (task) {
-        task.promise!;
+        // Queue hanya diisi masa lalu; promise-nya sudah berjalan saat dibuat,
+        // di sini cukup ditandai sudah "diproses" tanpa efek samping.
+        void task.promise;
       }
     }
   }
@@ -185,7 +187,7 @@ export class AssetManager {
   private notifyProgress(currentId: string): void {
     const total = this.loadingPromises.size;
     let loaded = 0;
-    this.loadingPromises.forEach((promise, id) => {
+    this.loadingPromises.forEach((promise, _id) => {
       if (promise !== this.loadingPromises.get(currentId)) {
         loaded++;
       }

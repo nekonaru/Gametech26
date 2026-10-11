@@ -699,7 +699,7 @@ export class InputManager {
     }
   }
 
-  private onTouchEnd(event: TouchEvent): void {
+  private onTouchEnd(_event: TouchEvent): void {
     if (this.joystickActive) {
       this.joystickActive = false;
       this.joystickDX = 0;

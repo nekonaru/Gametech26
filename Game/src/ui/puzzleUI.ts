@@ -1,8 +1,8 @@
-import { UIManager, UIElement, confirmAction } from './base.js';
+import { UIElement, confirmAction } from './base.js';
 import { i18n, t } from '../core/i18n.js';
 import { settingsManager } from '../core/settings.js';
 import { audioManager } from '../core/audio.js';
-import { eventBus, GameEvents } from '../core/events.js';
+import { eventBus } from '../core/events.js';
 import { assetUrl } from '../core/paths.js';
 
 /** Help unlocks after two minutes without progress, per the design document. */
@@ -200,7 +200,7 @@ export class PuzzleScreen implements UIElement {
     `;
 
     const digits_el = container.querySelectorAll<HTMLElement>('.dial-digit');
-    let values = Array(digits).fill(0);
+    const values = Array(digits).fill(0);
 
     container.querySelectorAll<HTMLElement>('.dial-up').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -272,7 +272,7 @@ export class PuzzleScreen implements UIElement {
       </div>
     `;
 
-    let rotations: Record<string, number> = {};
+    const rotations: Record<string, number> = {};
     pieces.forEach((p: any) => rotations[p.id] = p.rotation || 0);
 
     const pieces_el = container.querySelectorAll<HTMLElement>('.jigsaw-piece');

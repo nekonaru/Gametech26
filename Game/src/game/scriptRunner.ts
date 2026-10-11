@@ -1,8 +1,7 @@
-import { gameState, GameState, GameVariables } from './state.js';
+import { gameState } from './state.js';
 import { eventBus, GameEvents } from '../core/events.js';
 import { i18n, t } from '../core/i18n.js';
 import { saveManager } from '../core/save.js';
-import { assetManager } from '../core/assets.js';
 import { audioManager } from '../core/audio.js';
 import { assetUrl } from '../core/paths.js';
 import { journalManager } from './journal.js';
@@ -641,8 +640,6 @@ export class ScriptRunner {
       const clues = gameState.get('clues');
       const inventory = gameState.get('inventory');
 
-      const context: Record<string, any> = { ...vars, ...flags };
-
       // `inventory` disuntikkan sebagai parameter keempat supaya syarat seperti
       // `!inventory.includes('obeng')` bisa dipakai di `condition`: baik saat
       // interaktif didaftarkan maupun saat op `if` dijalankan.
@@ -869,7 +866,7 @@ export class ScriptRunner {
     eventBus.emit('dialog:choice', { choice });
   }
 
-  handlePuzzleComplete(puzzleId: string, result: any): void {
+  handlePuzzleComplete(puzzleId: string, _result: any): void {
     if (this.currentScript) {
       const puzzleOp = this.currentScript.onEnter.find(op => op.op === 'startPuzzle' && op.id === puzzleId);
       if (puzzleOp?.onComplete) {

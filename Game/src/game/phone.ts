@@ -1,7 +1,6 @@
-import { eventBus, GameEvents } from '../core/events.js';
+import { eventBus } from '../core/events.js';
 import { gameState } from './state.js';
 import { audioManager } from '../core/audio.js';
-import { i18n, t } from '../core/i18n.js';
 
 export interface PhoneMessage {
   id: string;

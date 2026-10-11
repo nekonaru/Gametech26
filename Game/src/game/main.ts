@@ -1,22 +1,19 @@
 import * as THREE from 'three';
-import { Engine, createEngine, getEngine } from '../core/engine.js';
+import { Engine, createEngine } from '../core/engine.js';
 import { eventBus, GameEvents } from '../core/events.js';
 import { settingsManager } from '../core/settings.js';
 import { achievementManager } from '../core/achievements.js';
 import { i18n, t } from '../core/i18n.js';
 import { saveManager } from '../core/save.js';
 import { audioManager } from '../core/audio.js';
-import { assetManager } from '../core/assets.js';
 import { inputManager } from '../core/input.js';
 import { FPSController } from '../render/camera.js';
 import { LightingManager } from '../render/lighting.js';
 import { ParticleSystem } from '../render/particles.js';
-import { PostProcessManager } from '../render/postprocess.js';
 import { sceneFactory, BuiltScene, updateFigures, updateDynamics, setDrawerOpen, setDrawerSenterVisible, animatePickup, hidePickupInstantly } from '../render/scenes.js';
 import { getSoftDotTexture, getDiamondTexture, getBeamTexture } from '../render/textures.js';
 import { gameState } from './state.js';
 import { scriptRunner } from './scriptRunner.js';
-import { dialogueManager } from './dialogue.js';
 import { interactionManager } from './interaction.js';
 import { journalManager } from './journal.js';
 import { phoneManager } from './phone.js';
@@ -1715,7 +1712,6 @@ export class Game {
       // posisi dari naskah tetap jadi fallback untuk babak lama.
       const authored = inter.position ?? this.defaultSlot(index, visible.length);
       const anchorPos = built.anchors[inter.id];
-      const desired = anchorPos ?? authored;
       const pos = anchorPos
         ? this.sanitizeAnchor(anchorPos, PROP_HALF, boxes, occluders, eye)
         : this.resolvePropPosition(authored, PROP_HALF, boxes, occluders, eye);
@@ -2248,7 +2244,7 @@ export class Game {
     for (const marker of this.propMeshes) {
       if (!marker.userData.dynamicLabel) continue;
       const group = marker as THREE.Group;
-      let label = group.userData.label as THREE.Sprite | undefined;
+      const label = group.userData.label as THREE.Sprite | undefined;
       if (!label) {
         if (!key) continue;
         const sprite = this.makeMarkerLabel(t(key));

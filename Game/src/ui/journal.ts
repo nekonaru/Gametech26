@@ -1,6 +1,5 @@
-import { UIManager, UIElement, escapeHtml } from './base.js';
+import { UIElement, escapeHtml } from './base.js';
 import { i18n, t } from '../core/i18n.js';
-import { settingsManager } from '../core/settings.js';
 import { eventBus } from '../core/events.js';
 
 export class JournalScreen implements UIElement {

@@ -1,8 +1,6 @@
 import { eventBus, GameEvents } from '../core/events.js';
-import { i18n, t } from '../core/i18n.js';
 import { audioManager } from '../core/audio.js';
 import { settingsManager } from '../core/settings.js';
-import { gameState } from './state.js';
 
 export interface DialogLine {
   speaker: string;
@@ -75,7 +73,6 @@ export class DialogueManager {
   }
 
   private async typeText(text: string): Promise<void> {
-    const displayText = '';
     let i = 0;
 
     const typeNext = () => {

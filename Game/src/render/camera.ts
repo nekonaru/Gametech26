@@ -314,7 +314,7 @@ export class FPSController {
     pos.y = Math.min(start.y, end.y) - this.playerCollider.radius;
   }
 
-  private handleRotation(deltaTime: number): void {
+  private handleRotation(_deltaTime: number): void {
     // Deltas mentah dari InputManager, sensitivitas diterapkan di sini
     // supaya slider pengaturan bekerja untuk mouse dan touch.
     const [mouseDeltaX, mouseDeltaY] = this.input.getMouseDelta();
@@ -325,7 +325,7 @@ export class FPSController {
     if (this.viewAnim) return;
 
     const touchScale = 0.003 * this.touchSensitivity;
-    let deltaX = mouseDeltaX * this.mouseSensitivity + touchDeltaX * touchScale;
+    const deltaX = mouseDeltaX * this.mouseSensitivity + touchDeltaX * touchScale;
     let deltaY = mouseDeltaY * this.mouseSensitivity + touchDeltaY * touchScale;
 
     if (!Number.isFinite(deltaX) || !Number.isFinite(deltaY)) return;
