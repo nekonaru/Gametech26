@@ -6,6 +6,7 @@ import { SaveManager, saveManager } from './save.js';
 import { AudioManager, audioManager } from './audio.js';
 import { AssetManager, assetManager } from './assets.js';
 import { InputManager, inputManager } from './input.js';
+import { AUDIO_SAMPLES } from './audioSamples.js';
 import { PostProcessManager } from '../render/postprocess.js';
 import { PSXMaterialManager } from '../render/psx-material.js';
 
@@ -75,6 +76,10 @@ export class Engine {
     await this.i18n.initialize(this.settings.get('language'));
     await this.save.initialize();
     await this.audio.initialize();
+    // Rekaman Mixkit menggantikan sintesis prosedural. Sengaja tidak di-await:
+    // boot tidak boleh tertahan unduhan; selama file belum sampai, sintesis
+    // tetap dipakai dan begitu buffer datang, play() berikutnya memakai rekaman.
+    void this.audio.loadAudioBatch(AUDIO_SAMPLES).catch(() => undefined);
 
     this.setupRenderer();
     this.setupCamera();

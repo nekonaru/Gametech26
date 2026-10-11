@@ -613,7 +613,9 @@ export class AudioManager {
     position?: [number, number, number];
     loop?: boolean;
   } = {}): string | null {
-    const buffer = this.createProceduralSound(type, options);
+    // Rekaman asli yang sudah di-preload diprioritaskan; sintesis hanya fallback.
+    const recorded = type === 'blip' ? null : this.buffers.get(type) ?? null;
+    const buffer = recorded ?? this.createProceduralSound(type, options);
     if (!buffer || !this.audioContext) return null;
 
     const source = this.audioContext.createBufferSource();
