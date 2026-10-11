@@ -2,6 +2,7 @@
   "name": "asap-yang-tak-padam",
   "version": "1.0.0",
   "description": "Psychological horror narrative game - Asap yang Tak Padam",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
