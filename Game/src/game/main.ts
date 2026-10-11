@@ -253,7 +253,7 @@ export class Game {
           break;
         case 'inventory':
           // Tombol yang sama membuka dan menutup, seperti pintasan I.
-          if (this.currentScreen === 'InventoryScreen' && this.overlayActive) this.hideInventory();
+          if (this.isInventoryOpen()) this.hideInventory();
           else this.showInventory();
           break;
         case 'flashlight':
@@ -962,7 +962,7 @@ export class Game {
     } else if (event.code === 'KeyI') {
       event.preventDefault();
       // I membuka inventaris; tombol yang sama menutupnya kembali ke permainan.
-      if (this.currentScreen === 'InventoryScreen' && this.overlayActive) {
+      if (this.isInventoryOpen()) {
         this.hideInventory();
       } else if (this.gameState === 'playing' && !gameState.get('inDialog') && !this.isModalOpen()) {
         this.showInventory();
@@ -1005,6 +1005,21 @@ export class Game {
     return shown(this.dialogScreen?.element)
       || shown(this.daySummary?.element)
       || shown(this.puzzleScreen?.element);
+  }
+
+  /**
+   * Apakah layar inventaris sedang terbuka. Jangan membandingkan
+   * `currentScreen` dengan string literal nama kelas: pada build produksi
+   * nama kelas ikut diminify (`InventoryScreen` -> `Rn`), jadi perbandingan
+   * itu selalu gagal dan tombol I/tombol sentuh tak pernah bisa menutup
+   * inventaris. Bandingkan dengan constructor.name milik layar itu sendiri,
+   * yang nilainya sama di dev maupun produksi.
+   */
+  private isInventoryOpen(): boolean {
+    const screen = this.inventoryScreen;
+    return this.overlayActive
+      && !!screen
+      && this.currentScreen === screen.constructor.name;
   }
 
   private pauseGame(): void {
