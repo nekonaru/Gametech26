@@ -1,4 +1,5 @@
 import { createGame } from './game/main.js';
+import { registerServiceWorker } from './core/sw.js';
 
 async function main(): Promise<void> {
   const canvas = document.getElementById('game-canvas') as HTMLCanvasElement;
@@ -32,3 +33,4 @@ async function main(): Promise<void> {
 }
 
 main();
+registerServiceWorker();
