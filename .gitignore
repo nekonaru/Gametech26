@@ -1,9 +1,6 @@
-# Dependensi & hasil build
+# Dependensi & hasil build (bisa dibuat ulang: npm install / npm run build)
 node_modules/
 dist/
-
-# Artefak debug (screenshot verifikasi, ratusan MB)
-shots/
 
 # Faktur/berkas lokal editor
 *.local
