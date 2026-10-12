@@ -16,14 +16,18 @@ export default defineConfig({
         pure_funcs: ['console.log', 'console.debug', 'console.info', 'console.trace']
       }
     },
-    // three.js memang dipecah ke chunk sendiri lewat manualChunks; 516 kB
-    // mentah (~127 kB gzip) itu normal untuk satu engine 3D, jadi ambang
-    // peringatan dinaikkan supaya warning-nya tetap berarti.
+    // three.js dipisah ke chunk sendiri lewat code splitting Rolldown (Vite 8);
+    // 516 kB mentah (~127 kB gzip) itu normal untuk satu engine 3D, jadi
+    // ambang peringatan dinaikkan supaya warning-nya tetap berarti.
     chunkSizeWarningLimit: 600,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks: {
-          three: ['three']
+        // Pengganti manualChunks (bentuk objek sudah dihapus di Rolldown):
+        // semua modul di node_modules/three masuk satu group chunk.
+        codeSplitting: {
+          groups: [
+            { name: 'three', test: /node_modules[\\/]three[\\/]/ }
+          ]
         }
       }
     }
