@@ -534,6 +534,80 @@ export function getDiamondTexture(): THREE.Texture {
   return texture;
 }
 
+let goalDiamond: THREE.Texture | null = null;
+
+/**
+ * Belah ketupat penanda TUJUAN UTAMA: sama dengan diamond polos, tetapi
+ * berisi dua chevron panah ke atas.
+ *
+ * Pembeda ini sengaja berbentuk pola, bukan warna: pemain buta warna tetap
+ * bisa membedakan tujuan yang sedang menyala dari penanda netral hanya dari
+ * bentuknya (ditambah pilar cahaya dan label yang hanya dimiliki tujuan).
+ */
+export function getGoalDiamondTexture(): THREE.Texture {
+  if (goalDiamond) return goalDiamond;
+
+  const size = 128;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+  const c = size / 2;
+  const half = size / 2 - 4;
+
+  // Pendar lembut di sekeliling garis: penanda tampak menyala, bukan garis datar.
+  ctx.strokeStyle = 'rgba(255,255,255,0.28)';
+  ctx.lineWidth = 9;
+  ctx.lineJoin = 'miter';
+  ctx.beginPath();
+  ctx.moveTo(c, c - half);
+  ctx.lineTo(c + half, c);
+  ctx.lineTo(c, c + half);
+  ctx.lineTo(c - half, c);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Garis inti yang tegas.
+  ctx.strokeStyle = 'rgba(255,255,255,1)';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(c, c - half);
+  ctx.lineTo(c + half, c);
+  ctx.lineTo(c, c + half);
+  ctx.lineTo(c - half, c);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Dua chevron panah ke atas: simbol arah universal "menuju sini".
+  ctx.lineWidth = 7;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+  ctx.beginPath();
+  ctx.moveTo(c - 20, c - 12);
+  ctx.lineTo(c, c - 34);
+  ctx.lineTo(c + 20, c - 12);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(c - 20, c + 12);
+  ctx.lineTo(c, c - 10);
+  ctx.lineTo(c + 20, c + 12);
+  ctx.stroke();
+
+  // Titik pusat kecil tetap ada: penanda terbaca saat berdiri tepat di depannya.
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.beginPath();
+  ctx.arc(c, c + 30, 5, 0, Math.PI * 2);
+  ctx.fill();
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+
+  goalDiamond = texture;
+  return texture;
+}
+
 let beamGradient: THREE.Texture | null = null;
 
 /**
@@ -594,6 +668,10 @@ export function disposeTextures(): void {
   if (diamondOutline) {
     diamondOutline.dispose();
     diamondOutline = null;
+  }
+  if (goalDiamond) {
+    goalDiamond.dispose();
+    goalDiamond = null;
   }
   if (beamGradient) {
     beamGradient.dispose();

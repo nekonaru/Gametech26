@@ -11,7 +11,7 @@ import { FPSController } from '../render/camera.js';
 import { LightingManager } from '../render/lighting.js';
 import { ParticleSystem } from '../render/particles.js';
 import { sceneFactory, BuiltScene, updateFigures, updateDynamics, setDrawerOpen, setDrawerSenterVisible, animatePickup, hidePickupInstantly } from '../render/scenes.js';
-import { getSoftDotTexture, getDiamondTexture, getBeamTexture } from '../render/textures.js';
+import { getSoftDotTexture, getDiamondTexture, getGoalDiamondTexture, getBeamTexture } from '../render/textures.js';
 import { gameState } from './state.js';
 import { scriptRunner } from './scriptRunner.js';
 import { interactionManager } from './interaction.js';
@@ -2052,12 +2052,13 @@ export class Game {
 
     // Belah ketupat berongga: selalu menghadap kamera (billboard) supaya
     // terbaca dari arah mana pun. Berongga agar objek di belakangnya tetap
-    // terlihat.
+    // terlihat. Tujuan utama memakai texture berisi chevron panah: pembeda
+    // bentuk yang tetap jelas bagi pemain buta warna (bukan cuma beda warna).
     const diamondSize = isGoal ? 0.34 : 0.2;
     const diamond = new THREE.Mesh(
       new THREE.PlaneGeometry(diamondSize, diamondSize),
       new THREE.MeshBasicMaterial({
-        map: getDiamondTexture(),
+        map: isGoal ? getGoalDiamondTexture() : getDiamondTexture(),
         color: tint,
         transparent: true,
         opacity: isGoal ? 0.9 : 0.34,
