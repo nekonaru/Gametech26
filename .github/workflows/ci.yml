@@ -28,6 +28,10 @@ jobs:
         working-directory: Game
         run: npm run lint
 
+      - name: Unit test core (Vitest, 41 test)
+        working-directory: Game
+        run: npm test
+
       - name: Audit validator (7 suite)
         working-directory: Game
         run: npm run audit

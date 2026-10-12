@@ -293,9 +293,15 @@ export class SettingsManager {
     for (const key of Object.keys(DEFAULT_SETTINGS) as (keyof GameSettings)[]) {
       const fallback = DEFAULT_SETTINGS[key];
       const value = settings[key];
-      const typeMismatch =
-        (typeof fallback === 'string' || typeof fallback === 'number' || typeof fallback === 'boolean') &&
-        typeof value !== typeof fallback;
+      const isObject = (v: unknown): boolean => v !== null && typeof v === 'object' && !Array.isArray(v);
+      // Kategori object (graphics, audio, dst) yang datang sebagai tipe lain
+      // (mis. string rusak hasil import) juga harus jatuh ke default; kalau
+      // tidak, `settings.audio` bisa berupa string dan semua pembacaannya
+      // menghasilkan undefined.
+      const typeMismatch = isObject(fallback)
+        ? !isObject(value)
+        : (typeof fallback === 'string' || typeof fallback === 'number' || typeof fallback === 'boolean') &&
+          typeof value !== typeof fallback;
       if (typeMismatch || value === null || value === undefined) {
         (settings as any)[key] = fallback;
       }
