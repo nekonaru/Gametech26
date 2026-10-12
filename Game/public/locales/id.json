@@ -58,6 +58,7 @@
     "colorBlindFriendly": "Ramah Buta Warna",
     "puzzleHintLevel": "Tingkat Petunjuk Puzzle",
     "narrativeMode": "Mode Naratif",
+    "uiScale": "Skala UI",
     "showKeyHints": "Tampilkan Petunjuk Tombol (HUD)",
     "help": "Petunjuk Tombol & Kontrol",
     "exportSave": "Ekspor Save",

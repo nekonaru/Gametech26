@@ -16,6 +16,23 @@
   --font: 'Courier New', Courier, monospace;
   /* Skala ukuran teks (Pengaturan > Teks > Ukuran Teks),1.0 = bawaan. */
   --text-scale: 1;
+  /* Skala UI keseluruhan (Pengaturan > Aksesibilitas > Skala UI), 1.0 = bawaan. */
+  --ui-scale: 1;
+}
+
+/* ==========================================================================
+   Skala UI (accessibility.uiScale)
+   Lapisan overlay (seluruh .screen dan .hud) menempel langsung di <body>,
+   jadi zoom-nya diterapkan di situ: ukuran elemen dikompensasi 1/zoom
+   supaya tepi viewport tetap pas, sementara jarak, padding, dan teks di
+   dalamnya ikut membesar. Canvas 3D di #app tidak tersentuh, jadi
+   resolusi render tidak berubah.
+   ========================================================================== */
+body > .screen,
+body > .hud {
+  zoom: var(--ui-scale);
+  width: calc(100% / var(--ui-scale));
+  height: calc(100% / var(--ui-scale));
 }
 /* Kontras Tinggi (aksesibilitas): teks lebih putih, batas lebih tegas. */
 .high-contrast {

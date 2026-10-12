@@ -450,6 +450,11 @@ export class Game {
     root.classList.toggle('no-text-bg', !text.textBackground);
     root.classList.toggle('high-contrast', !!acc.highContrast);
     root.classList.toggle('cb-friendly', !!acc.colorBlindFriendly);
+    // Skala UI: dikompensasi CSS (zoom + ukuran 1/zoom) supaya tepi viewport
+    // tetap pas. Batasi 0.85-1.4 karena nilai ekstrem membuat tombol kecil
+    // atau layout layar penuh terpotong.
+    const uiScale = Math.max(0.85, Math.min(1.4, acc.uiScale || 1));
+    root.style.setProperty('--ui-scale', String(uiScale));
   }
 
   /**

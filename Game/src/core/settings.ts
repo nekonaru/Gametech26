@@ -61,6 +61,11 @@ export interface AccessibilitySettings {
    * tombol petunjuk langsung terbuka, dan peristiwa tegangan acak dilewati.
    */
   narrativeMode: boolean;
+  /**
+   * Skala seluruh lapisan UI (HUD & layar) 0.85-1.4. Teks dialog memakai
+   * `text.fontSize` sendiri; yang ini menyangkut panel, tombol, dan prompt.
+   */
+  uiScale: number;
 }
 
 export interface GameSettings {
@@ -140,7 +145,8 @@ export const DEFAULT_SETTINGS: GameSettings = {
     highContrast: false,
     colorBlindFriendly: false,
     puzzleHintLevel: 'medium',
-    narrativeMode: false
+    narrativeMode: false,
+    uiScale: 1
   },
   language: 'id'
 };

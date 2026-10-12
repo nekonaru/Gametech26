@@ -421,6 +421,10 @@ export class SettingsScreen implements UIElement {
         <label data-i18n="settings.narrativeMode"></label>
         <div class="setting-control"></div>
       </div>
+      <div class="setting-group">
+        <label data-i18n="settings.uiScale"></label>
+        <div class="setting-control"></div>
+      </div>
     `;
 
     const groups = panel.querySelectorAll<HTMLElement>('.setting-group');
@@ -448,6 +452,9 @@ export class SettingsScreen implements UIElement {
 
     const narrativeCheck = createCheckbox(acc.narrativeMode, (v) => settingsManager.update('accessibility', { narrativeMode: v }));
     groups[6].querySelector('.setting-control')!.appendChild(narrativeCheck);
+
+    const uiScaleSlider = createSlider(0.85, 1.4, 0.05, acc.uiScale, (v) => settingsManager.update('accessibility', { uiScale: v }));
+    groups[7].querySelector('.setting-control')!.appendChild(uiScaleSlider);
   }
 
   private renderDataTab(): void {
