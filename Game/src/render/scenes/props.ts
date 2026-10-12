@@ -457,67 +457,120 @@ export function distantBackdrop(kit: Kit, opts: BackdropOptions = {}): void {
   const color = opts.color ?? 0x35402f;
   const rnd = (n: number): number => ((Math.sin(seed * 12.9898 + n * 78.233) * 43758.5453) % 1 + 1) % 1;
 
+  // Backdrop adalah penghasil mesh terbesar per adegan luar (hingga ~92 mesh)
+  // namun seluruh isinya geometri + material berbagi, tanpa collider. Semua
+  // dipadatkan jadi InstancedMesh per jenis: satu draw call menggantikan
+  // puluhan mesh, dengan matriks per instance meniru transformasi lama persis
+  // (UV three.js relatif per segmen sehingga tekstur tampil sama).
+  const M = new THREE.Matrix4();
+  const V = new THREE.Vector3();
+  const S = new THREE.Vector3();
+  const Q = new THREE.Quaternion();
+  const E = new THREE.Euler();
+  const compose = (
+    mesh: THREE.InstancedMesh, i: number,
+    px: number, py: number, pz: number, rotY: number,
+    sx: number, sy: number, sz: number
+  ): void => {
+    E.set(0, rotY, 0);
+    Q.setFromEuler(E);
+    V.set(px, py, pz);
+    S.set(sx, sy, sz);
+    M.compose(V, Q, S);
+    mesh.setMatrixAt(i, M);
+  };
+  const finish = (mesh: THREE.InstancedMesh): void => {
+    mesh.instanceMatrix.needsUpdate = true;
+    mesh.computeBoundingSphere();
+    kit.group.add(mesh);
+  };
+
   const hills = opts.hills ?? 8;
-  for (let i = 0; i < hills; i++) {
-    const a = (i / hills) * Math.PI * 2 + rnd(i) * 0.5;
-    const r = radius + rnd(i + 40) * 60;
-    const w = 40 + rnd(i + 80) * 55;
-    const h = 10 + rnd(i + 120) * 18;
-    const hill = new THREE.Mesh(coneGeo(1, 1, 5), mat(color));
-    hill.scale.set(w, h, w * 0.7);
-    hill.position.set(Math.cos(a) * r, h / 2 - 2, Math.sin(a) * r);
-    hill.rotation.y = rnd(i + 160) * Math.PI;
-    kit.group.add(hill);
+  if (hills > 0) {
+    const hillMesh = new THREE.InstancedMesh(coneGeo(1, 1, 5), mat(color), hills);
+    for (let i = 0; i < hills; i++) {
+      const a = (i / hills) * Math.PI * 2 + rnd(i) * 0.5;
+      const r = radius + rnd(i + 40) * 60;
+      const w = 40 + rnd(i + 80) * 55;
+      const h = 10 + rnd(i + 120) * 18;
+      compose(
+        hillMesh, i,
+        Math.cos(a) * r, h / 2 - 2, Math.sin(a) * r, rnd(i + 160) * Math.PI,
+        w, h, w * 0.7
+      );
+    }
+    finish(hillMesh);
   }
 
   const trees = opts.trees ?? 22;
-  for (let i = 0; i < trees; i++) {
-    const a = (i / trees) * Math.PI * 2 + rnd(i + 7) * 0.4;
-    const r = radius * 0.75 + rnd(i + 55) * 30;
-    const h = 16 + rnd(i + 95) * 14;
-    const trunk = new THREE.Mesh(cylGeo(0.5, 0.7, h * 0.5, 5), mat(palette.woodDark));
-    const x = Math.cos(a) * r;
-    const z = Math.sin(a) * r;
-    trunk.position.set(x, h * 0.25, z);
-    kit.group.add(trunk);
-    const crown = new THREE.Mesh(coneGeo(3.4 + rnd(i + 130) * 2, h, 6), mat(color));
-    crown.position.set(x, h * 0.75, z);
-    kit.group.add(crown);
-    // Lapisan dedaunan bawah yang lebih gelap: siluet pohon bergradasi,
-    // bukan kerucut polos satu warna.
-    const underCrown = new THREE.Mesh(coneGeo(2.1 + rnd(i + 130) * 1.3, h * 0.5, 6), mat(0x2b3426));
-    underCrown.position.set(x, h * 0.52, z);
-    kit.group.add(underCrown);
+  if (trees > 0) {
+    const trunkMesh = new THREE.InstancedMesh(cylGeo(0.5, 0.7, 1, 5), mat(palette.woodDark), trees);
+    const crownMesh = new THREE.InstancedMesh(coneGeo(1, 1, 6), mat(color), trees);
+    const underMesh = new THREE.InstancedMesh(coneGeo(1, 1, 6), mat(0x2b3426), trees);
+    for (let i = 0; i < trees; i++) {
+      const a = (i / trees) * Math.PI * 2 + rnd(i + 7) * 0.4;
+      const r = radius * 0.75 + rnd(i + 55) * 30;
+      const h = 16 + rnd(i + 95) * 14;
+      const x = Math.cos(a) * r;
+      const z = Math.sin(a) * r;
+      const crownR = 3.4 + rnd(i + 130) * 2;
+      const underR = 2.1 + rnd(i + 130) * 1.3;
+      compose(trunkMesh, i, x, h * 0.25, z, 0, 1, h * 0.5, 1);
+      compose(crownMesh, i, x, h * 0.75, z, 0, crownR, h, crownR);
+      compose(underMesh, i, x, h * 0.52, z, 0, underR, h * 0.5, underR);
+    }
+    finish(trunkMesh);
+    finish(crownMesh);
+    finish(underMesh);
   }
 
   const houses = opts.houses ?? 6;
-  for (let i = 0; i < houses; i++) {
-    const a = (i / houses) * Math.PI * 2 + 0.7 + rnd(i + 3) * 0.5;
-    const r = radius * 0.62 + rnd(i + 23) * 25;
-    const w = 7 + rnd(i + 33) * 5;
-    const h = 4 + rnd(i + 43) * 2.5;
-    const d = 6 + rnd(i + 53) * 4;
-    const x = Math.cos(a) * r;
-    const z = Math.sin(a) * r;
-    const body = new THREE.Mesh(boxGeo(w, h, d), mat(rnd(i + 63) > 0.5 ? palette.plaster : palette.wall));
-    body.position.set(x, h / 2, z);
-    body.rotation.y = -a;
-    kit.group.add(body);
-    const roof = new THREE.Mesh(coneGeo(Math.SQRT1_2, 1, 4, 1, false, Math.PI / 4), mat(0x6b4536));
-    roof.scale.set(w + 1.4, 2.2, d + 1.4);
-    roof.position.set(x, h + 1.1, z);
-    roof.rotation.y = -a;
-    kit.group.add(roof);
-    // Jendela menyala menghadap pusat: cahaya desa di kejauhan.
-    const glow = new THREE.Mesh(
-      boxGeo(1.2, 0.9, 0.1),
-      mat(0xffe6b0, { emissive: 0xffc46a })
+  if (houses > 0) {
+    // Dua kemungkinan warna dinding: pisah instance per material agar
+    // materialCache tetap dipakai bersama persis seperti versi lama.
+    const plaster: number[] = [];
+    const wallIdx: number[] = [];
+    const placements: Array<{ x: number; z: number; a: number; w: number; h: number; d: number }> = [];
+    for (let i = 0; i < houses; i++) {
+      const a = (i / houses) * Math.PI * 2 + 0.7 + rnd(i + 3) * 0.5;
+      const r = radius * 0.62 + rnd(i + 23) * 25;
+      const w = 7 + rnd(i + 33) * 5;
+      const h = 4 + rnd(i + 43) * 2.5;
+      const d = 6 + rnd(i + 53) * 4;
+      const x = Math.cos(a) * r;
+      const z = Math.sin(a) * r;
+      placements.push({ x, z, a, w, h, d });
+      if (rnd(i + 63) > 0.5) plaster.push(i);
+      else wallIdx.push(i);
+    }
+
+    for (const [indices, wallColor] of [[plaster, palette.plaster], [wallIdx, palette.wall]] as const) {
+      if (!indices.length) continue;
+      const bodyMesh = new THREE.InstancedMesh(boxGeo(1, 1, 1), mat(wallColor), indices.length);
+      indices.forEach((src, n) => {
+        const p = placements[src];
+        compose(bodyMesh, n, p.x, p.h / 2, p.z, -p.a, p.w, p.h, p.d);
+      });
+      finish(bodyMesh);
+    }
+
+    const roofMesh = new THREE.InstancedMesh(
+      coneGeo(Math.SQRT1_2, 1, 4, 1, false, Math.PI / 4), mat(0x6b4536), houses
     );
-    const fx = x - Math.cos(a) * (d / 2 + 0.1);
-    const fz = z - Math.sin(a) * (d / 2 + 0.1);
-    glow.position.set(fx, h * 0.5, fz);
-    glow.rotation.y = -a;
-    kit.group.add(glow);
+    const glowMesh = new THREE.InstancedMesh(
+      boxGeo(1.2, 0.9, 0.1),
+      mat(0xffe6b0, { emissive: 0xffc46a }),
+      houses
+    );
+    placements.forEach((p, i) => {
+      compose(roofMesh, i, p.x, p.h + 1.1, p.z, -p.a, p.w + 1.4, 2.2, p.d + 1.4);
+      // Jendela menyala menghadap pusat: cahaya desa di kejauhan.
+      const fx = p.x - Math.cos(p.a) * (p.d / 2 + 0.1);
+      const fz = p.z - Math.sin(p.a) * (p.d / 2 + 0.1);
+      compose(glowMesh, i, fx, p.h * 0.5, fz, -p.a, 1, 1, 1);
+    });
+    finish(roofMesh);
+    finish(glowMesh);
   }
 }
 

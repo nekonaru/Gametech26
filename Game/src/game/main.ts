@@ -2629,6 +2629,9 @@ export async function createGame(canvas: HTMLCanvasElement): Promise<Game> {
   if (typeof window !== 'undefined' && debugEnabled) {
     (window as any).__asap = {
       game: gameInstance,
+      // sceneFactory ikut terekspos supaya QA bisa membangun adegan tertentu
+      // dari console (mis. mengukur draw call renderer.info tanpa masuk bab).
+      sceneFactory,
       eventBus,
       gameState,
       scriptRunner,
