@@ -67,3 +67,11 @@ jobs:
       - name: Auto-play penuh (b01 -> ending, deteksi stall/error)
         working-directory: Game
         run: node tools/auto-play-ci.mjs
+
+      # Regresi visual memakai Playwright + Chromium dari step sebelumnya
+      # (tanpa instal tambahan) dan dep pngjs/pixelmatch/jpeg-js dari npm ci.
+      # Baseline di tools/visual-regression/baseline; tulis ulang lokal via
+      # UPDATE_BASELINE=1 bila perubahan visual memang disengaja.
+      - name: Regresi visual (4 view, banding baseline)
+        working-directory: Game
+        run: node tools/visual-regression.mjs
