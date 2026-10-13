@@ -341,12 +341,57 @@ export function tree(kit: Kit, x: number, z: number, h = 4, trunkColor = palette
 }
 
 export function scatterTrees(kit: Kit, count: number, radius: number, seedOffset = 0, minRadius = 4): void {
+  if (count <= 0) return;
+
+  // Pohon taburan seragam jenisnya (batang + dua mahkota, tanpa rotasi), jadi
+  // dipadatkan menjadi tiga InstancedMesh — ~39 pohon x 3 mesh menjadi 3 draw
+  // call pada hutan. Tinggi bervariasi per pohon lewat skala matriks; UV
+  // three.js relatif per segmen sehingga tekstur tampil sama persis.
+  //
+  // Collider tidak bisa memakai InstancedMesh: Box3.setFromObject menghasilkan
+  // satu box gabungan semua instance. Setiap batang tetap diberi balok tak
+  // terlihat (0,4 x h x 0,4 = bbox silinder lama, persis seperti pola proxy
+  // di tempat lain) supaya tabrakan, occlusion, dan interaksi tak berubah.
+  const trunkMesh = new THREE.InstancedMesh(cylGeo(0.14, 0.2, 1, 6), mat(palette.woodDark), count);
+  const crownMesh = new THREE.InstancedMesh(coneGeo(1.1, 2.4, 6), mat(palette.leaf), count);
+  const crown2Mesh = new THREE.InstancedMesh(coneGeo(0.8, 1.8, 6), mat(palette.leafDark), count);
+  const M = new THREE.Matrix4();
+  const V = new THREE.Vector3();
+  const S = new THREE.Vector3();
+  const Q = new THREE.Quaternion(); // identitas: pohon taburan tidak berputar
+
   for (let i = 0; i < count; i++) {
     const a = (i / count) * Math.PI * 2 * 3.7 + seedOffset;
     const r = minRadius + ((i * 137.5 + seedOffset * 31) % (radius - minRadius));
     const x = Math.cos(a) * r;
     const z = Math.sin(a) * r;
-    tree(kit, x, z, 3.4 + ((i * 53) % 20) / 10);
+    const h = 3.4 + ((i * 53) % 20) / 10;
+
+    V.set(x, h / 2, z);
+    S.set(1, h, 1);
+    M.compose(V, Q, S);
+    trunkMesh.setMatrixAt(i, M);
+    V.set(x, h + 0.6, z);
+    S.set(1, 1, 1);
+    M.compose(V, Q, S);
+    crownMesh.setMatrixAt(i, M);
+    V.set(x, h + 1.6, z);
+    M.compose(V, Q, S);
+    crown2Mesh.setMatrixAt(i, M);
+
+    const proxy = new THREE.Mesh(
+      boxGeo(0.4, h, 0.4),
+      new THREE.MeshBasicMaterial({ visible: false })
+    );
+    proxy.position.set(x, h / 2, z);
+    kit.group.add(proxy);
+    kit.colliders.push(proxy);
+  }
+
+  for (const m of [trunkMesh, crownMesh, crown2Mesh]) {
+    m.instanceMatrix.needsUpdate = true;
+    m.computeBoundingSphere();
+    kit.group.add(m);
   }
 }
 
