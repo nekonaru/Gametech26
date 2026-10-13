@@ -1,5 +1,5 @@
 /**
- * Bagian "factory" dari scenes.ts — dipecah agar mudah dinavigasi.
+ * Bagian "factory" dari scenes.ts - dipecah agar mudah dinavigasi.
  * Konsumen mengimpor semuanya lewat barrel src/render/scenes.ts.
  */
 import * as THREE from 'three';

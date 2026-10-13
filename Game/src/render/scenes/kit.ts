@@ -1,5 +1,5 @@
 /**
- * Bagian "kit" dari scenes.ts — dipecah agar mudah dinavigasi.
+ * Bagian "kit" dari scenes.ts - dipecah agar mudah dinavigasi.
  * Konsumen mengimpor semuanya lewat barrel src/render/scenes.ts.
  */
 import * as THREE from 'three';
@@ -344,7 +344,7 @@ export function scatterTrees(kit: Kit, count: number, radius: number, seedOffset
   if (count <= 0) return;
 
   // Pohon taburan seragam jenisnya (batang + dua mahkota, tanpa rotasi), jadi
-  // dipadatkan menjadi tiga InstancedMesh — ~39 pohon x 3 mesh menjadi 3 draw
+  // dipadatkan menjadi tiga InstancedMesh - ~39 pohon x 3 mesh menjadi 3 draw
   // call pada hutan. Tinggi bervariasi per pohon lewat skala matriks; UV
   // three.js relatif per segmen sehingga tekstur tampil sama persis.
   //

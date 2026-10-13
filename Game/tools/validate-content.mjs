@@ -160,6 +160,29 @@ for (const f of files) {
 const missingEn = [...localeKeys.id].filter(k => !localeKeys.en.has(k));
 const missingId = [...localeKeys.en].filter(k => !localeKeys.id.has(k));
 
+// --- Larangan em dash (U+2014) -------------------------------------------------
+// Aturan penulisan game: narasi, UI, dan kode memakai tanda hubung biasa atau
+// tanda baca lain; em dash dilarang di seluruh konten yang dikirim (public/)
+// maupun sumber (src/) - termasuk komentar - supaya gaya tulis seragam dan
+// tak ada em dash yang tidak sengaja tiba di layar pemain.
+const TEXT_EXT = new Set(['.json', '.ts', '.mjs', '.js', '.css', '.html']);
+const emDashFiles = [];
+const scanEmDash = (dir) => {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name !== 'node_modules') scanEmDash(full);
+    } else if (TEXT_EXT.has(path.extname(entry.name))) {
+      if (fs.readFileSync(full, 'utf8').includes('\u2014')) {
+        emDashFiles.push(path.relative(root, full));
+      }
+    }
+  }
+};
+scanEmDash(path.join(root, 'public'));
+scanEmDash(path.join(root, 'src'));
+for (const f of emDashFiles) note(f, 'em dash (U+2014) dilarang - pakai tanda hubung biasa atau tanda baca lain');
+
 console.log(`Chapter diperiksa : ${files.length}`);
 console.log(`Kunci locale id   : ${localeKeys.id.size}`);
 console.log(`Kunci locale en   : ${localeKeys.en.size}`);
