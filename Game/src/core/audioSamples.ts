@@ -3,10 +3,18 @@
  * tanpa atribusi) yang menggantikan sintesis prosedural.
  *
  * File diproses lewat tools/_build-audio.ps1 (mono 44.1 kHz, loudnorm -18 LUFS,
- * loop di-crossfade agar mulus). Dimuat sekali saat boot lalu disimpan di
- * `AudioManager.buffers` dengan key yang sama persis dengan resep sintesis,
- * sehingga semua pemanggilan play()/playProcedural() otomatis memakai rekaman
- * tanpa perubahan naskah. Koneksi gagal? Sintesis tetap jadi fallback.
+ * loop di-crossfade agar mulus). Disimpan di `AudioManager.buffers` dengan key
+ * yang sama persis dengan resep sintesis, sehingga semua pemanggilan
+ * play()/playProcedural() otomatis memakai rekaman tanpa perubahan naskah.
+ * Koneksi gagal? Sintesis tetap jadi fallback.
+ *
+ * Strategi muat DUA TINGKAT (hemat bandwidth awal):
+ * - Boot hanya memuat BOOT_AUDIO_SAMPLES: delapan SFX reaktif kecil (±165 KB)
+ *   yang dipicu sistem real-time (langkah kaki, tension horror, telepon):
+ *   fetch di tengah permainan untuk suara-suara ini terasa sebagai jeda.
+ * - Tiap masuk bab, `loadChapter` meminta key `playSound` bab itu lewat
+ *   `ensureAudio` (ambience, musik, SFX bab) di latar tanpa menahan permainan.
+ *   Total unduhan boot turun dari ±3,3 MB ke ±0,2 MB.
  */
 
 import { assetUrl } from './paths.js';
@@ -31,4 +39,20 @@ const FILES = [
 /** Key suara -> URL siap unduh. Dimuat via AudioManager.loadAudioBatch(). */
 export const AUDIO_SAMPLES: Record<string, string> = Object.fromEntries(
   FILES.map((key) => [key, assetUrl(`${AUDIO_BASE}${key}.mp3`)])
+);
+
+/**
+ * SFX reaktif kecil yang tetap dimuat saat boot: dipicu sistem real-time
+ * (gerakan pemain, tension horror, telepon, prolog) di luar naskah bab,
+ * sehingga tidak tercakup ensureAudio per bab. Delapan file ±165 KB;
+ * sisanya (±3,1 MB ambience + musik + SFX bab) menyusul per bab.
+ */
+export const BOOT_AUDIO_KEYS = [
+  'footstep', 'langkah_kering', 'footstep_wet', 'run_fast',
+  'heartbeat', 'breath', 'whisper', 'static'
+] as const;
+
+/** Peta siap unduh untuk boot minimal (lihat BOOT_AUDIO_KEYS). */
+export const BOOT_AUDIO_SAMPLES: Record<string, string> = Object.fromEntries(
+  BOOT_AUDIO_KEYS.map((key) => [key, AUDIO_SAMPLES[key]])
 );

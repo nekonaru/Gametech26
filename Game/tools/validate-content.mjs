@@ -57,6 +57,16 @@ if (fs.existsSync(chapterLocaleDir)) {
 const files = fs.readdirSync(chaptersDir).filter(f => f.endsWith('.json'));
 // loadScene merujuk bab lain: id bab = nama file tanpa ekstensi.
 const chapterIds = new Set(files.map((f) => f.replace(/\.json$/, '')));
+
+// Katalog rekaman: blok FILES di src/core/audioSamples.ts. playSound yang
+// key-nya tidak ada di sini HANYA boleh yang memang sintesis saja
+// (phone_hangup/phone_vibrate: bunyi <1 detik, tak worth file mp3).
+// Key lain di luar katalog = typo atau file hilang: permainan jatuh ke
+// sintesis generik dan ensureAudio per bab melewatinya diam-diam.
+const audioSrc = fs.readFileSync(path.join(root, 'src', 'core', 'audioSamples.ts'), 'utf8');
+const filesBlock = (audioSrc.match(/const FILES = \[([\s\S]*?)\] as const/) || [])[1] || '';
+const recordedAudio = new Set([...filesBlock.matchAll(/'([a-z0-9_]+)'/g)].map((m) => m[1]));
+const SYNTH_ONLY_AUDIO = new Set(['phone_hangup', 'phone_vibrate']);
 const problems = [];
 const note = (file, msg) => problems.push(`[${file}] ${msg}`);
 
@@ -93,6 +103,11 @@ for (const f of files) {
       }
       if (op.op === 'objective' && op.text && isLocaleKey(op.text) && !localeKeys.id.has(op.text)) {
         note(f, `kunci locale objective hilang: "${op.text}"`);
+      }
+      if (op.op === 'playSound' && typeof op.key === 'string') {
+        if (!recordedAudio.has(op.key) && !SYNTH_ONLY_AUDIO.has(op.key)) {
+          note(f, `key playSound "${op.key}" tidak ada di katalog rekaman (di ${where})`);
+        }
       }
       if (op.op === 'if') { walkOps(op.then, where); walkOps(op.else, where); }
       if (op.op === 'choice' && Array.isArray(op.options)) {

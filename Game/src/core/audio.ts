@@ -18,6 +18,12 @@ export class AudioManager {
   private masterGain: GainNode | null = null;
   private categoryGains: Map<AudioCategory, GainNode> = new Map();
   private buffers: Map<string, AudioBuffer> = new Map();
+  /**
+   * Unduhan yang sedang berjalan per key. Tanpa ini, dua pemanggil bersamaan
+   * (mis. ensureAudio bab + preload boot untuk key yang sama) mengunduh dan
+   * mendekode file yang sama dua kali.
+   */
+  private inflight = new Map<string, Promise<void>>();
   private sources: Map<string, { source: AudioBufferSourceNode; gain: GainNode; category: AudioCategory }> = new Map();
   private config: AudioConfig;
   private listeners: Set<(config: AudioConfig) => void> = new Set();
@@ -66,18 +72,51 @@ export class AudioManager {
 
   async loadAudio(key: string, url: string): Promise<void> {
     if (!this.audioContext) await this.initialize();
-    try {
-      const response = await fetch(url);
-      const arrayBuffer = await response.arrayBuffer();
-      const buffer = await this.audioContext!.decodeAudioData(arrayBuffer);
-      this.buffers.set(key, buffer);
-    } catch (error) {
-      console.warn(`Failed to load audio: ${key} from ${url}`, error);
+    // Sudah ada (atau sedang diunduh): jangan fetch ulang.
+    if (this.buffers.has(key)) return;
+    const ongoing = this.inflight.get(key);
+    if (ongoing) {
+      await ongoing;
+      return;
     }
+    const job = (async () => {
+      try {
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        const buffer = await this.audioContext!.decodeAudioData(arrayBuffer);
+        this.buffers.set(key, buffer);
+      } catch (error) {
+        console.warn(`Failed to load audio: ${key} from ${url}`, error);
+      } finally {
+        this.inflight.delete(key);
+      }
+    })();
+    this.inflight.set(key, job);
+    await job;
   }
 
   async loadAudioBatch(audioMap: Record<string, string>): Promise<void> {
     await Promise.all(Object.entries(audioMap).map(([key, url]) => this.loadAudio(key, url)));
+  }
+
+  /** Rekaman key ini sudah di buffer (siap dipakai play/playProcedural). */
+  has(key: string): boolean {
+    return this.buffers.has(key);
+  }
+
+  /**
+   * Pastikan rekaman untuk key-key ini tersedia, tanpa menahan pemanggil.
+   *
+   * Dipakai `loadChapter`: tiap masuk bab, key `playSound` dari naskah bab
+   * diminta di latar. Selama file belum tiba, `play()` memakai sintesis
+   * prosedural sebagai fallback (kontrak lama yang dipertahankan), lalu
+   * otomatis memakai rekaman untuk pemutaran berikutnya. Key tanpa URL di
+   * katalog (mis. phone_hangup yang memang sintesis saja) dilewati diam.
+   */
+  async ensureAudio(keys: readonly string[], catalog: Record<string, string>): Promise<void> {
+    const missing = keys.filter((key) => !this.buffers.has(key) && typeof catalog[key] === 'string');
+    if (!missing.length) return;
+    await Promise.all(missing.map((key) => this.loadAudio(key, catalog[key])));
   }
 
   play(key: string, options: {

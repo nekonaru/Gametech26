@@ -3,6 +3,8 @@ import { eventBus, GameEvents } from '../core/events.js';
 import { i18n, t } from '../core/i18n.js';
 import { saveManager } from '../core/save.js';
 import { audioManager } from '../core/audio.js';
+import { AUDIO_SAMPLES } from '../core/audioSamples.js';
+import { collectChapterAudioKeys } from './audioKeys.js';
 import { assetUrl } from '../core/paths.js';
 import { journalManager } from './journal.js';
 import { TransitionLayer } from '../ui/transitions.js';
@@ -322,6 +324,14 @@ export class ScriptRunner {
       const script: ChapterScript = await response.json();
       this.currentScript = script;
       this.assignInteractableRoles(script);
+
+      // Lazy-load audio bab: minta rekaman playSound bab ini di latar TANPA
+      // menahan pemuatan bab. Boot hanya memuat SFX reaktif kecil; ambience,
+      // musik, dan SFX bab menyusul di sini. Selama file belum tiba, play()
+      // memakai sintesis prosedural lalu otomatis memakai rekaman berikutnya.
+      void audioManager
+        .ensureAudio(collectChapterAudioKeys(script), AUDIO_SAMPLES)
+        .catch(() => undefined);
 
       await this.loadChapterLocale(chapterId);
 
