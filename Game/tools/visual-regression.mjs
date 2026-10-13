@@ -229,8 +229,11 @@ try {
   page.on('pageerror', (e) => console.log('PAGEERROR: ' + e.message));
 
   await page.goto(base, { waitUntil: 'load' });
-  await page.waitForSelector('#gateway-start', { timeout: 30000 });
-  await page.click('#gateway-start');
+  // Build lama (sebelum tunda-muat) boot langsung tanpa gerbang: klik MULAI
+  // hanya bila tombolnya ada, supaya tool tetap jalan di branch lama.
+  const hasGateway = await page.waitForSelector('#gateway-start', { timeout: 15000 })
+    .then(() => true).catch(() => false);
+  if (hasGateway) await page.click('#gateway-start');
   await page.waitForFunction(() => !!window.__asap, null, { timeout: 120000 });
   await page.waitForFunction(() => {
     const l = document.getElementById('loading-screen');

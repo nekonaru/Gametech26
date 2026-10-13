@@ -1,0 +1,90 @@
+{
+  "id": {
+    "ui": {
+      "interact": "Interaksi",
+      "examine": "Periksa",
+      "take": "Ambil",
+      "open": "Buka",
+      "close": "Tutup",
+      "read": "Baca",
+      "use": "Gunakan",
+      "talk": "Bicara"
+    },
+    "obj": {
+      "b10alt": {
+        "jaga": "Berjaga di ladang sampai pagi"
+      }
+    },
+    "b10alt": {
+      "api": {
+        "1": "Ranting kering kutumpuk di tengah tanah lapang.",
+        "2": "Api kecil menyala. Malam ini ladang tidak gelap sendirian."
+      },
+      "pita": {
+        "1": "Pita merah tersangkut di tiang pondok.",
+        "2": "Ini pita Joy. Ia tidak pernah melepasnya.",
+        "3": "Aku ikat pita itu di pergelanganku. Aku bersumpah: aku yang menemukan dia."
+      },
+      "jejak": {
+        "1": "Jejak kaki telanjang di tanah basah. Kecil, bukan sepatu.",
+        "2": "Berputar di sekitar pondok, lalu hilang ke arah hutan."
+      },
+      "tungku": {
+        "1": "Tungku pondok sudah dingin. Abu menumpuk berhari-hari.",
+        "2": "Joy tidak memasak di sini sudah lama."
+      },
+      "langit": {
+        "1": "Langit timur mulai pucat. Pagi hampir tiba.",
+        "2": "Aku begadang semalam dan tidak terjadi apa-apa. Itu kabar baik."
+      },
+      "pulang": {
+        "1": "Api kupadamkan. Pita tetap di pergelanganku.",
+        "2": "Aku pulang ke desa sebelum warga bangun."
+      }
+    }
+  },
+  "en": {
+    "ui": {
+      "interact": "Interact",
+      "examine": "Examine",
+      "take": "Take",
+      "open": "Open",
+      "close": "Close",
+      "read": "Read",
+      "use": "Use",
+      "talk": "Talk"
+    },
+    "obj": {
+      "b10alt": {
+        "jaga": "Stand watch at the field until morning"
+      }
+    },
+    "b10alt": {
+      "api": {
+        "1": "I pile dry twigs in the middle of the clearing.",
+        "2": "A small fire catches. Tonight the field is not dark alone."
+      },
+      "pita": {
+        "1": "A red ribbon snagged on the hut pole.",
+        "2": "This is Joy's ribbon. She never took it off.",
+        "3": "I tie the ribbon around my wrist. I swear: I will be the one who finds her."
+      },
+      "jejak": {
+        "1": "Bare footprints in the wet soil. Small, no shoes.",
+        "2": "They circle the hut, then vanish toward the forest."
+      },
+      "tungku": {
+        "1": "The hut stove is cold. Ash piled up for days.",
+        "2": "Joy has not cooked here for a long time."
+      },
+      "langit": {
+        "1": "The eastern sky turns pale. Morning is near.",
+        "2": "I stayed up all night and nothing happened. That is good news."
+      },
+      "pulang": {
+        "1": "I put out the fire. The ribbon stays on my wrist.",
+        "2": "I walk home to the village before anyone wakes."
+      }
+    }
+  }
+}

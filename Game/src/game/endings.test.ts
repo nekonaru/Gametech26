@@ -24,9 +24,9 @@ beforeEach(() => {
 });
 
 describe('EndingManager.evaluateEnding', () => {
-  it('built-in endings termuat (9 ending)', async () => {
+  it('built-in endings termuat (10 ending)', async () => {
     const m = await freshManager();
-    expect(m.getAllEndings()).toHaveLength(9);
+    expect(m.getAllEndings()).toHaveLength(10);
   });
 
   it('menolak tawaran Rudi -> ending_1', async () => {
@@ -96,6 +96,20 @@ describe('EndingManager.evaluateEnding', () => {
       nurani: 1
     });
     expect(m.evaluateEnding()?.id).toBe('ending_3');
+  });
+
+  it('sumpah di ladang + nurani terjaga -> ending_10', async () => {
+    const m = await freshManager();
+    vars({ terimaRudi: true, nurani: 2 });
+    gameState.addFlag('b10alt_sumpah');
+    expect(m.evaluateEnding()?.id).toBe('ending_10');
+  });
+
+  it('sumpah tanpa nurani cukup -> jatuh ke cabang b20', async () => {
+    const m = await freshManager();
+    vars({ terimaRudi: true, nurani: 1, b20Pilihan: 'diam' });
+    gameState.addFlag('b10alt_sumpah');
+    expect(m.evaluateEnding()?.id).toBe('ending_4');
   });
 
   it('evaluasi hanya sekali: panggilan berikutnya memakai hasil tersimpan', async () => {

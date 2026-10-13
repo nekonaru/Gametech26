@@ -143,6 +143,22 @@
       "cukongInvestigated": false,
       "epilog_id": "Mobil Rudi melaju malam hari. Dimas di sampingnya. Raka menatap rearview mirror. Asap di ujung jalan.",
       "epilog_en": "Rudi's car speeds at night. Dimas beside him. Raka watches rearview mirror. Smoke at road's end."
+    },
+    {
+      "id": "ending_10",
+      "name_id": "Sumpah di Ladang",
+      "name_en": "Oath at the Field",
+      "description_id": "Dimas menepati sumpahnya di ladang Joy dan menjaga nuraninya sampai akhir. Bukan kemenangan, tapi juga bukan kekalahan.",
+      "description_en": "Dimas keeps his oath at Joy's field and guards his conscience to the end. Not a victory, but not a defeat either.",
+      "requirements": { "b10alt_sumpah": true, "nurani": { "gte": 2 } },
+      "dimasFate_id": "Selamat, dipercaya warga",
+      "dimasFate_en": "Alive, trusted by villagers",
+      "rudiFate_id": "Tidak kembali ke desa",
+      "rudiFate_en": "Never returned to the village",
+      "joyFound": false,
+      "cukongInvestigated": false,
+      "epilog_id": "Pagi itu Dimas pulang dengan pita merah di pergelangan. Warga mulai bercerita: ada yang berjaga di ladang Joy setiap malam.",
+      "epilog_en": "That morning Dimas came home with a red ribbon on his wrist. Villagers began to tell: someone watches over Joy's field every night."
     }
   ]
 }

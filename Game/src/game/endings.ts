@@ -173,6 +173,17 @@ export class EndingManager {
       cukongInvestigated: false,
       epilog: 'Mobil Rudi melaju malam hari. Dimas di sampingnya. Raka menatap rearview mirror. Asap di ujung jalan.'
     });
+
+    this.endings.set('ending_10', {
+      id: 'ending_10',
+      name: t('ending.ending10'),
+      description: 'Dimas menepati sumpahnya di ladang Joy dan menjaga nuraninya sampai akhir.',
+      dimasFate: 'Selamat, dipercaya warga',
+      rudiFate: 'Tidak kembali ke desa',
+      joyFound: false,
+      cukongInvestigated: false,
+      epilog: 'Pagi itu Dimas pulang dengan pita merah di pergelangan. Warga mulai bercerita: ada yang berjaga di ladang Joy setiap malam.'
+    });
   }
 
   evaluateEnding(): EndingResult | null {
@@ -188,6 +199,8 @@ export class EndingManager {
       ending = this.endings.get('ending_2')!;
     } else if (flags.percayaRudi && vars.percayaDimas <= 1) {
       ending = this.endings.get('ending_9')!;
+    } else if (flags.b10alt_sumpah && vars.nurani >= 2) {
+      ending = this.endings.get('ending_10')!;
     } else if (vars.nurani >= 2 && flags.b17_confess) {
       ending = this.endings.get('ending_7')!;
     } else {

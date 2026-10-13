@@ -79,7 +79,17 @@
       { "speaker": "Dimas", "text": "b10.rudi.2",
         "choices": [
           { "text": "b10.rudi.cA", "next": "b10.rudi.a" },
-          { "text": "b10.rudi.cB", "next": "b10.rudi.b" }
+          { "text": "b10.rudi.cB", "next": "b10.rudi.b" },
+          { "text": "b10.rudi.cC", "next": "b10.rudi.c" }
+        ] }
+    ],
+    "b10.rudi.c": [
+      { "speaker": "Dimas", "text": "b10.rudi.c.1" },
+      { "speaker": "Rudi", "text": "b10.rudi.c.2" },
+      { "speaker": "Dimas", "text": "b10.rudi.c.3",
+        "onExit": [
+          { "op": "checkpoint", "id": "b10_jaga" },
+          { "op": "loadScene", "scene": "b10alt" }
         ] }
     ],
     "b10.rudi.a": [

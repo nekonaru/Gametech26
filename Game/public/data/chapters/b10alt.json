@@ -1,0 +1,89 @@
+{
+  "id": "b10alt",
+  "hari": 3,
+  "jam": "23:45",
+  "pov": "dimas",
+  "scene": "ladang_joy",
+  "onEnter": [
+    { "op": "setLighting", "preset": "hutan_malam", "transition": 2 },
+    { "op": "objective", "id": "jaga", "text": "obj.b10alt.jaga" },
+    { "op": "playSound", "key": "ambience_fire_distant", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
+  ],
+  "interactables": [
+    {
+      "id": "api_unggun",
+      "prompt": "ui.examine",
+      "position": [0.6, 0, -2.0],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b10alt.api" } ]
+    },
+    {
+      "id": "pita_joy",
+      "prompt": "ui.take",
+      "position": [2.4, 0.9, -4.2],
+      "once": true,
+      "onUse": [
+        { "op": "dialog", "node": "b10alt.pita" },
+        { "op": "setFlag", "flag": "b10alt_sumpah", "value": true }
+      ]
+    },
+    {
+      "id": "jejak_asing",
+      "prompt": "ui.examine",
+      "position": [-1.8, 0, -4.6],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b10alt.jejak" } ]
+    },
+    {
+      "id": "tungku_dingin",
+      "prompt": "ui.examine",
+      "position": [3.1, 0.7, -4.3],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b10alt.tungku" } ]
+    },
+    {
+      "id": "langit_timur",
+      "prompt": "ui.examine",
+      "position": [0, 1.6, -5.0],
+      "once": true,
+      "onUse": [ { "op": "dialog", "node": "b10alt.langit" } ]
+    },
+    {
+      "id": "jalan_pulang",
+      "prompt": "ui.interact",
+      "position": [0, 0, -5.6],
+      "once": true,
+      "onUse": [
+        { "op": "dialog", "node": "b10alt.pulang" },
+        { "op": "chapterEnd" }
+      ]
+    }
+  ],
+  "dialogs": {
+    "b10alt.api": [
+      { "speaker": "Dimas", "text": "b10alt.api.1" },
+      { "speaker": "Dimas", "text": "b10alt.api.2" }
+    ],
+    "b10alt.pita": [
+      { "speaker": "Dimas", "text": "b10alt.pita.1" },
+      { "speaker": "Dimas", "text": "b10alt.pita.2" },
+      { "speaker": "Dimas", "text": "b10alt.pita.3" }
+    ],
+    "b10alt.jejak": [
+      { "speaker": "Dimas", "text": "b10alt.jejak.1" },
+      { "speaker": "Dimas", "text": "b10alt.jejak.2" }
+    ],
+    "b10alt.tungku": [
+      { "speaker": "Dimas", "text": "b10alt.tungku.1" },
+      { "speaker": "Dimas", "text": "b10alt.tungku.2" }
+    ],
+    "b10alt.langit": [
+      { "speaker": "Dimas", "text": "b10alt.langit.1" },
+      { "speaker": "Dimas", "text": "b10alt.langit.2" }
+    ],
+    "b10alt.pulang": [
+      { "speaker": "Dimas", "text": "b10alt.pulang.1" },
+      { "speaker": "Dimas", "text": "b10alt.pulang.2" }
+    ]
+  }
+}

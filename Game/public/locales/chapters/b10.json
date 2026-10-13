@@ -42,6 +42,7 @@
         "2": "Layar ponsel menyala di telapak tanganku.",
         "cA": "Angkat",
         "cB": "Matikan ponsel",
+        "cC": "Tanya soal Joy",
         "a": {
           "1": "Halo? Gue dengerin cuma napas lu. Jangan jadi hero, Mas.",
           "2": "Aku diamkan ponsel di telinga sampai sambungan putus."
@@ -49,6 +50,11 @@
         "b": {
           "1": "Layar padam. Aku simpan ponsel di saku.",
           "2": "Kalau Rudi menelepon lagi, aku tidak akan angkat."
+        },
+        "c": {
+          "1": "Tunggu. Terakhir lu lihat Joy di mana? Jawab jujur sekali ini saja.",
+          "2": "Jangan cari dia malam ini, Mas. Pulang.",
+          "3": "Justru itu. Gue jaga ladang ini sampai pagi."
         }
       },
       "jejak": {
@@ -115,6 +121,7 @@
         "2": "The phone screen lights up in my palm.",
         "cA": "Answer",
         "cB": "Silence the phone",
+        "cC": "Ask about Joy",
         "a": {
           "1": "Hello? All I hear is your breathing. Don't be a hero, Mas.",
           "2": "I hold the phone to my ear until the line dies."
@@ -122,6 +129,11 @@
         "b": {
           "1": "The screen goes dark. I put the phone in my pocket.",
           "2": "If Rudi calls again, I will not answer."
+        },
+        "c": {
+          "1": "Wait. When did you last see Joy? Answer honestly, just this once.",
+          "2": "Do not look for her tonight, Mas. Go home.",
+          "3": "That is exactly why. I will watch this field until morning."
         }
       },
       "jejak": {

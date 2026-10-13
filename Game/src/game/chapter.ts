@@ -50,6 +50,7 @@ export class ChapterManager {
       { id: 'b08', name: 'Malam Pertama', hari: 2, jam: '22:00', pov: 'dimas', sceneId: 'hutan_kecil', pos: [0, 0, 0], yaw: 0, completed: false, cluesFound: 0, available: false },
       { id: 'b09', name: 'Curiga Pertama', hari: 3, jam: '07:00', pov: 'raka', sceneId: 'jalan_desa', pos: [0, 0, 0], yaw: 0, completed: false, cluesFound: 0, available: false },
       { id: 'b10', name: 'Ladang Joy', hari: 3, jam: '22:30', pov: 'dimas', sceneId: 'ladang_joy', pos: [0, 0, 0], yaw: 0, completed: false, cluesFound: 0, available: false },
+      { id: 'b10alt', name: 'Jaga Malam', hari: 3, jam: '23:45', pov: 'dimas', sceneId: 'ladang_joy', pos: [0, 0, 0], yaw: 0, completed: false, cluesFound: 0, available: false, branch: true },
       { id: 'b11', name: 'Berita yang Tenggelam', hari: 4, jam: '09:00', pov: 'raka', sceneId: 'balai_desa', pos: [0, 0, 0], yaw: 0, completed: false, cluesFound: 0, available: false },
       { id: 'b12b', name: 'Titik Terakhir', hari: 4, jam: '22:00', pov: 'dimas', sceneId: 'tepi_hutan', pos: [0, 0, 0], yaw: 0, completed: false, cluesFound: 0, available: false },
       { id: 'b12', name: 'Teror Kecil', hari: 5, jam: '02:30', pov: 'dimas', sceneId: 'rumah_dimas', pos: [0, 0, 0], yaw: 0, completed: false, cluesFound: 0, available: false },
