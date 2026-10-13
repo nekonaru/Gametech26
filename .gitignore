@@ -2,6 +2,9 @@
 node_modules/
 dist/
 
+# Laporan lokal audit Lighthouse (tools/lighthouse-audit.mjs / lhci)
+.lighthouseci/
+
 # Faktur/berkas lokal editor
 *.local
 .DS_Store
