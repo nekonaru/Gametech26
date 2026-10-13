@@ -11,10 +11,10 @@
   ],
   "interactables": [
     { "id": "kasur_raka", "prompt": "ui.examine", "position": [2.4, 0, -4.4], "onUse": [{ "op": "dialog", "node": "b06.kasur" }] },
-    { "id": "foto_orang_tua", "prompt": "ui.examine", "position": [-2.2, 0, -4], "onUse": [{ "op": "dialog", "node": "b06.foto" }] },
+    { "id": "foto_orang_tua", "surface": "wall", "prompt": "ui.examine", "position": [-2.2, 0, -4], "onUse": [{ "op": "dialog", "node": "b06.foto" }] },
     { "id": "tumpukan_tagihan", "prompt": "ui.read", "position": [1.4, 0, -2.8], "onUse": [{ "op": "dialog", "node": "b06.tagihan" }] },
     { "id": "ponsel_pinjol", "prompt": "ui.interact", "position": [-1.6, 0, -2.6], "onUse": [{ "op": "dialog", "node": "b06.pinjol" }] },
-    { "id": "radio_kamar", "prompt": "ui.interact", "position": [-2.6, 0, -2.2], "onUse": [
+    { "id": "radio_kamar", "surface": "wall", "prompt": "ui.interact", "position": [-2.6, 0, -2.2], "onUse": [
       { "op": "playSound", "key": "radio_berita", "options": { "category": "sfx", "volume": 0.3 } },
       { "op": "dialog", "node": "b06.radio" }
     ] },

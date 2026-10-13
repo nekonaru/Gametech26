@@ -10,7 +10,7 @@
     { "op": "playSound", "key": "ambience_hutan", "options": { "category": "ambience", "loop": true, "volume": 0.4 } }
   ],
   "interactables": [
-    { "id": "peta", "prompt": "ui.read", "position": [1.4, 0, -2], "onUse": [{ "op": "dialog", "node": "b08.peta" }] },
+    { "id": "peta", "surface": "wall", "prompt": "ui.read", "position": [1.4, 0, -2], "onUse": [{ "op": "dialog", "node": "b08.peta" }] },
     { "id": "pita_1", "prompt": "ui.examine", "position": [-1.8, 0, -3.4], "once": true, "onUse": [{ "op": "dialog", "node": "b08.pita1" }] },
     { "id": "pita_2", "prompt": "ui.examine", "position": [2, 0, -4.6], "once": true, "onUse": [{ "op": "dialog", "node": "b08.pita2" }] },
     { "id": "semak", "prompt": "ui.examine", "position": [-2.6, 0, -5], "onUse": [

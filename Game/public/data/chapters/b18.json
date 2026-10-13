@@ -23,7 +23,7 @@
         "then": [{ "op": "dialog", "node": "b18.foto.yes" }],
         "else": [{ "op": "dialog", "node": "b18.foto.no" }] }
     ] },
-    { "id": "papan_petunjuk", "prompt": "ui.open", "position": [0, 0, -4.5], "onUse": [
+    { "id": "papan_petunjuk", "surface": "wall", "prompt": "ui.open", "position": [0, 0, -4.5], "onUse": [
       { "op": "dialog", "node": "b18.papan" },
       { "op": "if", "condition": "clues.includes('c7')",
         "then": [

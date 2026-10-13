@@ -11,7 +11,7 @@ import { FPSController } from '../render/camera.js';
 import { LightingManager } from '../render/lighting.js';
 import { ParticleSystem } from '../render/particles.js';
 import { sceneFactory, BuiltScene, updateFigures, updateDynamics, setDrawerOpen, setDrawerSenterVisible, animatePickup, hidePickupInstantly } from '../render/scenes.js';
-import { getSoftDotTexture, getDiamondTexture, getGoalDiamondTexture, getBeamTexture } from '../render/textures.js';
+import { getSoftDotTexture, getDiamondTexture, getGoalDiamondTexture, getWallDiamondTexture, getBeamTexture } from '../render/textures.js';
 import { gameState } from './state.js';
 import { scriptRunner } from './scriptRunner.js';
 import { interactionManager } from './interaction.js';
@@ -1731,7 +1731,11 @@ export class Game {
       const labelKey = dynamicLabel
         ? (scriptRunner.getObjective().text || undefined)
         : inter.label;
-      const mesh = this.createPropMesh(index, pos, role, labelKey, dynamicLabel);
+      // Runtime JSON tidak dijamin; nilai asing jatuh ke gaya ground.
+      const surface = inter.surface === 'npc' || inter.surface === 'wall'
+        ? inter.surface
+        : 'ground';
+      const mesh = this.createPropMesh(index, pos, role, labelKey, dynamicLabel, surface);
       mesh.userData.interactableId = inter.id;
       mesh.userData.goalFor = goalFor;
       mesh.userData.staticGoal = role === 'goal';
@@ -2042,13 +2046,25 @@ export class Game {
    * - `flavor` (interaksi biasa): belah ketupat kecil tanpa pilar, warna
    *   netral, redup: hanya terlihat saat didekati, sehingga ruangan tidak
    *   dipenuhi penanda sekaligus.
+   *
+   * `surface` membedakan bentuk penanda per jenis target, semuanya lewat
+   * geometri/tekstur bukan warna supaya tetap terbaca bagi pemain buta warna:
+   * - `npc`: tanpa pilar supaya corong tidak menembus badan figur; anchor
+   *   konten sudah setinggi kepala sehingga ketupat melayang tepat di atas
+   *   orang yang diajak bicara.
+   * - `wall`: tanpa pilar (pangkalnya melayang jauh di atas lantai dan malah
+   *   terlihat aneh) plus tekstur bersayap kiri-kanan sebagai penanda objek
+   *   yang menempel di permukaan tegak: foto, kalender, spanduk, jendela.
+   * - `ground`: gaya penuh untuk objek di meja/lantai, chevron plus pilar
+   *   cahaya yang jatuh ke permukaan di bawahnya.
    */
   private createPropMesh(
     index: number,
     pos: [number, number, number],
     role: 'goal' | 'flavor' = 'goal',
     labelKey?: string,
-    dynamicLabel = false
+    dynamicLabel = false,
+    surface: 'npc' | 'wall' | 'ground' = 'ground'
   ): THREE.Group {
     const group = new THREE.Group();
     const isGoal = role === 'goal';
@@ -2063,7 +2079,9 @@ export class Game {
     const diamond = new THREE.Mesh(
       new THREE.PlaneGeometry(diamondSize, diamondSize),
       new THREE.MeshBasicMaterial({
-        map: isGoal ? getGoalDiamondTexture() : getDiamondTexture(),
+        map: surface === 'wall'
+          ? getWallDiamondTexture(isGoal)
+          : isGoal ? getGoalDiamondTexture() : getDiamondTexture(),
         color: tint,
         transparent: true,
         opacity: isGoal ? 0.9 : 0.34,
@@ -2079,7 +2097,9 @@ export class Game {
     // terbaca sebagai pancaran dari sudut mana pun tanpa diputar.
     let beam: THREE.Mesh | null = null;
     let beamHeight = 0;
-    if (isGoal) {
+    // Hanya objek di meja/lantai yang dapat pilar: npc dan wall sengaja
+    // tanpa corong sesuai kontrak surface di dokumentasi fungsi ini.
+    if (isGoal && surface === 'ground') {
       beamHeight = 0.9;
       beam = new THREE.Mesh(
         new THREE.CylinderGeometry(0.07, 0.3, beamHeight, 20, 1, true),
@@ -2129,6 +2149,7 @@ export class Game {
     group.name = `prop_${index}`;
     group.userData.baseY = pos[1];
     group.userData.role = role;
+    group.userData.surface = surface;
     group.userData.diamond = diamond;
     group.userData.beam = beam;
     group.userData.beamHeight = beamHeight;

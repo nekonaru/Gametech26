@@ -10,10 +10,10 @@
     { "op": "playSound", "key": "ambience_warung", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
   ],
   "interactables": [
-    { "id": "joy", "prompt": "ui.talk", "position": [-1.4, 0, -3.2], "once": true, "onUse": [{ "op": "dialog", "node": "b05.joy" }] },
-    { "id": "mak_yah", "prompt": "ui.talk", "position": [0.4, 0, -4.5], "onUse": [{ "op": "dialog", "node": "b05.mak_yah" }] },
+    { "id": "joy", "surface": "npc", "prompt": "ui.talk", "position": [-1.4, 0, -3.2], "once": true, "onUse": [{ "op": "dialog", "node": "b05.joy" }] },
+    { "id": "mak_yah", "surface": "npc", "prompt": "ui.talk", "position": [0.4, 0, -4.5], "onUse": [{ "op": "dialog", "node": "b05.mak_yah" }] },
     { "id": "meja_warga", "prompt": "ui.examine", "position": [2.2, 0, -3], "onUse": [{ "op": "dialog", "node": "b05.warga" }] },
-    { "id": "radio_warung", "prompt": "ui.interact", "position": [-2.2, 0, -2.6], "onUse": [
+    { "id": "radio_warung", "surface": "wall", "prompt": "ui.interact", "position": [-2.2, 0, -2.6], "onUse": [
       { "op": "playSound", "key": "radio_berita", "options": { "category": "sfx", "volume": 0.3 } },
       { "op": "dialog", "node": "b05.radio" }
     ] },

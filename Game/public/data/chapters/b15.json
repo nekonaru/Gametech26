@@ -46,6 +46,7 @@
     },
     {
       "id": "jendela_teras",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [3.0, 1.4, -3.6],
       "once": true,

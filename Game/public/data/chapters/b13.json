@@ -192,6 +192,7 @@
     },
     {
       "id": "kalender_dinding",
+      "surface": "wall",
       "prompt": "ui.read",
       "position": [
         -1.5,

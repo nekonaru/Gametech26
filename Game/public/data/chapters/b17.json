@@ -16,13 +16,13 @@
       { "op": "playSound", "key": "static", "options": { "category": "sfx", "volume": 0.3 } },
       { "op": "dialog", "node": "b17.cahaya" }
     ] },
-    { "id": "warga_berkumpul", "prompt": "ui.examine", "position": [2, 0, -5], "onUse": [{ "op": "dialog", "node": "b17.warga" }] },
+    { "id": "warga_berkumpul", "surface": "npc", "prompt": "ui.examine", "position": [2, 0, -5], "onUse": [{ "op": "dialog", "node": "b17.warga" }] },
     { "id": "pos_patroli", "prompt": "ui.interact", "position": [0, 0, -5.5], "onUse": [
       { "op": "if", "condition": "vars.nurani >= 2",
         "then": [{ "op": "dialog", "node": "b17.patroli" }],
         "else": [{ "op": "dialog", "node": "b17.patroli.tanpa" }] }
     ] },
-    { "id": "sosok_raka", "prompt": "ui.examine", "position": [-2, 0, -4.5], "onUse": [{ "op": "dialog", "node": "b17.raka" }] },
+    { "id": "sosok_raka", "surface": "npc", "prompt": "ui.examine", "position": [-2, 0, -4.5], "onUse": [{ "op": "dialog", "node": "b17.raka" }] },
     { "id": "gerbang_pulang", "prompt": "ui.interact", "position": [1, 0, -1], "once": true, "onUse": [
       { "op": "dialog", "node": "b17.pulang" },
       { "op": "chapterEnd" }

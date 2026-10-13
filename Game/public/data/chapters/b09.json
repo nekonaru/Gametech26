@@ -14,7 +14,7 @@
       "onUse": [{ "op": "dialog", "node": "b09.ember" }] },
     { "id": "sapu_abu", "prompt": "ui.use", "position": [-1.6, 0, -2.6],
       "onUse": [{ "op": "dialog", "node": "b09.sapu" }] },
-    { "id": "papan_pengumuman", "prompt": "ui.read", "position": [2.4, 0, -4.2],
+    { "id": "papan_pengumuman", "surface": "wall", "prompt": "ui.read", "position": [2.4, 0, -4.2],
       "onUse": [{ "op": "dialog", "node": "b09.papan" }] },
     { "id": "radio_warung", "prompt": "ui.interact", "position": [-2.6, 0, -4.4],
       "onUse": [

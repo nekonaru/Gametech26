@@ -13,7 +13,7 @@
     { "id": "piring", "prompt": "ui.take", "position": [1.2, 0, -3], "onUse": [{ "op": "dialog", "node": "b05b.piring" }] },
     { "id": "air", "prompt": "ui.use", "position": [-1.4, 0, -3.4], "onUse": [{ "op": "dialog", "node": "b05b.air" }] },
     { "id": "kulkas", "prompt": "ui.open", "position": [-2.4, 0, -4.2], "onUse": [{ "op": "dialog", "node": "b05b.kulkas" }] },
-    { "id": "foto_orang_tua", "prompt": "ui.examine", "position": [2.4, 0, -4.6], "onUse": [{ "op": "dialog", "node": "b05b.foto" }] },
+    { "id": "foto_orang_tua", "surface": "wall", "prompt": "ui.examine", "position": [2.4, 0, -4.6], "onUse": [{ "op": "dialog", "node": "b05b.foto" }] },
     { "id": "meja_makan", "prompt": "ui.interact", "position": [0, 0, -4], "onUse": [{ "op": "dialog", "node": "b05b.makan" }] },
     { "id": "kasur", "prompt": "ui.interact", "position": [0, 0, 1.5], "once": true, "onUse": [
       { "op": "cameraAnim", "kind": "sleep", "duration": 1600, "eyeHeight": 0.5, "pitch": 0.35 },

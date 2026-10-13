@@ -20,7 +20,7 @@
       { "op": "playSound", "key": "footstep", "options": { "category": "sfx", "volume": 0.6 } },
       { "op": "dialog", "node": "b16.ranting" }
     ] },
-    { "id": "bayangan", "prompt": "ui.interact", "position": [0.8, 0, -5], "onUse": [
+    { "id": "bayangan", "surface": "npc", "prompt": "ui.interact", "position": [0.8, 0, -5], "onUse": [
       { "op": "dialog", "node": "b16.bayangan" },
       { "op": "objective", "id": "lari", "text": "b16.obj.lari" }
     ] },

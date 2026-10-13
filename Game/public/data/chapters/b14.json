@@ -22,6 +22,7 @@
     },
     {
       "id": "jendela",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [2.2, 1.3, -4.2],
       "once": true,
@@ -60,6 +61,7 @@
     },
     {
       "id": "cermin",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [-2.8, 1.4, -1.6],
       "once": false,

@@ -18,14 +18,14 @@
         { "op": "echo", "from": "b12", "to": "b13", "data": { "jejak": "pintu_belakang" } },
         { "op": "setEcho", "key": "b12_pintu_terbuka", "value": true }
       ] },
-    { "id": "bayangan_lorong", "prompt": "ui.examine", "position": [0.4, 0, -4.4],
+    { "id": "bayangan_lorong", "surface": "npc", "prompt": "ui.examine", "position": [0.4, 0, -4.4],
       "onUse": [{ "op": "dialog", "node": "b12.bayangan" }] },
     { "id": "telepon", "prompt": "ui.interact", "position": [2.4, 0, -1.6],
       "onUse": [
         { "op": "dialog", "node": "b12.telepon" },
         { "op": "playSound", "key": "phone_vibrate", "options": { "category": "sfx", "volume": 0.5 } }
       ] },
-    { "id": "jendela", "prompt": "ui.examine", "position": [-2.8, 0, -4.6],
+    { "id": "jendela", "surface": "wall", "prompt": "ui.examine", "position": [-2.8, 0, -4.6],
       "onUse": [{ "op": "dialog", "node": "b12.jendela" }] },
     { "id": "kasur", "prompt": "ui.interact", "position": [3.2, 0, -4.2], "once": true,
       "onUse": [

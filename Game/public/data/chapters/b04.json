@@ -18,6 +18,7 @@
     },
     {
       "id": "foto_keluarga",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [2, 0, -3],
       "onUse": [ { "op": "dialog", "node": "b04.foto" } ]
@@ -42,6 +43,7 @@
     },
     {
       "id": "kalender",
+      "surface": "wall",
       "prompt": "ui.read",
       "position": [-2.5, 0, -2],
       "onUse": [ { "op": "dialog", "node": "b04.kalender" } ]

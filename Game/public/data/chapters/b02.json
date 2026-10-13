@@ -12,12 +12,14 @@
   "interactables": [
     {
       "id": "foto_kedai",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [-2.5, 0, -3],
       "onUse": [ { "op": "dialog", "node": "b02.foto_kedai" } ]
     },
     {
       "id": "foto_sungai",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [-3, 0, -2],
       "onUse": [ { "op": "dialog", "node": "b02.foto_sungai" } ]
@@ -36,6 +38,7 @@
     },
     {
       "id": "meja_rudi",
+      "surface": "npc",
       "prompt": "ui.talk",
       "position": [0, 0, -4.5],
       "onUse": [

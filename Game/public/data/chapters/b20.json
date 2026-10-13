@@ -29,12 +29,12 @@
         "onHelp": [{ "op": "setEcho", "key": "help_p6", "value": true }]
       } }
     ] },
-    { "id": "bayangan_joy", "prompt": "ui.examine", "position": [-1.8, 0, -4.5], "onUse": [
+    { "id": "bayangan_joy", "surface": "npc", "prompt": "ui.examine", "position": [-1.8, 0, -4.5], "onUse": [
       { "op": "if", "condition": "vars.joyDitemui === true",
         "then": [{ "op": "dialog", "node": "b20.joy.kenal" }],
         "else": [{ "op": "dialog", "node": "b20.joy.asing" }] }
     ] },
-    { "id": "suara_dimas", "prompt": "ui.talk", "position": [1, 0, -5], "onUse": [
+    { "id": "suara_dimas", "surface": "npc", "prompt": "ui.talk", "position": [1, 0, -5], "onUse": [
       { "op": "dialog", "node": "b20.dimas" },
       { "op": "objective", "id": "pilih", "text": "b20.obj.pilih" }
     ] },

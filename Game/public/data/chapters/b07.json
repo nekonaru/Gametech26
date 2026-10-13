@@ -10,8 +10,8 @@
     { "op": "playSound", "key": "ambience_pagi", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
   ],
   "interactables": [
-    { "id": "rudi", "prompt": "ui.talk", "position": [0, 0, -4.2], "onUse": [{ "op": "dialog", "node": "b07.rudi" }] },
-    { "id": "pekerja", "prompt": "ui.talk", "position": [1.8, 0, -3.2], "onUse": [{ "op": "dialog", "node": "b07.pekerja" }] },
+    { "id": "rudi", "surface": "npc", "prompt": "ui.talk", "position": [0, 0, -4.2], "onUse": [{ "op": "dialog", "node": "b07.rudi" }] },
+    { "id": "pekerja", "surface": "npc", "prompt": "ui.talk", "position": [1.8, 0, -3.2], "onUse": [{ "op": "dialog", "node": "b07.pekerja" }] },
     { "id": "peta_kertas", "prompt": "ui.read", "position": [-1.6, 0, -3], "onUse": [
       { "op": "dialog", "node": "b07.peta" },
       { "op": "giveItem", "id": "peta_lahan" }

@@ -10,23 +10,23 @@
     { "op": "playSound", "key": "ambience_hall", "options": { "category": "ambience", "loop": true, "volume": 0.35 } }
   ],
   "interactables": [
-    { "id": "ibu_joy", "prompt": "ui.talk", "position": [1.6, 0, -2.4],
+    { "id": "ibu_joy", "surface": "npc", "prompt": "ui.talk", "position": [1.6, 0, -2.4],
       "onUse": [{ "op": "dialog", "node": "b11.ibu" }] },
     { "id": "laporan_kehilangan", "prompt": "ui.read", "position": [-2.2, 0, -3.4],
       "onUse": [
         { "op": "dialog", "node": "b11.laporan" },
         { "op": "giveClue", "id": "c4" }
       ] },
-    { "id": "teman_lama", "prompt": "ui.talk", "position": [2.8, 0, -4.4],
+    { "id": "teman_lama", "surface": "npc", "prompt": "ui.talk", "position": [2.8, 0, -4.4],
       "onUse": [{ "op": "dialog", "node": "b11.teman" }] },
-    { "id": "daftar_pencarian", "prompt": "ui.use", "position": [-1.2, 0, -1.8],
+    { "id": "daftar_pencarian", "surface": "wall", "prompt": "ui.use", "position": [-1.2, 0, -1.8],
       "onUse": [
         { "op": "dialog", "node": "b11.daftar" },
         { "op": "objective", "id": "daftar", "text": "obj.b11.daftar" }
       ] },
-    { "id": "kumpul_warga", "prompt": "ui.talk", "position": [0, 0, -5],
+    { "id": "kumpul_warga", "surface": "npc", "prompt": "ui.talk", "position": [0, 0, -5],
       "onUse": [{ "op": "dialog", "node": "b11.kumpul" }] },
-    { "id": "dimas_singgah", "prompt": "ui.examine", "position": [3.4, 0, -1.6],
+    { "id": "dimas_singgah", "surface": "npc", "prompt": "ui.examine", "position": [3.4, 0, -1.6],
       "onUse": [
         { "op": "if", "condition": "flags.b10_choose_help === true",
           "then": [{ "op": "dialog", "node": "b11.dimas.tangan" }],

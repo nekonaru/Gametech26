@@ -147,6 +147,10 @@ for (const f of files) {
     if (inter.scene && inter.scene !== script.scene && !(script.scenes || {})[inter.scene]) {
       note(f, `interactable ${inter.id} berada di scene tak dikenal "${inter.scene}"`);
     }
+    // Bentuk penanda: hanya npc, wall, ground yang dikenal mesin render.
+    if (inter.surface !== undefined && !['npc', 'wall', 'ground'].includes(inter.surface)) {
+      note(f, `surface interactable ${inter.id} tidak dikenal "${inter.surface}"`);
+    }
     if (!inter.position) continue;
     const [x, y, z] = inter.position;
     if (![x, y, z].every(Number.isFinite)) note(f, `posisi interactable ${inter.id} tidak valid`);

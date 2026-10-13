@@ -608,6 +608,95 @@ export function getGoalDiamondTexture(): THREE.Texture {
   return texture;
 }
 
+let wallDiamond: THREE.Texture | null = null;
+let wallGoalDiamond: THREE.Texture | null = null;
+
+/**
+ * Belah ketupat BERSAYAP untuk penanda objek dinding: dua garis pendek
+ * mendatar di kiri-kanan, menandai "terpasang di permukaan tegak" sekaligus
+ * membedakannya dari objek meja/lantai yang memakai pilar cahaya.
+ *
+ * Belah ketupatnya sengaja lebih ramping (setengah sisi 46 vs 60) supaya
+ * sayap punya ruang di luar garis tepi. `goal = true` menambahkan chevron
+ * panah ke atas seperti penanda tujuan lain, jadi objektif di dinding tetap
+ * terbaca sebagai tujuan dari bentuknya, bukan hanya warna emasnya.
+ */
+export function getWallDiamondTexture(goal = false): THREE.Texture {
+  const cached = goal ? wallGoalDiamond : wallDiamond;
+  if (cached) return cached;
+
+  const size = 128;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+  const c = size / 2;
+  const half = 46;
+
+  // Pendar lembut di sekeliling garis: penanda tampak menyala, bukan garis datar.
+  ctx.strokeStyle = 'rgba(255,255,255,0.28)';
+  ctx.lineWidth = 9;
+  ctx.lineJoin = 'miter';
+  ctx.beginPath();
+  ctx.moveTo(c, c - half);
+  ctx.lineTo(c + half, c);
+  ctx.lineTo(c, c + half);
+  ctx.lineTo(c - half, c);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Garis inti yang tegas.
+  ctx.strokeStyle = 'rgba(255,255,255,1)';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(c, c - half);
+  ctx.lineTo(c + half, c);
+  ctx.lineTo(c, c + half);
+  ctx.lineTo(c - half, c);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Dua sayap mendatar: bentuk khas objek yang menempel di dinding/papan.
+  ctx.lineWidth = 6;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+  ctx.beginPath();
+  ctx.moveTo(c - 62, c);
+  ctx.lineTo(c - 49, c);
+  ctx.moveTo(c + 49, c);
+  ctx.lineTo(c + 62, c);
+  ctx.stroke();
+
+  if (goal) {
+    // Chevron panah ke atas, skala mengecil mengikuti belah ketupat yang ramping.
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.moveTo(c - 16, c - 8);
+    ctx.lineTo(c, c - 24);
+    ctx.lineTo(c + 16, c - 8);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(c - 16, c + 10);
+    ctx.lineTo(c, c - 6);
+    ctx.lineTo(c + 16, c + 10);
+    ctx.stroke();
+  }
+
+  // Titik pusat kecil: penanda tetap terbaca saat berdiri tepat di depannya.
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.beginPath();
+  ctx.arc(c, c + (goal ? 26 : 0), 5, 0, Math.PI * 2);
+  ctx.fill();
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+
+  if (goal) wallGoalDiamond = texture;
+  else wallDiamond = texture;
+  return texture;
+}
+
 let beamGradient: THREE.Texture | null = null;
 
 /**

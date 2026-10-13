@@ -18,6 +18,7 @@
     },
     {
       "id": "jendela",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [-2, 0, -3],
       "onUse": [ { "op": "dialog", "node": "b03.jendela" } ]
@@ -42,6 +43,7 @@
     },
     {
       "id": "sopir",
+      "surface": "npc",
       "prompt": "ui.talk",
       "position": [0, 0, -4.5],
       "onUse": [ { "op": "dialog", "node": "b03.sopir" } ]

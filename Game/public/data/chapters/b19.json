@@ -28,6 +28,7 @@
   "interactables": [
     {
       "id": "bisikan_pertama",
+      "surface": "npc",
       "prompt": "ui.examine",
       "position": [
         0.5,
@@ -157,6 +158,7 @@
     },
     {
       "id": "sosok_joy",
+      "surface": "npc",
       "prompt": "ui.interact",
       "position": [
         -0.6,

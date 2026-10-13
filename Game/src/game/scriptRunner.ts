@@ -71,6 +71,18 @@ export interface Interactable {
    * penanda memakai `role` statis.
    */
   goalFor?: string | string[];
+  /**
+   * Pembeda bentuk penanda interaksi (dipakai `createPropMesh`), bukan warna:
+   * - `npc` orang yang sedang diajak bicara: ketupat di atas kepala tanpa
+   *   pilar, supaya corong tidak menembus badan figur.
+   * - `wall` objek terpasang di permukaan tegak (foto, kalender, spanduk):
+   *   ketupat bersayap kiri-kanan, juga tanpa pilar karena pangkalnya jauh
+   *   di atas lantai dan justru terlihat melayang aneh.
+   * - `ground` objek di meja atau lantai (default): gaya penuh chevron +
+   *   pilar cahaya yang jatuh ke permukaan di bawahnya.
+   * Nilai asing ditolak validator, jadi JSON konten selalu tervalidasi.
+   */
+  surface?: 'npc' | 'wall' | 'ground';
 }
 
 export interface DialogNode {

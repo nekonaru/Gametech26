@@ -52,6 +52,7 @@
     },
     {
       "id": "foto_keluarga",
+      "surface": "wall",
       "prompt": "ui.examine",
       "position": [2.4, 0, -4.2],
       "onUse": [ { "op": "dialog", "node": "b01.foto" } ]
@@ -91,6 +92,7 @@
     },
     {
       "id": "kotak_sekring",
+      "surface": "wall",
       "prompt": "ui.open",
       "position": [-1.25, 0, 0.5],
       "onUse": [
@@ -191,6 +193,7 @@
     },
     {
       "id": "mandor",
+      "surface": "npc",
       "scene": "proyek",
       "prompt": "ui.talk",
       "position": [7, 0, 0.5],
@@ -247,6 +250,7 @@
     },
     {
       "id": "spanduk_proyek",
+      "surface": "wall",
       "scene": "proyek",
       "prompt": "ui.read",
       "position": [0, 0, -5.5],
@@ -254,6 +258,7 @@
     },
     {
       "id": "pedagang",
+      "surface": "npc",
       "scene": "pasar",
       "prompt": "ui.talk",
       "position": [6, 0, 5],
@@ -301,6 +306,7 @@
     },
     {
       "id": "spanduk_pasar",
+      "surface": "wall",
       "scene": "pasar",
       "prompt": "ui.read",
       "position": [0, 0, 13],
