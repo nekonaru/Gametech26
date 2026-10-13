@@ -16,7 +16,9 @@
   <meta property="og:description" content="Game horor naratif psikologis orang pertama bergaya PS1, berbahasa Indonesia dan Inggris.">
   <meta property="og:url" content="https://nekonaru.github.io/gametech26/">
   <title>Asap yang Tak Padam</title>
-  <link rel="stylesheet" href="/src/ui/styles.css">
+  <!-- styles.css game (±43 KB) TIDAK dimuat di sini: ia diimpor modul game
+       (src/main.ts) sehingga ikut chunk tunda-muat. Gerbang awal memakai
+       gaya inline di bawah supaya first paint tanpa menunggu apa pun. -->
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -141,6 +143,59 @@
       font-size: 12px;
       color: #555;
     }
+    #gateway {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      z-index: 10000;
+      color: #ccc;
+      font-family: 'PixelFont', monospace;
+      text-align: center;
+      padding: 0 24px;
+    }
+    #gateway.hidden {
+      display: none;
+    }
+    .gateway-title {
+      font-size: 28px;
+      letter-spacing: 6px;
+      color: #ff6b35;
+    }
+    .gateway-sub {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #999689;
+    }
+    #gateway-start {
+      font-family: inherit;
+      font-size: 18px;
+      letter-spacing: 4px;
+      color: #0a0a0a;
+      background: #ff6b35;
+      border: none;
+      padding: 14px 44px;
+      cursor: pointer;
+    }
+    #gateway-start:hover:not(:disabled),
+    #gateway-start:focus-visible {
+      background: #ffcc00;
+      outline: none;
+    }
+    #gateway-start:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+    .gateway-note {
+      font-size: 12px;
+      color: #555;
+      max-width: 60ch;
+      line-height: 1.7;
+    }
   </style>
   <script>
     // Opening index.html by double click uses the file: protocol, which browsers
@@ -178,7 +233,14 @@
   </script>
 </head>
 <body>
-  <div id="loading-screen" role="status" aria-live="polite">
+  <div id="gateway">
+    <div class="gateway-title">ASAP YANG TAK PADAM</div>
+    <div class="gateway-sub">PSYCHOLOGICAL HORROR NARRATIVE GAME</div>
+    <button id="gateway-start" type="button">MULAI / START</button>
+    <div class="gateway-note">Ketuk MULAI untuk mengunduh dan menjalankan game. Progres tersimpan di perangkat ini.</div>
+    <div class="version">v1.0.0</div>
+  </div>
+  <div id="loading-screen" class="hidden" role="status" aria-live="polite">
     <div class="loading-text">ASAP YANG TAK PADAM</div>
     <div class="loading-bar">
       <div class="loading-bar-fill" id="loading-bar-fill"></div>
@@ -189,6 +251,7 @@
   <div id="app">
     <canvas id="game-canvas"></canvas>
   </div>
-  <script type="module" src="/src/main.ts"></script>
+  <!-- Cangkang boot ringan: game penuh dimuat hanya sesudah MULAI ditekan. -->
+  <script type="module" src="/src/shell.ts"></script>
 </body>
 </html>

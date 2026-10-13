@@ -94,7 +94,11 @@ try {
   });
 
   await page.goto(base, { waitUntil: 'load' });
-  await page.waitForFunction(() => !!window.__asap, null, { timeout: 60000 });
+  // Sejak bundle game tunda-muat, game hanya diimpor sesudah pemain menekan
+  // MULAI di gerbang awal: klik tombolnya di sini, lalu tunggu boot selesai.
+  await page.waitForSelector('#gateway-start', { timeout: 30000 });
+  await page.click('#gateway-start');
+  await page.waitForFunction(() => !!window.__asap, null, { timeout: 120000 });
 
   // Lewati logo/prolog sampai bab pertama, sama seperti jalur manual.
   await page.evaluate(() => window.__asap.game.newGame());

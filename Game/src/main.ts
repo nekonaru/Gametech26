@@ -1,5 +1,7 @@
 import { createGame } from './game/main.js';
-import { registerServiceWorker } from './core/sw.js';
+// Stylesheet game ikut chunk tunda-muat ini (bukan link statis di index.html)
+// supaya 43 KB CSS + ikon SVG tidak membebani first paint gerbang awal.
+import './ui/styles.css';
 
 async function main(): Promise<void> {
   const canvas = document.getElementById('game-canvas') as HTMLCanvasElement;
@@ -33,4 +35,3 @@ async function main(): Promise<void> {
 }
 
 main();
-registerServiceWorker();
