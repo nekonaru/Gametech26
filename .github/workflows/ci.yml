@@ -40,6 +40,13 @@ jobs:
         working-directory: Game
         run: npm run build
 
+      # Lighthouse memakai Chrome bawaan runner (sudah terpasang di
+      # ubuntu-latest); menguji skor kategori + bobot total aset terhadap
+      # budget di tools/lighthouse-audit.mjs.
+      - name: Audit Lighthouse (budget bobot & skor)
+        working-directory: Game
+        run: npm run lighthouse
+
       # Playwright hanya dipakai CI (tidak masuk devDependencies supaya
       # instalasi lokal tidak menambah ratusan MB tanpa diminta). Versi
       # di-pin supaya kegagalan = regression, bukan perubahan tools.
