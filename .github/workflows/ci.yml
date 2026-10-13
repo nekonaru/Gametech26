@@ -43,9 +43,17 @@ jobs:
       # Lighthouse memakai Chrome bawaan runner (sudah terpasang di
       # ubuntu-latest); menguji skor kategori + bobot total aset terhadap
       # budget di tools/lighthouse-audit.mjs.
+      #
+      # LH_RUNS=3: skor performance pada runner shared bisa anjlok tajam
+      # oleh CPU contention (pernah tercatat 0,26 dengan TBT 1247 ms padahal
+      # bobot aset identik dengan run 0,54/TBT 99 ms). Median tiga run
+      # meredam outlier tanpa melonggarkan ambang: bobot byte tetap
+      # pengukur deterministik utama.
       - name: Audit Lighthouse (budget bobot & skor)
         working-directory: Game
         run: npm run lighthouse
+        env:
+          LH_RUNS: 3
 
       # Playwright hanya dipakai CI (tidak masuk devDependencies supaya
       # instalasi lokal tidak menambah ratusan MB tanpa diminta). Versi
