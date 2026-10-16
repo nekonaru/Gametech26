@@ -39,6 +39,14 @@ if (startButton && gateway && loadingScreen && loadingStatus) {
     loadingStatus.textContent = 'Memuat game...';
     loadingStatus.style.color = '';
     prefetchGame();
+    // Impor yang tak kunjung selesai (chunk ditahan ekstensi/pemblokir,
+    // bukan gagal total) tidak memicu catch di atas: beri tahu pemain cara
+    // keluar setelah 45 detik, bukan diam selamanya seperti laporan pemain.
+    window.setTimeout(() => {
+      if (loadingScreen.classList.contains('hidden')) return;
+      if (loadingStatus.textContent !== 'Memuat game...') return;
+      loadingStatus.textContent = 'Masih memuat. Coba refresh paksa (Ctrl+Shift+R) atau matikan ekstensi pemblokir lalu ulangi.';
+    }, 45000);
     (gameImport as Promise<unknown>).catch((error: unknown) => {
       // Chunk game gagal diunduh (offline/koneksi putus): kembalikan gerbang
       // supaya pemain bisa mencoba lagi, bukan terjebak di layar muat.
