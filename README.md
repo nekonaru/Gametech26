@@ -213,13 +213,17 @@ Sengaja. Bab cabang (`branch: true`, mis. B10ALT dan B15-ALT) hanya bisa dicapai
 
 </details>
 
-## 👥 Tim
+## 👥 Tim BD Games
 
-| Anggota |
-| --- |
-| **Aigy** |
-| **Nicolas** |
-| **Nabil** |
+<div align="center">
+
+| [![Nicolas Dwi Dharma](https://github.com/nekonaru.png?size=100)](https://github.com/nekonaru) | 👤 | 👤 |
+|:---:|:---:|:---:|
+| **[Nicolas Dwi Dharma](https://github.com/nekonaru)** | **Aigy** | **Nabil** |
+
+*Asap yang Tak Padam dibuat oleh **BD Games**.*
+
+</div>
 
 ## 📄 Lisensi
 
@@ -227,7 +231,7 @@ Kode di bawah [Lisensi MIT](LICENSE). Lihat [`LICENSE`](LICENSE) untuk info leng
 
 <div align="center">
 
-Dibuat oleh **Tim Gametech26**
+Dibuat oleh **BD Games**
 
 *Star repo ini kalau game-nya berkesan!*
 
